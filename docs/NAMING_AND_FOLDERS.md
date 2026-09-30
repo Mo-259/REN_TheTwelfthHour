@@ -80,11 +80,14 @@ Examples:
 This lets validation/cleanup scripts operate safely without touching unrelated actors.
 
 Sprint sub-prefixes (still `REN_`-prefixed so world-lock covers them):
-- `REN_INT_` — hand-placed interactable Actors (e.g. `REN_INT_ExitDoor`)
+- `REN_INT_`: hand-placed interactable/logic Actors (e.g. `REN_INT_ExitDoor`, `REN_INT_NEC_Glyph`). Never deleted by builders.
+- `REN_CAM_`: hand-placed CameraActors (e.g. `REN_CAM_NEC_Anubis`). Never deleted by builders.
 - `REN_NEC_` — Necropolis builder output (cleanup scoped to this prefix)
 - `REN_GW_` — Gate of the West / Face-Eater arena builder output (cleanup scoped to this prefix)
 
 Warning: Tomb builder v3 cleans up *all* `REN_` actors; it is guarded to refuse after the Tomb baseline exists.
+
+Side tags in new labels: `_NX` = −X side, `_PX` = +X side. Do not use Left/Right in new labels. Facing +Y, the player's right is −X (Unreal is left-handed).
 
 Sprint levels:
 - `L_REN_Slice` — persistent level (no gameplay geometry)

@@ -52,11 +52,41 @@ Expected file:
 Status (cloud audit 2026-09-30): present in repo. `L_Tomb_Blockout.umap` contains exactly the 58 `REN_` actor labels this script generates (string scan of the binary; no extras, none missing). Transforms are NOT verifiable from cloud.
 
 World-lock tooling (hardened 2026-09-30, cloud; Unreal execution LOCAL_VALIDATION_REQUIRED):
-- `Scripts/Editor/REN_WorldLock_Core.py` — pure-Python compare logic + offline CLI.
-- `Scripts/Editor/REN_Export_WorldLock.py` — schema-2 export; never overwrites an existing baseline (writes `.candidate.json`).
-- `Scripts/Editor/REN_Validate_WorldLock.py` — wrap-aware rotation compare, duplicate-label / class / mesh / map-path checks, writes `ProjectDocs/WorldLocks/Reports/<World>.validation.json`.
-- `Scripts/Tests/test_worldlock.py` — 18 offline tests (fake `unreal` module); run `python -m unittest discover -s Scripts/Tests`.
-- No world-lock baseline has been exported yet.
+- `Scripts/Editor/REN_WorldLock_Core.py`: pure-Python compare logic + offline CLI (`--strict-assets`).
+  - Schema 3 records the owning level.
+  - **Spatial failures**: transform, missing/added/duplicate, class change, level-ownership change, map mismatch.
+  - **Asset changes**: a mesh swapped at the same transform. Warning by default; fails only in strict mode.
+- `Scripts/Editor/REN_Export_WorldLock.py`: never overwrites an existing baseline (writes `.candidate.json`).
+- `Scripts/Editor/REN_Validate_WorldLock.py`: `STRICT_ASSETS = False` by default. Writes `ProjectDocs/WorldLocks/Reports/<World>.validation.json`.
+- `Scripts/Editor/REN_Inspect_TombOrientation.py`: READ-ONLY check of the `REN_PlayerStart` / `REN_BlankCartouche_Relief` orientation. Must pass (or confirmed errors must be fixed) **before** the first official Tomb baseline.
+- Tests: `Scripts/Tests/` (49 offline tests; fake `unreal` module). Run `python -m unittest discover -s Scripts/Tests`.
+- **No world-lock baseline has been exported yet.**
+
+Vertical Necropolis package (cloud-prepared 2026-09-30; **NOT built in Unreal**):
+- `Scripts/Editor/REN_Necropolis_Layout.py`: pure layout data, 210 items, validated offline.
+- `Scripts/Editor/REN_Necropolis_Greybox_Builder_v1.py`: prefix `REN_NEC_`. Refuses in the wrong world, refuses when Tomb/foreign REN actors are loaded (allows `REN_INT_*`/`REN_CAM_*`), and refuses when a baseline is locked. Re-run safe.
+- Design: `docs/NECROPOLIS_GREYBOX_SPEC.md`. Local Day-3 task: `docs/tasks/P2_NECROPOLIS_ANUBIS.md`.
+
+## Tomb skyline / landmark proxies
+
+These are created by builder v3 in `L_Tomb_Blockout`, beyond the reveal ledge:
+- `REN_DistantTower_A`: player-right, near
+- `REN_DistantTower_B`: player-left, far, tallest
+- `REN_DistantGate`: on the axis; the Gate of the West façade
+
+Rules:
+- Keep their transforms. They must never be duplicated by other builders.
+- Their mesh may be replaced later at the same transform (world-lock reports an asset change).
+- The Necropolis adds foundations and a plinth below them.
+
+## Spatial orientation finding (code/math, 2026-09-30)
+
+Unreal is left-handed. Facing +Y (spawn direction), **player-right = −X**. So:
+- The Blank Cartouche (+X) is on the player's **LEFT**. The docs and builder comments said "right".
+- The side clue chamber (−X) is on the player's **RIGHT**. The docs said "left".
+- Builder-v3 labels `…Left…`/`…Right…` mean map −X/+X, not player-relative.
+
+Geometry has **not** been changed. Whether to keep it (and fix the docs) or mirror it before the baseline is a **pending user decision**. Confirm the reading in PIE (LOCAL_VALIDATION_REQUIRED).
 
 ## Production plan
 
@@ -75,13 +105,24 @@ Builder v3 safety guard (2026-09-30): refuses to run unless `L_Tomb_Blockout` is
 
 - `/Game/REN/IA_Interact` stays at the REN root for the sprint (not moved to `Gameplay/`).
 - Interactables are collision volumes placed over greybox meshes (not mesh replacements).
+- **Persistent slice world** (approved for the vertical slice only):
+  - `L_REN_Slice`, non-World-Partition, with always-loaded sublevels `L_Tomb_Blockout`, `L_Necropolis_Blockout` and `L_GateWest_Blockout` in one coordinate system.
+  - No streaming framework, no loading screens.
+  - Not necessarily the shipping architecture.
+- **Variant_Combat as donor**: REN-owned duplicates of the template combat Blueprints. Template assets are never edited. The donor audit must precede duplication.
+- **Face-Eater placeholder**: may start as a scaled `BP_CombatEnemy` duplicate. Phase authority belongs to the REN state machine (see `docs/SPRINT_7DAY.md` decision 2).
+- **No-shadow**: `Cast Shadow = false` on the player visual components (no shadow framework).
+- **Anubis**: a still mannequin placeholder with a proxy jackal head and a fixed CameraActor (no Sequencer).
 
 ## Repository audit findings (cloud, 2026-09-30)
 
 - `/Game/REN/IA_Interact` exists (InputAction, Boolean). No asset references it: it is not mapped in any IMC and not used by `BP_ThirdPersonCharacter`. Location differs from the planned `/Game/REN/Gameplay/...` layout; do not move it without a redirector-aware local step.
 - `Config/DefaultEngine.ini`: `GameDefaultMap` / `EditorStartupMap` still `Lvl_ThirdPerson`. `Config/DefaultEditor.ini` references nonexistent `/Game/TP_ThirdPerson/Maps/ThirdPersonExampleMap`. `DefaultGame.ini` ProjectName is still the template name.
-- Builder v3 rotator order (code reading only): UE Python `unreal.Rotator(roll, pitch, yaw)`. `REN_PlayerStart` is spawned with `Rotator(0.0, 90.0, 0.0)` → pitch 90, not yaw 90. `REN_BlankCartouche_Relief` `(0,90,0)` → roll 90, likely a horizontal oval rather than a vertical cartouche. Confirm via first world-lock export; do not "fix" by re-running the builder after layout lock.
-- No Git LFS / `.gitattributes`. Largest asset ~21 MB. LFS adoption is a pending user decision.
+- Builder v3 rotator order (code reading only; a HYPOTHESIS until the local check): UE Python `unreal.Rotator(roll, pitch, yaw)`.
+  - `REN_PlayerStart` is spawned with `Rotator(0.0, 90.0, 0.0)` → pitch 90, not yaw 90.
+  - `REN_BlankCartouche_Relief` `(0,90,0)` → roll 90, likely a horizontal slab rather than a vertical cartouche.
+  - Confirm with `REN_Inspect_TombOrientation.py` **before** the first baseline. Fix only confirmed errors (rotation only). Never re-run the builder to fix them.
+- Git LFS: **adopted forward-only** (2026-09-30) via `.gitattributes` (`*.uasset`, `*.umap`). The 449 bootstrap binaries stay as normal blobs; no history rewrite. **Local setup required: `git lfs install`** on every machine.
 - No `Source/` folder (Blueprint-only, as intended).
 
 ## Runtime gameplay state

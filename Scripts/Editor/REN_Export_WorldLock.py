@@ -13,6 +13,13 @@ open level. The resulting JSON is a reviewable baseline for spatial continuity.
 
 Read-only with respect to the level: this script never modifies or saves Actors.
 
+Records per actor: label, class, owning level, location, rotation, scale,
+static mesh (reported as an ASSET change, not spatial drift, when swapped).
+
+Do not export the first OFFICIAL Tomb baseline until the Day-1 orientation
+check (REN_Inspect_TombOrientation.py) passes. See
+docs/tasks/P1_INTERACTION_FOUNDATION.md.
+
 Baseline safety:
 - If no baseline exists, writes  ProjectDocs/WorldLocks/<World>.worldlock.json
 - If a baseline already exists, writes
@@ -44,6 +51,17 @@ def _import_core():
     import REN_WorldLock_Core
     # Unreal keeps modules loaded between script runs; reload to pick up edits.
     return importlib.reload(REN_WorldLock_Core)
+
+
+def _owning_level_path(actor):
+    """Package path of the level (map/sublevel) that owns the actor, or None."""
+    try:
+        level = actor.get_level()
+        if level is None:
+            return None
+        return level.get_outer().get_path_name().split(".")[0]
+    except Exception:
+        return None
 
 
 core = _import_core()
@@ -80,6 +98,10 @@ for actor in actor_subsystem.get_all_level_actors():
         "rotation_deg": [round(rot.roll, 4), round(rot.pitch, 4), round(rot.yaw, 4)],
         "scale": [round(scale.x, 6), round(scale.y, 6), round(scale.z, 6)],
     }
+
+    level_path = _owning_level_path(actor)
+    if level_path:
+        record["level"] = level_path
 
     mesh_comp = actor.get_component_by_class(unreal.StaticMeshComponent)
     if mesh_comp:

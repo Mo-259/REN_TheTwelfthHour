@@ -30,7 +30,7 @@ A task is complete when its acceptance criteria are satisfied or explicitly mark
 ## No-shadow acceptance
 
 Before Sheut recovery:
-- Nefer has no projected human shadow
+- Nefer has no projected human shadow (check body, clothing, Reed Blade, accessories; no capsule/contact/Lumen artifact reads as a shadow)
 - nearby props do cast shadows
 - lighting clue is readable in gameplay
 - removal does not create distracting rendering artifacts
@@ -58,7 +58,8 @@ Face-Eater:
 ## Spatial continuity acceptance
 
 After layout lock:
-- world-lock validation has no unexplained transform drift
+- world-lock validation has no unexplained transform drift (spatial failures)
+- mesh swaps at unchanged transforms (asset changes) are reviewed, not auto-accepted
 - permanent damage/state is consistent
 - camera changes do not require environment relocation
 - left/right relationships remain stable

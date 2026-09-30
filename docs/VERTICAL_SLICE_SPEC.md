@@ -97,7 +97,11 @@ Purpose:
 - teach Reed Blade basics (light combo, charged attack, dodge) before the boss
 - fair, readable small encounters; checkpoint before them
 
-Design status: "Nameless Dead" is a user-named enemy type. Visual/lore design is NOT yet defined; do not invent canon. Prototype = duplicate of template `BP_CombatEnemy` with neutral greybox look. Must respect art direction (funerary human dead, no skulls-as-decoration, no generic zombies/undead fantasy styling).
+Design status: direction LOCKED by the user on 2026-09-30. See `docs/NAMELESS_DEAD_SPEC.md`.
+- They are real human ancient Egyptians whose individual identity is being erased, feeling confusion, fear and grief.
+- They are NOT zombies, ghosts, mummies, grey corpses or faceless creatures.
+- One enemy family for the slice.
+- The prototype is a REN-owned duplicate of template `BP_CombatEnemy`.
 
 ### Beat 8 — Gate of the West
 Transition from exploration to boss space.

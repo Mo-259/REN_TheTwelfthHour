@@ -11,9 +11,12 @@ Run inside Unreal Editor (Tools > Execute Python Script, or `py "<path>"`).
 Compares current REN_ Actor transforms against the exported baseline for the
 current world. Does not modify the level.
 
-Detects: missing / added / moved / rotated / rescaled Actors, class changes,
-static-mesh swaps (schema 2 baselines), duplicate labels, and map mismatch.
-Rotation compare is wrap-aware (179.95 vs -179.95 = 0.1 deg).
+SPATIAL FAILURES (always fail): missing / added / moved / rotated / rescaled
+Actors, duplicate labels, class changes, level-ownership changes (schema 3),
+map mismatch. Rotation compare is wrap-aware (179.95 vs -179.95 = 0.1 deg).
+
+ASSET CHANGES (warning by default): static mesh swapped at the same transform
+(greybox Cube -> final art mesh). Set STRICT_ASSETS = True to fail on them.
 
 Writes a machine-readable report to:
     ProjectDocs/WorldLocks/Reports/<World>.validation.json
@@ -21,6 +24,9 @@ Commit that report when handing results back to a cloud session.
 """
 
 PREFIX = "REN_"
+
+# False: mesh swaps are warnings (art pass). True: mesh swaps also fail.
+STRICT_ASSETS = False
 
 
 def _import_core():
@@ -38,6 +44,17 @@ def _import_core():
     import REN_WorldLock_Core
     # Unreal keeps modules loaded between script runs; reload to pick up edits.
     return importlib.reload(REN_WorldLock_Core)
+
+
+def _owning_level_path(actor):
+    """Package path of the level (map/sublevel) that owns the actor, or None."""
+    try:
+        level = actor.get_level()
+        if level is None:
+            return None
+        return level.get_outer().get_path_name().split(".")[0]
+    except Exception:
+        return None
 
 
 core = _import_core()
@@ -84,6 +101,10 @@ for actor in actor_subsystem.get_all_level_actors():
         "scale": [scale.x, scale.y, scale.z],
     }
 
+    level_path = _owning_level_path(actor)
+    if level_path:
+        record["level"] = level_path
+
     mesh_comp = actor.get_component_by_class(unreal.StaticMeshComponent)
     if mesh_comp:
         mesh = mesh_comp.get_editor_property("static_mesh")
@@ -92,7 +113,7 @@ for actor in actor_subsystem.get_all_level_actors():
     records.append(record)
 
 current = core.build_manifest(records, world=world_name, map_path=map_path, prefix=PREFIX)
-report = core.compare_manifests(baseline, current)
+report = core.compare_manifests(baseline, current, strict_assets=STRICT_ASSETS)
 report["baseline_file"] = baseline_path.name
 
 report_dir = lock_dir / "Reports"
@@ -105,7 +126,7 @@ for line in info:
     unreal.log(line)
 for line in warn:
     unreal.log_warning(line)
-if report["passed"]:
+if report["passed"] and not report["asset_changes"]:
     unreal.log(result)
 else:
     unreal.log_warning(result)

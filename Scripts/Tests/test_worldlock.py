@@ -27,7 +27,8 @@ sys.path.insert(0, EDITOR_DIR)
 import REN_WorldLock_Core as core  # noqa: E402
 
 
-def rec(label, loc=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), cls="StaticMeshActor", mesh=None):
+def rec(label, loc=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), cls="StaticMeshActor", mesh=None,
+        level=None):
     r = {
         "label": label,
         "class": cls,
@@ -37,6 +38,8 @@ def rec(label, loc=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), cls="StaticMeshAct
     }
     if mesh is not None:
         r["static_mesh"] = mesh
+    if level is not None:
+        r["level"] = level
     return r
 
 
@@ -94,12 +97,61 @@ class CompareTests(unittest.TestCase):
         self.assertFalse(r["passed"])
         self.assertEqual(c["duplicate_labels"], ["REN_A"])
 
-    def test_class_and_mesh_change(self):
+    def test_class_change_fails(self):
         b = manifest([rec("REN_A", mesh="/Engine/BasicShapes/Cube.Cube")])
-        c = manifest([rec("REN_A", cls="Actor", mesh="/Engine/BasicShapes/Cylinder.Cylinder")])
-        item = core.compare_manifests(b, c)["changed"][0]
-        self.assertTrue(item["class_changed"])
-        self.assertTrue(item["mesh_changed"])
+        c = manifest([rec("REN_A", cls="BP_ExitDoor_C", mesh="/Engine/BasicShapes/Cube.Cube")])
+        r = core.compare_manifests(b, c)
+        self.assertFalse(r["passed"])
+        self.assertTrue(r["changed"][0]["class_changed"])
+        self.assertEqual(r["asset_changes"], [])
+
+    def test_mesh_swap_same_transform_is_warning_not_failure(self):
+        """Art pass: Cube -> final mesh at identical transform must NOT be spatial drift."""
+        b = manifest([rec("REN_Pillar", loc=(95, 860, 140), mesh="/Engine/BasicShapes/Cube.Cube")])
+        c = manifest([rec("REN_Pillar", loc=(95, 860, 140), mesh="/Game/REN/Art/Architecture/SM_Pillar.SM_Pillar")])
+        r = core.compare_manifests(b, c)
+        self.assertTrue(r["passed"])
+        self.assertTrue(r["spatial_passed"])
+        self.assertEqual(r["changed"], [])
+        self.assertEqual(len(r["asset_changes"]), 1)
+        self.assertTrue(r["asset_changes"][0]["transform_unchanged"])
+        _, warn, result = core.format_report(r)
+        self.assertIn("PASS WITH ASSET CHANGES", result)
+        self.assertTrue(any(w.startswith("ASSET CHANGE (review)") for w in warn))
+
+    def test_mesh_swap_fails_in_strict_assets_mode(self):
+        b = manifest([rec("REN_Pillar", mesh="/Engine/BasicShapes/Cube.Cube")])
+        c = manifest([rec("REN_Pillar", mesh="/Game/REN/Art/SM_Pillar.SM_Pillar")])
+        r = core.compare_manifests(b, c, strict_assets=True)
+        self.assertFalse(r["passed"])
+        self.assertTrue(r["spatial_passed"])
+        self.assertIn("strict-assets", core.format_report(r)[2])
+
+    def test_mesh_swap_does_not_mask_transform_change(self):
+        """Replacing the mesh must never excuse a moved actor."""
+        b = manifest([rec("REN_Door", loc=(0, 2015, 155), mesh="/Engine/BasicShapes/Cube.Cube")])
+        c = manifest([rec("REN_Door", loc=(0, 2015, 160), mesh="/Game/REN/Art/SM_Door.SM_Door")])
+        r = core.compare_manifests(b, c)
+        self.assertFalse(r["passed"])
+        self.assertEqual(r["changed"][0]["label"], "REN_Door")
+        self.assertFalse(r["asset_changes"][0]["transform_unchanged"])
+
+    def test_rotation_and_scale_changes_fail(self):
+        b = manifest([rec("REN_A", rot=(0, 0, 90), scale=(1, 1, 1))])
+        self.assertFalse(core.compare_manifests(b, manifest([rec("REN_A", rot=(0, 90, 0), scale=(1, 1, 1))]))["passed"])
+        self.assertFalse(core.compare_manifests(b, manifest([rec("REN_A", rot=(0, 0, 90), scale=(1, 1, 1.01))]))["passed"])
+
+    def test_level_ownership_change_fails(self):
+        b = manifest([rec("REN_DistantGate", level="/Game/REN/Worlds/Tomb/L_Tomb_Blockout")])
+        c = manifest([rec("REN_DistantGate", level="/Game/REN/Worlds/GateWest/L_GateWest_Blockout")])
+        r = core.compare_manifests(b, c)
+        self.assertFalse(r["passed"])
+        self.assertTrue(r["changed"][0]["level_changed"])
+
+    def test_level_ignored_when_baseline_lacks_it(self):
+        b = manifest([rec("REN_A")])
+        c = manifest([rec("REN_A", level="/Game/X/L_X")])
+        self.assertTrue(core.compare_manifests(b, c)["passed"])
 
     def test_mesh_ignored_when_baseline_lacks_it(self):
         b = manifest([rec("REN_A")])
@@ -161,6 +213,12 @@ class CliTests(unittest.TestCase):
         self.assertEqual(self._run(a).returncode, 2)
         self.assertEqual(self._run(a, os.path.join(self.tmp, "nope.json")).returncode, 2)
 
+    def test_strict_assets_flag(self):
+        a = self._write("a.json", manifest([rec("REN_A", mesh="/Engine/BasicShapes/Cube.Cube")]))
+        b = self._write("b.json", manifest([rec("REN_A", mesh="/Game/REN/Art/SM_A.SM_A")]))
+        self.assertEqual(self._run(a, b).returncode, 0)
+        self.assertEqual(self._run(a, b, "--strict-assets").returncode, 1)
+
 
 # ---------------------------------------------------------------------------
 # Fake `unreal` module — just enough surface for the export/validate scripts.
@@ -218,6 +276,15 @@ class _Actor:
 
     def get_component_by_class(self, klass):
         return self.mesh_comp
+
+    def get_actor_bounds(self, only_colliding):
+        ext = getattr(self, "bounds_extent", (50, 50, 50))
+        return _Vec(*self.loc), _Vec(*ext)
+
+    def get_level(self):
+        level = _Named("PersistentLevel", "/Game/REN/Worlds/Tomb/L_Tomb_Blockout.L_Tomb_Blockout:PersistentLevel")
+        level.get_outer = lambda: _Named("L_Tomb_Blockout", "/Game/REN/Worlds/Tomb/L_Tomb_Blockout.L_Tomb_Blockout")
+        return level
 
 
 def make_fake_unreal(project_dir, actors, logs, world_name="L_Tomb_Blockout"):
@@ -286,7 +353,8 @@ class EditorScriptSmokeTests(unittest.TestCase):
     def test_export_then_validate_pass(self):
         self._run("REN_Export_WorldLock.py")
         base = self._load("L_Tomb_Blockout.worldlock.json")
-        self.assertEqual(base["schema"], 2)
+        self.assertEqual(base["schema"], 3)
+        self.assertEqual(base["actors"][0]["level"], "/Game/REN/Worlds/Tomb/L_Tomb_Blockout")
         self.assertEqual(base["map_path"], "/Game/REN/Worlds/Tomb/L_Tomb_Blockout")
         self.assertEqual(base["actor_count"], 2)
         labels = [a["label"] for a in base["actors"]]
@@ -359,6 +427,56 @@ class BuilderGuardTests(unittest.TestCase):
             f.write("{}")
         msg = self._run_builder("L_Tomb_Blockout")
         self.assertIn("layout is locked", msg)
+
+
+class OrientationCheckTests(unittest.TestCase):
+    """REN_Inspect_TombOrientation.py: read-only verdicts for the suspected v3 rotator bugs."""
+
+    def setUp(self):
+        self.project = tempfile.mkdtemp()
+        self.logs = []
+        self._saved = sys.modules.get("unreal")
+
+    def tearDown(self):
+        if self._saved is None:
+            sys.modules.pop("unreal", None)
+        else:
+            sys.modules["unreal"] = self._saved
+        shutil.rmtree(self.project)
+
+    def _run(self, ps_rot, relief_rot, relief_extent, world="L_Tomb_Blockout"):
+        ps = _Actor("REN_PlayerStart", (0, -350, 110), rot=ps_rot, cls="PlayerStart")
+        rel = _Actor("REN_BlankCartouche_Relief", (370, 110, 225), rot=relief_rot,
+                     scale=(0.08, 0.72, 1.45), mesh="/Engine/BasicShapes/Cylinder.Cylinder")
+        rel.bounds_extent = relief_extent
+        actors = [ps, rel]
+        before = [(a.label, a.loc, a.rot, a.scale) for a in actors]
+        sys.modules["unreal"] = make_fake_unreal(self.project, actors, self.logs, world)
+        runpy.run_path(os.path.join(EDITOR_DIR, "REN_Inspect_TombOrientation.py"), run_name="__main__")
+        self.assertEqual(before, [(a.label, a.loc, a.rot, a.scale) for a in actors], "inspection mutated actors")
+        path = os.path.join(self.project, "ProjectDocs", "WorldLocks", "Reports",
+                            "L_Tomb_Blockout.orientation_check.json")
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_predicted_builder_bug_is_reported_wrong(self):
+        # Hypothesis from code reading: PlayerStart pitch 90; relief rolled 90 -> horizontal.
+        rep = self._run(ps_rot=(0, 90, 0), relief_rot=(90, 0, 0), relief_extent=(4, 72.5, 36))
+        self.assertEqual(rep["results"]["REN_PlayerStart"]["verdict"], "WRONG")
+        self.assertEqual(rep["results"]["REN_BlankCartouche_Relief"]["verdict"], "WRONG_HORIZONTAL")
+        self.assertFalse(rep["all_ok"])
+
+    def test_correct_transforms_pass(self):
+        rep = self._run(ps_rot=(0, 0, 90), relief_rot=(0, 0, 0), relief_extent=(4, 36, 72.5))
+        self.assertTrue(rep["all_ok"])
+
+    def test_yaw_wrap_accepted(self):
+        rep = self._run(ps_rot=(0, 0, -270), relief_rot=(0, 0, 0), relief_extent=(4, 36, 72.5))
+        self.assertEqual(rep["results"]["REN_PlayerStart"]["verdict"], "OK")
+
+    def test_wrong_world_refused(self):
+        with self.assertRaises(RuntimeError):
+            self._run((0, 0, 90), (0, 0, 0), (4, 36, 72.5), world="L_REN_Slice")
 
 
 class BuilderLabelTests(unittest.TestCase):

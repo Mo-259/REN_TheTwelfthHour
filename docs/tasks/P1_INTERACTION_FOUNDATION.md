@@ -7,16 +7,33 @@ Serialize MCP calls: inspect → mutate → compile/save → inspect.
 
 ## 0. Audit first (no edits)
 
-1. `git pull`, then `git status` must be clean. Make a checkpoint commit if it is not.
-2. Open `/Game/REN/Worlds/Tomb/L_Tomb_Blockout`. Run `Scripts/Editor/REN_Export_WorldLock.py` (writes the baseline) and commit it.
-3. Inspect and write down the answers (in the task report):
-   - `BP_CombatGameMode`: Default Pawn, Player Controller, HUD.
-   - `BP_CombatPlayerController`: where Input Mapping Contexts are added (BeginPlay?) and which IMCs.
+1. **Git LFS:** run `git lfs install` once on this machine, **before** the first `git pull`. The repo now tracks `*.uasset`/`*.umap` in LFS (forward-only; see `.gitattributes`). Never run `git lfs migrate` or `git add --renormalize .`.
+2. `git pull`, then `git status` must be clean. Make a checkpoint commit if it is not.
+3. Run the offline tests: `python -m unittest discover -s Scripts/Tests`. They must all pass.
+4. **Tomb orientation check (read-only).** Open `/Game/REN/Worlds/Tomb/L_Tomb_Blockout` standalone and run `Scripts/Editor/REN_Inspect_TombOrientation.py`. Record the verdicts from the log and from `ProjectDocs/WorldLocks/Reports/L_Tomb_Blockout.orientation_check.json`.
+   - **Do NOT export the world-lock baseline yet.** Section 2a covers the order.
+5. **Variant_Combat donor audit (read-only).** Write the answers to `docs/audits/VARIANT_COMBAT_DONOR_AUDIT.md`. Variant_Combat is a *donor*, not unquestioned architecture:
+   - `BP_CombatGameMode`: Default Pawn, Player Controller, HUD, and any other class references or checkpoint/respawn logic.
+   - `BP_CombatPlayerController`: where Input Mapping Contexts are added (BeginPlay?), which IMCs, UI creation, and respawn handling.
+   - `BP_CombatCharacter`:
+     - camera (spring-arm length, socket offset, camera-side toggle)
+     - components and implemented interfaces (`BPI_Attacker`, `BPI_Damageable`, `BPI_Activatable`)
+     - Anim Blueprint (`ABP_Manny_Combat`), montage slots and anim notifies (`AN_AttackCombo`, `AN_AttackDamage`, `AN_ChargedAttack`)
+     - whether it creates `UI_LifeBar` itself
+     - death/respawn behaviour
+   - `BP_CombatEnemy` + `BP_CombatAIController`:
+     - StateTree `ST_CombatEnemy` with its tasks, conditions and EQS queries
+     - how targets are chosen
+     - how damage is applied and received
+     - health variables and death
+     - which parts are hard-wired to the player class
+   - `BP_Combat_EnemySpawner`, `BP_Combat_CheckpointVolume`, `BP_Combat_ActivationVolume`: dependencies.
    - `IMC_Combat` and `IMC_Default`: which keys/buttons are used. Is `E` free? Which gamepad face button is free?
-   - `BP_CombatCharacter`: camera setup (spring-arm length), components, existing interfaces (`BPI_Attacker`, `BPI_Damageable`), and whether it shows `UI_LifeBar` itself.
+   - **Hardcoded references**: any Blueprint referencing `Lvl_Combat` actors, level names, `/Game/Variant_Combat/...` asset paths, or `GetAllActorsOfClass` on template classes. List every one. They must be retargeted after duplication.
+   - **UI dependencies**: widgets used and who creates them.
    - `L_Tomb_Blockout` World Settings: GameMode Override.
    - `REN_ExitDoor`: Mobility (expected Static).
-4. If anything contradicts this spec, stop and report before continuing.
+6. If anything contradicts this spec, stop and report before continuing.
 
 ## 1. Folders
 
@@ -39,7 +56,29 @@ Leave `/Game/REN/IA_Interact` where it is for the sprint. Moving it creates redi
 - `L_Tomb_Blockout` World Settings: set GameMode Override = `BP_REN_GameMode`.
 - Compile, save, then check in PIE that the player spawns at `REN_PlayerStart`, moves, attacks and the camera works.
   - If the combat character feels wrong in the 3 m corridor (camera clipping, side-offset camera), note it. The **fallback** is to duplicate `/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter` as `BP_NeferCharacter` instead and port combat on Day 4 (see `docs/SPRINT_7DAY.md`).
-- Check spawn facing. The v3 builder probably spawned `REN_PlayerStart` with **pitch 90 instead of yaw 90**. Check the world-lock JSON. If rotation is not `[0, 0, 90]`, fix only that actor's rotation to yaw 90 / pitch 0, re-export as a candidate, promote it, and log it in DEVLOG.
+- Spawn facing is handled in section 2a. Do not change actor transforms here.
+
+## 2a. Confirm orientation, fix only confirmed errors, THEN lock the Tomb
+
+Do not lock a known-bad transform. Follow this order strictly:
+
+1. **Inspect.** Use the step 0.4 verdicts. The code-reading *hypotheses* are listed below; don't treat them as facts:
+   - `REN_PlayerStart`: pitch 90 instead of yaw 90.
+   - `REN_BlankCartouche_Relief`: rolled 90°, giving a horizontal slab instead of a vertical cartouche.
+2. **Confirm.** Only a `WRONG` / `WRONG_HORIZONTAL` verdict counts as confirmed. `UNEXPECTED`, `NOT_FOUND` or `DUPLICATE` → stop and report.
+3. **Fix only the confirmed errors**, in the Details panel, changing rotation only:
+   - PlayerStart → Rotation X(roll)=0, Y(pitch)=0, Z(yaw)=90.
+   - Cartouche relief → Rotation 0, 0, 0 (location and scale unchanged). The result is a vertical 72 × 145 cm slab on the wall.
+   - The rounded cartouche silhouette comes later as a mesh swap at the same transform. World-lock treats that as an *asset change*, not drift.
+   Save, re-run `REN_Inspect_TombOrientation.py`, and expect `ALL OK`.
+4. **Verify traversal** in PIE (P0-06):
+   - spawn facing +Y, not inside collision
+   - burial chamber → corridor → side chamber → exit door area → tunnel → reveal ledge
+   - no snags, no falls through the world
+5. **Then export the first official baseline:** with `L_Tomb_Blockout` open standalone, run `REN_Export_WorldLock.py`. It writes `L_Tomb_Blockout.worldlock.json`. Commit it together with the orientation report, and log in DEVLOG which fixes were applied.
+6. From now on, builder v3 refuses to run (layout locked).
+
+Left/right note: facing +Y (spawn direction), the **player's right is −X**. The Blank Cartouche (+X) is therefore on the player's **left**, and the side chamber (−X) is on the player's **right**. The docs previously said the opposite. **Do not mirror anything.** Report which side it reads as in PIE; the user decides whether the documented intent changes.
 
 ## 3. Input
 
@@ -138,9 +177,10 @@ Same volume pattern over `REN_Sarcophagus_Lid`. `Interact` → subtitle TEMP lin
 7. After opening, the player walks through the tunnel to `REN_RevealLedge` without snagging.
 8. The door's end Z equals its start Z − 320 (check in the Details panel during PIE).
 9. The Output Log shows no Blueprint errors or "Accessed None" during a full Tomb run.
-10. After exiting PIE: run `REN_Validate_WorldLock.py`. The expected result is REVIEW REQUIRED with **only** these differences: ADDED `REN_INT_*` actors, plus the `REN_PlayerStart` rotation if it was fixed. Any MISSING, any CHANGED greybox actor (especially `REN_ExitDoor`, which must be back at its closed transform outside PIE), or any DUPLICATE = FAIL. If the differences are only the expected ones, export (writes the candidate), promote it to baseline, and log it in DEVLOG.
+10. After exiting PIE: run `REN_Validate_WorldLock.py`. The baseline was taken after the section 2a fixes, so the expected result is REVIEW REQUIRED with **only** ADDED `REN_INT_*` actors. Any MISSING, any CHANGED greybox actor (especially `REN_ExitDoor`, which must be back at its closed transform outside PIE), any class/level change, or any DUPLICATE = FAIL. ASSET CHANGE warnings should not occur today. If the differences are only the expected ones, export (writes the candidate), promote it to baseline, and log it in DEVLOG.
 
 ## 9. Hand-back
 
 - Commit the Blueprints/UI assets, the updated world-lock + validation report, and `docs/` updates (CURRENT_PROJECT_STATE, TASK_BOARD, DEVLOG).
-- In the report, include the step-0 audit answers. The cloud Day-2 spec depends on them.
+- In the report, include the step-0 audit answers and `docs/audits/VARIANT_COMBAT_DONOR_AUDIT.md`. The cloud specs for combat and the Face-Eater depend on them.
+- Commit the orientation report and the first official Tomb baseline.

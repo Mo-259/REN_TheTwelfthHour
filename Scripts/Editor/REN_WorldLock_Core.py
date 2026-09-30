@@ -1,6 +1,8 @@
 """
 REN — World Lock Core
 
+Purpose: protect SPATIAL CONTINUITY. "Camera moves. World does not."
+
 Pure-Python comparison logic shared by:
 - Scripts/Editor/REN_Export_WorldLock.py    (runs inside Unreal Editor)
 - Scripts/Editor/REN_Validate_WorldLock.py  (runs inside Unreal Editor)
@@ -8,18 +10,35 @@ Pure-Python comparison logic shared by:
 
 This module must NOT import `unreal`. It only reads/writes manifest dicts.
 
+Two finding categories:
+
+SPATIAL FAILURES (always fail validation):
+- location / rotation / scale change beyond tolerance
+- missing actor, unexpected new actor
+- duplicate label (baseline or current)
+- actor class change (structural replacement; review, then re-baseline)
+- actor moved to a different level/sublevel (schema 3+)
+- baseline/current map mismatch
+
+ASSET CHANGES (warning by default; fail only in strict-assets mode):
+- static mesh replaced at the same transform (e.g. greybox Cube -> final
+  Egyptian architecture mesh). This is expected during the art pass and is
+  NOT spatial drift.
+
 CLI usage (offline review of two manifests, e.g. baseline vs candidate):
 
-    python Scripts/Editor/REN_WorldLock_Core.py BASELINE.json CURRENT.json [--report OUT.json]
+    python Scripts/Editor/REN_WorldLock_Core.py BASELINE.json CURRENT.json [--strict-assets] [--report OUT.json]
 
-Exit codes: 0 = PASS, 1 = REVIEW REQUIRED (drift / duplicates / mismatch), 2 = usage/input error.
+Exit codes: 0 = PASS (possibly with asset-change warnings),
+            1 = REVIEW REQUIRED (spatial failure, or asset change in strict mode),
+            2 = usage/input error.
 """
 
 import json
 import sys
 from datetime import datetime, timezone
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 DEFAULT_PREFIX = "REN_"
 
 LOCATION_TOLERANCE_CM = 0.1
@@ -53,7 +72,7 @@ def find_duplicate_labels(records):
 
 
 def build_manifest(records, world, map_path, prefix=DEFAULT_PREFIX, project="REN_TheTwelfthHour"):
-    """Build a schema-2 manifest from actor records (list of dicts)."""
+    """Build a manifest from actor records (list of dicts)."""
     records = sorted(records, key=lambda r: r["label"])
     return {
         "schema": SCHEMA_VERSION,
@@ -71,15 +90,17 @@ def build_manifest(records, world, map_path, prefix=DEFAULT_PREFIX, project="REN
 def compare_manifests(
     baseline,
     current,
+    strict_assets=False,
     location_tol=LOCATION_TOLERANCE_CM,
     rotation_tol=ROTATION_TOLERANCE_DEG,
     scale_tol=SCALE_TOLERANCE,
 ):
     """
-    Compare two manifests (schema 1 or 2). Returns a report dict.
+    Compare two manifests (schema 1, 2 or 3). Returns a report dict.
 
-    report["passed"] is True only if there are no missing, added, changed,
-    or duplicate labels and the map identity matches.
+    report["passed"] is False on any spatial failure. Asset changes (mesh
+    swaps at an unchanged transform) are reported in report["asset_changes"]
+    and only fail when strict_assets=True.
     """
     base_actors = baseline.get("actors", [])
     cur_actors = current.get("actors", [])
@@ -105,7 +126,8 @@ def compare_manifests(
 
     missing = sorted(set(expected) - set(actual))
     added = sorted(set(actual) - set(expected))
-    changed = []
+    changed = []        # spatial / structural failures
+    asset_changes = []  # mesh swaps at the same transform
 
     for label in sorted(set(expected) & set(actual)):
         e, c = expected[label], actual[label]
@@ -114,33 +136,45 @@ def compare_manifests(
         rot_diff = max_angle_diff(e["rotation_deg"], c["rotation_deg"])
         scale_diff = max_abs_diff(e["scale"], c["scale"])
         class_changed = e.get("class") != c.get("class")
+        # Level ownership is only compared when both sides recorded it (schema 3+).
+        level_changed = (
+            e.get("level") is not None and c.get("level") is not None and e["level"] != c["level"]
+        )
         # Mesh is only compared when both sides recorded it (schema 2+).
         mesh_changed = (
             "static_mesh" in e and "static_mesh" in c and e["static_mesh"] != c["static_mesh"]
         )
 
-        if (
-            class_changed
-            or mesh_changed
-            or loc_diff > location_tol
+        spatial = (
+            loc_diff > location_tol
             or rot_diff > rotation_tol
             or scale_diff > scale_tol
-        ):
+        )
+
+        if spatial or class_changed or level_changed:
             item = {
                 "label": label,
-                "class_changed": class_changed,
-                "mesh_changed": mesh_changed,
                 "location_max_diff_cm": round(loc_diff, 4),
                 "rotation_max_diff_deg": round(rot_diff, 4),
                 "scale_max_diff": round(scale_diff, 6),
+                "class_changed": class_changed,
+                "level_changed": level_changed,
             }
             if class_changed:
                 item["class"] = [e.get("class"), c.get("class")]
-            if mesh_changed:
-                item["static_mesh"] = [e.get("static_mesh"), c.get("static_mesh")]
+            if level_changed:
+                item["level"] = [e.get("level"), c.get("level")]
             changed.append(item)
 
-    passed = not (missing or added or changed or base_dupes or cur_dupes or map_issues)
+        if mesh_changed:
+            asset_changes.append({
+                "label": label,
+                "static_mesh": [e.get("static_mesh"), c.get("static_mesh")],
+                "transform_unchanged": not spatial,
+            })
+
+    spatial_passed = not (missing or added or changed or base_dupes or cur_dupes or map_issues)
+    passed = spatial_passed and not (strict_assets and asset_changes)
 
     return {
         "schema": SCHEMA_VERSION,
@@ -149,6 +183,7 @@ def compare_manifests(
         "map_path": c_map or b_map,
         "baseline_schema": baseline.get("schema"),
         "baseline_exported_utc": baseline.get("exported_utc"),
+        "strict_assets": bool(strict_assets),
         "tolerances": {
             "location_cm": location_tol,
             "rotation_deg": rotation_tol,
@@ -162,22 +197,26 @@ def compare_manifests(
         "missing": missing,
         "added": added,
         "changed": changed,
+        "asset_changes": asset_changes,
+        "spatial_passed": spatial_passed,
         "passed": passed,
     }
 
 
 def format_report(report):
-    """Return (info_lines, warning_lines) for logging."""
+    """Return (info_lines, warning_lines, result_line) for logging."""
     info = [
         "===========================================================",
         "REN WORLD LOCK VALIDATION",
         f"World: {report['world']}",
         f"Map: {report['map_path']}",
+        f"Mode: {'STRICT ASSETS' if report.get('strict_assets') else 'default (mesh swaps = warning)'}",
         f"Expected actors: {report['expected_count']}",
         f"Current actors: {report['current_count']}",
         f"Missing: {len(report['missing'])}",
         f"Added: {len(report['added'])}",
-        f"Changed: {len(report['changed'])}",
+        f"Spatial/structural changes: {len(report['changed'])}",
+        f"Asset changes (mesh swaps): {len(report['asset_changes'])}",
         f"Duplicate labels (baseline/current): "
         f"{len(report['duplicate_labels_baseline'])}/{len(report['duplicate_labels_current'])}",
     ]
@@ -201,20 +240,34 @@ def format_report(report):
         )
         if item["class_changed"]:
             line += f" class={item['class'][0]}->{item['class'][1]}"
-        if item["mesh_changed"]:
-            line += f" mesh={item['static_mesh'][0]}->{item['static_mesh'][1]}"
+        if item["level_changed"]:
+            line += f" level={item['level'][0]}->{item['level'][1]}"
         warn.append(line)
+    for item in report["asset_changes"]:
+        tag = "ASSET CHANGE (strict: FAIL)" if report.get("strict_assets") else "ASSET CHANGE (review)"
+        warn.append(
+            f"{tag}: {item['label']} | mesh={item['static_mesh'][0]}->{item['static_mesh'][1]}"
+            + ("" if item["transform_unchanged"] else " | transform ALSO changed (see CHANGED)")
+        )
 
-    if report["passed"]:
+    if report["passed"] and not report["asset_changes"]:
         result = "RESULT: PASS — no unexplained REN spatial drift detected."
+    elif report["passed"]:
+        result = "RESULT: PASS WITH ASSET CHANGES — transforms intact; review mesh swaps."
+    elif report["spatial_passed"]:
+        result = "RESULT: REVIEW REQUIRED — asset changes in strict-assets mode."
     else:
-        result = "RESULT: REVIEW REQUIRED — world-lock differences detected."
+        result = "RESULT: REVIEW REQUIRED — spatial/structural world-lock differences detected."
     return info, warn, result
 
 
 def _main(argv):
     args = list(argv[1:])
     report_path = None
+    strict_assets = False
+    if "--strict-assets" in args:
+        strict_assets = True
+        args.remove("--strict-assets")
     if "--report" in args:
         i = args.index("--report")
         if i + 1 >= len(args):
@@ -235,7 +288,7 @@ def _main(argv):
         print(f"error: {exc}", file=sys.stderr)
         return 2
 
-    report = compare_manifests(baseline, current)
+    report = compare_manifests(baseline, current, strict_assets=strict_assets)
     info, warn, result = format_report(report)
     for line in info:
         print(line)

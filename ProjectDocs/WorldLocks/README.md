@@ -16,11 +16,15 @@ Shared logic / offline CLI (runs anywhere, no Unreal needed):
 | `<World>.worldlock.json` | Approved baseline. Commit it. |
 | `<World>.worldlock.candidate.json` | Export taken while a baseline already existed. Review before promoting. |
 | `Reports/<World>.validation.json` | Latest validation result. Commit when handing results to a cloud session. |
+| `Reports/<World>.orientation_check.json` | Tomb read-only orientation check (Day 1). |
 
-Manifest schema 2 records per `REN_` Actor: label, class, location (cm), rotation
-(roll/pitch/yaw deg), scale, and static mesh path (StaticMeshComponent actors).
-Top level records world name, map package path, and duplicate labels.
-Schema 1 baselines are still readable (mesh comparison is skipped).
+Manifest schema 3 records, per `REN_` Actor: label, class, owning level
+(package path), location (cm), rotation (roll/pitch/yaw deg), scale, and static
+mesh path (StaticMeshComponent actors). The top level records the world name,
+map package path and duplicate labels. Schema 1/2 baselines are still readable;
+fields missing on either side are skipped.
+
+Purpose: protect SPATIAL CONTINUITY ("camera moves, world does not").
 
 ## Workflow
 
@@ -28,7 +32,7 @@ Schema 1 baselines are still readable (mesh comparison is skipped).
 2. Export. The first export writes the baseline.
 3. Commit the JSON.
 4. Make intentional level changes.
-5. Validate. Review every MISSING / ADDED / CHANGED / DUPLICATE / MAP MISMATCH line.
+5. Validate. Review every MISSING / ADDED / CHANGED / DUPLICATE / MAP MISMATCH line (failures) and every ASSET CHANGE line (review).
 6. If approved, export again. This writes a **candidate**, never overwriting the baseline.
 7. Promote deliberately: rename the candidate over the baseline (or set
    `ALLOW_BASELINE_OVERWRITE = True` in the export script for one run, then reset it).
@@ -40,12 +44,24 @@ Offline review (cloud/CI):
 python Scripts/Editor/REN_WorldLock_Core.py ProjectDocs/WorldLocks/L_Tomb_Blockout.worldlock.json ProjectDocs/WorldLocks/L_Tomb_Blockout.worldlock.candidate.json
 ```
 
-Exit code 0 = PASS, 1 = REVIEW REQUIRED, 2 = usage/input error.
+Add `--strict-assets` to fail on mesh swaps too.
 
-Validation rules:
-- Tolerances: location 0.1 cm, rotation 0.1 deg (wrap-aware), scale 0.0001.
-- Duplicate `REN_` labels fail validation.
-- Class or static-mesh changes fail validation.
-- Baseline/current map path mismatch fails validation.
+Exit code 0 = PASS (possibly with ASSET CHANGE warnings), 1 = REVIEW REQUIRED, 2 = usage/input error.
+
+Validation rules. These are SPATIAL FAILURES and always fail:
+- Location > 0.1 cm, rotation > 0.1 deg (wrap-aware), scale > 0.0001.
+- A missing actor, or an unexpected new actor.
+- A duplicate `REN_` label.
+- A class change (structural replacement).
+- An owning-level change (e.g. an actor moved to another sublevel).
+- A baseline/current map path mismatch.
+
+ASSET CHANGE (a warning by default): a static mesh swapped at the same
+transform, e.g. greybox Cube → final Egyptian architecture mesh. Result:
+"PASS WITH ASSET CHANGES". Use `--strict-assets` (CLI) or `STRICT_ASSETS = True`
+(editor validator) to make these fail too. A mesh swap never excuses a transform change.
+
+First official Tomb baseline: only after `Scripts/Editor/REN_Inspect_TombOrientation.py`
+reports ALL OK (fix only confirmed errors) and PIE traversal passes.
 
 Do not hand-edit transform values merely to make validation pass.

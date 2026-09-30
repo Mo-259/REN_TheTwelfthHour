@@ -94,17 +94,22 @@ Do not teleport characters between continuous cuts.
 
 Current v3 blockout concept:
 - burial chamber with sarcophagus
-- Blank Cartouche clue on player-right
+- Blank Cartouche clue on the +X wall. **Correction (2026-09-30):** facing +Y, +X is the player's **LEFT**. It was previously documented as "player-right".
 - forward corridor
 - no-shadow clue zone
-- left side clue chamber
+- side clue chamber on −X, which is the player's **RIGHT**. It was previously documented as "left".
 - monumental exit
 - short transition tunnel
 - reveal ledge
+- skyline proxies beyond the ledge: `REN_DistantTower_A` (player-right), `REN_DistantTower_B` (player-left), `REN_DistantGate` (on axis). Their transforms are fixed; never duplicate them. Their mesh may be replaced at the same transform.
+
+Handedness rule: Unreal is left-handed. Facing +Y (yaw 90), player-right = −X. Builder-v3 labels containing Left/Right mean map −X/+X. New builders use `_NX`/`_PX` tags. Whether the Tomb is kept as built or mirrored before its baseline is a pending user decision (TASK_BOARD P0-16).
 
 The live Unreal transforms supersede this prose.
 
 ## Vertical Necropolis continuity
+
+v1 greybox design (not yet built): `docs/NECROPOLIS_GREYBOX_SPEC.md`.
 
 When built, permanently define:
 - main route
@@ -140,7 +145,7 @@ Before risky level changes:
 2. Commit the resulting manifest.
 3. Perform the intentional edit.
 4. Run `Scripts/Editor/REN_Validate_WorldLock.py`.
-5. Review differences.
+5. Review differences. Spatial changes fail. A mesh swapped at the same transform is reported as an ASSET CHANGE (review only), unless strict-assets mode is on.
 6. If change is intentional, export again (writes `<World>.worldlock.candidate.json`), promote it to baseline deliberately, and document it in `DEVLOG.md`. See `ProjectDocs/WorldLocks/README.md`.
 
 Never accept unreviewed spatial drift.
