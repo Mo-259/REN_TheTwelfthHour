@@ -1,5 +1,19 @@
 # REN — Vertical Slice Specification
 
+## Scope amendment (2026-09-30, user decision)
+
+Target is now a ~30-minute pre-alpha within 7 days, **quality over duration**:
+
+| Time | Section | Polish tier |
+|---|---|---|
+| 0–8 min | Tomb of No Name (Beats 1–6) | A |
+| 8–16 min | Vertical Necropolis + Anubis (Beat 6–7) | B |
+| 16–22 min | First combat: Nameless Dead (new Beat 7.5) | C |
+| 22–30 min | Gate of the West + Face-Eater (Beats 8–9) | A |
+
+If forced to choose: 10–15 excellent minutes plus rough playable content beats 30 mediocre minutes.
+Plan, architecture shortcuts, and cut order: `docs/SPRINT_7DAY.md`.
+
 ## Purpose
 
 Build a 5–10 minute playable proof of concept that demonstrates the unique identity of REN without attempting the full game.
@@ -75,6 +89,15 @@ Key function:
 - establish stakes around Nefer's missing name
 - preserve ambiguity
 - direct player toward Gate of the West
+
+### Beat 7.5 — First combat: Nameless Dead
+Between Anubis and the Gate of the West.
+
+Purpose:
+- teach Reed Blade basics (light combo, charged attack, dodge) before the boss
+- fair, readable small encounters; checkpoint before them
+
+Design status: "Nameless Dead" is a user-named enemy type. Visual/lore design is NOT yet defined; do not invent canon. Prototype = duplicate of template `BP_CombatEnemy` with neutral greybox look. Must respect art direction (funerary human dead, no skulls-as-decoration, no generic zombies/undead fantasy styling).
 
 ### Beat 8 — Gate of the West
 Transition from exploration to boss space.

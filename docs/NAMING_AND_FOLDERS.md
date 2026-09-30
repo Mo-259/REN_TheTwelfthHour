@@ -79,6 +79,17 @@ Examples:
 
 This lets validation/cleanup scripts operate safely without touching unrelated actors.
 
+Sprint sub-prefixes (still `REN_`-prefixed so world-lock covers them):
+- `REN_INT_` — hand-placed interactable Actors (e.g. `REN_INT_ExitDoor`)
+- `REN_NEC_` — Necropolis builder output (cleanup scoped to this prefix)
+- `REN_GW_` — Gate of the West / Face-Eater arena builder output (cleanup scoped to this prefix)
+
+Warning: Tomb builder v3 cleans up *all* `REN_` actors; it is guarded to refuse after the Tomb baseline exists.
+
+Sprint levels:
+- `L_REN_Slice` — persistent level (no gameplay geometry)
+- `L_Tomb_Blockout`, `L_Necropolis_Blockout`, `L_GateWest_Blockout` — sublevels
+
 ## Script naming
 
 Editor Python:

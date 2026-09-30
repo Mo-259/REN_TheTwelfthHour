@@ -18,7 +18,8 @@ Press `E` / `IA_Interact`.
 ### Trace
 - from gameplay camera
 - forward
-- ~350 cm
+- ~350 cm beyond the player's position along the camera ray (start projected to the pawn; see `docs/tasks/P1_INTERACTION_FOUNDATION.md`)
+- sphere trace ~30 cm radius
 - ignore self
 - Visibility or dedicated interaction channel after prototype
 

@@ -36,3 +36,13 @@ P0-08:
 - Validate: wrap-aware rotation, duplicate / class / mesh / map checks, JSON report under `ProjectDocs/WorldLocks/Reports/`.
 - Added `Scripts/Tests/test_worldlock.py`: 18 tests pass in cloud (fake `unreal` module).
 - LOCAL_VALIDATION_REQUIRED: run export + validate in Unreal on `L_Tomb_Blockout`, commit baseline.
+
+## 2026-09-30 — 7-day pre-alpha sprint planning (Claude Code Cloud)
+
+- User constraint: ~30-min playable pre-alpha in 7 days; quality over duration; Tomb (0–8) and Face-Eater are polish tier A.
+- Found template `Variant_Combat` content (combo/charged attack, damage interfaces, StateTree enemy AI, spawner, checkpoint volume, life bar). Decision: build Nefer / Nameless Dead / Face-Eater from REN-owned duplicates of these instead of new combat code.
+- Decision: persistent `L_REN_Slice` + always-loaded sublevels (Tomb, Necropolis, GateWest) in shared coordinates; builders/world-lock run on standalone sublevel maps.
+- Decision: fixed CameraActor view-target blends instead of Sequencer during the sprint.
+- Design correction: interaction trace start is projected from the camera to the pawn; a raw 350 cm trace from a camera 3–5 m behind would barely pass the player.
+- Added `docs/SPRINT_7DAY.md`, `docs/tasks/P1_INTERACTION_FOUNDATION.md`; scope amendment in VERTICAL_SLICE_SPEC (new Beat 7.5 Nameless Dead, design TBD).
+- Guarded builder v3 (wrong world / locked layout) — 2 new tests; 20/20 offline tests pass. Unreal run LOCAL_VALIDATION_REQUIRED.

@@ -17,6 +17,36 @@ import unreal
 
 PREFIX = "REN_"
 
+# ------------------------------------------------------------
+# Safety guards (added 2026-09-30, sprint plan)
+# Cleanup below deletes EVERY "REN_" actor in all loaded levels, including
+# interactables (REN_INT_*) and other sublevels' actors if run inside the
+# persistent slice level. So:
+#   1) only run with L_Tomb_Blockout opened standalone;
+#   2) refuse once a world-lock baseline exists (layout locked), unless an
+#      approved rebuild sets FORCE_REBUILD_AFTER_LOCK = True for one run.
+# ------------------------------------------------------------
+EXPECTED_WORLD = "L_Tomb_Blockout"
+FORCE_REBUILD_AFTER_LOCK = False
+
+_editor_world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
+if not _editor_world or _editor_world.get_name() != EXPECTED_WORLD:
+    raise RuntimeError(
+        f"Builder v3 must run with {EXPECTED_WORLD} opened standalone "
+        f"(current: {_editor_world.get_name() if _editor_world else None}). Nothing was changed."
+    )
+
+import os as _os
+_baseline = _os.path.join(
+    unreal.Paths.project_dir(), "ProjectDocs", "WorldLocks", f"{EXPECTED_WORLD}.worldlock.json"
+)
+if _os.path.exists(_baseline) and not FORCE_REBUILD_AFTER_LOCK:
+    raise RuntimeError(
+        "World-lock baseline exists: the Tomb layout is locked. Re-running v3 would delete and "
+        "respawn all REN_ actors (including REN_INT_* interactables). Nothing was changed. "
+        "Set FORCE_REBUILD_AFTER_LOCK = True only with explicit approval."
+    )
+
 actor_subsystem = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 level_subsystem = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 

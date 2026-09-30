@@ -13,6 +13,13 @@ Reasons:
 
 C++ is not forbidden, but must be justified before introduction.
 
+## Sprint decisions (2026-09-30)
+
+For the 7-day pre-alpha, the concrete choices in `docs/SPRINT_7DAY.md` → "Architecture decisions" take precedence over the more general targets below. Summary:
+- `BP_NeferCharacter` / `BP_NamelessDead` / `BP_FaceEater` start as duplicates of the template `Variant_Combat` Blueprints (combo, charged attack, damage interfaces, StateTree AI, life bar, checkpoint volume already exist). Template assets are never edited in place.
+- One non-World-Partition persistent level `L_REN_Slice` with always-loaded sublevels `L_Tomb_Blockout`, `L_Necropolis_Blockout`, `L_GateWest_Blockout` in a shared coordinate system (+Y toward the Duat).
+- Fixed CameraActors + Set View Target with Blend instead of Sequencer for the sprint.
+
 ## Responsibility split
 
 ### Runtime gameplay
@@ -82,7 +89,7 @@ Base rule:
 player performs a short forward trace from gameplay camera.
 
 Prototype distance:
-- 350 cm
+- 350 cm, measured from the player's depth along the camera ray (the trace start is projected from the camera forward to the pawn; a trace starting at the camera would end almost at the player because the camera sits 300–500 cm behind). Sphere trace, radius 30 cm. Exact recipe: `docs/tasks/P1_INTERACTION_FOUNDATION.md`.
 
 Desired conceptual interface:
 - `BPI_Interactable`

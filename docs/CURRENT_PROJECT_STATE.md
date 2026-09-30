@@ -58,6 +58,24 @@ World-lock tooling (hardened 2026-09-30, cloud; Unreal execution LOCAL_VALIDATIO
 - `Scripts/Tests/test_worldlock.py` — 18 offline tests (fake `unreal` module); run `python -m unittest discover -s Scripts/Tests`.
 - No world-lock baseline has been exported yet.
 
+## Production plan
+
+Active: 7-day pre-alpha sprint, see `docs/SPRINT_7DAY.md` (quality over duration). Day-1 local task: `docs/tasks/P1_INTERACTION_FOUNDATION.md`.
+
+Template assets relevant to the sprint (present by path; internals NOT inspected, binary):
+- `/Game/Variant_Combat/Blueprints/`: `BP_CombatCharacter`, `BP_CombatGameMode`, `BP_CombatPlayerController`, `BPI_Damageable`, `BPI_Attacker`, `BPI_Activatable`, camera shakes
+- `/Game/Variant_Combat/Blueprints/AI/`: `BP_CombatEnemy`, `BP_CombatAIController`, `BP_Combat_EnemySpawner`, `ST_CombatEnemy` (StateTree), EQS queries
+- `/Game/Variant_Combat/Blueprints/Interactables/`: `BP_Combat_CheckpointVolume`, `BP_Combat_ActivationVolume`, `BP_Combat_Dummy`
+- `/Game/Variant_Combat/Anims/`: `AM_ComboAttack`, `AM_ChargedAttack`, attack notifies; `/Game/Variant_Combat/UI/UI_LifeBar`; `IMC_Combat`, `IA_ComboAttack`, `IA_ChargedAttack`
+- No dodge exists in the template.
+
+Builder v3 safety guard (2026-09-30): refuses to run unless `L_Tomb_Blockout` is the open world and no Tomb world-lock baseline exists (override flag `FORCE_REBUILD_AFTER_LOCK`).
+
+## Known temporary solutions
+
+- `/Game/REN/IA_Interact` stays at the REN root for the sprint (not moved to `Gameplay/`).
+- Interactables are collision volumes placed over greybox meshes (not mesh replacements).
+
 ## Repository audit findings (cloud, 2026-09-30)
 
 - `/Game/REN/IA_Interact` exists (InputAction, Boolean). No asset references it: it is not mapped in any IMC and not used by `BP_ThirdPersonCharacter`. Location differs from the planned `/Game/REN/Gameplay/...` layout; do not move it without a redirector-aware local step.

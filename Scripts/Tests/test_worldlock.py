@@ -220,16 +220,20 @@ class _Actor:
         return self.mesh_comp
 
 
-def make_fake_unreal(project_dir, actors, logs):
+def make_fake_unreal(project_dir, actors, logs, world_name="L_Tomb_Blockout"):
     u = types.ModuleType("unreal")
 
     class EditorActorSubsystem:
         def get_all_level_actors(self):
             return list(actors)
 
+        def destroy_actor(self, actor):
+            logs.append(("destroy", actor.label))
+            actors.remove(actor)
+
     class UnrealEditorSubsystem:
         def get_editor_world(self):
-            return _Named("L_Tomb_Blockout", "/Game/REN/Worlds/Tomb/L_Tomb_Blockout.L_Tomb_Blockout")
+            return _Named(world_name, f"/Game/REN/Worlds/Tomb/{world_name}.{world_name}")
 
     class StaticMeshComponent:
         pass
@@ -317,6 +321,44 @@ class EditorScriptSmokeTests(unittest.TestCase):
     def test_validate_without_baseline_raises(self):
         with self.assertRaises(RuntimeError):
             self._run("REN_Validate_WorldLock.py")
+
+
+class BuilderGuardTests(unittest.TestCase):
+    """Builder v3 must refuse to run (before deleting anything) in unsafe situations."""
+
+    def setUp(self):
+        self.project = tempfile.mkdtemp()
+        self.logs = []
+        self.actors = [_Actor("REN_INT_ExitDoor", (0, 0, 0), cls="Actor")]
+        self._saved = sys.modules.get("unreal")
+
+    def tearDown(self):
+        if self._saved is None:
+            sys.modules.pop("unreal", None)
+        else:
+            sys.modules["unreal"] = self._saved
+        shutil.rmtree(self.project)
+
+    def _run_builder(self, world_name):
+        sys.modules["unreal"] = make_fake_unreal(self.project, self.actors, self.logs, world_name)
+        path = os.path.join(EDITOR_DIR, "REN_Tomb_Opening_Greybox_Builder_v3.py")
+        with self.assertRaises(RuntimeError) as ctx:
+            runpy.run_path(path, run_name="__main__")
+        self.assertEqual(len(self.actors), 1, "builder deleted actors despite guard")
+        self.assertFalse(any(kind == "destroy" for kind, _ in self.logs))
+        return str(ctx.exception)
+
+    def test_refuses_wrong_world(self):
+        msg = self._run_builder("L_REN_Slice")
+        self.assertIn("opened standalone", msg)
+
+    def test_refuses_when_baseline_exists(self):
+        lock = os.path.join(self.project, "ProjectDocs", "WorldLocks")
+        os.makedirs(lock)
+        with open(os.path.join(lock, "L_Tomb_Blockout.worldlock.json"), "w") as f:
+            f.write("{}")
+        msg = self._run_builder("L_Tomb_Blockout")
+        self.assertIn("layout is locked", msg)
 
 
 class BuilderLabelTests(unittest.TestCase):
