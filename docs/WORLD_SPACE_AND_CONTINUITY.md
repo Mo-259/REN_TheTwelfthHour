@@ -94,16 +94,16 @@ Do not teleport characters between continuous cuts.
 
 Current v3 blockout concept:
 - burial chamber with sarcophagus
-- Blank Cartouche clue on the +X wall. **Correction (2026-09-30):** facing +Y, +X is the player's **LEFT**. It was previously documented as "player-right".
+- Blank Cartouche clue on the **player-left** (+X) wall of the burial chamber.
 - forward corridor
 - no-shadow clue zone
-- side clue chamber on −X, which is the player's **RIGHT**. It was previously documented as "left".
+- optional side clue chamber on the **player-right** (−X) of the corridor.
 - monumental exit
 - short transition tunnel
 - reveal ledge
 - skyline proxies beyond the ledge: `REN_DistantTower_A` (player-right), `REN_DistantTower_B` (player-left), `REN_DistantGate` (on axis). Their transforms are fixed; never duplicate them. Their mesh may be replaced at the same transform.
 
-Handedness rule: Unreal is left-handed. Facing +Y (yaw 90), player-right = −X. Builder-v3 labels containing Left/Right mean map −X/+X. New builders use `_NX`/`_PX` tags. Whether the Tomb is kept as built or mirrored before its baseline is a pending user decision (TASK_BOARD P0-16).
+Handedness rule: Unreal is left-handed. Facing +Y (yaw 90), player-right = −X. Builder-v3 labels containing Left/Right mean map −X/+X. New builders use `_NX`/`_PX` tags. **User decision (2026-09-30): the Tomb is kept exactly as built. It is not mirrored.** Player-perspective wording in all docs follows the built geometry.
 
 The live Unreal transforms supersede this prose.
 

@@ -155,7 +155,8 @@ cube("REN_Sarcophagus_Lid",      (0, -130, 135), (1.20, 2.50, 0.18))
 # Waking / camera staging markers (simple low blocks)
 cube("REN_WakeMarker", (0, -315, 2), (0.4, 0.4, 0.04))
 
-# Blank Cartouche clue wall on player's right (+X)
+# Blank Cartouche clue wall on +X = PLAYER-LEFT when facing +Y
+# (UE is left-handed; comment corrected 2026-09-30, geometry unchanged)
 cube("REN_BlankCartouche_Panel", (385, 110, 205), (0.10, 2.2, 2.6))
 # Greybox cartouche relief shape: tall oval cylinder flattened into wall
 cylinder("REN_BlankCartouche_Relief", (370, 110, 225), (0.08, 0.72, 1.45), rotation=(0,90,0))
@@ -188,7 +189,8 @@ cube("REN_ShadowTest_JarB",     (-35, 1045, 45),  (0.28, 0.28, 0.5))
 # ============================================================
 # 3) SIDE CLUE CHAMBER
 # ============================================================
-# Accessible on player's left.
+# Accessible on -X = PLAYER-RIGHT when facing +Y
+# (comment corrected 2026-09-30, geometry unchanged).
 cube("REN_Side_Floor",      (-525, 1170, -10), (7.1, 6.2, 0.20))
 cube("REN_Side_Ceiling",    (-525, 1170, 410), (7.1, 6.2, 0.20))
 cube("REN_Side_LeftWall",   (-890, 1170, 200), (0.20, 6.2, 4.0))

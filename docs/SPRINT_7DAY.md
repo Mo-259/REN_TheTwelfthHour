@@ -48,7 +48,10 @@ Tier C: playable, fair, can restart; visual placeholders OK.
    - +Y points toward the Duat, as in builder v3. The Necropolis starts beyond the Tomb reveal ledge (Y > 2975). The Gate of the West lies at y ≈ 5250+, beyond the Necropolis plaza.
    - Unreal is left-handed: facing +Y, **player-right = −X**. The details are in `docs/NECROPOLIS_GREYBOX_SPEC.md` §1.
    - The Tomb's `REN_DistantTower_A/B` and `REN_DistantGate` are **skyline proxies**. They are never duplicated; new areas build around and below them.
-6. **Cinematics are camera actors, not Sequencer.** Reveal and Anubis framing use `Set View Target with Blend` to a fixed `CameraActor`, then return control. Sequencer is out of scope unless Day 6 has slack.
+6. **Cinematics are minimal and not Sequencer.**
+   - The Tomb wake and the Necropolis reveal are **gameplay-first**: the camera stays attached to Nefer, with optional ≤ 1–1.5 s arm/FOV assists and control retained (user direction, 2026-09-30).
+   - Only the Anubis exchange uses a fixed `CameraActor` with `Set View Target with Blend`.
+   - Sequencer is out of scope unless Day 6 has slack.
 7. **Checkpoints and restart use `BP_Combat_CheckpointVolume`** from the template. There is no save system.
 8. **UI** is `WBP_InteractPrompt`, `WBP_Subtitle`, the template `UI_LifeBar` (player), and one boss bar. That is all.
 9. **No-shadow uses `Cast Shadow = false`** (approved for the sprint). Local validation must inspect **all** player visual components:
@@ -84,13 +87,18 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
 - Exit: in the Tomb, interact with the Cartouche and the Door, then walk to the reveal ledge. The official Tomb baseline is committed.
 
 ### Day 2 — Tomb beats complete (Tier A content, greybox art)
-- Local:
-  - No-shadow setting plus clue-zone light tuning.
-  - Side clue interactables.
-  - Sarcophagus wake start.
-  - Exit reveal camera.
-  - Create `L_REN_Slice` and add the Tomb sublevel.
-- Cloud: `docs/tasks/P2_TOMB_BEATS.md` (needed by local Day 2; next cloud task), then the Gate of the West + arena builder (C-03) and the P3 combat spec (C-04).
+- Local: execute `docs/tasks/P2_TOMB_BEATS.md` (≈4 h core + ≤2 h cuttable):
+  - `L_REN_Slice`
+  - the Arabic subtitle font
+  - wake with instant control
+  - Cartouche examine
+  - no-shadow with full component validation, plus shadow-clue staging
+  - the one-clue side chamber (player-right)
+  - heavy door
+  - **gameplay-first reveal (no cut, no CameraActor, no Sequencer)**
+  - light/exposure pass
+  - audio placeholders (user-sourced)
+- Cloud: `docs/tasks/P2_TOMB_BEATS.md` DONE. Next: Gate of the West + arena builder (C-03) and the P3 combat spec (C-04), once approved.
 - Exit: 0–8 minutes play end-to-end with no blockers. The no-shadow validation (decision 9) passes for all player visual components.
 
 ### Day 3 — Necropolis + Anubis
@@ -163,7 +171,10 @@ Fallback if the glyph mechanic slips: Exposed triggers after a stagger from N hi
 | Behaviour inside the template combat character is unknown from the cloud | The Day-1 local audit of `BP_CombatCharacter`, `BP_CombatPlayerController` and `IMC_Combat` comes before any change |
 | Builder v3 cleanup deletes **all** `REN_` actors in loaded levels | v3 now refuses to run unless the open world is `L_Tomb_Blockout`. New builders use their own prefixes (`REN_NEC_`, `REN_GW_`) and refuse if foreign REN actors are loaded |
 | Locking a bad Tomb transform | Read-only orientation check + fix only confirmed errors before the first baseline |
-| Left/right docs vs geometry (player-right = −X) | Documented. No mirroring without a user decision |
+| Left/right docs vs geometry (player-right = −X) | RESOLVED: Tomb kept as built. Cartouche is player-left, side chamber player-right |
+| Floating Tomb props (code reading) → detached shadows in the no-shadow beat | Measure on Day 1. Z-only fix before baseline, with user approval (P0-17) |
+| Tomb shorter than 4 min | Accepted if the beats are good; measured on Day 2. No padding |
+| No audio assets in project | User-sourced CC0 placeholders; audio is cuttable (Day-2 §9) |
 | Arabic subtitles render as boxes | Import an OFL Arabic font; composite font in `WBP_Subtitle` (Day 3 task §6) |
 | Generic StateTree fights the boss phase logic | REN state machine owns the phase; StateTree runs only in Combat |
 | Necropolis shorter than its 8-minute bracket (≈2.5–4.5 min) | Accepted; no padding (quality over duration) |

@@ -75,3 +75,24 @@ New package:
 Finding: Unreal is left-handed. Facing +Y, player-right = −X, so the Blank Cartouche is on the player's LEFT and the side chamber on the RIGHT, contrary to the docs. Geometry is unchanged; this is a user decision (P0-16).
 
 Offline tests: 49/49 pass. Everything in Unreal is LOCAL_VALIDATION_REQUIRED.
+
+## 2026-09-30 — Tomb kept as built + C-02 Day-2 Tomb beats task (Claude Code Cloud)
+
+- User decision: **keep the Tomb exactly as built; do not mirror.** The Blank Cartouche is player-left and the side chamber player-right. Docs are updated to player perspective, and the two misleading builder-v3 comments are corrected (comments only; geometry untouched). P0-16 DONE.
+- New finding (code reading, hypothesis): several Tomb props float above the surface below them (a centre-pivot cube with centres too high):
+  - shadow pedestal 25 cm, jars 18–20 cm, canopics 20 cm, tables 25–32.5 cm
+  - sarcophagus base 12.5 cm above the platform, lid 31 cm above the base
+  This would detach shadows in the no-shadow beat. Added P0-17 (measure on Day 1; Z-only fix before baseline, **only with user approval**).
+- Created `docs/tasks/P2_TOMB_BEATS.md`: the exact Day-2 local MCP task.
+  - Gameplay-first wake and reveal (no Sequencer, no CameraActor, optional ≤1–1.5 s assists).
+  - Cartouche examine with a TEMP Arabic line.
+  - `ApplySheutState()` no-shadow across all primitive and attached components, with RT/contact checks.
+  - `BP_ShadowClue` delayed TEMP line.
+  - A one-clue side chamber with generic `BP_ExamineClue`.
+  - Heavy deterministic door.
+  - Lighting and manual exposure.
+  - User-sourced audio placeholders.
+  - PIE order, world-lock close-out, rollback notes and a cut list.
+- The Arabic subtitle font moved from Day 3 to Day 2, since the Tomb lines are Arabic.
+- Static review: no C++, no Sequencer, no final-art dependency. Core ≈4 h, cuttables ≤2 h, and the audio files are an external dependency.
+- All Day-2 items are LOCAL_VALIDATION_REQUIRED.

@@ -117,12 +117,10 @@ Dialogue trigger (player enters, `NOT bDone`):
 4. Blend back to the player pawn (1.0 s). Re-enable input. Restore MaxWalkSpeed.
 5. Anubis **does not move**. The player walks past him (150 cm of clearance on each side).
 
-### Arabic text risk
+### Arabic text
 
-The default UMG font may not contain Arabic glyphs.
-- Import an OFL Arabic font (for example Noto Naskh Arabic or Noto Sans Arabic) into `/Game/REN/UI/Fonts/`.
-- Use a Composite Font in `WBP_Subtitle` with an Arabic sub-font range.
-- Keep Text Shaping at the project default (full shaping).
+The Arabic subtitle font `F_REN_Subtitle` is set up on **Day 2** (`docs/tasks/P2_TOMB_BEATS.md` §2).
+- If Day 2 fell back to English, fix it here first: import an OFL Arabic font and give the Composite Font an Arabic sub-font range.
 - In PIE, check that the letters are connected and the text reads right-to-left. Screenshot it.
 
 ## 7. Acceptance tests (PIE from `L_REN_Slice`) — report each PASS/FAIL

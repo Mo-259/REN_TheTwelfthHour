@@ -78,7 +78,9 @@ Do not lock a known-bad transform. Follow this order strictly:
 5. **Then export the first official baseline:** with `L_Tomb_Blockout` open standalone, run `REN_Export_WorldLock.py`. It writes `L_Tomb_Blockout.worldlock.json`. Commit it together with the orientation report, and log in DEVLOG which fixes were applied.
 6. From now on, builder v3 refuses to run (layout locked).
 
-Left/right note: facing +Y (spawn direction), the **player's right is −X**. The Blank Cartouche (+X) is therefore on the player's **left**, and the side chamber (−X) is on the player's **right**. The docs previously said the opposite. **Do not mirror anything.** Report which side it reads as in PIE; the user decides whether the documented intent changes.
+Left/right: facing +Y (spawn direction), the **player's right is −X**. The Blank Cartouche (+X) is on the player's **left** and the side chamber (−X) on the player's **right**. **User decision: keep as built, do not mirror.**
+
+**Suspected floating props (P0-17).** In the same read-only pass, record the world bounds (bottom Z) of the actors listed in `docs/CURRENT_PROJECT_STATE.md` under "Suspected floating props". Report the measured gaps and **wait for user approval** before lowering anything; the only fix allowed is a Z-only move. Export the official baseline only after this is resolved (fixed or explicitly accepted).
 
 ## 3. Input
 

@@ -23,10 +23,10 @@ A Python-generated Tomb opening greybox was successfully executed locally.
 The v3 opening builder was designed to create:
 - burial chamber
 - sarcophagus placeholder / lid / platform
-- blank cartouche clue panel on player-right
+- blank cartouche clue panel on the player-left (+X) wall
 - main corridor
 - no-shadow test zone
-- left side clue chamber
+- optional side clue chamber on the player-right (−X)
 - clue prop placeholders
 - trigger placeholders
 - monumental exit door
@@ -67,6 +67,8 @@ Vertical Necropolis package (cloud-prepared 2026-09-30; **NOT built in Unreal**)
 - `Scripts/Editor/REN_Necropolis_Greybox_Builder_v1.py`: prefix `REN_NEC_`. Refuses in the wrong world, refuses when Tomb/foreign REN actors are loaded (allows `REN_INT_*`/`REN_CAM_*`), and refuses when a baseline is locked. Re-run safe.
 - Design: `docs/NECROPOLIS_GREYBOX_SPEC.md`. Local Day-3 task: `docs/tasks/P2_NECROPOLIS_ANUBIS.md`.
 
+Day-2 Tomb beats package (cloud-prepared 2026-09-30; **NOT executed in Unreal**): `docs/tasks/P2_TOMB_BEATS.md`. It is gameplay-first (instant control at spawn, no cut at the reveal), with the Arabic subtitle font moved to Day 2. The project contains **no audio assets**; placeholders must be user-sourced.
+
 ## Tomb skyline / landmark proxies
 
 These are created by builder v3 in `L_Tomb_Blockout`, beyond the reveal ledge:
@@ -79,14 +81,31 @@ Rules:
 - Their mesh may be replaced later at the same transform (world-lock reports an asset change).
 - The Necropolis adds foundations and a plinth below them.
 
-## Spatial orientation finding (code/math, 2026-09-30)
+## Tomb orientation (USER DECISION 2026-09-30: KEEP AS BUILT)
 
-Unreal is left-handed. Facing +Y (spawn direction), **player-right = −X**. So:
-- The Blank Cartouche (+X) is on the player's **LEFT**. The docs and builder comments said "right".
-- The side clue chamber (−X) is on the player's **RIGHT**. The docs said "left".
-- Builder-v3 labels `…Left…`/`…Right…` mean map −X/+X, not player-relative.
+Unreal is left-handed. Facing +Y (spawn direction), **player-right = −X**.
+- **Blank Cartouche: player-LEFT (+X wall).** Accepted.
+- **Side clue chamber: player-RIGHT (−X).** Accepted.
+- Shadow-test light `REN_Light_ShadowTest` is on the player-right (x −130). Prop shadows fall toward the player-left wall.
+- The Tomb is **not mirrored**. No Tomb geometry moves because of this. The docs now use player-perspective terms.
+- Builder-v3 labels `…Left…`/`…Right…` (e.g. `REN_Corridor_Left_A`, `REN_Reveal_LeftPier`) mean map −X/+X, i.e. the opposite of the player's view. The labels are kept; renaming would break world-lock continuity.
 
-Geometry has **not** been changed. Whether to keep it (and fix the docs) or mirror it before the baseline is a **pending user decision**. Confirm the reading in PIE (LOCAL_VALIDATION_REQUIRED).
+## Suspected floating props (code reading, 2026-09-30) — decision needed BEFORE the Day-1 baseline
+
+Builder v3 uses the centre-pivot 100 cm Engine cube, and several prop centres are too high, so their bottoms float above the surface below. **Hypothesis until measured locally:**
+
+| Actor | Bottom z | Surface below | Gap |
+|---|---|---|---|
+| `REN_ShadowTest_Pedestal` | 25 | floor 0 | 25 cm |
+| `REN_ShadowTest_JarA` / `JarB` | 18 / 20 | floor 0 | 18 / 20 cm |
+| `REN_Canopic_01..03` | 20 | floor 0 | 20 cm |
+| `REN_OfferingTable_Main` | 25 | floor 0 | 25 cm |
+| `REN_Side_CluePedestal` | 32.5 | floor 0 | 32.5 cm |
+| `REN_Side_Table` | 25 | floor 0 | 25 cm |
+| `REN_Sarcophagus_Base` | 25 | platform top 12.5 | 12.5 cm |
+| `REN_Sarcophagus_Lid` | 126 | base top 95 | 31 cm |
+
+Detached shadows under the pedestal and jars would weaken the no-shadow beat. The proposed fix, **only with user approval**, is to lower each confirmed prop in Z so it rests on the surface below (a Z-only change), **before** the first official baseline (TASK_BOARD P0-17).
 
 ## Production plan
 

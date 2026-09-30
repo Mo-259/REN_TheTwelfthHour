@@ -12,7 +12,7 @@ Status values:
 | Day | Local (Unreal/MCP) | Cloud prep for next day |
 |---|---|---|
 | 1 | P0-14 LFS install, P0-09, donor audit, P0-15 orientation → P0-06 → P0-05 baseline, P0-07, P0-11, P1-00…P1-08 via `docs/tasks/P1_INTERACTION_FOUNDATION.md` | C-01 ✔, C-08 ✔ (done early) |
-| 2 | P2-01…P2-04, P0-12 | C-02 P2 Tomb-beats spec (next), C-03 GateWest/arena builder, C-04 P3 combat spec |
+| 2 | P2-01…P2-04, P0-11, P0-12 via `docs/tasks/P2_TOMB_BEATS.md` | C-02 ✔; C-03 GateWest/arena builder, C-04 P3 combat spec (awaiting go-ahead) |
 | 3 | P2-05, P5-01 via `docs/tasks/P2_NECROPOLIS_ANUBIS.md` | C-05 P4 Face-Eater spec |
 | 4 | P3-01…P3-07, P4-01 | C-06 audio list + Tomb lighting spec |
 | 5 | P4-02…P4-08 | C-07 bug triage / polish checklists |
@@ -25,7 +25,7 @@ Status values:
 |---|---|---|
 | C-00 | Sprint plan + P1 local task spec + v3 builder guard | DONE (cloud) |
 | C-01 | Necropolis package: `NECROPOLIS_GREYBOX_SPEC.md`, `REN_Necropolis_Layout.py`, `REN_Necropolis_Greybox_Builder_v1.py`, `tasks/P2_NECROPOLIS_ANUBIS.md` | DONE in cloud (offline tests pass); Unreal run LOCAL_VALIDATION_REQUIRED |
-| C-02 | `docs/tasks/P2_TOMB_BEATS.md` (no-shadow incl. all visual components, side clue, wake, reveal camera, `L_REN_Slice`) | TODO (next cloud task) |
+| C-02 | `docs/tasks/P2_TOMB_BEATS.md` (Day-2 local task: wake, cartouche, no-shadow + staging, side clue, door, gameplay-first reveal, lighting, audio, `L_REN_Slice`) | DONE in cloud; execution LOCAL_VALIDATION_REQUIRED |
 | C-03 | `REN_GateWest_Greybox_Builder_v1.py` (prefix `REN_GW_`) | TODO |
 | C-04 | `docs/tasks/P3_FIRST_COMBAT.md` | TODO |
 | C-05 | `docs/tasks/P4_FACE_EATER.md` | TODO |
@@ -48,11 +48,12 @@ Status values:
 | P0-09 | Confirm Python Editor Script Plugin in `.uproject` | LOCAL_VALIDATION_REQUIRED |
 | P0-10 | Decide Git LFS policy for `.uasset`/`.umap` | DONE (user: forward-only LFS, no history rewrite) |
 | P0-11 | Set `L_Tomb_Blockout` as editor startup / game default map; clean stale DefaultEditor.ini map | TODO (local, via Project Settings; switch to `L_REN_Slice` once P0-12 exists) |
-| P0-12 | Create persistent `L_REN_Slice` (non-WP) with always-loaded sublevels | TODO (Day 2) |
+| P0-12 | Create persistent `L_REN_Slice` (non-WP) with always-loaded sublevels | LOCAL_VALIDATION_REQUIRED (Day 2 §1) |
 | P0-13 | Guard builder v3 against wrong world / locked layout | DONE in cloud (tested with fake `unreal`); Unreal run LOCAL_VALIDATION_REQUIRED |
 | P0-14 | Git LFS forward-only (`.gitattributes`) | DONE in repo; `git lfs install` on each local machine LOCAL_VALIDATION_REQUIRED |
 | P0-15 | Tomb orientation check (`REN_Inspect_TombOrientation.py`); fix only confirmed errors | LOCAL_VALIDATION_REQUIRED |
-| P0-16 | Decide: keep Tomb left/right as built (fix docs) or mirror before baseline | BLOCKED (user decision) |
+| P0-16 | Decide: keep Tomb left/right as built (fix docs) or mirror before baseline | DONE (user: keep as built; docs use player perspective) |
+| P0-17 | Suspected floating Tomb props (pedestal, jars, canopics, tables, sarcophagus base/lid): measure; Z-only fix before baseline | BLOCKED (user approval) + LOCAL_VALIDATION_REQUIRED |
 
 ## P1 — Interaction foundation
 
@@ -65,17 +66,17 @@ Status values:
 | P1-04 | Implement 350cm camera trace (start projected to pawn) | TODO |
 | P1-05 | Blank Cartouche interactable | TODO |
 | P1-06 | Exit Door interactable | TODO |
-| P1-07 | Sarcophagus interaction placeholder | TODO |
+| P1-07 | Sarcophagus interaction placeholder | CUT for Day 2 (wake = spawn beside sarcophagus with instant control) |
 | P1-08 | Interaction prompt UI + `WBP_Subtitle` | TODO |
 
 ## P2 — Opening mechanics
 
 | ID | Task | Status |
 |---|---|---|
-| P2-01 | Implement no-shadow player state (validate ALL visual components: body, clothing, Reed Blade, accessories, contact/Lumen artifacts) | TODO |
-| P2-02 | Validate shadow clue lighting | TODO |
-| P2-03 | Side clue trigger/content | TODO |
-| P2-04 | Exit reveal transition | TODO |
+| P2-01 | Implement no-shadow player state (validate ALL visual components: body, clothing, Reed Blade, accessories, contact/Lumen/RT artifacts) | LOCAL_VALIDATION_REQUIRED (spec: P2_TOMB_BEATS §5) |
+| P2-02 | Validate shadow clue lighting + `BP_ShadowClue` staging | LOCAL_VALIDATION_REQUIRED (spec: §5c–5d) |
+| P2-03 | Side clue (player-right): scraped name tablet + chisel + `BP_ExamineClue` | LOCAL_VALIDATION_REQUIRED (spec: §6) |
+| P2-04 | Exit reveal, gameplay-first (no cut); optional ≤1 s FOV assist | LOCAL_VALIDATION_REQUIRED (spec: §8) |
 | P2-05 | Build first Vertical Necropolis greybox (builder v1 + Glyph + shadow tease + fall recovery) | TODO (Day 3; package ready) |
 
 ## P3 — Combat foundation
@@ -111,6 +112,6 @@ Status values:
 | P5-02 | Tomb art pass | TODO |
 | P5-03 | Necropolis art pass | TODO |
 | P5-04 | Face-Eater arena art pass | TODO |
-| P5-05 | Audio pass | TODO |
+| P5-05 | Audio pass (Day-2 placeholders: door, scrape, ambience; user-sourced files) | TODO |
 | P5-06 | Sequencer passes | TODO |
 | P5-07 | Trailer capture | TODO |
