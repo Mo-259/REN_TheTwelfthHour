@@ -1,0 +1,38 @@
+# Unreal Engine generated
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Visual Studio / IDE
+.vs/
+.vscode/
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Build artifacts
+*.pdb
+*.obj
+*.exe
+*.dll
+*.lib
+*.exp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude local-only
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Local Python caches
+__pycache__/
+*.pyc
+
+# Do NOT ignore Content/, Config/, Scripts/, Source/, .claude/, docs/
