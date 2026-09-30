@@ -21,3 +21,18 @@
 - Preserve v3 script in source control.
 - Prepare interaction foundation package.
 - Configure local Unreal MCP later.
+
+## 2026-09-30 — Cloud audit + P0-08 world-lock hardening (Claude Code Cloud)
+
+Audit:
+- DevKit files in repo are byte-identical to the uploaded DevKit zip.
+- `L_Tomb_Blockout.umap` contains exactly the 58 `REN_` labels the v3 builder generates.
+- Found `/Game/REN/IA_Interact` (unmapped, unreferenced). Found stale default-map config and a missing `PythonScriptPlugin` entry in `.uproject`.
+- Suspected builder rotator-order issue (PlayerStart pitch 90; cartouche relief roll 90), to confirm via first export.
+
+P0-08:
+- Added `Scripts/Editor/REN_WorldLock_Core.py` (shared pure-Python logic + CLI).
+- Export: schema 2 (map path, static mesh, duplicate labels); writes a `.candidate.json` instead of overwriting an existing baseline.
+- Validate: wrap-aware rotation, duplicate / class / mesh / map checks, JSON report under `ProjectDocs/WorldLocks/Reports/`.
+- Added `Scripts/Tests/test_worldlock.py`: 18 tests pass in cloud (fake `unreal` module).
+- LOCAL_VALIDATION_REQUIRED: run export + validate in Unreal on `L_Tomb_Blockout`, commit baseline.

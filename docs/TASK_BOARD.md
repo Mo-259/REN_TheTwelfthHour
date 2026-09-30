@@ -11,19 +11,23 @@ Status values:
 
 | ID | Task | Status |
 |---|---|---|
-| P0-01 | Verify project root / `.uproject` / Git status | TODO |
-| P0-02 | Install this Claude dev kit into repo | IN_PROGRESS |
-| P0-03 | Verify Unreal `.gitignore` | TODO |
-| P0-04 | Copy v3 Tomb builder into `Scripts/Editor/` | TODO |
+| P0-01 | Verify project root / `.uproject` / Git status | DONE (cloud audit 2026-09-30) |
+| P0-02 | Install this Claude dev kit into repo | DONE (repo files identical to DevKit zip) |
+| P0-03 | Verify Unreal `.gitignore` | DONE (generated folders ignored; LFS decision open, see P0-10) |
+| P0-04 | Copy v3 Tomb builder into `Scripts/Editor/` | DONE (labels match `L_Tomb_Blockout.umap`) |
 | P0-05 | Export first world-lock manifest | LOCAL_VALIDATION_REQUIRED |
-| P0-06 | Validate v3 map route in PIE | DONE (user confirmed script complete; traversal details still worth rechecking) |
+| P0-06 | Validate v3 map route in PIE | LOCAL_VALIDATION_REQUIRED (only script completion confirmed; also check PlayerStart pitch) |
 | P0-07 | Configure local Unreal MCP | TODO |
+| P0-08 | Harden world-lock export/validate + offline diff + tests | DONE in cloud; Unreal run LOCAL_VALIDATION_REQUIRED |
+| P0-09 | Confirm Python Editor Script Plugin in `.uproject` | LOCAL_VALIDATION_REQUIRED |
+| P0-10 | Decide Git LFS policy for `.uasset`/`.umap` | BLOCKED (user decision) |
+| P0-11 | Set `L_Tomb_Blockout` as editor startup / game default map; clean stale DefaultEditor.ini map | TODO (local, via Project Settings) |
 
 ## P1 — Interaction foundation
 
 | ID | Task | Status |
 |---|---|---|
-| P1-01 | Create `IA_Interact` | TODO |
+| P1-01 | Create `IA_Interact` | LOCAL_VALIDATION_REQUIRED (asset exists at `/Game/REN/IA_Interact`, Boolean; unreferenced) |
 | P1-02 | Map Interact to E | TODO |
 | P1-03 | Create `BPI_Interactable` | TODO |
 | P1-04 | Implement 350cm camera trace | TODO |

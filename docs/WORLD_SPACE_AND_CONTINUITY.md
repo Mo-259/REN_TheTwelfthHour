@@ -141,6 +141,6 @@ Before risky level changes:
 3. Perform the intentional edit.
 4. Run `Scripts/Editor/REN_Validate_WorldLock.py`.
 5. Review differences.
-6. If change is intentional, export a new baseline and document it in `DEVLOG.md`.
+6. If change is intentional, export again (writes `<World>.worldlock.candidate.json`), promote it to baseline deliberately, and document it in `DEVLOG.md`. See `ProjectDocs/WorldLocks/README.md`.
 
 Never accept unreviewed spatial drift.

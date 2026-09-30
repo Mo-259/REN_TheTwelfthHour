@@ -10,7 +10,7 @@ This file is the operational handoff. Update it whenever implementation state ma
 - Base project: Third Person template, Blueprint project.
 - Runtime template character is still the stock Third Person mannequin/character.
 - Project name used during setup: `REN_TheTwelfthHour`.
-- Python Editor Script Plugin is enabled.
+- Python Editor Script Plugin is reported enabled by the user (v3 builder ran). NOTE: the committed `.uproject` does not list `PythonScriptPlugin`; confirm locally (LOCAL_VALIDATION_REQUIRED).
 - Unreal MCP is planned for local agentic work; do not assume it is configured until verified locally.
 
 ## Level work completed
@@ -49,8 +49,22 @@ The user confirmed the v3 script completed.
 Expected file:
 - `Scripts/Editor/REN_Tomb_Opening_Greybox_Builder_v3.py`
 
-Important:
-The script was originally executed from an external downloaded file. Audit whether it has actually been copied into the repository. If absent, restore it from this dev kit.
+Status (cloud audit 2026-09-30): present in repo. `L_Tomb_Blockout.umap` contains exactly the 58 `REN_` actor labels this script generates (string scan of the binary; no extras, none missing). Transforms are NOT verifiable from cloud.
+
+World-lock tooling (hardened 2026-09-30, cloud; Unreal execution LOCAL_VALIDATION_REQUIRED):
+- `Scripts/Editor/REN_WorldLock_Core.py` — pure-Python compare logic + offline CLI.
+- `Scripts/Editor/REN_Export_WorldLock.py` — schema-2 export; never overwrites an existing baseline (writes `.candidate.json`).
+- `Scripts/Editor/REN_Validate_WorldLock.py` — wrap-aware rotation compare, duplicate-label / class / mesh / map-path checks, writes `ProjectDocs/WorldLocks/Reports/<World>.validation.json`.
+- `Scripts/Tests/test_worldlock.py` — 18 offline tests (fake `unreal` module); run `python -m unittest discover -s Scripts/Tests`.
+- No world-lock baseline has been exported yet.
+
+## Repository audit findings (cloud, 2026-09-30)
+
+- `/Game/REN/IA_Interact` exists (InputAction, Boolean). No asset references it: it is not mapped in any IMC and not used by `BP_ThirdPersonCharacter`. Location differs from the planned `/Game/REN/Gameplay/...` layout; do not move it without a redirector-aware local step.
+- `Config/DefaultEngine.ini`: `GameDefaultMap` / `EditorStartupMap` still `Lvl_ThirdPerson`. `Config/DefaultEditor.ini` references nonexistent `/Game/TP_ThirdPerson/Maps/ThirdPersonExampleMap`. `DefaultGame.ini` ProjectName is still the template name.
+- Builder v3 rotator order (code reading only): UE Python `unreal.Rotator(roll, pitch, yaw)`. `REN_PlayerStart` is spawned with `Rotator(0.0, 90.0, 0.0)` → pitch 90, not yaw 90. `REN_BlankCartouche_Relief` `(0,90,0)` → roll 90, likely a horizontal oval rather than a vertical cartouche. Confirm via first world-lock export; do not "fix" by re-running the builder after layout lock.
+- No Git LFS / `.gitattributes`. Largest asset ~21 MB. LFS adoption is a pending user decision.
+- No `Source/` folder (Blueprint-only, as intended).
 
 ## Runtime gameplay state
 

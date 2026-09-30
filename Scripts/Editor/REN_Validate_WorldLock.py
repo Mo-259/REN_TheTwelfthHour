@@ -1,20 +1,46 @@
 import unreal
 from pathlib import Path
 import json
-import math
+import os
+import sys
 
 """
 REN — Validate World Lock
-Run inside Unreal Editor.
+Run inside Unreal Editor (Tools > Execute Python Script, or `py "<path>"`).
 
 Compares current REN_ Actor transforms against the exported baseline for the
 current world. Does not modify the level.
+
+Detects: missing / added / moved / rotated / rescaled Actors, class changes,
+static-mesh swaps (schema 2 baselines), duplicate labels, and map mismatch.
+Rotation compare is wrap-aware (179.95 vs -179.95 = 0.1 deg).
+
+Writes a machine-readable report to:
+    ProjectDocs/WorldLocks/Reports/<World>.validation.json
+Commit that report when handing results back to a cloud session.
 """
 
 PREFIX = "REN_"
-LOCATION_TOLERANCE_CM = 0.1
-ROTATION_TOLERANCE_DEG = 0.1
-SCALE_TOLERANCE = 0.0001
+
+
+def _import_core():
+    candidates = []
+    try:
+        candidates.append(os.path.dirname(os.path.abspath(__file__)))
+    except NameError:
+        pass
+    candidates.append(os.path.join(unreal.Paths.project_dir(), "Scripts", "Editor"))
+    for path in candidates:
+        path = os.path.normpath(path)
+        if os.path.isfile(os.path.join(path, "REN_WorldLock_Core.py")) and path not in sys.path:
+            sys.path.insert(0, path)
+    import importlib
+    import REN_WorldLock_Core
+    # Unreal keeps modules loaded between script runs; reload to pick up edits.
+    return importlib.reload(REN_WorldLock_Core)
+
+
+core = _import_core()
 
 actor_subsystem = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 unreal_editor = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
@@ -24,8 +50,10 @@ if not world:
     raise RuntimeError("No editor world is open.")
 
 world_name = world.get_name()
+map_path = world.get_path_name().split(".")[0]
 project_dir = Path(unreal.Paths.project_dir())
-baseline_path = project_dir / "ProjectDocs" / "WorldLocks" / f"{world_name}.worldlock.json"
+lock_dir = project_dir / "ProjectDocs" / "WorldLocks"
+baseline_path = lock_dir / f"{world_name}.worldlock.json"
 
 if not baseline_path.exists():
     raise RuntimeError(
@@ -33,9 +61,8 @@ if not baseline_path.exists():
     )
 
 baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
-expected = {item["label"]: item for item in baseline.get("actors", [])}
 
-current = {}
+records = []
 for actor in actor_subsystem.get_all_level_actors():
     try:
         label = actor.get_actor_label()
@@ -49,70 +76,38 @@ for actor in actor_subsystem.get_all_level_actors():
     rot = actor.get_actor_rotation()
     scale = actor.get_actor_scale3d()
 
-    current[label] = {
+    record = {
+        "label": label,
         "class": actor.get_class().get_name(),
         "location_cm": [loc.x, loc.y, loc.z],
         "rotation_deg": [rot.roll, rot.pitch, rot.yaw],
         "scale": [scale.x, scale.y, scale.z],
     }
 
-def max_abs_diff(a, b):
-    return max(abs(float(x) - float(y)) for x, y in zip(a, b))
+    mesh_comp = actor.get_component_by_class(unreal.StaticMeshComponent)
+    if mesh_comp:
+        mesh = mesh_comp.get_editor_property("static_mesh")
+        record["static_mesh"] = mesh.get_path_name() if mesh else None
 
-missing = sorted(set(expected) - set(current))
-added = sorted(set(current) - set(expected))
-changed = []
+    records.append(record)
 
-for label in sorted(set(expected) & set(current)):
-    e = expected[label]
-    c = current[label]
+current = core.build_manifest(records, world=world_name, map_path=map_path, prefix=PREFIX)
+report = core.compare_manifests(baseline, current)
+report["baseline_file"] = baseline_path.name
 
-    loc_diff = max_abs_diff(e["location_cm"], c["location_cm"])
-    rot_diff = max_abs_diff(e["rotation_deg"], c["rotation_deg"])
-    scale_diff = max_abs_diff(e["scale"], c["scale"])
+report_dir = lock_dir / "Reports"
+report_dir.mkdir(parents=True, exist_ok=True)
+report_path = report_dir / f"{world_name}.validation.json"
+report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
-    class_changed = e.get("class") != c.get("class")
-
-    if (
-        class_changed
-        or loc_diff > LOCATION_TOLERANCE_CM
-        or rot_diff > ROTATION_TOLERANCE_DEG
-        or scale_diff > SCALE_TOLERANCE
-    ):
-        changed.append({
-            "label": label,
-            "class_changed": class_changed,
-            "location_max_diff_cm": round(loc_diff, 4),
-            "rotation_max_diff_deg": round(rot_diff, 4),
-            "scale_max_diff": round(scale_diff, 6),
-        })
-
-unreal.log("===========================================================")
-unreal.log("REN WORLD LOCK VALIDATION")
-unreal.log(f"World: {world_name}")
-unreal.log(f"Expected actors: {len(expected)}")
-unreal.log(f"Current actors: {len(current)}")
-unreal.log(f"Missing: {len(missing)}")
-unreal.log(f"Added: {len(added)}")
-unreal.log(f"Changed: {len(changed)}")
-
-for label in missing:
-    unreal.log_warning(f"MISSING: {label}")
-for label in added:
-    unreal.log_warning(f"ADDED: {label}")
-for item in changed:
-    unreal.log_warning(
-        "CHANGED: "
-        + item["label"]
-        + f" | loc={item['location_max_diff_cm']}cm"
-        + f" rot={item['rotation_max_diff_deg']}deg"
-        + f" scale={item['scale_max_diff']}"
-        + (" class_changed=True" if item["class_changed"] else "")
-    )
-
-if not missing and not added and not changed:
-    unreal.log("RESULT: PASS — no unexplained REN spatial drift detected.")
+info, warn, result = core.format_report(report)
+for line in info:
+    unreal.log(line)
+for line in warn:
+    unreal.log_warning(line)
+if report["passed"]:
+    unreal.log(result)
 else:
-    unreal.log_warning("RESULT: REVIEW REQUIRED — world-lock differences detected.")
-
+    unreal.log_warning(result)
+unreal.log(f"Report: {report_path}")
 unreal.log("===========================================================")
