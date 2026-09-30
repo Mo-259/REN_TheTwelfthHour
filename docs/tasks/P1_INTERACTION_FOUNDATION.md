@@ -29,6 +29,7 @@ Serialize MCP calls: inspect → mutate → compile/save → inspect.
      - which parts are hard-wired to the player class
    - `BP_Combat_EnemySpawner`, `BP_Combat_CheckpointVolume`, `BP_Combat_ActivationVolume`: dependencies.
    - `IMC_Combat` and `IMC_Default`: which keys/buttons are used. Is `E` free? Which gamepad face button is free?
+   - **Class dependencies (decides D1):** do donor StateTree tasks, anim notifies, UI or the AI controller **cast to** `BP_CombatCharacter` / `BP_CombatEnemy`? List them. Does the StateTree AI component expose "start logic automatically" (A9)?
    - **Hardcoded references**: any Blueprint referencing `Lvl_Combat` actors, level names, `/Game/Variant_Combat/...` asset paths, or `GetAllActorsOfClass` on template classes. List every one. They must be retargeted after duplication.
    - **UI dependencies**: widgets used and who creates them.
    - `L_Tomb_Blockout` World Settings: GameMode Override.
@@ -46,7 +47,9 @@ Leave `/Game/REN/IA_Interact` where it is for the sprint. Moving it creates redi
 
 ## 2. Player bootstrap (template duplicates, never edit templates)
 
-| New asset | Duplicated from |
+**D1 (from the donor audit, step 0.5):** if donor StateTree tasks, anim notifies or UI **cast to or reference** `BP_CombatCharacter`, create `BP_NeferCharacter` as a **child Blueprint** of `BP_CombatCharacter` instead of a duplicate. This still never edits the template, and keeps donor casts working. The same rule applies to the controller and GameMode if they are cast to. The details are in `docs/IMPLEMENTATION_P3_COMBAT.md` §3.
+
+| New asset | Duplicated from (or child of, per D1) |
 |---|---|
 | `/Game/REN/Gameplay/Player/BP_NeferCharacter` | `/Game/Variant_Combat/Blueprints/BP_CombatCharacter` |
 | `/Game/REN/Gameplay/Player/BP_REN_PlayerController` | `/Game/Variant_Combat/Blueprints/BP_CombatPlayerController` |
@@ -80,7 +83,17 @@ Do not lock a known-bad transform. Follow this order strictly:
 
 Left/right: facing +Y (spawn direction), the **player's right is −X**. The Blank Cartouche (+X) is on the player's **left** and the side chamber (−X) on the player's **right**. **User decision: keep as built, do not mirror.**
 
-**Suspected floating props (P0-17).** In the same read-only pass, record the world bounds (bottom Z) of the actors listed in `docs/CURRENT_PROJECT_STATE.md` under "Suspected floating props". Report the measured gaps and **wait for user approval** before lowering anything; the only fix allowed is a Z-only move. Export the official baseline only after this is resolved (fixed or explicitly accepted).
+**Suspected floating props (P0-17)** — approved procedure (user, 2026-09-30). Do this after step 3 and **before** step 5 (the baseline). Do **not** apply the builder-code prediction blindly.
+
+1. **Inspect** each suspected prop listed in `docs/CURRENT_PROJECT_STATE.md` ("Suspected floating props").
+2. **Measure** the real contact gap: the prop's world-bounds bottom Z minus the top Z of the surface below it (floor or platform).
+3. **Confirm** that the prop is meant to rest on that surface.
+4. **Fix only if confirmed:**
+   - **Ordinary support props** (shadow pedestal, shadow jars JarA/JarB, canopic jars 01–03, offering table, side table, side clue pedestal): if they visibly float and are clearly meant to rest on the surface, **change Z only** by the measured gap. X, Y, rotation and scale are preserved. **Priority: the shadow-zone pedestal and jars**, because detached shadows damage the clue.
+   - **Sarcophagus base and lid: do NOT lower them automatically.** Judge in the viewport whether the separation reads as intentional in the current composition (e.g. a raised lid). **If uncertain, STOP and report** with screenshots; the user decides.
+   - Tolerance: a gap of 1 cm or less is fine. Don't chase sub-centimetre perfection in greybox.
+5. **Re-check visually** (the shadow zone under `REN_Light_ShadowTest` especially) and record the before/after Z of every changed actor in the report and in DEVLOG.
+6. **Only then** continue to step 4 (traversal) and step 5 (export the official baseline).
 
 ## 3. Input
 

@@ -16,7 +16,7 @@ Task-board IDs: P2-01…P2-04, P0-11, P0-12. No C++. No Sequencer. No Gate of th
 
 No blockers, no lore dump, no cinematic overkill.
 
-**Time budget: about half a day (≈4 h core + ≤2 h cuttable).** Each section has a timebox. When a timebox runs out, cut the section's optional parts (see "Cut list") and move on.
+**Time budget: about half a day (≈4 h core + ≤1.5 h cuttable; audio sourcing deferred).** Each section has a timebox. When a timebox runs out, cut the section's optional parts (see "Cut list") and move on.
 
 Serialize MCP calls: **inspect → edit → compile → save → inspect → PIE test.** Never overlap editor mutations.
 
@@ -43,7 +43,7 @@ Facing +Y (the spawn direction), **player-right = −X**:
   - property changes on existing actors: light colour, intensity, radius, shadows, material, mobility
   - new actors (`REN_INT_*`, `REN_Light_*`, `REN_Prop_*`, `REN_Audio_*`)
   - components inside REN Blueprints
-- The v3 TriggerBoxes (`REN_Trigger_*`) stay untouched as placeholders. Today's logic uses its own Box components, with explicit sizes and no dependence on TriggerBox defaults.
+- **Triggers: reuse before creating** (user direction). Inspect the existing v3 trigger actors first (step 0.6). Reuse any that is correctly located, has suitable bounds and can be safely bound. A new trigger or Box component is created **only** if the existing one is unsuitable, and the reason is recorded. **Never move or rescale an existing world-locked trigger** to fit a Blueprint without approval.
 
 ## 0. Prerequisites and audit (read-only) — 15 min
 
@@ -59,6 +59,17 @@ Facing +Y (the spawn direction), **player-right = −X**:
    - `BP_NeferCharacter`: **every** PrimitiveComponent (skeletal meshes, static meshes, attached actors/weapons from the donor), the spring-arm name and `TargetArmLength`, and the camera FOV.
    - Live bounds of `REN_Side_CluePedestal` (top Z) and `REN_Side_WallTablet` (front face X).
    - Current properties of `REN_Light_Burial`, `_ShadowTest`, `_Corridor`, `_Side`, `_DuatReveal`: intensity, radius, Cast Shadows, source radius, mobility.
+
+6. **Existing trigger audit (read-only).** For each of `REN_Trigger_BlankCartouche`, `REN_Trigger_ShadowClue`, `REN_Trigger_SideClue` and `REN_Trigger_ExitReveal`, record the class, the world bounds (from `GetActorBounds`, or BoxExtent × scale) and the collision profile (must overlap Pawn). Then decide REUSE or UNSUITABLE:
+
+   | Trigger | Needed for | REUSE if its bounds (expanded by the ~35 cm capsule radius)… |
+   |---|---|---|
+   | `REN_Trigger_ShadowClue` | §5c shadow line | cover the whole walkable lane between pedestal and column (x ≈ −30..72) somewhere in y ≈ 880..980, so every player crosses it |
+   | `REN_Trigger_ExitReveal` | §8 FOV assist | span the tunnel mouth width (x ≈ −150..150) somewhere in y ≈ 2550..2800 |
+   | `REN_Trigger_BlankCartouche` | not needed (the Cartouche uses the P1 interaction trace) | kept as a placeholder; unused today |
+   | `REN_Trigger_SideClue` | not needed (the side clue uses the interaction trace) | kept as a placeholder; unused today |
+
+   Record each decision in the hand-back report.
 
 If anything is missing or contradicts this file: **stop and report**.
 
@@ -108,7 +119,7 @@ Extend `BP_BlankCartouche` (from P1):
 - New instance-editable variables:
   - `ExamineLine` (Text) = `ده مش تآكل... الاسم اتشال.` — **TEMP**, editable (meaning: "This isn't erosion... the name was removed.")
   - `ExamineLineEN` (Text) = "This isn't erosion... the name was removed." Secondary line; show it if `WBP_Subtitle` supports two lines, otherwise skip.
-  - `ExamineSound` (Sound) = `S_REN_StoneScrape_Short` (section 9; leave empty if not imported)
+  - `ExamineSound` (Sound) = **None by default** (nullable; §9)
   - `LineDuration` (Float) = 4.0
 - `Interact(Interactor)`:
   1. If `ExamineSound` is valid → `PlaySoundAtLocation` at the relief, volume 0.6.
@@ -156,9 +167,9 @@ Place the player at about (0, 900, 0) under `REN_Light_ShadowTest`, then check e
 
 ### 5c. Shadow-clue staging — `BP_ShadowClue`
 
-Create `/Game/REN/Gameplay/Heka/BP_ShadowClue`:
-- A Box component with extent (150, 90, 100). Collision: overlap Pawn only.
-- Place it at (0, 940, 100) and label it `REN_INT_ShadowClue`. It covers the full corridor width at the prop lane.
+Create `/Game/REN/Gameplay/Heka/BP_ShadowClue`, place it at about (0, 940, 100) and label it `REN_INT_ShadowClue`:
+- **If `REN_Trigger_ShadowClue` was judged REUSE (step 0.6):** instance-editable `TriggerActor` (Actor ref) → `REN_Trigger_ShadowClue`. In BeginPlay, bind `TriggerActor.OnActorBeginOverlap`. The BP has no volume of its own.
+- **Only if UNSUITABLE:** give the BP its own Box component, extent (150, 90, 100), overlapping Pawn only (this covers the full corridor width at the prop lane), and record why the v3 trigger was unsuitable.
 - Variables:
   - `Line` (Text) = `...وظلي؟` — **TEMP** (meaning: "...and my shadow?")
   - `LineEN` = "...and my shadow?"
@@ -205,8 +216,7 @@ Create `/Game/REN/Gameplay/Heka/BP_ShadowClue`:
 
 Extend `BP_ExitDoor` (P1). Keep the deterministic 320 cm lowering over 2.5 s:
 
-- Add an `AudioComponent` `DoorGrind` (auto-activate off) with sound `S_REN_StoneSlab_Grind_Loop`. Play it at Timeline start, stop it at finish.
-- At finish: `PlaySoundAtLocation(S_REN_StoneSlab_Thud)`.
+- Nullable sound hooks (§9): `DoorGrind` (Sound, default None) plays at Timeline start via a spawned/attached audio component and stops at finish, and `DoorThud` (Sound, default None) plays at finish. Both are guarded with `IsValid`.
 - **Optional, restrained camera shake:** `/Game/REN/Gameplay/Player/BP_CameraShake_DoorRumble`, a REN-owned duplicate of the template `BP_CameraShake_Hit_Player` with amplitude about 25% and a 2.5 s duration. Start it with the Timeline, scale 0.5, only if the player is within 10 m.
 - **Dust:** skip unless a suitable Niagara system already exists in the project. **Do not** author VFX today.
 - The door must not be openable twice. The player can't be trapped, because the door moves down and away from the player.
@@ -215,27 +225,30 @@ Extend `BP_ExitDoor` (P1). Keep the deterministic 320 cm lowering over 2.5 s:
 
 **Baseline (non-negotiable):** door → tunnel → ledge, with the **gameplay camera attached to Nefer the whole time.** No cut, no CameraActor, no Sequencer. The composition does the work: the tunnel's framing opens onto the ledge, the piers and the skyline proxies (`REN_DistantTower_A` player-right, `REN_DistantTower_B` player-left, `REN_DistantGate` on the axis). On Day 2 only the proxies are visible; the Necropolis is added on Day 3.
 
-**Optional micro-assist** (≤ 1 s, control retained), `/Game/REN/Gameplay/Player/BP_RevealAssist`:
-- Box extent (150, 60, 120) at (0, 2600, 120), overlapping the Pawn. Label `REN_INT_RevealAssist`.
+**Optional micro-assist** (≤ 1 s, control retained), `/Game/REN/Gameplay/Player/BP_RevealAssist`, label `REN_INT_RevealAssist`:
+- Volume:
+  - **If `REN_Trigger_ExitReveal` was judged REUSE (step 0.6):** instance-editable `TriggerActor` → `REN_Trigger_ExitReveal`, bound in BeginPlay.
+  - **Only if UNSUITABLE:** give the BP its own Box component, extent (150, 60, 120), at about (0, 2600, 120), and record why.
 - On first player overlap:
   1. Timeline 0.8 s, ease-in-out: player camera FOV `Base → Base + 8`.
-  2. Hold while the player is on the ledge.
-  3. On EndOverlap of a second box (the ledge area, extent (375, 225, 150) at (0, 2750, 150)), ease back over 1.5 s.
+  2. Hold 6 s.
+  3. Ease back over 1.5 s. (A timer, not a second volume.)
 - No pitch forcing, no input changes. If it feels like the camera is "doing something", delete it.
 
-## 9. Audio placeholders — timebox 45 min, cuttable except where noted
+## 9. Audio hooks (no sourcing today) — 10 min
 
-The project has **no sound assets**. The cloud can't supply audio files. Import user-sourced CC0 or self-recorded WAVs into `/Game/REN/Audio/Placeholder/`:
-
-| Asset | Use | Priority |
-|---|---|---|
-| `S_REN_StoneSlab_Grind_Loop`, `S_REN_StoneSlab_Thud` | Exit door | High |
-| `S_REN_StoneScrape_Short` | Cartouche / tablet touch | High |
-| `S_REN_TombAmbience_Loop` | `REN_Audio_TombAmbience` (AmbientSound in the burial chamber, low volume, attenuation ≈ 2500) | Medium |
-| `S_REN_Footstep_Stone_01..03` | Footsteps | Low (Day 6 if not trivial) |
-
-- Footsteps, only if trivial: in `BP_NeferCharacter`, a looping 0.42 s timer. When grounded and speed > 150, play a random footstep with pitch 0.95–1.05 at volume 0.4. Anim-notify footsteps would require editing template animations, which is **forbidden**; that approach is deferred.
-- **No** music, **no** "Egyptian" instrument loops, whispers only if justified (not today).
+User decision: **audio must not block Day 2.** The project has no sound assets, and sourcing is **deferred to the polish pass**.
+- Implement hooks only where trivial:
+  - `ExamineSound` on the Cartouche / `BP_ExamineClue`
+  - `DoorGrind` / `DoorThud` on `BP_ExitDoor`
+- **Every Sound variable is nullable.** Guard every play with `IsValid`, and gameplay must work **with no sound assigned**. This is PIE test 13.
+- **Don't** search for, download or import audio. **Don't** spend time on audio unless usable assets already exist locally; if they do, assign them to the hooks (≤ 20 min).
+- Names reserved for the polish pass (`/Game/REN/Audio/Placeholder/`):
+  - `S_REN_StoneSlab_Grind_Loop`, `S_REN_StoneSlab_Thud`
+  - `S_REN_StoneScrape_Short`
+  - `S_REN_TombAmbience_Loop`
+  - `S_REN_Footstep_Stone_01..03`
+- No footstep system today. Anim-notify footsteps would require editing template animations, which is forbidden. No music, no "Egyptian" instrument loops.
 
 ## 10. Lighting / readability pass — timebox 60 min
 
@@ -271,6 +284,7 @@ These are property changes on existing lights, plus new lights only where stated
 10. **Readability:** no crushed blacks or exposure pumping anywhere along the route.
 11. **Log:** no "Accessed None" or Blueprint errors during a full run.
 12. **Timing:** record two runs, one direct and one exploring everything. **Target: 4–7 meaningful minutes. Do NOT pad.** The cloud estimate for current content is about 3–4.5 min. Report the real numbers.
+13. **No-audio run:** with every Sound variable empty, the full route plays with no errors or "Accessed None".
 
 ## 12. World-lock close-out
 
@@ -286,7 +300,7 @@ These are property changes on existing lights, plus new lights only where stated
 - **No-shadow fails:** do the RT check (5b). If it still fails → stop, report screenshots, and don't build a framework.
 - **Arabic fails:** English TEMP lines today; fix on Day 3.
 - **Camera assist fights the donor camera:** delete the assist. The baseline behaviour is enough.
-- **Audio unavailable:** skip it. Nothing else depends on it.
+- **Audio:** hooks are nullable. Nothing depends on sound being assigned.
 - **Validation shows unexplained drift:** don't promote. Revert the moved actor to its baseline transform (from the JSON) and re-validate.
 
 ## 14. Hand-back
@@ -301,14 +315,14 @@ These are property changes on existing lights, plus new lights only where stated
 
 ## Cut list (cut from the top when a timebox runs out)
 
-1. Footsteps
-2. Door camera shake
-3. Reveal FOV assist
-4. Opening arm assist (keep the fade or nothing)
-5. Cartouche face-target turn
-6. Cartouche grazing light
-7. Side-tablet scrape mesh (keep the chisel + line)
-8. Tomb ambience
+1. Door camera shake
+2. Reveal FOV assist
+3. Opening arm assist (keep the fade or nothing)
+4. Cartouche face-target turn
+5. Cartouche grazing light
+6. Side-tablet scrape mesh (keep the chisel + line)
+
+(Audio is not on this list: only nullable hooks are built today, and sourcing is deferred.)
 
 **Never cut:**
 - spawn with instant control
@@ -316,7 +330,7 @@ These are property changes on existing lights, plus new lights only where stated
 - no-shadow with validation
 - shadow-clue staging and light tuning
 - the side-chamber interaction
-- heavy deterministic door (sound if available)
+- heavy deterministic door (nullable sound hooks)
 - gameplay-camera reveal
 - exposure stability
 - world-lock validation

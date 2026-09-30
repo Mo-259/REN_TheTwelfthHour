@@ -55,6 +55,7 @@ Read these files before planning or implementation:
 - `docs/TASK_BOARD.md`
 
 Read `docs/CLOUD_WORKFLOW.md` in cloud sessions.
+For any character / weapon / environment art or visual-replacement task, read `ProjectDocs/References/REFERENCE_MANIFEST.md` first (see `.claude/rules/visual-references.md`). Without a master reference, visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
 Read `docs/LOCAL_MCP_HANDOFF.md` when local Unreal MCP is available.
 
 ## Work protocol

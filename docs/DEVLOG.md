@@ -96,3 +96,28 @@ Offline tests: 49/49 pass. Everything in Unreal is LOCAL_VALIDATION_REQUIRED.
 - The Arabic subtitle font moved from Day 3 to Day 2, since the Tomb lines are Arabic.
 - Static review: no C++, no Sequencer, no final-art dependency. Core ≈4 h, cuttables ≤2 h, and the audio files are an external dependency.
 - All Day-2 items are LOCAL_VALIDATION_REQUIRED.
+
+## 2026-09-30 — C-03 Gate of the West + C-04 first combat spec; user decisions (Claude Code Cloud)
+
+User decisions applied:
+- **P0-17 approved with a procedure.** Inspect, measure and confirm, then change Z only (preserving X, Y, rotation and scale), re-check, and only then export the baseline.
+  - Support props: fix if confirmed; the shadow-zone props are the priority.
+  - Sarcophagus base and lid: never lowered automatically. Judge intent; stop if uncertain.
+  - Tolerance: 1 cm or less.
+- **Day-2 triggers:** inspect and reuse the existing `REN_Trigger_*` when suitable. A new volume is created only if one is unsuitable (with the reason recorded). World-locked triggers are never moved to fit a Blueprint.
+- **Audio:** it must not block. Nullable hooks only, and gameplay must work with no sound. Sourcing is deferred to polish, and the cloud never imports audio.
+- **Reference pack:** added `.claude/rules/visual-references.md` and a CLAUDE.md pointer to `ProjectDocs/References/REFERENCE_MANIFEST.md`, which is not yet in the repo. Placeholders are labelled `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
+
+C-03 Gate of the West package:
+- `REN_GateWest_Layout.py` (59 items), builder v1 (`REN_GW_`), `GATE_WEST_GREYBOX_SPEC.md`, `tasks/P3_GATE_WEST.md`.
+- Layout: passage (500 wide, lintels), 18×14 m combat court, sealed combat gate, corridor, 22×19 m arena **shell** with 4 Glyph-pillar shells and an on-axis boss recess. Markers only; no boss logic.
+- The Gate opens by sinking the Tomb proxy `REN_DistantGate` at runtime: tag and mobility are property changes only, so there is no transform or level change.
+- Honest time estimate: about 1.5–3 min excluding the boss.
+
+C-04 first combat:
+- `IMPLEMENTATION_P3_COMBAT.md` with donor assumptions A1–A10, all unverified.
+- Decision **D1**: use child Blueprints instead of duplicates wherever donor assets cast to the donor classes. Duplicates would silently break those casts; templates are still never edited. A D1 note was added to the Day-1 task.
+- Encounter controller with deterministic reset; minimal Blueprint restart fallback; dodge only if needed for fairness (documented timing).
+- `tasks/P3_FIRST_COMBAT.md`.
+
+Offline tests: 66/66 pass. Nothing is Unreal-validated.

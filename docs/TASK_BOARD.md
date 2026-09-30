@@ -12,9 +12,9 @@ Status values:
 | Day | Local (Unreal/MCP) | Cloud prep for next day |
 |---|---|---|
 | 1 | P0-14 LFS install, P0-09, donor audit, P0-15 orientation → P0-06 → P0-05 baseline, P0-07, P0-11, P1-00…P1-08 via `docs/tasks/P1_INTERACTION_FOUNDATION.md` | C-01 ✔, C-08 ✔ (done early) |
-| 2 | P2-01…P2-04, P0-11, P0-12 via `docs/tasks/P2_TOMB_BEATS.md` | C-02 ✔; C-03 GateWest/arena builder, C-04 P3 combat spec (awaiting go-ahead) |
+| 2 | P2-01…P2-04, P0-11, P0-12 via `docs/tasks/P2_TOMB_BEATS.md` | C-02 ✔; C-03 ✔, C-04 ✔ (done early) |
 | 3 | P2-05, P5-01 via `docs/tasks/P2_NECROPOLIS_ANUBIS.md` | C-05 P4 Face-Eater spec |
-| 4 | P3-01…P3-07, P4-01 | C-06 audio list + Tomb lighting spec |
+| 4 | P4-01 via `docs/tasks/P3_GATE_WEST.md`; P3-02…P3-07 via `docs/tasks/P3_FIRST_COMBAT.md` | C-05 P4 Face-Eater spec (awaiting go-ahead); C-06 Tomb lighting spec (audio sourcing deferred to polish) |
 | 5 | P4-02…P4-08 | C-07 bug triage / polish checklists |
 | 6 | Tier A polish (Tomb + Face-Eater) | review hand-back reports |
 | 7 | Freeze, playthroughs, package | release notes, state docs |
@@ -26,8 +26,8 @@ Status values:
 | C-00 | Sprint plan + P1 local task spec + v3 builder guard | DONE (cloud) |
 | C-01 | Necropolis package: `NECROPOLIS_GREYBOX_SPEC.md`, `REN_Necropolis_Layout.py`, `REN_Necropolis_Greybox_Builder_v1.py`, `tasks/P2_NECROPOLIS_ANUBIS.md` | DONE in cloud (offline tests pass); Unreal run LOCAL_VALIDATION_REQUIRED |
 | C-02 | `docs/tasks/P2_TOMB_BEATS.md` (Day-2 local task: wake, cartouche, no-shadow + staging, side clue, door, gameplay-first reveal, lighting, audio, `L_REN_Slice`) | DONE in cloud; execution LOCAL_VALIDATION_REQUIRED |
-| C-03 | `REN_GateWest_Greybox_Builder_v1.py` (prefix `REN_GW_`) | TODO |
-| C-04 | `docs/tasks/P3_FIRST_COMBAT.md` | TODO |
+| C-03 | Gate of the West package: `GATE_WEST_GREYBOX_SPEC.md`, `REN_GateWest_Layout.py`, `REN_GateWest_Greybox_Builder_v1.py`, `tasks/P3_GATE_WEST.md` | DONE in cloud (offline tests pass); Unreal run LOCAL_VALIDATION_REQUIRED |
+| C-04 | First combat: `IMPLEMENTATION_P3_COMBAT.md`, `tasks/P3_FIRST_COMBAT.md` | DONE in cloud (static spec; donor assumptions unverified); execution LOCAL_VALIDATION_REQUIRED |
 | C-05 | `docs/tasks/P4_FACE_EATER.md` | TODO |
 | C-06 | Audio placeholder list + Tomb lighting spec | TODO |
 | C-07 | Bug triage / polish checklists | TODO |
@@ -53,7 +53,8 @@ Status values:
 | P0-14 | Git LFS forward-only (`.gitattributes`) | DONE in repo; `git lfs install` on each local machine LOCAL_VALIDATION_REQUIRED |
 | P0-15 | Tomb orientation check (`REN_Inspect_TombOrientation.py`); fix only confirmed errors | LOCAL_VALIDATION_REQUIRED |
 | P0-16 | Decide: keep Tomb left/right as built (fix docs) or mirror before baseline | DONE (user: keep as built; docs use player perspective) |
-| P0-17 | Suspected floating Tomb props (pedestal, jars, canopics, tables, sarcophagus base/lid): measure; Z-only fix before baseline | BLOCKED (user approval) + LOCAL_VALIDATION_REQUIRED |
+| P0-17 | Floating Tomb props: inspect → measure → confirm → Z-only fix (support props; shadow props first) before baseline. Sarcophagus base/lid: judge intent; if uncertain STOP and report | APPROVED (procedure in P1 task) — LOCAL_VALIDATION_REQUIRED |
+| P0-18 | Visual reference pack `ProjectDocs/References/REFERENCE_MANIFEST.md` | TODO (user adding). Rule in `.claude/rules/visual-references.md` |
 
 ## P1 — Interaction foundation
 
@@ -83,19 +84,19 @@ Status values:
 
 | ID | Task | Status |
 |---|---|---|
-| P3-01 | Reed Blade prototype | TODO |
-| P3-02 | Light attack (reuse template combo/charged attack) | TODO |
-| P3-03 | Dodge | TODO |
-| P3-04 | Player health/damage | TODO |
-| P3-05 | Enemy health/damage | TODO |
-| P3-06 | Combat camera decision | TODO |
-| P3-07 | `BP_NamelessDead` encounter(s) + checkpoint + death/restart per `docs/NAMELESS_DEAD_SPEC.md` | TODO (Day 4) |
+| P3-01 | Reed Blade prototype | TODO (after the reference manifest; the donor weapon is TEMP_PLACEHOLDER) |
+| P3-02 | Light attack (one donor chain) | LOCAL_VALIDATION_REQUIRED (spec: P3_FIRST_COMBAT §1) |
+| P3-03 | Dodge (only if needed for fairness; else deferred to Face-Eater prep) | LOCAL_VALIDATION_REQUIRED (spec §6) |
+| P3-04 | Player health/damage + death → checkpoint restart | LOCAL_VALIDATION_REQUIRED (spec §1, §3) |
+| P3-05 | Enemy health/damage + encounter controller (reset, combat-gate unlock) | LOCAL_VALIDATION_REQUIRED (spec §2, §4) |
+| P3-06 | Combat camera checks (donor camera; smallest corrections only) | LOCAL_VALIDATION_REQUIRED (spec §5) |
+| P3-07 | `BP_NamelessDead` (TEMP_PLACEHOLDER) encounter in the Gate court per `docs/NAMELESS_DEAD_SPEC.md` | LOCAL_VALIDATION_REQUIRED (Day 4) |
 
 ## P4 — Face-Eater
 
 | ID | Task | Status |
 |---|---|---|
-| P4-01 | Gate of the West arena greybox | TODO |
+| P4-01 | Gate of the West greybox + arena SHELL (no boss logic) | LOCAL_VALIDATION_REQUIRED (spec: P3_GATE_WEST) |
 | P4-02 | Face-Eater placeholder character | TODO |
 | P4-03 | Boss state enum / state machine (REN state owns phase; generic StateTree never overrides) | TODO (not started) |
 | P4-04 | Hook sweep | TODO |

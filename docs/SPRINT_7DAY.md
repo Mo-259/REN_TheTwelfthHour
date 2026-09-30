@@ -111,13 +111,15 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
 - Cloud: P4 Face-Eater spec (states, attacks, telegraph timings, glyph mechanic).
 - Exit: walk from the Tomb to the Gate approach in one session with no loading.
 
-### Day 4 — First combat
+### Day 4 — Gate of the West + first combat (≈ one workday)
 - Local:
-  - `BP_NamelessDead` (from `BP_CombatEnemy`).
-  - Dodge (`IA_Dodge`, a simple launch or root-motion-free dash with brief invulnerability).
-  - One or two small encounters, a checkpoint, and death → restart.
-  - Run the GateWest builder.
-- Cloud: audio placeholder list, Tomb lighting pass spec, and a review of recorded issues.
+  - Part 1: `docs/tasks/P3_GATE_WEST.md` (≈2–2.5 h). GateWest builder (59 actors), the runtime Gate sink (property changes only on `REN_DistantGate`), checkpoints, light pass, and the arena **shell** (markers only).
+  - Part 2: `docs/tasks/P3_FIRST_COMBAT.md` (≈4–5 h).
+    - A donor-audit gate (A1–A10) and decision D1 (child vs duplicate).
+    - The donor attack chain, a `BP_NamelessDead` TEMP placeholder, death → checkpoint restart, and an encounter controller with reset plus combat-gate unlock.
+    - Camera checks.
+    - Dodge **only if needed for fairness**.
+- Cloud: C-03/C-04 DONE early. Next: the P4 Face-Eater spec (C-05), once approved. Audio sourcing is deferred to polish.
 - Exit: the fight is fair, restart works, and the player never soft-locks.
 
 ### Day 5 — Face-Eater core loop
@@ -174,7 +176,10 @@ Fallback if the glyph mechanic slips: Exposed triggers after a stagger from N hi
 | Left/right docs vs geometry (player-right = −X) | RESOLVED: Tomb kept as built. Cartouche is player-left, side chamber player-right |
 | Floating Tomb props (code reading) → detached shadows in the no-shadow beat | Measure on Day 1. Z-only fix before baseline, with user approval (P0-17) |
 | Tomb shorter than 4 min | Accepted if the beats are good; measured on Day 2. No padding |
-| No audio assets in project | User-sourced CC0 placeholders; audio is cuttable (Day-2 §9) |
+| No audio assets in project | User decision: nullable hooks only; sourcing deferred to the polish pass |
+| Duplicated donor classes break donor casts (StateTree, notifies, UI) | Decision D1: use child Blueprints where the audit finds casts. Templates are still never edited |
+| Visual drift toward template mannequins | Reference manifest rule (`.claude/rules/visual-references.md`); all characters `TEMP_PLACEHOLDER` until masters exist |
+| Gate sink via cross-level tag lookup fails | Report; never move `REN_DistantGate` between levels without approval |
 | Arabic subtitles render as boxes | Import an OFL Arabic font; composite font in `WBP_Subtitle` (Day 3 task §6) |
 | Generic StateTree fights the boss phase logic | REN state machine owns the phase; StateTree runs only in Combat |
 | Necropolis shorter than its 8-minute bracket (≈2.5–4.5 min) | Accepted; no padding (quality over duration) |

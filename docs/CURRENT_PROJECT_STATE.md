@@ -69,6 +69,15 @@ Vertical Necropolis package (cloud-prepared 2026-09-30; **NOT built in Unreal**)
 
 Day-2 Tomb beats package (cloud-prepared 2026-09-30; **NOT executed in Unreal**): `docs/tasks/P2_TOMB_BEATS.md`. It is gameplay-first (instant control at spawn, no cut at the reveal), with the Arabic subtitle font moved to Day 2. The project contains **no audio assets**; placeholders must be user-sourced.
 
+Gate of the West + first combat package (cloud-prepared 2026-09-30; **NOT built or executed in Unreal**):
+- `Scripts/Editor/REN_GateWest_Layout.py` (59 items, validated offline against the Tomb reference and all Necropolis solids)
+- `Scripts/Editor/REN_GateWest_Greybox_Builder_v1.py` (prefix `REN_GW_`, same guards as Necropolis)
+- `docs/GATE_WEST_GREYBOX_SPEC.md`, `docs/tasks/P3_GATE_WEST.md`
+- `docs/IMPLEMENTATION_P3_COMBAT.md` (donor assumptions A1–A10 **unverified**; decision D1 child vs duplicate), `docs/tasks/P3_FIRST_COMBAT.md`
+- The Face-Eater arena is a **shell only** (markers `*_PLACEHOLDER`). **No boss logic exists.**
+
+Visual references: `ProjectDocs/References/` / `REFERENCE_MANIFEST.md` are **not yet in the repository**. Rule: `.claude/rules/visual-references.md`. Until the masters exist, all character and weapon visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
+
 ## Tomb skyline / landmark proxies
 
 These are created by builder v3 in `L_Tomb_Blockout`, beyond the reveal ledge:
@@ -90,7 +99,7 @@ Unreal is left-handed. Facing +Y (spawn direction), **player-right = −X**.
 - The Tomb is **not mirrored**. No Tomb geometry moves because of this. The docs now use player-perspective terms.
 - Builder-v3 labels `…Left…`/`…Right…` (e.g. `REN_Corridor_Left_A`, `REN_Reveal_LeftPier`) mean map −X/+X, i.e. the opposite of the player's view. The labels are kept; renaming would break world-lock continuity.
 
-## Suspected floating props (code reading, 2026-09-30) — decision needed BEFORE the Day-1 baseline
+## Suspected floating props (code reading, 2026-09-30) — fix APPROVED with procedure, before the Day-1 baseline
 
 Builder v3 uses the centre-pivot 100 cm Engine cube, and several prop centres are too high, so their bottoms float above the surface below. **Hypothesis until measured locally:**
 
@@ -105,7 +114,16 @@ Builder v3 uses the centre-pivot 100 cm Engine cube, and several prop centres ar
 | `REN_Sarcophagus_Base` | 25 | platform top 12.5 | 12.5 cm |
 | `REN_Sarcophagus_Lid` | 126 | base top 95 | 31 cm |
 
-Detached shadows under the pedestal and jars would weaken the no-shadow beat. The proposed fix, **only with user approval**, is to lower each confirmed prop in Z so it rests on the surface below (a Z-only change), **before** the first official baseline (TASK_BOARD P0-17).
+Detached shadows under the pedestal and jars would weaken the no-shadow beat.
+
+**User decision (2026-09-30):** confirmed floating props may be corrected **before** the first official Tomb baseline, following the procedure in `docs/tasks/P1_INTERACTION_FOUNDATION.md` (P0-17):
+- inspect and measure the real gap
+- confirm the prop is meant to rest on the surface
+- change **Z only**
+- re-check visually
+- then export the baseline
+
+Ordinary support props (pedestal, jars, canopics, tables) are fixed if confirmed; the shadow-zone props are the priority. **The sarcophagus base and lid are not lowered automatically**: first judge whether the separation is intentional, and stop and report if uncertain. Gaps of 1 cm or less are tolerated.
 
 ## Production plan
 
@@ -131,7 +149,10 @@ Builder v3 safety guard (2026-09-30): refuses to run unless `L_Tomb_Blockout` is
 - **Variant_Combat as donor**: REN-owned duplicates of the template combat Blueprints. Template assets are never edited. The donor audit must precede duplication.
 - **Face-Eater placeholder**: may start as a scaled `BP_CombatEnemy` duplicate. Phase authority belongs to the REN state machine (see `docs/SPRINT_7DAY.md` decision 2).
 - **No-shadow**: `Cast Shadow = false` on the player visual components (no shadow framework).
-- **Anubis**: a still mannequin placeholder with a proxy jackal head and a fixed CameraActor (no Sequencer).
+- **Anubis**: a still mannequin placeholder with a proxy jackal head and a fixed CameraActor (no Sequencer). `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
+- **Gate of the West opening**: the Tomb proxy `REN_DistantGate` gets Movable plus the tag `REN_GateWestLeaf` (property changes only) and is sunk at runtime by `BP_GateWestOpener` in the GW level via tag lookup (no cross-level hard reference, no level move).
+- **Donor class strategy (D1)**: REN combat classes may be *child* Blueprints of the Variant_Combat classes (keeps a dependency on `/Game/Variant_Combat/`) where the audit shows donor casts.
+- **Audio**: nullable hooks only; no sound assets until the polish pass.
 
 ## Repository audit findings (cloud, 2026-09-30)
 

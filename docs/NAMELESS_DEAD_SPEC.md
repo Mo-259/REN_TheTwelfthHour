@@ -53,6 +53,7 @@ The effect is that the faces drift toward *sameness*. A viewer should feel "some
   - **never the default grey**
   - no emissive
 - No custom modelling this week. Final human models are out of sprint scope.
+- Label: **`TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`** (asset description + editor-only TextRender). The visual authority is the reference manifest (`ProjectDocs/References/REFERENCE_MANIFEST.md`) once present. Never finalise the look from the mannequin.
 
 **Behaviour** (reuse the template StateTree; tune only numbers):
 - Lower walk speed.

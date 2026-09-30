@@ -91,7 +91,8 @@ Serialize MCP calls: inspect → mutate → compile/save → inspect. Never edit
 - A **black, elongated jackal-head proxy** (engine shapes attached to the head socket).
   - Tall, lean and dignified.
   - No gold spam, no muscular exaggeration, no glowing eyes.
-  - This is a placeholder only; the art pass replaces it at the same transform.
+  - This is a placeholder only; the art pass replaces it at the same transform. Label it **`TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`**: in the asset description, and with an editor-only TextRender (Hidden in Game).
+  - Visual authority comes from `ProjectDocs/References/REFERENCE_MANIFEST.md` once present. Never reshape Anubis toward the mannequin.
 - Place it at `REN_NEC_Marker_Anubis` (0, 4950, 0), facing −Y (yaw −90). Label: `REN_INT_NEC_Anubis`.
 
 ### Encounter logic
