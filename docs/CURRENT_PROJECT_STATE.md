@@ -70,11 +70,17 @@ Vertical Necropolis package (cloud-prepared 2026-09-30; **NOT built in Unreal**)
 Day-2 Tomb beats package (cloud-prepared 2026-09-30; **NOT executed in Unreal**): `docs/tasks/P2_TOMB_BEATS.md`. It is gameplay-first (instant control at spawn, no cut at the reveal), with the Arabic subtitle font moved to Day 2. The project contains **no audio assets**; placeholders must be user-sourced.
 
 Gate of the West + first combat package (cloud-prepared 2026-09-30; **NOT built or executed in Unreal**):
-- `Scripts/Editor/REN_GateWest_Layout.py` (59 items, validated offline against the Tomb reference and all Necropolis solids)
+- `Scripts/Editor/REN_GateWest_Layout.py` (61 items, including the arena entry-lock slab + ArenaEnter trigger added for C-05; validated offline against the Tomb reference and all Necropolis solids, plus static Face-Eater arena-requirement tests)
 - `Scripts/Editor/REN_GateWest_Greybox_Builder_v1.py` (prefix `REN_GW_`, same guards as Necropolis)
 - `docs/GATE_WEST_GREYBOX_SPEC.md`, `docs/tasks/P3_GATE_WEST.md`
 - `docs/IMPLEMENTATION_P3_COMBAT.md` (donor assumptions A1–A10 **unverified**; decision D1 child vs duplicate), `docs/tasks/P3_FIRST_COMBAT.md`
 - The Face-Eater arena is a **shell only** (markers `*_PLACEHOLDER`). **No boss logic exists.**
+
+Face-Eater boss package (cloud-prepared 2026-10-01; **mechanics only; NOT implemented or PIE-tested**):
+- `docs/FACE_EATER_BOSS_SPEC.md`, `docs/IMPLEMENTATION_P4_FACE_EATER.md`, `docs/tasks/P4_FACE_EATER.md`, `docs/QA_FACE_EATER.md`
+- The donor strategy is not decided: gate G1–G4 picks option F or R locally.
+- Planned assets (none exist yet): `/Game/REN/Gameplay/Bosses/FaceEater/` → `BP_FaceEater`, `E_FaceEaterState`, `E_FaceEaterAttack`, `BP_FaceEaterGlyph`, `WBP_FaceEaterBossBar`.
+- All Face-Eater visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
 
 Visual references: `ProjectDocs/References/` / `REFERENCE_MANIFEST.md` are **not yet in the repository**. Rule: `.claude/rules/visual-references.md`. Until the masters exist, all character and weapon visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
 

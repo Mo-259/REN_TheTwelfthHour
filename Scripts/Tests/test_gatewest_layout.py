@@ -164,6 +164,100 @@ class LayoutTests(unittest.TestCase):
             self.assertEqual(self.L[n]["rot"]["yaw"], 90.0)
 
 
+# ---------------------------------------------------------------------------
+# Face-Eater arena requirements (static). Constants MIRROR docs/FACE_EATER_BOSS_SPEC.md
+# (§ "Arena requirements" and "Attack set"). Change both together.
+# ---------------------------------------------------------------------------
+BOSS_HEIGHT = 380
+BOSS_CAPSULE_R = 90
+PLAYER_CAPSULE_R = 42
+SWEEP_REACH = 420                  # radius from boss centre
+HEAVY_IMPACT_OFFSET, HEAVY_IMPACT_R = 400, 220
+INTERACT_REACH = 300               # practical reach to a pillar face (P1 trace 350, minus margin)
+PLAYER_RUN_SPEED = 500             # cm/s (template default; verify locally)
+REACTION_TIME = 0.5                # s
+HEAVY_GLYPH_WINDOW = 2.8           # s
+SWEEP_GLYPH_WINDOW = 1.5           # s
+
+
+class FaceEaterArenaRequirementsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.items = GW.build_layout()
+        cls.L = by_label(cls.items)
+        cls.pillars = [it for it in cls.items if "GlyphPillar" in it["label"]]
+
+    def _dist_to_box_2d(self, x, y, box):
+        dx = max(box["min"][0] - x, 0, x - box["max"][0])
+        dy = max(box["min"][1] - y, 0, y - box["max"][1])
+        return (dx * dx + dy * dy) ** 0.5
+
+    def _arena_points(self, step=50):
+        a0, a1 = GW.ARENA
+        hw = GW.ARENA_HALF_W - PLAYER_CAPSULE_R
+        x = -hw
+        while x <= hw:
+            y = a0 + PLAYER_CAPSULE_R
+            while y <= a1 - PLAYER_CAPSULE_R:
+                if not any(self._dist_to_box_2d(x, y, p) < PLAYER_CAPSULE_R for p in self.pillars):
+                    yield x, y
+                y += step
+            x += step
+
+    def test_max_distance_to_nearest_pillar(self):
+        worst = max(min(self._dist_to_box_2d(x, y, p) for p in self.pillars) for x, y in self._arena_points())
+        self.assertLessEqual(worst, 800, f"worst distance to a pillar = {worst:.0f} cm")
+        # Heavy Strike window must be reachable from ANYWHERE in the arena.
+        t = max(0.0, worst - INTERACT_REACH) / PLAYER_RUN_SPEED + REACTION_TIME
+        self.assertLess(t, HEAVY_GLYPH_WINDOW, f"heavy window unreachable: needs {t:.2f}s")
+
+    def test_sweep_window_reachable_when_fighting_near_a_pillar(self):
+        # Sweep is the 'possible' opportunity: reachable if the player fights within ~5 m of a pillar.
+        t = max(0.0, 500 - INTERACT_REACH) / PLAYER_RUN_SPEED + REACTION_TIME
+        self.assertLess(t, SWEEP_GLYPH_WINDOW)
+
+    def test_boss_can_follow_everywhere_no_safe_pockets(self):
+        boss_d = 2 * BOSS_CAPSULE_R + 20
+        hw = GW.ARENA_HALF_W
+        for p in self.pillars:
+            side_gap = hw - p["max"][0] if p["min"][0] > 0 else p["min"][0] + hw
+            self.assertGreaterEqual(side_gap, boss_d, f"{p['label']} pillar-wall gap traps the boss")
+        xs = sorted({(p["min"][0], p["max"][0]) for p in self.pillars})
+        ys = sorted({(p["min"][1], p["max"][1]) for p in self.pillars})
+        self.assertGreaterEqual(xs[1][0] - xs[0][1], boss_d)
+        self.assertGreaterEqual(ys[1][0] - ys[0][1], boss_d)
+        for p in self.pillars:   # pillar-to-end-wall gap
+            self.assertGreaterEqual(min(p["min"][1] - GW.ARENA[0], GW.ARENA[1] - p["max"][1]), boss_d)
+        # Corners: a player pressed into a corner is still inside sweep reach of a boss touching the walls.
+        corner_gap = ((BOSS_CAPSULE_R + PLAYER_CAPSULE_R) * 2 ** 0.5)
+        self.assertLess(corner_gap, SWEEP_REACH)
+
+    def test_recess_fits_boss(self):
+        lintel = self.L["REN_GW_Recess_Lintel"]
+        recess = self.L["REN_GW_Recess_Floor"]
+        self.assertGreater(lintel["min"][2], BOSS_HEIGHT + 50)
+        self.assertGreaterEqual(recess["max"][0] - recess["min"][0], 2 * BOSS_CAPSULE_R + 100)
+
+    def test_sweep_room_inside_arena(self):
+        cx, cy, _ = self.L["REN_GW_Marker_FaceEater_Center_PLACEHOLDER"]["loc"]
+        self.assertGreaterEqual(GW.ARENA_HALF_W - abs(cx), SWEEP_REACH + 200)
+        self.assertGreaterEqual(min(cy - GW.ARENA[0], GW.ARENA[1] - cy), HEAVY_IMPACT_OFFSET + HEAVY_IMPACT_R)
+
+    def test_entry_lock_and_trigger(self):
+        slab = self.L["REN_GW_ArenaGate_Slab"]
+        thr = self.L["REN_GW_Arena_Threshold"]
+        trig = self.L["REN_GW_Trigger_ArenaEnter"]
+        self.assertEqual(slab["kind"], "movable")
+        self.assertLessEqual(slab["max"][2], thr["min"][2], "open (built) state must be below the threshold")
+        self.assertEqual((slab["min"][0], slab["max"][0]), (thr["min"][0], thr["max"][0]))
+        self.assertGreaterEqual(slab["max"][2] + slab["rise_cm"], 450, "raised slab must be unjumpable")
+        self.assertGreaterEqual(slab["max"][2] + slab["rise_cm"] - (slab["max"][2] - slab["min"][2]), thr["min"][2],
+                                "raised slab must reach down to the threshold (no crawl gap)")
+        self.assertGreaterEqual(trig["min"][1] - slab["max"][1], 150, "player must be clear of the slab when it rises")
+        self.assertGreaterEqual(trig["min"][1], GW.ARENA[0])
+        self.assertEqual((trig["min"][0], trig["max"][0]), (-GW.ARENA_HALF_W, GW.ARENA_HALF_W), "full arena width")
+
+
 class BuilderTests(unittest.TestCase):
     def setUp(self):
         self.project = tempfile.mkdtemp()

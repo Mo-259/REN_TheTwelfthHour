@@ -12,7 +12,8 @@ Shared slice coordinates (same as Tomb + Necropolis):
 Starts where the Necropolis gate plinth ends (y 5450) on the Gate axis x = 0.
 REN_DistantGate (Tomb skyline proxy) is NOT rebuilt or duplicated here; it is
 opened at runtime by a Blueprint (see spec §4). No Face-Eater logic here: the
-arena is a spatial shell with markers only.
+arena is a spatial shell with markers only (plus the entry lock
+slab + ArenaEnter trigger used by the boss encounter; no boss logic here).
 """
 
 import REN_Necropolis_Layout as NL
@@ -98,6 +99,10 @@ def build_layout():
     s0, s1 = ARENA_WALL_S
     a0, a1 = ARENA
     L.append(_box("Arena_Threshold", "mesh", (-CORRIDOR_HALF_W, s0, -SLAB), (CORRIDOR_HALF_W, s1, Z0)))
+    # Arena entry lock (added for the C-05 boss spec): rests BELOW the threshold
+    # (built/open state) and RISES 640 cm to seal the entry while the boss fight runs.
+    L.append(_box("ArenaGate_Slab", "movable", (-CORRIDOR_HALF_W, s0, -SLAB - 600), (CORRIDOR_HALF_W, s1, -SLAB),
+                  rise_cm=640))
     L.append(_box("Arena_WallSouth_NX", "mesh", (-1200, s0, Z0), (-CORRIDOR_HALF_W, s1, 900)))
     L.append(_box("Arena_WallSouth_PX", "mesh", (CORRIDOR_HALF_W, s0, Z0), (1200, s1, 900)))
     L.append(_box("Arena_Floor", "mesh", (-ARENA_HALF_W, a0, -SLAB), (ARENA_HALF_W, a1, Z0)))
@@ -122,6 +127,8 @@ def build_layout():
     L.append(_box("Trigger_Checkpoint_Approach", "trigger", (-PASSAGE_HALF_W, 5700, Z0), (PASSAGE_HALF_W, 5900, 300)))
     L.append(_box("Trigger_EncounterStart", "trigger", (-COURT_HALF_W, 6300, Z0), (COURT_HALF_W, 6500, 400)))
     L.append(_box("Trigger_Checkpoint_ArenaApproach", "trigger", (-CORRIDOR_HALF_W, 7850, Z0), (CORRIDOR_HALF_W, 8150, 300)))
+    # Boss encounter start: fully inside the arena, >= 150 cm past the entry slab line.
+    L.append(_box("Trigger_ArenaEnter", "trigger", (-ARENA_HALF_W, 8700, Z0), (ARENA_HALF_W, 8900, 400)))
 
     # -- Markers ------------------------------------------------------------------------
     L.append(_target("Respawn_Approach", (0, 5800, 100), yaw=90))

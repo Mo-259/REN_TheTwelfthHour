@@ -44,7 +44,7 @@ Status: designed in cloud on 2026-09-30. Builder: `Scripts/Editor/REN_GateWest_G
 | **Combat Court** | x ±900, y 6250..7650 (18 × 14 m; 15 m between pilasters) | Open top, walls 600. Pilasters sit against the side walls, out of the fight. Two stelae (900 tall) flank the exit. Enemy markers are at least 3 m from every wall. |
 | **Combat Gate** | x ±300, y 7650..7750 | `REN_GW_CombatGate_Slab` (Movable, 600 tall, `sink_cm` 640) seals the exit until the encounter is cleared. It can't be jumped. |
 | **Corridor** | x ±300, y 7750..8450 | Compression before the arena, with a lintel at 600. Checkpoint `Respawn_ArenaApproach` (0, 8000). |
-| **Arena shell** | x ±1100, y 8550..10450 (22 × 19 m) | Walls 900, open top. Four **Glyph-pillar shells** are fixed landmarks now; Glyph Blueprints are layered on top later, the same pattern as the Cartouche. There is at least 6 m of clear radius around the boss centre marker for sweeps, and at least 3.3 m between each pillar and its side wall. |
+| **Arena shell** | x ±1100, y 8550..10450 (22 × 19 m) | Walls 900, open top. Four **Glyph-pillar shells** are fixed landmarks now; Glyph Blueprints are layered on top later, the same pattern as the Cartouche. There is at least 6 m of clear radius around the boss centre marker for sweeps, and at least 3.3 m between each pillar and its side wall. **Entry lock** (added for C-05): `REN_GW_ArenaGate_Slab` rests below the threshold and rises 640 cm when the player crosses `REN_GW_Trigger_ArenaEnter` (y 8700..8900, full width). Arena requirements: `docs/FACE_EATER_BOSS_SPEC.md` §8. |
 | **Boss recess** | x ±300, y 10450..10950 | This is the boss's entrance direction: dark, on axis, with a lintel at 700. |
 
 Markers (TargetPoints):
@@ -95,4 +95,4 @@ No padding.
 
 ## 8. Out of scope
 
-Face-Eater logic and actor, arena entry lock, Glyph pillar behaviour (Day 5), final art, additional encounters.
+Face-Eater logic and actor, Glyph pillar behaviour (Day 5; see `docs/FACE_EATER_BOSS_SPEC.md`), final art, additional encounters. The entry-lock geometry exists; its logic is Day 5.

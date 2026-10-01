@@ -24,9 +24,9 @@ Serialize MCP calls: **inspect → edit → compile → save → inspect → PIE
 
 1. Create folder `/Game/REN/Worlds/GateWest/`. File → New Level → **Empty Level** (not Open World). Save it as `L_GateWest_Blockout`.
 2. With only that level open, run the builder.
-   - Expected log: `REN Gate of the West Greybox Builder v1 COMPLETE` and `Spawned: 59 | REN_GW_ actors now in level: 59 (expected 59)`, with no warnings.
+   - Expected log: `REN Gate of the West Greybox Builder v1 COMPLETE` and `Spawned: 61 | REN_GW_ actors now in level: 61 (expected 61)`, with no warnings.
    - If it refuses, report the message verbatim.
-3. Check: `REN_GW_CombatGate_Slab` has Mobility = Movable. The Outliner folders `REN_GW/...` exist. Save.
+3. Check: `REN_GW_CombatGate_Slab` and `REN_GW_ArenaGate_Slab` have Mobility = Movable. `REN_GW_ArenaGate_Slab` rests **below** the arena threshold (it is used by the Day-5 boss encounter; leave it unused today). The Outliner folders `REN_GW/...` exist. Save.
 4. In `L_REN_Slice`, open the Levels window → Add Existing `L_GateWest_Blockout`, set Always Loaded with an identity transform. Visually confirm that the passage starts flush at the north edge of the Necropolis plinth, directly behind the Gate.
 
 ## 2. Gate opening (property changes on one Tomb actor) — 30 min

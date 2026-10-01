@@ -13,9 +13,9 @@ Status values:
 |---|---|---|
 | 1 | P0-14 LFS install, P0-09, donor audit, P0-15 orientation → P0-06 → P0-05 baseline, P0-07, P0-11, P1-00…P1-08 via `docs/tasks/P1_INTERACTION_FOUNDATION.md` | C-01 ✔, C-08 ✔ (done early) |
 | 2 | P2-01…P2-04, P0-11, P0-12 via `docs/tasks/P2_TOMB_BEATS.md` | C-02 ✔; C-03 ✔, C-04 ✔ (done early) |
-| 3 | P2-05, P5-01 via `docs/tasks/P2_NECROPOLIS_ANUBIS.md` | C-05 P4 Face-Eater spec |
-| 4 | P4-01 via `docs/tasks/P3_GATE_WEST.md`; P3-02…P3-07 via `docs/tasks/P3_FIRST_COMBAT.md` | C-05 P4 Face-Eater spec (awaiting go-ahead); C-06 Tomb lighting spec (audio sourcing deferred to polish) |
-| 5 | P4-02…P4-08 | C-07 bug triage / polish checklists |
+| 3 | P2-05, P5-01 via `docs/tasks/P2_NECROPOLIS_ANUBIS.md` | C-05 ✔ (done early) |
+| 4 | P4-01 via `docs/tasks/P3_GATE_WEST.md`; P3-02…P3-07 via `docs/tasks/P3_FIRST_COMBAT.md` | C-06 Tomb lighting spec (audio sourcing deferred to polish) |
+| 5 | P4-02…P4-08 via `docs/tasks/P4_FACE_EATER.md` (QA: `docs/QA_FACE_EATER.md`) | C-07 bug triage / polish checklists |
 | 6 | Tier A polish (Tomb + Face-Eater) | review hand-back reports |
 | 7 | Freeze, playthroughs, package | release notes, state docs |
 
@@ -28,7 +28,7 @@ Status values:
 | C-02 | `docs/tasks/P2_TOMB_BEATS.md` (Day-2 local task: wake, cartouche, no-shadow + staging, side clue, door, gameplay-first reveal, lighting, audio, `L_REN_Slice`) | DONE in cloud; execution LOCAL_VALIDATION_REQUIRED |
 | C-03 | Gate of the West package: `GATE_WEST_GREYBOX_SPEC.md`, `REN_GateWest_Layout.py`, `REN_GateWest_Greybox_Builder_v1.py`, `tasks/P3_GATE_WEST.md` | DONE in cloud (offline tests pass); Unreal run LOCAL_VALIDATION_REQUIRED |
 | C-04 | First combat: `IMPLEMENTATION_P3_COMBAT.md`, `tasks/P3_FIRST_COMBAT.md` | DONE in cloud (static spec; donor assumptions unverified); execution LOCAL_VALIDATION_REQUIRED |
-| C-05 | `docs/tasks/P4_FACE_EATER.md` | TODO |
+| C-05 | Face-Eater mechanics package: `FACE_EATER_BOSS_SPEC.md`, `IMPLEMENTATION_P4_FACE_EATER.md`, `tasks/P4_FACE_EATER.md`, `QA_FACE_EATER.md`; GW layout entry lock + arena-requirement tests | DONE in cloud (static); execution LOCAL_VALIDATION_REQUIRED |
 | C-06 | Audio placeholder list + Tomb lighting spec | TODO |
 | C-07 | Bug triage / polish checklists | TODO |
 | C-08 | Corrections 1–7: world-lock asset/spatial split + strict mode + level ownership, orientation check, LFS, Nameless Dead spec, sprint/doc updates | DONE in cloud |
@@ -97,13 +97,13 @@ Status values:
 | ID | Task | Status |
 |---|---|---|
 | P4-01 | Gate of the West greybox + arena SHELL (no boss logic) | LOCAL_VALIDATION_REQUIRED (spec: P3_GATE_WEST) |
-| P4-02 | Face-Eater placeholder character | TODO |
-| P4-03 | Boss state enum / state machine (REN state owns phase; generic StateTree never overrides) | TODO (not started) |
-| P4-04 | Hook sweep | TODO |
-| P4-05 | Heavy strike | TODO |
-| P4-06 | Grab | TODO |
-| P4-07 | Chest seal exposure mechanic | TODO |
-| P4-08 | Boss completion/reward | TODO |
+| P4-02 | `BP_FaceEater` TEMP placeholder (donor gate G1–G4 → option F or R) | LOCAL_VALIDATION_REQUIRED (spec: P4_FACE_EATER §0–1) |
+| P4-03 | `E_FaceEaterState` state machine (sole authority; generation token; watchdog; invariants) | LOCAL_VALIDATION_REQUIRED (§1–2) |
+| P4-04 | Hook Sweep (1.0 / 0.35 / 1.6 s; window 1.5 s) | LOCAL_VALIDATION_REQUIRED (§3) |
+| P4-05 | Heavy Strike (1.4 / 0.25 / 3.0 s; window 2.8 s; first attack) | LOCAL_VALIDATION_REQUIRED (§3) |
+| P4-06 | Identity Extraction Grab (CUTTABLE; no status system) | LOCAL_VALIDATION_REQUIRED or CUT (§3.6) |
+| P4-07 | Glyph pillars (`BP_FaceEaterGlyph` ×4) → Exposed (seal opens) → Staggered; 0-damage Combat; `ResetEncounter` | LOCAL_VALIDATION_REQUIRED (§4–6) |
+| P4-08 | Defeated → slab lowers, `OnBossDefeated`; reward beat/end card (placeholder) | LOCAL_VALIDATION_REQUIRED (§4); end-card spec TODO |
 
 ## P5 — Presentation
 

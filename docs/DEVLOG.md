@@ -121,3 +121,26 @@ C-04 first combat:
 - `tasks/P3_FIRST_COMBAT.md`.
 
 Offline tests: 66/66 pass. Nothing is Unreal-validated.
+
+## 2026-10-01 — C-05 Face-Eater boss mechanics package (Claude Code Cloud)
+
+- The reference pack is still absent (`ProjectDocs/References/`). Mechanics only; all visuals are `TEMP_PLACEHOLDER`; no art decisions.
+- Created:
+  - `docs/FACE_EATER_BOSS_SPEC.md`: loop, state table, attacks, glyph window, damage model, arena requirements, reset, soft-lock table.
+  - `docs/IMPLEMENTATION_P4_FACE_EATER.md`: assets, variables, functions, donor gate G1–G4, reset flow, self-review.
+  - `docs/tasks/P4_FACE_EATER.md`: local MCP task with STOP conditions S1–S7.
+  - `docs/QA_FACE_EATER.md`: 61 test cases across states, attacks, glyphs, damage, defeat, restart, camera/arena and hygiene.
+- Key decisions:
+  - **Combat deals 0 damage with deflect feedback** (no chip), so the lesson can't be brute-forced.
+  - **One** valid glyph per recovery window → Exposed. Any of the 4 pillars works; all reset after the cycle.
+  - The explicit `bGlyphWindowOpen` is opened and closed only by attack sequences.
+  - **Staggered** is kept as a 1.2 s, no-damage seal-closing beat (not a bonus window).
+  - Health 100, 7 per Exposed hit, cap 35 per cycle → 3–5 cycles. The first attack is always Heavy (the teaching moment).
+  - Generation-token timers, a watchdog and invariant checks prevent stale sequences and soft-locks.
+- **Gap found and fixed:** the arena had no entry trigger or lock (the player could leave mid-fight and the boss could follow). Added `REN_GW_ArenaGate_Slab` (rests below the threshold, rises 640) and `REN_GW_Trigger_ArenaEnter` to the not-yet-built GW layout (59 → 61 items). Additive only; no existing transform changed.
+- Static arena-requirement tests (6 new) cover:
+  - worst distance to a pillar face = **766 cm** → Heavy window reachable from anywhere (≈1.4 s < 2.8 s)
+  - no boss-proof pockets, and no corner safe spots
+  - the recess fits the boss
+  - the entry lock is safe
+- Offline tests: 72/72 pass. Nothing is PIE-validated; the donor integration is undecided (local gate).

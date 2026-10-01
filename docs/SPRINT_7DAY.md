@@ -113,7 +113,7 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
 
 ### Day 4 — Gate of the West + first combat (≈ one workday)
 - Local:
-  - Part 1: `docs/tasks/P3_GATE_WEST.md` (≈2–2.5 h). GateWest builder (59 actors), the runtime Gate sink (property changes only on `REN_DistantGate`), checkpoints, light pass, and the arena **shell** (markers only).
+  - Part 1: `docs/tasks/P3_GATE_WEST.md` (≈2–2.5 h). GateWest builder (61 actors, including the arena entry-lock slab and ArenaEnter trigger), the runtime Gate sink (property changes only on `REN_DistantGate`), checkpoints, light pass, and the arena **shell** (markers only).
   - Part 2: `docs/tasks/P3_FIRST_COMBAT.md` (≈4–5 h).
     - A donor-audit gate (A1–A10) and decision D1 (child vs duplicate).
     - The donor attack chain, a `BP_NamelessDead` TEMP placeholder, death → checkpoint restart, and an encounter controller with reset plus combat-gate unlock.
@@ -122,12 +122,16 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
 - Cloud: C-03/C-04 DONE early. Next: the P4 Face-Eater spec (C-05), once approved. Audio sourcing is deferred to polish.
 - Exit: the fight is fair, restart works, and the player never soft-locks.
 
-### Day 5 — Face-Eater core loop
-- Local:
-  - `BP_FaceEater` with `E_FaceEaterState` (Dormant, Intro, Combat, Exposed, Staggered, Defeated).
-  - Hook sweep, heavy strike, recovery window, glyph pillars → Exposed → chest-seal damage.
-  - Boss bar, and a defeat → Ren-glyph reward beat → end card.
-- Cloud: bug triage and polish checklists.
+### Day 5 — Face-Eater core loop (≈ one workday)
+- Local: execute `docs/tasks/P4_FACE_EATER.md` (design `docs/FACE_EATER_BOSS_SPEC.md`, QA `docs/QA_FACE_EATER.md`):
+  - **Donor gate G1–G4** picks option F (plain Character + `BPI_Damageable`) or R (donor child/duplicate with its AI gated).
+  - `E_FaceEaterState` is the sole phase authority, with generation-token timers, a watchdog and invariants.
+  - Heavy Strike + Hook Sweep (Grab cuttable), with an explicit `bGlyphWindowOpen`.
+  - 1 Glyph → Exposed (4 s, 7 per hit, cap 35/cycle) → Staggered (1.2 s) → Combat. Combat deals **0 damage with deflect feedback**.
+  - `ResetEncounter()` with restart ×3.
+  - Entry lock and boss bar.
+  - All visuals `TEMP_PLACEHOLDER`.
+- Cloud: C-05 DONE early. Next (on approval): C-06 Tomb lighting spec / C-07 bug triage and polish checklists, and the end-card / reward-beat spec.
 - Exit: the boss can be beaten the intended way, cannot be cheesed by normal attacks alone, and restart works.
 
 ### Day 6 — Polish Tier A (Tomb + Face-Eater)
