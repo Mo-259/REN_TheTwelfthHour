@@ -144,3 +144,29 @@ Offline tests: 66/66 pass. Nothing is Unreal-validated.
   - the recess fits the boss
   - the entry lock is safe
 - Offline tests: 72/72 pass. Nothing is PIE-validated; the donor integration is undecided (local gate).
+
+## 2026-10-01 — Face-Eater rev 2 + production/QA/ship package (Claude Code Cloud)
+
+Face-Eater corrections (user):
+1. **Removed the hidden per-cycle damage cap.** Every valid Exposed hit moves the bar. Tuning is via `ExposedDuration` (4.0 s), `ExposedHitDamage` (~7, range 6–8) and donor combo speed, with a target of 3–5 cycles. Any future cap must close the seal and leave Exposed immediately.
+2. **Hit windows vs animation.** Scripted timings are acceptable only for the TEMP placeholder; the visual attack and the damage window must agree. Once approved animations exist, the Active window is synced via an Anim Notify / Notify State / montage event, with the state machine still authoritative and scripted timing as a timeout fallback (≤ ~0.1 s offset). QA A11/A12 added.
+3. **Entry-slab safety.**
+   - `REN_GW_Trigger_ArenaEnter` moved from y 8700..8900 to y 8800..9000: the capsule is ≥ 150 cm clear when it fires.
+   - Runtime closure-box check: 0.1 s retries up to 10 tries, otherwise the slab stays open, a warning is logged and the trigger re-arms. The slab reverses if the player enters during the rise. It never pushes or launches the pawn.
+   - QA E1–E6 added.
+4. **Boss movement bounds.**
+   - Main x ±1000, y 8850..10350, plus the recess mouth x ±200, y 10350..10550.
+   - Walks back under boundary pressure; no attacks out of bounds; the watchdog teleport is emergency-only.
+   - Static tests: worst player-to-bounds distance 355 cm (< 420 sweep). The mouth was first set to 10500, which gave a 404 cm worst case (too tight), so it was deepened to 10550.
+   - QA B1–B5 added.
+- The QA matrix now has 74 cases. Offline tests: 77/77 pass.
+
+Production package:
+- `tasks/MASTER_LOCAL_EXECUTION_ORDER.md`, `PERFORMANCE_AND_POLISH_BUDGET.md`, `BUG_TRIAGE.md`, `BUILD_RELEASE_CHECKLIST.md`, `tasks/P5_POLISH_AND_SHIP.md` (end-of-slice reward beat + end card).
+
+Static review:
+- Fixed stale counts: CURRENT_PROJECT_STATE said 49 tests (now 77); the GW spec's ArenaEnter range; P0-03 "LFS decision open".
+- No cloud-created item is marked locally implemented.
+- The reference pack is still absent from the repo.
+
+**Cloud architecture expansion stops here.** The next step is local master-order §0.

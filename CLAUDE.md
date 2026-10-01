@@ -39,6 +39,7 @@ Tomb of No Name → identity/no-shadow clues → exit → Vertical Necropolis re
 Do not attempt all 12 chapters.
 
 Active production plan: `docs/SPRINT_7DAY.md` (7-day pre-alpha, ~30 min target, quality over duration; Tomb 0–8 min and Face-Eater are polish tier A).
+Local execution order (definitive): `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. A cloud spec never makes runtime work DONE.
 
 ## Required reading before substantial work
 

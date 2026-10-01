@@ -19,6 +19,7 @@ Workflow for every step: **inspect → edit → compile → save → inspect →
 - **S4:** `REN_GW_ArenaGate_Slab` or `REN_GW_Trigger_ArenaEnter` is missing (the GW builder was run before the C-05 layout update). The fix is a **re-run of the GW builder only while no GW baseline exists**; otherwise report it, because adding them by hand needs approval.
 - **S5:** Any world-lock CHANGED/MISSING appears in Tomb, Necropolis or GateWest after the work.
 - **S6:** Restart test R3 fails twice after fixes.
+- **S8:** The entry slab cannot be made to close safely (QA E1–E6 fail) without pushing or launching the pawn. Stop and report; don't add physics pushes.
 - **S7:** A visual decision would be required (e.g. "what should the chest seal look like"). Use a placeholder and log the question instead.
 
 ## 0. Preconditions and audit (read-only) — 20 min
@@ -39,18 +40,26 @@ Workflow for every step: **inspect → edit → compile → save → inspect →
 4. Place it in `L_GateWest_Blockout` at `REN_GW_Marker_FaceEater_Center_PLACEHOLDER` (0, 9550, ~190), facing −Y. Label `REN_INT_GW_FaceEater`. Set the instance refs (trigger, slab, markers). Save.
 5. **PIE smoke test:** the boss stands Dormant and doesn't move or attack; hitting it does nothing; no log errors.
 
-## 2. Encounter start and entry lock — 30 min
+## 2. Encounter start and entry lock (safe closure) — 45 min
 
 1. BeginPlay: capture `SlabOpenZ`. Bind ArenaEnter overlap and `GameMode.OnPlayerRespawned` → `ResetEncounter` (once, `bBound`).
-2. ArenaEnter → raise the slab 640 over 1.5 s → `SetBossState(Intro)` → after 2 s, Combat.
+2. ArenaEnter → **`TryCloseSlab()`** (implementation §6):
+   - closure-box check with **0.1 s retries up to 10 times**
+   - if still unsafe: **stay open, log a warning, re-arm**
+   - otherwise rise 640 over 1.5 s **without sweep**, checking on every update and **reversing** if the player enters the closure box
+   - fully closed → `SetBossState(Intro)` → after 2 s, Combat
+   - **Never push, launch or teleport the pawn to make the slab close.**
 3. Create `WBP_FaceEaterBossBar` (§8); show it in Intro and hide it in Dormant.
-4. PIE: entering locks the arena, the bar appears, the boss turns toward the player, and Combat begins (locomotion only for now).
+4. PIE: run QA **E1–E6** (slab safety) now, before any attack work. Entering normally locks the arena, the bar appears, the boss turns toward the player, and Combat begins (locomotion only for now).
+5. **Movement bounds:** implement `IsInBounds` / `ClampToBounds` and the walk-back behaviour (implementation §5). The watchdog teleport is emergency-only. PIE: run QA **B1–B5**.
 
 ## 3. Attacks — 2 h (Grab: +40 min, cuttable)
 
 1. Implement the scheduler and `ReturnToCombatIdle` (§5).
 2. Implement **Heavy Strike**, then **Hook Sweep**, exactly per spec §4: timings, tracking lock, hit queries, damage fractions, knockback. Each must call `OpenGlyphWindow` at RecoveryStart and end via `ReturnToCombatIdle`.
 3. Placeholder anticipation: stop, turn, and play a donor montage at reduced play-rate or hold a pose (TEMP). Enable the `bDebugTelegraphs` debug shapes.
+   - **Visual and damage must agree:** time the placeholder pose/montage so the strike is shown inside the Active window (QA A11).
+   - Do **not** build final animation integration now. The Anim Notify / montage-event sync is required once approved boss animations exist (spec §4, QA A12).
 4. Implement the watchdog.
 5. PIE: attack timings feel readable; the first attack is always Heavy; there's no snap after the lock; each attack hits at most once; knockback works; no attacks happen outside Combat.
 6. **Grab (cuttable):** implement only if steps 1–5 pass within budget; otherwise set `bEnableGrab = false` and log it as cut.
@@ -59,7 +68,7 @@ Workflow for every step: **inspect → edit → compile → save → inspect →
 
 1. Route the player's hits → `HandleIncomingHit` (via `BPI_Damageable` or the option-R override). **Disable or override any donor health/death path** in the REN class (G3).
 2. Combat deflect feedback (hit-stop, shake, nullable sound); the bar does not move.
-3. Exposed: the seal opens (TEMP shape), the AI stops, no rotation, 4 s, 7 per hit, cap 35. Staggered 1.2 s, then a 1.0 s grace. Defeated: everything stops, the bar fades, the slab lowers, `OnBossDefeated` fires, TEMP subtitle.
+3. Exposed: the seal opens (TEMP shape), the AI stops, no rotation, 4 s, 7 per valid hit, **no hidden cap**: every valid hit moves the bar. If a cap is ever approved, reaching it must close the seal and leave Exposed immediately. Staggered 1.2 s, then a 1.0 s grace. Defeated: everything stops, the bar fades, the slab lowers, `OnBossDefeated` fires, TEMP subtitle.
 4. PIE: Exposed reached via the console or debug only for now (temporary debug key; **remove it before hand-back**).
 
 ## 5. Glyph pillars — 45 min
@@ -82,7 +91,7 @@ Workflow for every step: **inspect → edit → compile → save → inspect →
 
 1. The one-time hint (cuttable).
 2. Camera checks per QA C1–C4. Optional arm +≤100 cm in the encounter; restore it on reset and defeat; record the values.
-3. Tune only `ExposedHitDamage`, `CycleDamageCap`, `ExposedDuration` and the attack timings. Target 3–5 exposure cycles for a first-timer. Record the final numbers.
+3. Tune only `ExposedHitDamage` (6–8), `ExposedDuration` (start 4.0 s) and the attack timings, taking the donor combo speed into account. Target 3–5 exposure cycles for a first-timer. Record the final numbers.
 
 ## 8. Full QA and validation — 60 min
 

@@ -59,7 +59,7 @@ World-lock tooling (hardened 2026-09-30, cloud; Unreal execution LOCAL_VALIDATIO
 - `Scripts/Editor/REN_Export_WorldLock.py`: never overwrites an existing baseline (writes `.candidate.json`).
 - `Scripts/Editor/REN_Validate_WorldLock.py`: `STRICT_ASSETS = False` by default. Writes `ProjectDocs/WorldLocks/Reports/<World>.validation.json`.
 - `Scripts/Editor/REN_Inspect_TombOrientation.py`: READ-ONLY check of the `REN_PlayerStart` / `REN_BlankCartouche_Relief` orientation. Must pass (or confirmed errors must be fixed) **before** the first official Tomb baseline.
-- Tests: `Scripts/Tests/` (49 offline tests; fake `unreal` module). Run `python -m unittest discover -s Scripts/Tests`.
+- Tests: `Scripts/Tests/` (77 offline tests as of 2026-10-01; fake `unreal` module). Run `python -m unittest discover -s Scripts/Tests`.
 - **No world-lock baseline has been exported yet.**
 
 Vertical Necropolis package (cloud-prepared 2026-09-30; **NOT built in Unreal**):
@@ -79,8 +79,15 @@ Gate of the West + first combat package (cloud-prepared 2026-09-30; **NOT built 
 Face-Eater boss package (cloud-prepared 2026-10-01; **mechanics only; NOT implemented or PIE-tested**):
 - `docs/FACE_EATER_BOSS_SPEC.md`, `docs/IMPLEMENTATION_P4_FACE_EATER.md`, `docs/tasks/P4_FACE_EATER.md`, `docs/QA_FACE_EATER.md`
 - The donor strategy is not decided: gate G1–G4 picks option F or R locally.
+- Revision 2 (2026-10-01): **no hidden damage cap** (every valid Exposed hit moves the bar; ~7 per hit, 100 HP, 4.0 s window); visual/damage-agreement rule (placeholder: scripted timings; approved animation later: Anim Notify / montage-event sync); **entry-slab safe closure** (closure-box check, 0.1 s retries for ~1 s, else stays open and re-arms; never pushes or launches); **boss movement bounds** (main x ±1000, y 8850..10350, plus the recess mouth x ±200, y 10350..10550; walk back, emergency-only teleport). `REN_GW_Trigger_ArenaEnter` moved to y 8800..9000 (not yet built; GW still 61 items). QA matrix: 74 cases.
 - Planned assets (none exist yet): `/Game/REN/Gameplay/Bosses/FaceEater/` → `BP_FaceEater`, `E_FaceEaterState`, `E_FaceEaterAttack`, `BP_FaceEaterGlyph`, `WBP_FaceEaterBossBar`.
 - All Face-Eater visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
+
+Production / ship package (cloud-prepared 2026-10-01; procedures only, **nothing executed**):
+- `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`: the definitive phase order, with STOP conditions, world-lock actions, commits and timeboxes
+- `docs/PERFORMANCE_AND_POLISH_BUDGET.md`, `docs/BUG_TRIAGE.md`, `docs/BUILD_RELEASE_CHECKLIST.md`
+- `docs/tasks/P5_POLISH_AND_SHIP.md`, including the end-of-slice reward beat and `WBP_EndCard` spec
+- **Cloud architecture expansion is frozen.** The next work is local Unreal implementation, starting at master order §0.
 
 Visual references: `ProjectDocs/References/` / `REFERENCE_MANIFEST.md` are **not yet in the repository**. Rule: `.claude/rules/visual-references.md`. Until the masters exist, all character and weapon visuals are `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
 

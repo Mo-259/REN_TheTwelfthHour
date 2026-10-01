@@ -127,8 +127,10 @@ def build_layout():
     L.append(_box("Trigger_Checkpoint_Approach", "trigger", (-PASSAGE_HALF_W, 5700, Z0), (PASSAGE_HALF_W, 5900, 300)))
     L.append(_box("Trigger_EncounterStart", "trigger", (-COURT_HALF_W, 6300, Z0), (COURT_HALF_W, 6500, 400)))
     L.append(_box("Trigger_Checkpoint_ArenaApproach", "trigger", (-CORRIDOR_HALF_W, 7850, Z0), (CORRIDOR_HALF_W, 8150, 300)))
-    # Boss encounter start: fully inside the arena, >= 150 cm past the entry slab line.
-    L.append(_box("Trigger_ArenaEnter", "trigger", (-ARENA_HALF_W, 8700, Z0), (ARENA_HALF_W, 8900, 400)))
+    # Boss encounter start: deep inside the arena (>= 250 cm past the entry slab line) so normal
+    # forward movement puts the whole player capsule well clear of the slab before it may rise.
+    # The slab additionally runs a runtime closure-safety check (FACE_EATER_BOSS_SPEC §9).
+    L.append(_box("Trigger_ArenaEnter", "trigger", (-ARENA_HALF_W, 8800, Z0), (ARENA_HALF_W, 9000, 400)))
 
     # -- Markers ------------------------------------------------------------------------
     L.append(_target("Respawn_Approach", (0, 5800, 100), yaw=90))

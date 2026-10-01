@@ -1,6 +1,6 @@
 # REN — Face-Eater: Vertical-Slice Boss Spec (MECHANICS ONLY)
 
-Status: cloud design, 2026-10-01. **Nothing is PIE-tested.** Implementation: `docs/IMPLEMENTATION_P4_FACE_EATER.md`. Local task: `docs/tasks/P4_FACE_EATER.md`. QA: `docs/QA_FACE_EATER.md`.
+Status: cloud design, 2026-10-01; **revision 2** (user corrections: no hidden damage cap, hit/animation sync rule, entry-slab safety, boss movement bounds). **Nothing is PIE-tested.** Implementation: `docs/IMPLEMENTATION_P4_FACE_EATER.md`. Local task: `docs/tasks/P4_FACE_EATER.md`. QA: `docs/QA_FACE_EATER.md`.
 
 **Visual status:** `TEMP_PLACEHOLDER — NOT VISUAL AUTHORITY`.
 - `ProjectDocs/References/REFERENCE_MANIFEST.md` is not yet in the repo.
@@ -32,7 +32,7 @@ It is one polished slice boss, not a Souls-scale system:
 
 ## 2. Core loop
 
-1. The player enters the arena (`REN_GW_Trigger_ArenaEnter`). The entry slab rises.
+1. The player enters the arena (`REN_GW_Trigger_ArenaEnter`). The entry slab rises **only if its closure volume is clear** (§9).
 2. Dormant → **Intro** (≤ 2 s) → **Combat**.
 3. In Combat the boss attacks. Blade hits are **deflected (0 damage, clear feedback)**.
 4. A committed attack ends in a **recovery** that explicitly opens the Glyph window (`bGlyphWindowOpen`).
@@ -50,9 +50,9 @@ There are exactly six states. **Only `BP_FaceEater` changes state, through `SetB
 | State | Entered when | Exits to | Attacks | Damage accepted | Generic AI | Glyph interaction | Camera / UI | On restart |
 |---|---|---|---|---|---|---|---|---|
 | **Dormant** | Level start; `ResetEncounter()` | Intro (player overlaps ArenaEnter) | none | **0** (ignored) | **stopped** | disabled | Boss bar hidden | Boss teleported to its Dormant marker |
-| **Intro** | ArenaEnter overlap while Dormant | Combat (after `IntroDuration` 2.0 s) | none | **0** | **stopped** | disabled | Boss bar fades in, name shown. No camera takeover | → Dormant |
-| **Combat** | Intro end; Staggered end | Exposed (valid Glyph); Combat (attack loop) | Hook Sweep, Heavy Strike, (Grab) | **0, deflected with feedback** (§6) | **allowed**: approach and face only, paused while an attack sequence runs | **only** while `bGlyphWindowOpen` | Bar visible | → Dormant |
-| **Exposed** | `RequestExpose()` succeeds | Staggered (timer `ExposedDuration` 4.0 s); Defeated (Health ≤ 0) | none | **full** (`ExposedHitDamage`, per-cycle cap) | **stopped** (no move, no rotate) | disabled | Bar visible (drops) | → Dormant |
+| **Intro** | Entry slab **fully closed** (after the safe-closure check and rise) | Combat (after `IntroDuration` 2.0 s) | none | **0** | **stopped** | disabled | Boss bar fades in, name shown. No camera takeover | → Dormant |
+| **Combat** | Intro end; Staggered end | Exposed (valid Glyph); Combat (attack loop) | Hook Sweep, Heavy Strike, (Grab); **only while the boss is inside its movement bounds** (§4a) | **0, deflected with feedback** (§6) | **allowed**: approach and face only, with the move target clamped to the bounds; paused while an attack sequence runs | **only** while `bGlyphWindowOpen` | Bar visible | → Dormant |
+| **Exposed** | `RequestExpose()` succeeds | Staggered (timer `ExposedDuration` 4.0 s); Defeated (Health ≤ 0) | none | **full** (`ExposedHitDamage` per valid hit; **no hidden cap**) | **stopped** (no move, no rotate) | disabled | Bar visible (drops) | → Dormant |
 | **Staggered** | Exposed timer ends with Health > 0 | Combat (after `StaggerDuration` 1.2 s, plus a 1.0 s attack grace) | none | **0** (the seal is closing) | **stopped** | disabled (pillars reset at exit) | Bar visible | → Dormant |
 | **Defeated** | Health ≤ 0 (only reachable from Exposed) | terminal | none | ignored | **stopped permanently** | disabled permanently | Bar fades out; `OnBossDefeated` fires | **Stays Defeated** (never resurrected) |
 
@@ -63,7 +63,14 @@ Invariant checks run on every state change (implementation §7). For example: in
 **Common rules:**
 - The boss is **stationary during an attack**: no lunge, no root motion.
 - Tracking is allowed only during the early anticipation. It **locks** before the active frames, so there's no 180° snap after commitment.
-- Hits are resolved by **explicit geometric queries** at scripted times (not animation notifies, not physics). Each attack hits the player **at most once**.
+- **Placeholder prototype:** hits are resolved by **explicit geometric queries**. Their timing (Anticipation → Active → Recovery) is driven by the state machine's scripted attack timings, because no approved boss animation exists yet. Each attack hits the player **at most once**.
+- **Player-facing rule: the VISUAL ATTACK and the DAMAGE WINDOW must agree.** Even with the placeholder, the pose/montage and the debug telegraph must show the strike during the Active window, not before or after it.
+- **Future integration rule (when an approved attack animation exists):**
+  - The active damage moment **must be synchronised to the visible weapon/body impact**.
+  - The animation signals the precise Active window through an explicit animation event: an **Anim Notify**, an **Anim Notify State**, a **montage event**, or an equivalent.
+  - The **state machine stays authoritative**: it starts the attack, owns the sequence, opens and closes the Glyph window, and ignores animation events outside the current attack or generation. Animation events may only *time* the Active window within that sequence.
+  - Scripted timings remain as a **fallback/timeout**, so a missing notify can never stall an attack.
+  - Final art must never visibly hit noticeably before or after gameplay damage. The target offset between visible impact and damage is ≤ ~0.1 s. This is QA A11/A12.
 - Attacks are never cancelled by player damage (the boss doesn't flinch in Combat). Every attack sequence is aborted by a state change or a reset (generation token, implementation §6).
 - After recovery: a 0.8 s idle/reposition gap, then the scheduler picks the next attack.
 - Damage is expressed as a **fraction of the player's MaxHealth**, so it's independent of donor units.
@@ -83,7 +90,22 @@ Invariant checks run on every state change (implementation §7). For example: in
 | Player's intended answer | Step out of the arc sideways or back (or dodge, if one exists) | Read the long wind-up, get out of the circle, **then go to a pillar** | Don't hug the boss; step back when it reaches |
 | After | Back to scheduler | Back to scheduler | Back to scheduler |
 
-**Scheduler (Combat only, re-evaluated every 0.25 s while idle):**
+### 4a. Movement bounds (boss never chases out of the fight space)
+
+- **`ArenaCenter`** = `REN_GW_Marker_FaceEater_Center_PLACEHOLDER` (0, 9550).
+- **Allowed boss-centre bounds** (static-tested in `Scripts/Tests/test_gatewest_layout.py`):
+  - **Main:** x −1000..1000, y **8850**..10350. This keeps the boss ≥ 2 m off the entrance threshold and ≥ 1 m from the arena walls.
+  - **Recess mouth only:** x −200..200, y 10350..10550, i.e. the first 1 m of the 5 m recess.
+  - The boss never enters the entrance corridor/threshold, the deep recess, or anything outside the arena.
+- **No safe spots:** the worst distance from any reachable player position (arena, pillar lanes, the back of the recess) to the bounds is **355 cm**, which is less than the Sweep reach of 420. Heavy reach is 620.
+- **Movement rules:**
+  - The Combat move target is the **player position clamped into the bounds**. The boss never paths toward an out-of-bounds point.
+  - **Boundary pressure:** if the boss centre is outside the bounds (or within 25 cm of leaving), `bReturningToBounds = true` → **stop attack selection** → walk back to the nearest in-bounds point (`AI MoveTo`, visible walking, **never a teleport**) → resume.
+  - **Attacks never begin while the boss is outside the bounds.**
+  - Emergency-only recovery: the **watchdog** may teleport the boss to `ArenaCenter` **only** if it is out of bounds for > 5 s, or its Z < −500. Each case logs an error. This is a soft-lock safety net, never normal behaviour.
+- The optional Intro walk-out from the recess is the only intended use of the recess beyond its mouth (Intro state, scripted, not Combat).
+
+**Scheduler (Combat only, re-evaluated every 0.25 s while idle; skipped while `bReturningToBounds`):**
 1. The first attack after Intro is **Heavy Strike**.
 2. A Heavy Strike is guaranteed at least every **3rd** attack.
 3. Otherwise pick by distance: within 300 (and Grab enabled and allowed) → Grab 40% / Sweep 60%; within 450 → Sweep 60% / Heavy 40%; within 650 → Heavy; beyond 650 → approach (AI).
@@ -111,7 +133,7 @@ Every incoming player hit goes through **one** function, `HandleIncomingHit(Inst
 |---|---|---|
 | Dormant, Intro, Staggered | 0 (ignored) | none / soft deflect |
 | **Combat** | **0** | **Deflect:** 0.05 s hit-stop on the player, a small camera shake, a nullable deflect sound. The boss does not flinch. The health bar doesn't move. Counts toward the hint |
-| **Exposed** | `ExposedHitDamage` = **7** per hit, capped at `CycleDamageCap` = **35** per Exposed window | Bar drops visibly, plus a nullable hit sound |
+| **Exposed** | `ExposedHitDamage` ≈ **7** per valid hit (prototype range 6–8). **No per-cycle cap** | Bar drops on **every** valid hit, plus a nullable hit sound |
 | Defeated | ignored | none |
 
 **Decision: option A (0 damage in Combat, with clear physical feedback), not B (chip damage).**
@@ -120,9 +142,13 @@ Every incoming player hit goes through **one** function, `HandleIncomingHit(Inst
 - A rigid "deflect" (hit-stop, shake, no flinch, a still bar) says *blocked*, not *broken*. The player still gets physical feedback for every hit.
 
 **Health:**
-- `MaxHealth` = **100**. The boss counts hits itself; donor damage amounts are ignored, so the fight doesn't depend on donor tuning.
-- A cap of 35 per cycle means at least **3** cycles with excellent play (35 + 35 + 30). A typical first-timer landing 3–4 hits per window needs **4–5** cycles.
-- Exposed is 4.0 s. Tune `ExposedHitDamage`, `CycleDamageCap` and `ExposedDuration` only, never MaxHealth inflation.
+- `MaxHealth` = **100**. The boss counts valid hits itself; donor damage amounts are ignored, so the fight doesn't depend on donor tuning.
+- **No hidden damage cap** (user correction). While the seal is visibly open, **every** valid hit moves the bar. Progress is tuned only through:
+  - `ExposedDuration` (start 4.0 s)
+  - `ExposedHitDamage` (start ≈ 7; range 6–8)
+  - the player's attack/combo speed (donor)
+- Target: **3–5 successful Exposed cycles** for a first-time player. At 7 per hit, 100 HP is about 15 valid hits: an excellent player landing ~5–6 hits per window needs ~3 cycles, and a first-timer landing 3–4 needs ~4–5. Measure locally and tune.
+- If testing later proves a cap is truly necessary, then **when the cap is reached the seal must visibly close immediately and the state must leave Exposed** (→ Staggered). **Never** keep the vulnerability visibly open while secretly rejecting damage.
 - In Exposed, **any** player hit on the boss counts as a hit on the open seal. The prototype doesn't require bone or component targeting, because donor hit data is unverified. Restricting hits to a `ChestSeal` hit-box is a later upgrade, only if the donor reports hit components.
 
 ## 7. Exposed and Staggered
@@ -151,7 +177,8 @@ These are taken from the existing GateWest shell and were not redesigned. The on
 | Boss can follow everywhere | Pillar–wall gaps (390), pillar–pillar gaps (1180 × 680) and pillar–end-wall gaps all ≥ boss diameter + margin (200) | ✔ |
 | Corner cheese | Player in a corner vs boss touching both walls: at most ≈ 187 cm apart (centre to centre) < sweep reach 420 | ✔ |
 | Boss recess | 600 wide, lintel at 700 > boss height 380 + 50 | ✔ |
-| Entry lock | `REN_GW_ArenaGate_Slab` rests below the threshold and rises 640 to 600 tall (unjumpable). ArenaEnter is ≥ 150 cm past the slab, full arena width | ✔ |
+| Entry lock | `REN_GW_ArenaGate_Slab` rests below the threshold and rises 640 to 600 tall (unjumpable). ArenaEnter (y 8800..9000) starts ≥ 250 cm past the slab; when it fires, the player capsule is ≥ 150 cm clear. Plus the runtime closure-safety check (§9) | ✔ static / PIE check |
+| Boss movement bounds | Main x ±1000, y 8850..10350, plus the recess mouth x ±200, y 10350..10550. Worst player-to-bounds distance 355 < sweep 420 | ✔ |
 | Camera | No roof; walls 900. Lock-on: none | PIE check |
 | Pillar collision / camera trapping | 3.3 m lanes | PIE check |
 
@@ -159,7 +186,15 @@ Assumed values (verify locally): boss capsule radius 90 / height 380; player run
 
 ## 9. Encounter start, checkpoint and reset
 
-- **Start:** the boss stands Dormant at `REN_GW_Marker_FaceEater_Center_PLACEHOLDER` (0, 9550), visible from the corridor (a readable approach). The player crosses ArenaEnter → the slab rises (1.5 s) → Intro (2 s) → Combat.
+- **Start:** the boss stands Dormant at `REN_GW_Marker_FaceEater_Center_PLACEHOLDER` (0, 9550), visible from the corridor (a readable approach). The player crosses ArenaEnter → **safe-closure check** → the slab rises (1.5 s) → Intro (2 s) → Combat.
+- **Entry-slab safety** (user correction; never launch, push, trap or soft-lock):
+  - **Closure volume** = the slab's raised footprint (x ±300, y 8450..8550, z 0..600), expanded by 60 cm on every horizontal side (player capsule radius plus margin).
+  - **Before raising:** if the player capsule overlaps the closure volume → **wait 0.1 s and re-check**, up to **10 tries (~1.0 s)**.
+  - **Still unsafe after the retries:** **do not close.** Log a warning, leave the entrance open, keep the boss **Dormant** and **re-arm** ArenaEnter. The next crossing retries; the encounter never starts with the entrance open.
+  - **During the 1.5 s rise:** check every Timeline update. If the player enters the closure volume, **reverse the slab back down** (no sweep, no push), stay Dormant and re-arm.
+  - The slab is never moved with a sweep/push against the pawn. The pawn is never launched or teleported to resolve it.
+  - Intro starts **only when the slab is fully closed**.
+  - Death or reset while the slab is moving: stop the Timeline and set the slab to its open transform instantly (`ResetEncounter`).
   - No Sequencer, no camera takeover.
   - Optional (cuttable): Dormant at `…_Start_PLACEHOLDER` in the recess, with the boss walking out during Intro.
 - **Checkpoint:** `REN_GW_Respawn_ArenaApproach` (0, 8000), outside the arena.
@@ -188,8 +223,10 @@ Assumed values (verify locally): boss capsule radius 90 / height 380; player run
 | Chest stays vulnerable after leaving Exposed | `SetBossState` closes the seal on **every** exit from Exposed. Damage gating reads the state, not the seal |
 | Entrance stays locked after defeat | Defeated → slab lowers (deterministic). Reset → slab set to its open transform directly |
 | Duplicate boss instances | The boss is level-placed once and never spawned or destroyed. Bindings happen once in BeginPlay, guarded by `bBound` |
-| Boss falls outside the arena | The arena is enclosed and locked during the fight. If the boss's Z < −500 → watchdog teleports it to the Center marker |
-| Player trapped behind the gate | The slab only rises when ArenaEnter is overlapped (≥ 150 cm past it) and the player is verified inside (Y > 8600). Reset and defeat lower it |
+| Boss leaves the fight space | Move target clamped to the bounds (§4a). Boundary pressure → stop attacks → walk back. No attack starts out of bounds |
+| Boss falls outside the arena | The arena is enclosed and locked during the fight. **Emergency only:** watchdog teleports the boss to `ArenaCenter` if it is out of bounds > 5 s or Z < −500 (logged error) |
+| Player trapped by / inside the gate | The slab only rises when ArenaEnter (≥ 250 cm inside) is overlapped **and** the closure volume is clear (retry ≤ 1.0 s, otherwise stays open and re-arms). It reverses if the player enters during the rise. Never pushes or launches. Reset and defeat lower it |
+| Damage feedback lies (seal open, bar frozen) | No hidden cap. If a cap is ever added, reaching it closes the seal and leaves Exposed immediately |
 
 ## 11. Out of scope (this week)
 

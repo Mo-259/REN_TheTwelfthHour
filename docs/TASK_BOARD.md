@@ -7,6 +7,8 @@ Status values:
 - LOCAL_VALIDATION_REQUIRED
 - DONE
 
+**Execution order:** `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. A cloud spec never makes a runtime task DONE; only local PIE validation + commit does.
+
 ## 7-day sprint view (see `docs/SPRINT_7DAY.md`)
 
 | Day | Local (Unreal/MCP) | Cloud prep for next day |
@@ -14,10 +16,10 @@ Status values:
 | 1 | P0-14 LFS install, P0-09, donor audit, P0-15 orientation → P0-06 → P0-05 baseline, P0-07, P0-11, P1-00…P1-08 via `docs/tasks/P1_INTERACTION_FOUNDATION.md` | C-01 ✔, C-08 ✔ (done early) |
 | 2 | P2-01…P2-04, P0-11, P0-12 via `docs/tasks/P2_TOMB_BEATS.md` | C-02 ✔; C-03 ✔, C-04 ✔ (done early) |
 | 3 | P2-05, P5-01 via `docs/tasks/P2_NECROPOLIS_ANUBIS.md` | C-05 ✔ (done early) |
-| 4 | P4-01 via `docs/tasks/P3_GATE_WEST.md`; P3-02…P3-07 via `docs/tasks/P3_FIRST_COMBAT.md` | C-06 Tomb lighting spec (audio sourcing deferred to polish) |
-| 5 | P4-02…P4-08 via `docs/tasks/P4_FACE_EATER.md` (QA: `docs/QA_FACE_EATER.md`) | C-07 bug triage / polish checklists |
-| 6 | Tier A polish (Tomb + Face-Eater) | review hand-back reports |
-| 7 | Freeze, playthroughs, package | release notes, state docs |
+| 4 | P4-01 via `docs/tasks/P3_GATE_WEST.md`; P3-02…P3-07 via `docs/tasks/P3_FIRST_COMBAT.md` | — (cloud architecture frozen; review hand-back reports) |
+| 5 | P4-02…P4-08 via `docs/tasks/P4_FACE_EATER.md` (QA: `docs/QA_FACE_EATER.md`) | review hand-back reports |
+| 6 | P5-08…P5-09 via `docs/tasks/P5_POLISH_AND_SHIP.md` (polish + end-of-slice beat) | review hand-back reports |
+| 7 | P5-10…P5-11: freeze, full QA, package (`docs/BUILD_RELEASE_CHECKLIST.md`) | release notes, state docs |
 
 ## Cloud prep tasks
 
@@ -29,9 +31,10 @@ Status values:
 | C-03 | Gate of the West package: `GATE_WEST_GREYBOX_SPEC.md`, `REN_GateWest_Layout.py`, `REN_GateWest_Greybox_Builder_v1.py`, `tasks/P3_GATE_WEST.md` | DONE in cloud (offline tests pass); Unreal run LOCAL_VALIDATION_REQUIRED |
 | C-04 | First combat: `IMPLEMENTATION_P3_COMBAT.md`, `tasks/P3_FIRST_COMBAT.md` | DONE in cloud (static spec; donor assumptions unverified); execution LOCAL_VALIDATION_REQUIRED |
 | C-05 | Face-Eater mechanics package: `FACE_EATER_BOSS_SPEC.md`, `IMPLEMENTATION_P4_FACE_EATER.md`, `tasks/P4_FACE_EATER.md`, `QA_FACE_EATER.md`; GW layout entry lock + arena-requirement tests | DONE in cloud (static); execution LOCAL_VALIDATION_REQUIRED |
-| C-06 | Audio placeholder list + Tomb lighting spec | TODO |
-| C-07 | Bug triage / polish checklists | TODO |
+| C-06 | Audio placeholder list + Tomb lighting spec | SUPERSEDED (audio deferred by user; lighting covered by P2_TOMB_BEATS §10 + P5 polish) |
+| C-07 | Bug triage / polish checklists | DONE in cloud → C-09 |
 | C-08 | Corrections 1–7: world-lock asset/spatial split + strict mode + level ownership, orientation check, LFS, Nameless Dead spec, sprint/doc updates | DONE in cloud |
+| C-09 | Face-Eater rev 2 (no hidden cap, animation-sync rule, entry-slab safety, movement bounds) + production package: `tasks/MASTER_LOCAL_EXECUTION_ORDER.md`, `PERFORMANCE_AND_POLISH_BUDGET.md`, `BUG_TRIAGE.md`, `BUILD_RELEASE_CHECKLIST.md`, `tasks/P5_POLISH_AND_SHIP.md` | DONE in cloud (static). **Cloud architecture expansion stops here**; next work is local |
 
 ## P0 — Production foundation
 
@@ -39,7 +42,7 @@ Status values:
 |---|---|---|
 | P0-01 | Verify project root / `.uproject` / Git status | DONE (cloud audit 2026-09-30) |
 | P0-02 | Install this Claude dev kit into repo | DONE (repo files identical to DevKit zip) |
-| P0-03 | Verify Unreal `.gitignore` | DONE (generated folders ignored; LFS decision open, see P0-10) |
+| P0-03 | Verify Unreal `.gitignore` | DONE (generated folders ignored; LFS forward-only adopted, see P0-10/P0-14) |
 | P0-04 | Copy v3 Tomb builder into `Scripts/Editor/` | DONE (labels match `L_Tomb_Blockout.umap`) |
 | P0-05 | Export first OFFICIAL Tomb world-lock baseline (only after P0-15 and P0-06) | LOCAL_VALIDATION_REQUIRED |
 | P0-06 | Validate v3 map route in PIE | LOCAL_VALIDATION_REQUIRED (only script completion confirmed; also check PlayerStart pitch) |
@@ -110,9 +113,13 @@ Status values:
 | ID | Task | Status |
 |---|---|---|
 | P5-01 | Anubis encounter blockout (still placeholder, Arabic subtitles, fixed camera) | TODO (Day 3; spec ready) |
-| P5-02 | Tomb art pass | TODO |
-| P5-03 | Necropolis art pass | TODO |
-| P5-04 | Face-Eater arena art pass | TODO |
-| P5-05 | Audio pass (Day-2 placeholders: door, scrape, ambience; user-sourced files) | TODO |
-| P5-06 | Sequencer passes | TODO |
-| P5-07 | Trailer capture | TODO |
+| P5-02 | Tomb art pass | TODO — post-slice; only with reference masters (manifest not in repo) |
+| P5-03 | Necropolis art pass | TODO — post-slice; only with reference masters |
+| P5-04 | Face-Eater arena art pass | TODO — post-slice; only with reference masters |
+| P5-05 | Audio pass (user-provided files only; nullable hooks exist per specs) | TODO — Day 6 only if assets exist locally |
+| P5-06 | Sequencer passes | OUT OF SPRINT SCOPE |
+| P5-07 | Trailer capture | TODO — post-slice |
+| P5-08 | Polish pass (bugs → readability → camera → lighting → feedback) | LOCAL_VALIDATION_REQUIRED (spec: P5_POLISH_AND_SHIP) |
+| P5-09 | End-of-slice reward beat + `WBP_EndCard` | LOCAL_VALIDATION_REQUIRED (spec: P5_POLISH_AND_SHIP) |
+| P5-10 | Feature freeze + full QA + 3 timed playthroughs | LOCAL_VALIDATION_REQUIRED |
+| P5-11 | Package Development Win64 pre-alpha per `BUILD_RELEASE_CHECKLIST.md` | LOCAL_VALIDATION_REQUIRED |

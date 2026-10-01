@@ -1,6 +1,7 @@
 # REN — 7-Day Pre-Alpha Sprint
 
 Created: 2026-09-30 (cloud). Owner decision: **quality over duration.**
+**Execution order (definitive): `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.** Cloud architecture is frozen as of 2026-10-01; the remaining work is local.
 Revision 2 (2026-09-30): user-approved with corrections 1–7 (world-lock purpose, baseline gating, skyline proxies, Variant_Combat as donor, no-shadow validation, Nameless Dead direction, Git LFS). The persistent slice world is approved.
 
 Goal: a playable pre-alpha of ~30 minutes, where **0–8 min (Tomb) and the Face-Eater encounter get the highest polish**. If the choice is 30 mediocre minutes or 10–15 excellent minutes plus rough playable content, choose the latter.
@@ -127,7 +128,8 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
   - **Donor gate G1–G4** picks option F (plain Character + `BPI_Damageable`) or R (donor child/duplicate with its AI gated).
   - `E_FaceEaterState` is the sole phase authority, with generation-token timers, a watchdog and invariants.
   - Heavy Strike + Hook Sweep (Grab cuttable), with an explicit `bGlyphWindowOpen`.
-  - 1 Glyph → Exposed (4 s, 7 per hit, cap 35/cycle) → Staggered (1.2 s) → Combat. Combat deals **0 damage with deflect feedback**.
+  - 1 Glyph → Exposed (4 s, ~7 per valid hit, **no hidden cap**) → Staggered (1.2 s) → Combat. Combat deals **0 damage with deflect feedback**.
+  - Safe entry-slab closure (retry, never push or trap), boss movement bounds (walk back, no teleport), and the visual/damage-agreement rule.
   - `ResetEncounter()` with restart ×3.
   - Entry lock and boss bar.
   - All visuals `TEMP_PLACEHOLDER`.
@@ -135,19 +137,14 @@ Each day has a **local** track (the user in Unreal with MCP) and a **cloud** tra
 - Exit: the boss can be beaten the intended way, cannot be cheesed by normal attacks alone, and restart works.
 
 ### Day 6 — Polish Tier A (Tomb + Face-Eater)
-- Local:
-  - Lighting, exposure and camera distance.
-  - Telegraph clarity.
-  - Hit feedback.
-  - Placeholder SFX: stone, door mass, staff impact, ambience.
-  - Simple Egyptian greybox kit dressing (flat reliefs, cartouche shape, pillars). No neon, no floating runes.
-- Exit: Tier A sections have no known bugs, and every QA_ACCEPTANCE item for them passes.
+- Local: `docs/tasks/P5_POLISH_AND_SHIP.md`. Priority: gameplay bugs → combat readability → camera → lighting/readability → hit feedback → audio (only if assets exist locally) → visual polish (only with reference masters). Plus the **end-of-slice reward beat + end card** (required) and the first performance captures (`docs/PERFORMANCE_AND_POLISH_BUDGET.md`).
+- No system rebuilds during polish. No floating runes, no neon.
+- Exit: Tier A sections have no known BLOCKER/HIGH, and every QA_ACCEPTANCE item for them passes.
 
 ### Day 7 — Lock + ship the pre-alpha
-- Feature freeze by midday.
-- Three full playthroughs with timing recorded.
-- Fix blockers only.
-- Package a Development build.
+- Feature freeze by midday; after it, only BLOCKER/HIGH fixes (`docs/BUG_TRIAGE.md`).
+- Full QA (`docs/QA_ACCEPTANCE.md`, `docs/QA_FACE_EATER.md` regression) and three full playthroughs with timing recorded.
+- Package a Development build per `docs/BUILD_RELEASE_CHECKLIST.md`.
 - Update the world-locks and docs.
 - Exit: a packaged build starts at the Tomb and reaches the end card.
 

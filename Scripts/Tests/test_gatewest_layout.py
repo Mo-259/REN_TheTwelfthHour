@@ -253,9 +253,78 @@ class FaceEaterArenaRequirementsTests(unittest.TestCase):
         self.assertGreaterEqual(slab["max"][2] + slab["rise_cm"], 450, "raised slab must be unjumpable")
         self.assertGreaterEqual(slab["max"][2] + slab["rise_cm"] - (slab["max"][2] - slab["min"][2]), thr["min"][2],
                                 "raised slab must reach down to the threshold (no crawl gap)")
-        self.assertGreaterEqual(trig["min"][1] - slab["max"][1], 150, "player must be clear of the slab when it rises")
+        # Capsule centre when the overlap begins is trig.min.y - R; its back edge must clear the slab by >= 150.
+        self.assertGreaterEqual(trig["min"][1] - 2 * PLAYER_CAPSULE_R - slab["max"][1], 150,
+                                "player capsule must be clear of the slab when the trigger fires")
         self.assertGreaterEqual(trig["min"][1], GW.ARENA[0])
         self.assertEqual((trig["min"][0], trig["max"][0]), (-GW.ARENA_HALF_W, GW.ARENA_HALF_W), "full arena width")
+
+
+# Boss movement bounds — MIRROR of docs/FACE_EATER_BOSS_SPEC.md §4a (change both together).
+BOSS_BOUNDS_MAIN = ((-1000, 8850), (1000, 10350))     # boss CENTRE must stay inside (x, y)
+BOSS_BOUNDS_MOUTH = ((-200, 10350), (200, 10550))     # recess mouth only: first 100 cm of the 500 cm recess
+
+
+def _in_rect(x, y, r):
+    return r[0][0] <= x <= r[1][0] and r[0][1] <= y <= r[1][1]
+
+
+def _dist_to_rect(x, y, r):
+    dx = max(r[0][0] - x, 0, x - r[1][0])
+    dy = max(r[0][1] - y, 0, y - r[1][1])
+    return (dx * dx + dy * dy) ** 0.5
+
+
+class FaceEaterBoundsTests(unittest.TestCase):
+    """Boss must never chase into corridor/recess, yet no player position may be out of reach."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.items = GW.build_layout()
+        cls.L = by_label(cls.items)
+        cls.pillars = [it for it in cls.items if "GlyphPillar" in it["label"]]
+
+    def test_bounds_inside_arena_with_capsule_margin(self):
+        (x0, y0), (x1, y1) = BOSS_BOUNDS_MAIN
+        self.assertGreaterEqual(x0, -GW.ARENA_HALF_W + BOSS_CAPSULE_R)
+        self.assertLessEqual(x1, GW.ARENA_HALF_W - BOSS_CAPSULE_R)
+        self.assertGreaterEqual(y0, GW.ARENA[0] + BOSS_CAPSULE_R, "boss kept off the entrance threshold")
+        self.assertLessEqual(y1, GW.ARENA[1] - BOSS_CAPSULE_R)
+        (mx0, my0), (mx1, my1) = BOSS_BOUNDS_MOUTH
+        recess = self.L["REN_GW_Recess_Floor"]
+        self.assertGreaterEqual(mx0, recess["min"][0] + BOSS_CAPSULE_R)
+        self.assertLessEqual(mx1, recess["max"][0] - BOSS_CAPSULE_R)
+        self.assertLessEqual(my1, GW.RECESS[0] + 100, "boss may only enter the recess mouth")
+
+    def test_bounds_exclude_corridor_and_threshold(self):
+        self.assertGreater(BOSS_BOUNDS_MAIN[0][1] - BOSS_CAPSULE_R, self.L["REN_GW_Arena_Threshold"]["max"][1])
+
+    def test_ArenaCenter_inside_bounds(self):
+        cx, cy, _ = self.L["REN_GW_Marker_FaceEater_Center_PLACEHOLDER"]["loc"]
+        self.assertTrue(_in_rect(cx, cy, BOSS_BOUNDS_MAIN))
+
+    def test_every_player_position_within_sweep_reach_of_bounds(self):
+        """No safe spot: from every reachable player point (arena, pillar lanes, recess)."""
+        pts = []
+        a0, a1 = GW.ARENA
+        r = PLAYER_CAPSULE_R
+        for x in range(-GW.ARENA_HALF_W + r, GW.ARENA_HALF_W - r + 1, 50):
+            for y in range(a0 + r, a1 - r + 1, 50):
+                pts.append((x, y))
+        rec = self.L["REN_GW_Recess_Floor"]
+        for x in range(int(rec["min"][0]) + r, int(rec["max"][0]) - r + 1, 25):
+            for y in range(GW.RECESS[0], GW.RECESS[1] - r + 1, 25):
+                pts.append((x, y))
+        worst = max(min(_dist_to_rect(x, y, BOSS_BOUNDS_MAIN), _dist_to_rect(x, y, BOSS_BOUNDS_MOUTH))
+                    for x, y in pts)
+        self.assertLess(worst, SWEEP_REACH, f"player safe spot: {worst:.0f} cm from boss bounds")
+
+    def test_pillars_do_not_block_bounds_connectivity(self):
+        # The pillar centres sit inside the bounds; gaps around them already >= boss diameter (other test).
+        for p in self.pillars:
+            cx = (p["min"][0] + p["max"][0]) / 2
+            cy = (p["min"][1] + p["max"][1]) / 2
+            self.assertTrue(_in_rect(cx, cy, BOSS_BOUNDS_MAIN))
 
 
 class BuilderTests(unittest.TestCase):
