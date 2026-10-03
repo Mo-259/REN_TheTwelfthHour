@@ -1,0 +1,78 @@
+name: REN Visual Generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_ids:
+        description: "Comma-separated GENERATION_JOBS ids"
+        required: true
+        default: "C04.Hero_Master"
+      quality:
+        description: "OpenAI image quality"
+        required: true
+        default: "high"
+        type: choice
+        options:
+          - high
+          - medium
+          - low
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      REN_IMAGE_MODEL: gpt-image-2
+      REN_IMAGE_QUALITY: ${{ inputs.quality }}
+
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Verify secret exists
+        shell: bash
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::OPENAI_API_KEY repository secret is missing."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install visual factory dependencies
+        run: python -m pip install -r Scripts/REN_Visual/requirements.txt
+
+      - name: Audit before generation
+        run: python Scripts/REN_Visual/ren_visual.py audit
+
+      - name: Generate requested candidates
+        run: |
+          python Scripts/REN_Visual/github_generate_batch.py \
+            --job-ids "${{ inputs.job_ids }}" \
+            --quality "${{ inputs.quality }}"
+
+      - name: Audit after generation
+        run: python Scripts/REN_Visual/ren_visual.py audit
+
+      - name: Commit generated candidates
+        shell: bash
+        run: |
+          git config user.name "REN Visual Factory"
+          git config user.email "ren-visual-factory@users.noreply.github.com"
+          git add ProjectDocs/References
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "art: generate REN visual candidates"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
