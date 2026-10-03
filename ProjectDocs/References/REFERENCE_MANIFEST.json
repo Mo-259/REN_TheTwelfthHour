@@ -16161,12 +16161,12 @@
       "asset_id": "E03",
       "name": "CemeteryJackals — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E03_CemeteryJackals/REF_ENEMY_CemeteryJackals_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E03_CemeteryJackals/REF_ENEMY_CemeteryJackals_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E03_CemeteryJackals/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E03",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16177,8 +16177,11 @@
       "source_canon_ids": [
         "E03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16192,12 +16195,12 @@
       "asset_id": "E04",
       "name": "FaceLeeches — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E04_FaceLeeches/REF_ENEMY_FaceLeeches_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E04_FaceLeeches/REF_ENEMY_FaceLeeches_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E04_FaceLeeches/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E04",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16208,8 +16211,11 @@
       "source_canon_ids": [
         "E04"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16223,12 +16229,12 @@
       "asset_id": "E05",
       "name": "Shadowless — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E05_Shadowless/REF_ENEMY_Shadowless_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E05_Shadowless/REF_ENEMY_Shadowless_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E05_Shadowless/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E05",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16239,8 +16245,11 @@
       "source_canon_ids": [
         "E05"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16254,12 +16263,12 @@
       "asset_id": "E06",
       "name": "WallCrawlers — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E06_WallCrawlers/REF_ENEMY_WallCrawlers_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E06_WallCrawlers/REF_ENEMY_WallCrawlers_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E06_WallCrawlers/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E06",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16270,8 +16279,11 @@
       "source_canon_ids": [
         "E06"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16285,12 +16297,12 @@
       "asset_id": "E07",
       "name": "LampGuards — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E07_LampGuards/REF_ENEMY_LampGuards_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E07_LampGuards/REF_ENEMY_LampGuards_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E07_LampGuards/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E07",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16301,8 +16313,11 @@
       "source_canon_ids": [
         "E07"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16316,12 +16331,12 @@
       "asset_id": "E08",
       "name": "FalseShadows — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E08_FalseShadows/REF_ENEMY_FalseShadows_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E08_FalseShadows/REF_ENEMY_FalseShadows_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E08_FalseShadows/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E08",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16332,8 +16347,11 @@
       "source_canon_ids": [
         "E08"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16347,12 +16365,12 @@
       "asset_id": "E09",
       "name": "InkGhosts — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E09_InkGhosts/REF_ENEMY_InkGhosts_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E09_InkGhosts/REF_ENEMY_InkGhosts_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E09_InkGhosts/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E09",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16363,8 +16381,11 @@
       "source_canon_ids": [
         "E09"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16378,12 +16399,12 @@
       "asset_id": "E10",
       "name": "ErasedScribes — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E10_ErasedScribes/REF_ENEMY_ErasedScribes_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E10_ErasedScribes/REF_ENEMY_ErasedScribes_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E10_ErasedScribes/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16394,8 +16415,11 @@
       "source_canon_ids": [
         "E10"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
