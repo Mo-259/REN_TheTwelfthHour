@@ -57,6 +57,62 @@
       "file": "11_Environments/Details/ShadowCity/PreservedDaylightField/REF_ENV_PreservedDaylightField_Gameplay_v01.png",
       "verdict": "PASS",
       "note": "White-morning limestone courtyard, offering tables, clear path to pylon gate."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Turnaround_or_Morphology",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Turnaround_or_Morphology_v01.png",
+      "verdict": "PASS",
+      "note": "Front/side/back same Hori; ink parasite on forearm consistent."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Materials",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Materials_v01.png",
+      "verdict": "PASS",
+      "note": "Ink mass, drips, linen, board, belt, skin close-ups. Minor: extra turnaround/silhouette/pose panels; usable."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Gameplay_Silhouette",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Gameplay_Silhouette_v01.png",
+      "verdict": "PASS",
+      "note": "Solid black at two sizes; dripping parasite outline separates from body."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Attack_Anticipation",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Attack_Anticipation_v01.png",
+      "verdict": "PASS",
+      "note": "Parasite lifts arm and draws back ink stroke tell; neutral background; no blood."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Recovery_State",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Recovery_State_v01.png",
+      "verdict": "PASS",
+      "note": "Parasite pooled low on the floor, Hori leaning back guarding board. Minor: environment background instead of neutral."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Phase_States",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Phase_States_v01.png",
+      "verdict": "PASS",
+      "note": "P1 board shield vs ink jabs; P2 ink hand rising from fixed basin; P3 three bonds to three name-patches around ink core. Matches canon."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Weak_Point_or_Objective",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
+      "verdict": "REJECT",
+      "note": "Returned a turnaround/material sheet; bonds, ink core and name-patch targets absent. One targeted retry scheduled."
+    },
+    {
+      "batch": "AP2",
+      "job_id": "B03.Scale_Comparison",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Scale_Comparison_v01.png",
+      "verdict": "PASS",
+      "note": "Hori with parasite beside real Nefer, same floor, unnumbered bar; similar heights."
     }
   ]
 }
