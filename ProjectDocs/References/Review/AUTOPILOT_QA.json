@@ -113,6 +113,62 @@
       "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Scale_Comparison_v01.png",
       "verdict": "PASS",
       "note": "Hori with parasite beside real Nefer, same floor, unnumbered bar; similar heights."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "B03.Weak_Point_or_Objective",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v02.png",
+      "verdict": "PASS",
+      "note": "Retry fixed it: ink hand with palm core, three separate bonds to three framed name-patches, Hori untouched at side."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "B03.Rig_Notes_Visual",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Rig_Notes_Visual_v01.png",
+      "verdict": "PASS",
+      "note": "A-pose turnaround, circular joint/attachment crops, deformation poses. Minor: no explicit circle markers on the full body."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "B03.Arena_Relationship",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v01.png",
+      "verdict": "REJECT",
+      "note": "Returned a character/material sheet, no arena. Retry with House of Life scribal hall image as source."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "ENV_ShadowCity_08.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/M02MemorySpace/REF_ENV_M02MemorySpace_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Sunset workshop rooftop, single fixed lamp centre, low painted parapets, city and river below."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "ENV_ShadowCity_09.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/RooftopBridge/REF_ENV_RooftopBridge_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Plank bridge between flat mud-brick roofs over a street, torches both ends, pylon landmark."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "ENV_ShadowCity_10.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/REF_ENV_ShadowLightMaterials_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Plaster, limestone, paving, door, linen awning, bronze torch panels with hard light/shadow lines. Minor: unlabeled scale silhouette panel."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "ENV_HouseLife_04.Gameplay",
+      "file": "11_Environments/Details/HouseLife/PapyrusStorage/REF_ENV_PapyrusStorage_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Mud-brick niches with rolls and jars, ladders, clear aisle, high slits."
+    },
+    {
+      "batch": "AP3",
+      "job_id": "ENV_HouseLife_05.Gameplay",
+      "file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Painted papyrus columns around inner court, sun disc of light on paving, clear path."
     }
   ]
 }
