@@ -16,6 +16,18 @@ Three weapons plus Wedjat aiming/reading utility, not a fourth full weapon. Dime
 
 Photorealistic high-end UE5-style physically based reference; match supplied Nefer realism. Neutral readable illumination, real skin/fabric/stone/wood/metal detail. One asset per file. No poster, cosplay, plastic, exaggerated gold, MMO armor, neon, digital glitch, opaque fog, false historical translations or unreadable Arabic. Native PNG minimum 2048 long edge, preferably 2K–4K. No upscaling to conceal undersized generation. No generated candidate is approved automatically.
 
+## Weapon canon — v3 §21 (governs this asset's design)
+
+U01 Wedjat (الودجات): a utility targeting/cutting tool, NOT a fourth full weapon. Used to expose lenses, cut distant targets and support targeting. Compact and readable at hand scale. Egyptian Wedjat-eye visual language (faience, bronze, painted eye markings), no realistic eyeball. No gun-like, scope-like or sci-fi design. One compact tool only.
+
+Source (REN_V3_Core_AR.md §21):
+
+### الودجات والصيغ
+
+الودجات أداة تصويب لكشف عدسة أو قطع هدف بعيد، وليست سلاح رابعًا بشجرة كاملة. ذخيرة كشف تتجدد في الراحة، مع بديل ضربة قريبة أو انتظار هبوط للهدف الضروري. الصيغ النشطة تتنافس على الحبر: انتقال الظل، نبضة العقاب، جدار الثبات، رد الفوضى، تثبيت الاسم، والتحول. بعض أصولها تُفتح بالقصة، وعقد الشجرة تغير استخدامها لا تعيد بيعها.
+
+Note: the Canon evidence section below quotes §20 (controls/combat numbers) for mechanics only; §21 above defines the weapon itself. No new weapon concept may be invented.
+
 ## Required individual outputs
 
 - `U01.Side_A`: Dedicated view of Side A; maintain the same asset identity and spatial geometry.

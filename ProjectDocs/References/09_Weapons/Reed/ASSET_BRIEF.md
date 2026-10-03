@@ -16,6 +16,18 @@ Three weapons plus Wedjat aiming/reading utility, not a fourth full weapon. Dime
 
 Photorealistic high-end UE5-style physically based reference; match supplied Nefer realism. Neutral readable illumination, real skin/fabric/stone/wood/metal detail. One asset per file. No poster, cosplay, plastic, exaggerated gold, MMO armor, neon, digital glitch, opaque fog, false historical translations or unreadable Arabic. Native PNG minimum 2048 long edge, preferably 2K–4K. No upscaling to conceal undersized generation. No generated candidate is approved automatically.
 
+## Weapon canon — v3 §21 (governs this asset's design)
+
+W01 Reed (القصبة): the scribe's reed transformed into a combat tool. Medium-speed weapon; three light hits chain into a seal interaction; the heavy attack cuts a short line; it earns and works with ink. First weapon, taken from the tomb. It must still visibly originate from an ancient Egyptian reed-writing tool (cut rush/reed stem, scribe's reed pen logic, node joints, ink-darkened tip). Not a crook, not a sword, not an axe, not a fantasy staff. Exactly one weapon in the image.
+
+Source (REN_V3_Core_AR.md §21):
+
+### القصبة
+
+سلاح متوسط السرعة؛ ثلاث ضربات خفيفة ثم ختم، وثقيلة تشق خطًا قريبًا. أفضلية القصبة ربح الحبر وقطع الأهداف الصغيرة. ضعفها أمام درع سميك من دون ثقيلة ملتزمة. فعل السلاح يثبت علامة قصيرة يمكن تفعيلها بضربة؛ علامة واحدة افتراضيًا، وإعادة وضعها تزيل القديمة. أول سلاح منذ المقبرة، بخمس درجات تحسين.
+
+Note: the Canon evidence section below quotes §20 (controls/combat numbers) for mechanics only; §21 above defines the weapon itself. No new weapon concept may be invented.
+
 ## Required individual outputs
 
 - `W01.Side_A`: Dedicated view of Side A; maintain the same asset identity and spatial geometry.

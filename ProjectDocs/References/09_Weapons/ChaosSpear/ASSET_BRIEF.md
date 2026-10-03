@@ -16,6 +16,18 @@ Three weapons plus Wedjat aiming/reading utility, not a fourth full weapon. Dime
 
 Photorealistic high-end UE5-style physically based reference; match supplied Nefer realism. Neutral readable illumination, real skin/fabric/stone/wood/metal detail. One asset per file. No poster, cosplay, plastic, exaggerated gold, MMO armor, neon, digital glitch, opaque fog, false historical translations or unreadable Arabic. Native PNG minimum 2048 long edge, preferably 2K–4K. No upscaling to conceal undersized generation. No generated candidate is approved automatically.
 
+## Weapon canon — v3 §21 (governs this asset's design)
+
+W03 Chaos Spear (رمح الفوضى): a long, linear thrusting weapon with greater reach than the Reed and weaker lateral defense. Its weapon action returns a marked projectile at a known timing, so the head/shaft must visibly support a deflect-and-return read. Seth / desert / chaos origin (red desert stone, meteoric-looking iron, Seth-animal restraint) without generic demonic fantasy: no skulls, horns-for-effect, spikes or glowing runes. One coherent spear only.
+
+Source (REN_V3_Core_AR.md §21):
+
+### رمح الفوضى
+
+يفتح في الرابعة بنسخة قصيرة، وتكتمل وظيفته في العاشرة. طعن خطي ومسافة أكبر ودفاع جانبي أضعف؛ الثقيلة ترتد عند إصابة درع أمامي غير مكشوف. فعل السلاح يرد مقذوفًا موسومًا في توقيت معلوم. لا يعكس كل نار أو ضربة جسدية. ثلاثة الأسلحة لها مسارات تحسين الخمس نفسها، ويمكن نقل مواد التحسين المشتركة بينها في الراحة لتجربة تخصيص جديد.
+
+Note: the Canon evidence section below quotes §20 (controls/combat numbers) for mechanics only; §21 above defines the weapon itself. No new weapon concept may be invented.
+
 ## Required individual outputs
 
 - `W03.Side_A`: Dedicated view of Side A; maintain the same asset identity and spatial geometry.

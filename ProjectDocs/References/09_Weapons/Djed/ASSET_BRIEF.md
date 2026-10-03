@@ -16,6 +16,18 @@ Three weapons plus Wedjat aiming/reading utility, not a fourth full weapon. Dime
 
 Photorealistic high-end UE5-style physically based reference; match supplied Nefer realism. Neutral readable illumination, real skin/fabric/stone/wood/metal detail. One asset per file. No poster, cosplay, plastic, exaggerated gold, MMO armor, neon, digital glitch, opaque fog, false historical translations or unreadable Arabic. Native PNG minimum 2048 long edge, preferably 2K–4K. No upscaling to conceal undersized generation. No generated candidate is approved automatically.
 
+## Weapon canon — v3 §21 (governs this asset's design)
+
+W02 Djed (الجد): a heavy stone staff. Two light attacks; a high-stability heavy strike; a defensive heavy stance. Ancient Egyptian Djed-pillar visual logic (stacked horizontal bands of the djed) built into one stone staff. Clearly one coherent weapon: never several alternative objects, variants or extra items in one image; no Wedjat, spear or second staff alongside it. Not a hammer, not a fantasy mace.
+
+Source (REN_V3_Core_AR.md §21):
+
+### الجد
+
+عصا حجرية بوقفات أثقل؛ ضربتان خفيفتان، وثقيلة تضرب ثباتًا مرتفعًا. يفيد ضد حراس الدرع وعمِمت وأصداء سوكر. الوقفة الثقيلة تقلل دفع هجمة مقروءة وتستهلك تحملًا؛ الوقوف فيها باستمرار يمنع تجدد التحمل سريعًا ويعرضك للإمساك. يفتح في الخامسة؛ لا يصبح ترقية مطلقة على القصبة.
+
+Note: the Canon evidence section below quotes §20 (controls/combat numbers) for mechanics only; §21 above defines the weapon itself. No new weapon concept may be invented.
+
 ## Required individual outputs
 
 - `W02.Side_A`: Dedicated view of Side A; maintain the same asset identity and spatial geometry.
