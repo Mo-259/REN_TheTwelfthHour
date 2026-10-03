@@ -155,7 +155,8 @@ def continuity_base_or_fail(job):
     if key is None or job["id"]==bases[key].get("source_job"):
         return None
     base=bases[key]
-    rel=base.get("file")
+    # A job may name a different accepted image of the same asset (e.g. a low-detail silhouette sheet).
+    rel=job.get("continuity_file_override") or base.get("file")
     if not rel:
         raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base {key} is unresolved; refusing text-only follow-up view {job['id']}.")
     path=REFS/rel
