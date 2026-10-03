@@ -9364,12 +9364,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Turnaround_or_Morphology",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Turnaround_or_Morphology_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Turnaround_or_Morphology_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9380,8 +9380,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9395,12 +9398,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Materials",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Materials_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Materials_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9411,8 +9414,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9426,12 +9432,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Gameplay_Silhouette",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Gameplay_Silhouette_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Gameplay_Silhouette_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9442,8 +9448,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9457,12 +9466,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Attack_Anticipation",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Attack_Anticipation_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Attack_Anticipation_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9473,8 +9482,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9488,12 +9500,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Recovery_State",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Recovery_State_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Recovery_State_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9504,8 +9516,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9519,12 +9534,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Phase_States",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Phase_States_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Phase_States_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9535,8 +9550,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9550,12 +9568,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Weak_Point_or_Objective",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9566,8 +9584,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9581,12 +9602,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Scale_Comparison",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Scale_Comparison_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Scale_Comparison_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9597,8 +9618,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        2048
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
