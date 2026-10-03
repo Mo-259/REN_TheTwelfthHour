@@ -225,6 +225,62 @@
       "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v01.png",
       "verdict": "NEEDS_FIX",
       "note": "Same Reed in three orthographic views, but drawn taller than the human silhouette, contradicting Weapon_Sockets where Nefer carries it at about waist-to-chin length. Scale is this view's purpose: one retry using Weapon_Sockets as second source."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W01.Physical_Dimensions",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v02.png",
+      "verdict": "BLOCKED_VISUAL_QA",
+      "note": "Retry still renders the Reed about as tall as the figure, conflicting with Weapon_Sockets (about waist-to-chin). Design is correct; length authority = Weapon_Sockets v01 + Sockets/Attack_Use. Keep draft for proportions only."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W01.Hand_Scale",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Hand_Scale_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Same Reed; mostly views/material crops, one panel of Nefer's wrapped hand gripping it. Minor; kept."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W01.Sockets",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Sockets_v01.png",
+      "verdict": "PASS",
+      "note": "Same Reed; Nefer (same face/linen) carrying it on back sling and in hand; plus material crops."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W01.Gameplay_Silhouette",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Gameplay_Silhouette_v01.png",
+      "verdict": "PASS",
+      "note": "Solid silhouettes at two sizes and figure holding it; extra views/material panels."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W01.Attack_Use",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Attack_Use_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer; light strikes, seal touch, heavy attack cutting a line on the floor. Here the Reed reads about 1.2 m."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W02.Side_B",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Side_B_v01.png",
+      "verdict": "PASS",
+      "note": "Same Djed staff: stacked-band head, lashings, wooden shaft, stone end cap."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W02.Front_Thickness",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Front_Thickness_v01.png",
+      "verdict": "PASS",
+      "note": "Front/side/edge and exploded construction of the same staff."
+    },
+    {
+      "batch": "AP5",
+      "job_id": "W02.Material_Closeups",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Material_Closeups_v01.png",
+      "verdict": "PASS",
+      "note": "Head, lashing, wood, stone cap close-ups; same object; scale/silhouette extras."
     }
   ]
 }
