@@ -4207,12 +4207,12 @@
       "asset_id": "C01",
       "name": "Nefer — Sandals",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Sandals_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Sandals_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4223,8 +4223,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4238,12 +4241,12 @@
       "asset_id": "C01",
       "name": "Nefer — Hand_Anatomy",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Hand_Anatomy_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Hand_Anatomy_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4254,8 +4257,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4362,12 +4368,12 @@
       "asset_id": "C01",
       "name": "Nefer — Gameplay_Silhouette",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Gameplay_Silhouette_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Gameplay_Silhouette_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4378,8 +4384,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4462,12 +4471,12 @@
       "asset_id": "C04",
       "name": "Anubis — Materials",
       "category": "god",
-      "file": null,
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Materials_v01.png",
       "expected_file": "02_Gods/Anubis/REF_GOD_Anubis_Materials_v01.png",
       "brief_file": "02_Gods/Anubis/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C04; latest visual brief §§3–5,8",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4478,8 +4487,11 @@
       "source_canon_ids": [
         "C04"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8191,7 +8203,7 @@
       "asset_id": "C20",
       "name": "Sheut — Relationship_States",
       "category": "soul_part",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v02.png",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v03.png",
       "expected_file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v01.png",
       "brief_file": "04_Soul_Parts/Sheut/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9034,12 +9046,12 @@
       "asset_id": "B02",
       "name": "Kheft — Attack_Anticipation",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Attack_Anticipation_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Attack_Anticipation_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9050,8 +9062,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24532,12 +24547,12 @@
       "asset_id": "ENV_Tomb_08",
       "name": "RevealLedge — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/Tomb/RevealLedge/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24549,8 +24564,11 @@
         "7",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24564,12 +24582,12 @@
       "asset_id": "ENV_Tomb_09",
       "name": "VerticalNecropolisVista — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/Tomb/VerticalNecropolisVista/REF_ENV_VerticalNecropolisVista_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/Tomb/VerticalNecropolisVista/REF_ENV_VerticalNecropolisVista_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/Tomb/VerticalNecropolisVista/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24581,8 +24599,11 @@
         "7",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",

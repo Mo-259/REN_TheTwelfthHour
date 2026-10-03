@@ -2,161 +2,47 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "ENV_Tomb_06.Gameplay",
-    "ENV_Tomb_07.Gameplay",
-    "C01.Head_Master",
-    "C01.Linen_Construction",
-    "B01.Phase_States",
-    "B01.Recovery_State",
-    "B01.Gameplay_Silhouette",
-    "C20.Relationship_States"
+    "C01.Hand_Anatomy",
+    "C01.Sandals",
+    "C01.Gameplay_Silhouette",
+    "ENV_Tomb_08.Gameplay",
+    "ENV_Tomb_09.Gameplay",
+    "C20.Relationship_States",
+    "B02.Attack_Anticipation",
+    "C04.Materials"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "ENV_Tomb_06.Gameplay",
-      "file": "11_Environments/Details/Tomb/ExitSlab/REF_ENV_ExitSlab_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2165,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2165
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2322
-      }
-    },
-    {
-      "job_id": "ENV_Tomb_07.Gameplay",
-      "file": "11_Environments/Details/Tomb/TransitionTunnel/REF_ENV_TransitionTunnel_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2156,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2156
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2313
-      }
-    },
-    {
-      "job_id": "C01.Head_Master",
-      "file": "01_Nefer/REF_CHR_Nefer_Head_Master_v01.png",
+      "job_id": "C01.Hand_Anatomy",
+      "file": "01_Nefer/REF_CHR_Nefer_Hand_Anatomy_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2895,
+        "input_tokens": 2938,
         "input_tokens_details": {
           "image_tokens": 1452,
-          "text_tokens": 1443
+          "text_tokens": 1486
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3053
+        "total_tokens": 3096
       }
     },
     {
-      "job_id": "C01.Linen_Construction",
-      "file": "01_Nefer/REF_CHR_Nefer_Linen_Construction_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2919,
-        "input_tokens_details": {
-          "image_tokens": 1452,
-          "text_tokens": 1467
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3077
-      }
-    },
-    {
-      "job_id": "B01.Phase_States",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v03.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 4246,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2710
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4404
-      }
-    },
-    {
-      "job_id": "B01.Recovery_State",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Recovery_State_v02.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 4125,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2589
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4283
-      }
-    },
-    {
-      "job_id": "B01.Gameplay_Silhouette",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Gameplay_Silhouette_v02.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 4140,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2604
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4298
-      }
-    },
-    {
-      "job_id": "C20.Relationship_States",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v02.png",
+      "job_id": "C01.Sandals",
+      "file": "01_Nefer/REF_CHR_Nefer_Sandals_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
         "input_tokens": 2915,
         "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 1379
+          "image_tokens": 1452,
+          "text_tokens": 1463
         },
         "output_tokens": 158,
         "output_tokens_details": {
@@ -164,6 +50,120 @@
           "text_tokens": 0
         },
         "total_tokens": 3073
+      }
+    },
+    {
+      "job_id": "C01.Gameplay_Silhouette",
+      "file": "01_Nefer/REF_CHR_Nefer_Gameplay_Silhouette_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2927,
+        "input_tokens_details": {
+          "image_tokens": 1452,
+          "text_tokens": 1475
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3085
+      }
+    },
+    {
+      "job_id": "ENV_Tomb_08.Gameplay",
+      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2180,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2180
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2337
+      }
+    },
+    {
+      "job_id": "ENV_Tomb_09.Gameplay",
+      "file": "11_Environments/Details/Tomb/VerticalNecropolisVista/REF_ENV_VerticalNecropolisVista_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2187,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2187
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2344
+      }
+    },
+    {
+      "job_id": "C20.Relationship_States",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v03.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2984,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 1448
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3142
+      }
+    },
+    {
+      "job_id": "B02.Attack_Anticipation",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Attack_Anticipation_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3902,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2366
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4060
+      }
+    },
+    {
+      "job_id": "C04.Materials",
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Materials_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2917,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 1381
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3075
       }
     }
   ],
