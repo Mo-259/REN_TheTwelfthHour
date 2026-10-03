@@ -118,6 +118,14 @@ def strip_brief_sections(brief, headings):
             out.append(line)
     return "".join(out)
 
+# Shared no-copy rule for non-hero continuity jobs. Not applied to views whose purpose is to
+# match the base (turnarounds, orthographic morphology, explicit matching views).
+NO_COPY_RULE=(
+    "The supplied continuity image defines identity, morphology, proportions and material language only. "
+    "Never return its pose, framing, camera composition or background unchanged unless the requested view explicitly requires it."
+)
+MATCHING_VIEWS={"Turnaround_or_Morphology","Body_Turnaround","Front","Front_Side","Rear","Hero_Side","Identity_Comparison"}
+
 def check_image(path, label, job_id):
     with path.open("rb") as f:
         head=f.read(64)
@@ -153,6 +161,8 @@ def continuity_base_or_fail(job):
     instruction=base.get("instruction") or CONTINUITY_INSTRUCTION
     if base.get("preserve"):
         instruction += " Preserve exactly: " + base["preserve"]
+    if view not in MATCHING_VIEWS:
+        instruction += " " + NO_COPY_RULE
     return path, instruction
 
 def usage_dict(result):

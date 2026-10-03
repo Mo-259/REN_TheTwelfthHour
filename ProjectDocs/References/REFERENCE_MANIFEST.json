@@ -8744,10 +8744,14 @@
       "resolution_compliant": false,
       "review": {
         "identity": "pending",
-        "gameplay": "pending",
+        "gameplay": "NEEDS_FIX",
         "scale": "pending",
         "rigging": "not tested",
-        "environment_continuity": "pending"
+        "environment_continuity": "pending",
+        "verdict": "NEEDS_FIX",
+        "verdict_by": "user 2026-10-03",
+        "verdict_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v01.png",
+        "verdict_reason": "Phase 3 not canon-correct: masks must stay present, gathered toward the gate/anchor, with the thread system acting on the masks and two separable thread targets; threads must not run from the boss's hands to wall anchors."
       }
     },
     {
