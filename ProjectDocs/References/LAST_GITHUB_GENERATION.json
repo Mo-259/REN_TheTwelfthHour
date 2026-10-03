@@ -2,65 +2,169 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "B02.Hero_Master",
-    "C20.Hero_Master",
-    "C05.Hero_Master",
-    "B03.Hero_Master",
-    "E11.Enemy_Gameplay_Sheet",
+    "E05.Enemy_Gameplay_Sheet",
+    "E07.Enemy_Gameplay_Sheet",
+    "E09.Enemy_Gameplay_Sheet",
     "E12.Enemy_Gameplay_Sheet",
-    "W01.ThreeQuarter",
-    "W02.ThreeQuarter"
+    "ENV_Tomb_01.Gameplay",
+    "ENV_Tomb_02.Gameplay",
+    "ENV_Tomb_03.Gameplay",
+    "ENV_Tomb_04.Gameplay"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "B02.Hero_Master",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png",
+      "job_id": "E05.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E05_Shadowless/REF_ENEMY_Shadowless_Enemy_Gameplay_Sheet_v02.png",
       "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 1191,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 1191
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 1349
+      }
     },
     {
-      "job_id": "C20.Hero_Master",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png",
+      "job_id": "E07.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E07_LampGuards/REF_ENEMY_LampGuards_Enemy_Gameplay_Sheet_v02.png",
       "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 1198,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 1198
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 1356
+      }
     },
     {
-      "job_id": "C05.Hero_Master",
-      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png",
+      "job_id": "E09.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E09_InkGhosts/REF_ENEMY_InkGhosts_Enemy_Gameplay_Sheet_v02.png",
       "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
-    },
-    {
-      "job_id": "B03.Hero_Master",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
-    },
-    {
-      "job_id": "E11.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E11_PapyrusSerpents/REF_ENEMY_PapyrusSerpents_Enemy_Gameplay_Sheet_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 1165,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 1165
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 1323
+      }
     },
     {
       "job_id": "E12.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E12_ArchiveGuards/REF_ENEMY_ArchiveGuards_Enemy_Gameplay_Sheet_v01.png",
+      "file": "07_Enemies/E12_ArchiveGuards/REF_ENEMY_ArchiveGuards_Enemy_Gameplay_Sheet_v02.png",
       "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 1268,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 1268
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 1426
+      }
     },
     {
-      "job_id": "W01.ThreeQuarter",
-      "file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "job_id": "ENV_Tomb_01.Gameplay",
+      "file": "11_Environments/Details/Tomb/BurialChamber/REF_ENV_BurialChamber_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2102,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2102
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2259
+      }
     },
     {
-      "job_id": "W02.ThreeQuarter",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW"
+      "job_id": "ENV_Tomb_02.Gameplay",
+      "file": "11_Environments/Details/Tomb/Sarcophagus/REF_ENV_Sarcophagus_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2102,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2102
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2259
+      }
+    },
+    {
+      "job_id": "ENV_Tomb_03.Gameplay",
+      "file": "11_Environments/Details/Tomb/BlankCartouche/REF_ENV_BlankCartouche_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2102,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2102
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2259
+      }
+    },
+    {
+      "job_id": "ENV_Tomb_04.Gameplay",
+      "file": "11_Environments/Details/Tomb/NoShadowLane/REF_ENV_NoShadowLane_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2102,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2102
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2259
+      }
     }
   ],
   "failed": [],
