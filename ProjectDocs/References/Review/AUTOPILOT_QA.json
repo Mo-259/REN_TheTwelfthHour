@@ -169,6 +169,62 @@
       "file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
       "verdict": "PASS",
       "note": "Painted papyrus columns around inner court, sun disc of light on paving, clear path."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "B03.Arena_Relationship",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v02.png",
+      "verdict": "PASS",
+      "note": "Retry fixed: elevated copying hall, tables to edges, fixed ink basin, Hori small on open floor. Parasite barely visible at this scale (minor)."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "ENV_HouseLife_06.Gameplay",
+      "file": "11_Environments/Details/HouseLife/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Narrow back passage, reed bundles, jars, readable path to door."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "ENV_HouseLife_07.Gameplay",
+      "file": "11_Environments/Details/HouseLife/ThothSpace/REF_ENV_ThothSpace_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Quiet chamber, one table with an intentionally blank papyrus, reeds and palette, slit light."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "ENV_HouseLife_08.Gameplay",
+      "file": "11_Environments/Details/HouseLife/HoriBlackHandArena/REF_ENV_HoriBlackHandArena_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Copying hall with tables at edges, central fixed stone ink basin, open combat floor; consistent with B03 arena."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "ENV_HouseLife_09.Gameplay",
+      "file": "11_Environments/Details/HouseLife/MemorySpace/REF_ENV_MemorySpace_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Noon baker's courtyard: clay ovens, bread, writing table with lists."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "ENV_HouseLife_10.Gameplay",
+      "file": "11_Environments/Details/HouseLife/EnemyCombatCorridor/REF_ENV_EnemyCombatCorridor_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Wide archive corridor, niches, tables at edges, clear fighting width."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "W01.Side_B",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_B_v01.png",
+      "verdict": "PASS",
+      "note": "Same Reed: jointed stem, ink-dark cut tip, leather and cord grip; clean single view."
+    },
+    {
+      "batch": "AP4",
+      "job_id": "W01.Physical_Dimensions",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Same Reed in three orthographic views, but drawn taller than the human silhouette, contradicting Weapon_Sockets where Nefer carries it at about waist-to-chin length. Scale is this view's purpose: one retry using Weapon_Sockets as second source."
     }
   ]
 }
