@@ -1,7 +1,61 @@
-[
-  {
-    "job_id": "C04.Hero_Master",
-    "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
-    "status": "NEEDS_REVIEW"
-  }
-]
+{
+  "schema": 2,
+  "quality": "low",
+  "requested": [
+    "B01.Hero_Master",
+    "B02.Hero_Master",
+    "C20.Hero_Master",
+    "C05.Hero_Master",
+    "C18.Hero_Master",
+    "E01.Enemy_Gameplay_Sheet",
+    "E02.Enemy_Gameplay_Sheet"
+  ],
+  "max_requests_per_run": 8,
+  "api_requests_made": 7,
+  "success": [
+    {
+      "job_id": "B01.Hero_Master",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "B02.Hero_Master",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "C20.Hero_Master",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "C05.Hero_Master",
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "C18.Hero_Master",
+      "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "E01.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E01_NamelessDead/REF_ENEMY_NamelessDead_Enemy_Gameplay_Sheet_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    },
+    {
+      "job_id": "E02.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E02_ScribesWithoutMouths/REF_ENEMY_ScribesWithoutMouths_Enemy_Gameplay_Sheet_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW"
+    }
+  ],
+  "failed": [],
+  "not_run": []
+}

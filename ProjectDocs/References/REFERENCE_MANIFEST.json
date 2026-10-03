@@ -4543,12 +4543,12 @@
       "asset_id": "C05",
       "name": "Thoth — Hero_Master",
       "category": "god",
-      "file": null,
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v01.png",
       "expected_file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v01.png",
       "brief_file": "02_Gods/Thoth/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C05; latest visual brief §§3–5,8",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4559,8 +4559,11 @@
       "source_canon_ids": [
         "C05"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -6589,12 +6592,12 @@
       "asset_id": "C18",
       "name": "Hori — Hero_Master",
       "category": "supporting_character",
-      "file": null,
+      "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png",
       "expected_file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png",
       "brief_file": "03_Humans/Hori/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C18",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -6605,8 +6608,11 @@
       "source_canon_ids": [
         "C18"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8139,12 +8145,12 @@
       "asset_id": "C20",
       "name": "Sheut — Hero_Master",
       "category": "soul_part",
-      "file": null,
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v01.png",
       "expected_file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v01.png",
       "brief_file": "04_Soul_Parts/Sheut/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 soul progression; §46 C20",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8155,8 +8161,11 @@
       "source_canon_ids": [
         "C20"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8514,12 +8523,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Hero_Master",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8530,8 +8539,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8855,12 +8867,12 @@
       "asset_id": "B02",
       "name": "Kheft — Hero_Master",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8871,8 +8883,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16078,12 +16093,12 @@
       "asset_id": "E01",
       "name": "NamelessDead — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E01_NamelessDead/REF_ENEMY_NamelessDead_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E01_NamelessDead/REF_ENEMY_NamelessDead_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E01_NamelessDead/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16094,8 +16109,11 @@
       "source_canon_ids": [
         "E01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16109,12 +16127,12 @@
       "asset_id": "E02",
       "name": "ScribesWithoutMouths — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E02_ScribesWithoutMouths/REF_ENEMY_ScribesWithoutMouths_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E02_ScribesWithoutMouths/REF_ENEMY_ScribesWithoutMouths_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E02_ScribesWithoutMouths/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E02",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16125,8 +16143,11 @@
       "source_canon_ids": [
         "E02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
