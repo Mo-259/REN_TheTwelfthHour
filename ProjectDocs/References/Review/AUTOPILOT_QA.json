@@ -337,6 +337,62 @@
       "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Material_Closeups_v01.png",
       "verdict": "PASS",
       "note": "Head with red inlay, bronze bands, wrapped grip, red stone, butt cap; same spear; scale extras."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "W03.Physical_Dimensions",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Physical_Dimensions_v01.png",
+      "verdict": "PASS",
+      "note": "Same spear, three orthographic views, longer than the figure (reach weapon), unnumbered bar."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "W03.Hand_Scale",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Hand_Scale_v01.png",
+      "verdict": "PASS",
+      "note": "Nefer's wrapped arm and hand on the spear grip; same spear."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "W03.Sockets",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Sockets_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer and spear: held, diagonal back carry, stances, material crops."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "W03.Gameplay_Silhouette",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Gameplay_Silhouette_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Spear silhouettes and figure carry read well; minor: stray Wedjat-eye icon and unheaded shaft variants in one panel. Kept."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "W03.Attack_Use",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Attack_Use_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer: long thrust showing reach, guard, return of a marked incoming dart."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "U01.Side_B",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Side_B_v01.png",
+      "verdict": "PASS",
+      "note": "Same Wedjat tool, reverse side; faience/lapis/bronze, wrapped grip, short point."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "U01.Front_Thickness",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Front_Thickness_v01.png",
+      "verdict": "PASS",
+      "note": "Edge-on thickness of the same tool; grip and point consistent."
+    },
+    {
+      "batch": "AP7",
+      "job_id": "U01.Grip",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Grip_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Returned the full tool view (grip readable, no hand-clearance close-up). Minor; Hand_Scale covers grip. Kept."
     }
   ]
 }
