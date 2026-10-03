@@ -1,0 +1,1384 @@
+You are the VISUAL PRODUCTION DIRECTOR for an Unreal Engine 5 game project called:
+
+REN — THE TWELFTH HOUR
+
+You are NOT producing marketing collages.
+
+You are building the FINAL VISUAL PRODUCTION REFERENCE PACK that will be handed directly to:
+
+- Claude Code
+- Unreal Engine 5
+- character artists
+- environment artists
+- 3D modelers
+- technical artists
+- animators
+- VFX artists
+- combat designers
+
+The output must be a ZIP file that can be extracted directly into the Unreal project.
+
+==================================================
+0. FIRST — READ ALL PROVIDED SOURCE MATERIAL
+==================================================
+
+Before generating or designing anything:
+
+READ ALL attached / provided materials.
+
+Priority of authority:
+
+1. Latest REN Complete Game Production Bible — Version 3 / October 2026
+2. Latest approved gameplay and narrative documents
+3. Existing approved character masters
+4. Existing visual production bible / manifest
+5. Older concepts only when they do NOT conflict with the latest game bible
+
+Do NOT silently use an older idea when the new Production Bible changed it.
+
+Create internally a CHANGE / CONFLICT list before producing art.
+
+Do not ask me to manually repeat information already present in the attached files.
+
+==================================================
+1. CORE GOAL
+==================================================
+
+Create a complete:
+
+REN VISUAL PRODUCTION PACK v3
+
+Every important asset must have its OWN individual reference images.
+
+DO NOT create one giant collage and call it finished.
+
+Collages may be added as INDEX / CONTACT SHEETS only.
+
+The real pack must contain individual high-resolution images for:
+
+- protagonist
+- gods
+- humans
+- soul parts
+- main bosses
+- optional bosses
+- enemies
+- elites
+- weapons
+- tools
+- transformations
+- world regions
+- architecture
+- gameplay props
+- VFX language
+- animation pose references
+- scale charts
+- materials
+- cinematic framing rules
+
+==================================================
+2. ABSOLUTE VISUAL QUALITY
+==================================================
+
+TARGET QUALITY:
+
+Photorealistic,
+realistic AAA 3D game-character concept reference,
+physically believable,
+Unreal Engine 5-ready visual language,
+high-end PBR rendering,
+subtle skin imperfections,
+real fabric fibers,
+real leather wear,
+real stone,
+real bronze,
+real wood,
+real feathers/fur when appropriate.
+
+The realism target is the supplied NEFER reference.
+
+NEFER is the realism benchmark.
+
+Every reference should feel like:
+
+"this could already be a real high-end 3D asset rendered in Unreal Engine 5"
+
+NOT:
+
+- stylized AI fantasy art
+- game-poster illustration
+- fashion photography
+- cosplay
+- generic Egyptian fantasy
+- over-sharpened AI rendering
+- plastic skin
+- excessive glow
+- dramatic fog hiding anatomy
+- fake concept-art brushwork
+- glossy fantasy armor
+- random gold everywhere
+- generic Soulslike costume
+- Marvel superhero anatomy
+- anime proportions
+- MMO armor
+- cyberpunk
+- neon
+- digital glitches
+
+==================================================
+3. IMPORTANT DESIGN PHILOSOPHY — DIVINE ANATOMY
+==================================================
+
+DO NOT force gods into:
+
+human body + animal head.
+
+This is a HARD RULE.
+
+Divine beings may have:
+
+- human-dominant anatomy
+- animal-derived anatomy
+- funerary-object-derived anatomy
+- stone / resin / water / sand morphology
+- architectural anatomy
+- shadow anatomy
+- writing / symbol anatomy
+- hybrid anatomy
+
+BUT:
+
+all anatomy must remain:
+
+- physically believable
+- riggable
+- readable
+- suitable for third-person gameplay
+- capable of clear attack anticipation
+- capable of readable recovery
+- capable of real contact with the environment
+
+The entire body should communicate the god's DOMAIN.
+
+Not just the head.
+
+==================================================
+4. ANUBIS — IMPORTANT REDESIGN
+==================================================
+
+The current human-body + jackal-head version is REJECTED.
+
+Redesign Anubis from scratch.
+
+ANUBIS is:
+
+threshold
+preservation
+custody
+procedure
+funerary authority
+stillness
+
+He is NOT Seth.
+
+His design language:
+
+very tall,
+narrow,
+vertical,
+controlled,
+almost perfectly still.
+
+Body proportions:
+- unusually long arms
+- narrow chest
+- dropped/slender shoulders
+- long legs
+- precise human-capable hands
+- very controlled symmetry
+
+Surface transition:
+black short funerary fur
++
+dark organic skin
++
+funerary resin
++
+subtle basalt-like material character
+
+These materials should transition naturally through the same organism.
+
+Do NOT make:
+- a muscular human male with a jackal head
+- a furry werewolf
+- a wolf-man
+- a cosplay Anubis
+- superhero shoulders
+
+Head:
+realistic black jackal / Egyptian golden-wolf-derived sacred anatomy.
+
+But the neck, upper torso, shoulders, spine and skin must continue the same divine morphology.
+
+Linen:
+off-white funerary linen integrated around the body as ritual preservation,
+not a costume placed over a normal human body.
+
+Weapon:
+restrained funerary staff.
+
+Presence:
+stillness is power.
+
+Seth and Anubis silhouettes must NEVER be confused.
+
+==================================================
+5. SETH
+==================================================
+
+Use the approved Seth direction as the identity base.
+
+Hard identity:
+
+- unique Set-animal
+- NOT jackal
+- NOT wolf
+- NOT dog
+- NOT fox
+- NOT Anubis
+- very tall squared ears
+- long downward unfamiliar snout
+- dry desert divine anatomy
+- elongated forearms
+- narrow torso
+- sparse coarse fur
+- non-human lower-leg influence
+- red ochre sash
+- restrained linen
+- anti-Apep spear
+
+Update any remaining overly human anatomy using the latest divine-anatomy rule.
+
+==================================================
+6. NEFER
+==================================================
+
+NEFER IDENTITY IS LOCKED.
+
+Use the supplied Nefer master as ABSOLUTE facial authority.
+
+Do NOT redesign his face.
+
+He is:
+
+former Egyptian scribe
+human
+lean
+tired
+observant
+practical
+not a warrior prince
+
+Create production references for:
+
+- Hero Master
+- body turnaround
+- head master
+- skin/material closeups
+- linen construction
+- sandals
+- hand anatomy
+- no-shadow gameplay state
+- weapon sockets
+- scale
+- gameplay silhouette
+
+Nefer's human identity must remain recognizable through the entire game.
+
+==================================================
+7. FACE-EATER
+==================================================
+
+Use the approved empty vertical cartouche identity as the base.
+
+BUT:
+
+the latest game bible changes the combat mechanics.
+
+The old chest-seal boss concept is NOT the final combat authority.
+
+Create:
+
+FACE-EATER COMBAT v2
+
+Must visually support:
+
+- empty vertical cartouche head
+- long-limbed funerary body
+- two jaw-mask combat structures
+- exposed rib gameplay target
+- thrown-mask gameplay state
+- visible phase-3 threads/tethers
+- readable grab anticipation
+- readable long-arm sweep
+- readable recovery
+
+The identity horror must come from:
+absence,
+erasure,
+trapped identity,
+funerary construction.
+
+NOT:
+
+gore,
+skulls,
+zombie imagery,
+generic mummy horror.
+
+==================================================
+8. REQUIRED CHARACTERS
+==================================================
+
+Create individual folders and production references for ALL major characters.
+
+CORE / GODS:
+
+Nefer
+Meru
+Bennu
+Anubis
+Thoth
+Isis
+Seth
+Osiris
+Horus
+Ra Night
+Sekhmet
+Nephthys
+Maat
+Sokar
+Sobek
+Ammit
+Apep
+
+SOUL / INNER ENTITIES:
+
+Sheut
+Ka
+Ib
+Ba / Bennu relationship states if required by bible
+
+KEY HUMANS:
+
+Hori
+Isetnofret
+Cemetery Guard
+Baker
+Mother Without Name
+Star Child
+Three-Names Soldier
+Priest of Seth
+Boatman
+Doctor of Sekhmet
+Nefis — Keeper of the Record
+Two Grave Claimants
+Two Loom Workers
+Mirror Woman
+Mourning Family
+Stone Worker
+Local Judgment Scribe
+Wing Maker
+Table-and-Shadow Family
+Caravan Leader
+Shore Promise Witness
+Missing-Picture Child
+Guardian of the West
+Choir Spirits
+The Listener
+
+Do not over-design human NPCs like bosses.
+
+Humans should look:
+historically grounded,
+ordinary,
+specific,
+recognizable.
+
+==================================================
+9. MERU — THREE STATES
+==================================================
+
+MERU needs THREE clearly related states.
+
+01 — MERU TEACHER
+
+Trustworthy older lector-priest.
+Patient.
+Intelligent.
+Human.
+No villain coding.
+
+02 — MERU KEEPER OF THE UNNAME
+
+Same person.
+Same identity.
+More controlled.
+Semantic-erasure language begins affecting material and clothing.
+Do not turn him into a generic dark wizard.
+
+03 — UNWRITTEN MERU
+
+Same person becomes partially unrecorded / semantically incomplete.
+
+Avoid:
+digital glitch,
+purple smoke,
+neon corruption.
+
+Use:
+missing seams,
+incomplete edges,
+erased inscriptions,
+material discontinuity,
+lost identity relationships.
+
+All three states must unmistakably be the same man.
+
+==================================================
+10. MAIN BOSSES
+==================================================
+
+Create individual production packages for:
+
+01B Face-Eater
+02B Kheft — Keeper of Shadows
+03B Hori / Black Hand
+04B Red Storm Beast
+05B Seth — Eye of the Storm
+06B Rosetau Serpent
+07B Sokar — Bearer of Stability
+08/Ka Trial visual state if required
+09B Ammit — Guardian of Judgment
+10B Osiris Seal Manifestation
+11B Forgotten King
+12B Choir of the Nameless
+13B Horus — Broken Eye combat form
+14B Sekhmet combat form
+15B Drowned Captain
+16B Knot of Apep
+17B Meru — Keeper of the Unname
+18B Unwritten Meru
+Mouth of Apep set-piece
+The Unname final entity
+
+EVERY MAIN BOSS needs:
+
+Hero_Master
+Turnaround_or_Morphology
+Materials
+Gameplay_Silhouette
+Attack_Anticipation
+Recovery_State
+Phase_States
+Weak_Point_or_Objective
+Scale_Comparison
+Rig_Notes_Visual
+Arena_Relationship
+
+Do not solve phases through color changes only.
+
+==================================================
+11. OPTIONAL BOSSES
+==================================================
+
+Create individual Hero / Gameplay references for:
+
+Empty Cartouche
+Man Who Did Not Die
+Sobek Apparition
+Horizon Lions
+False Scribe
+Nameless Pharaoh
+Hungerless Predator
+Last Gate Guardian
+Noon Weaver
+Stone Mourner
+Copper Falcon
+Mud Bride
+
+Each must have a unique silhouette.
+
+Do not make them visually interchangeable with main bosses.
+
+==================================================
+12. ROAD ENEMIES
+==================================================
+
+The Production Bible contains 43 functional enemy labels.
+
+DO NOT make 43 unrelated skeletons.
+
+Group them into reusable production families where possible.
+
+BUT:
+
+each enemy still needs an individual image/reference sheet showing:
+
+- full 3/4
+- silhouette
+- attack anticipation
+- active attack
+- recovery
+- materials
+- scale
+- family/skeleton assignment
+
+Priority:
+
+01E–12E must be highest quality because they cover Hours 1–3.
+
+Current first enemies include:
+
+Nameless Dead
+Scribes Without Mouths
+Cemetery Jackals
+Face Leeches
+Shadowless
+Wall Crawlers
+Lamp Guards
+False Shadows
+Ink Ghosts
+Erased Scribes
+Papyrus Serpents
+Archive Guards
+
+IMPORTANT:
+
+Nameless Dead must follow CURRENT V3 canon.
+
+Do not reuse the old "normal living person subtly losing identity" design as current authority if the new bible contradicts it.
+
+==================================================
+13. ELITES
+==================================================
+
+Create:
+
+Coffin Bearer
+Lamp Extinguisher
+Line Corrector
+Erased Caravan Leader
+Broken-Scale Bearer
+Resonator Copyist
+
+They should reuse appropriate base skeletons but read immediately as elites.
+
+==================================================
+14. PLAYER WEAPONS
+==================================================
+
+Create final individual weapon production sheets for:
+
+01 Reed Weapon
+02 Djed Weapon
+03 Chaos Spear
+04 Wedjat Utility
+
+Each sheet:
+
+- side view A
+- side view B
+- front thickness
+- 3/4
+- grip
+- material closeups
+- correct physical dimensions
+- hand scale
+- socket/grip notes
+- gameplay silhouette
+- attack-use silhouette
+
+No generic fantasy weapons.
+
+==================================================
+15. SIGNATURE NPC / BOSS WEAPONS
+==================================================
+
+Create references for:
+
+Seth Anti-Apep Spear
+Anubis Staff
+Thoth writing staff / palette
+Horus combat weapon
+Sekhmet weapon if current gameplay requires one
+Face-Eater weapon if current combat still uses one
+Drowned Captain anchor / oar / net
+Meru ritual / writing / resonator tools
+Sokar staff
+Osiris seal elements
+
+Do not invent equipment not supported by the current bible.
+
+==================================================
+16. TRANSFORMATIONS
+==================================================
+
+Create individual production sheets for:
+
+Storm Form
+Scute Form
+Falcon Form
+Lioness Form
+
+For each:
+
+- Nefer Base
+- transition frame
+- full combat form
+- front / side
+- hand change
+- foot change
+- body-material change
+- silhouette
+- VFX boundary
+- weapon compatibility
+- gameplay duration-state read
+
+These are NOT superhero transformations.
+
+The human identity of Nefer must remain visible or conceptually traceable.
+
+Do not make transformations entirely VFX.
+
+==================================================
+17. APEP
+==================================================
+
+Do NOT treat Apep as one normal serpent boss.
+
+Create an APEP visual system.
+
+Required:
+
+Apep Scale
+Apep Coil
+Knot of Apep
+Mouth of Apep
+Night River Presence
+Solar Barque Attack Presence
+Cosmic body fragments
+
+Apep is recurring chaos.
+
+Apep is not permanently killed.
+
+The world should feel affected by Apep before the full body is understood.
+
+==================================================
+18. THE UNNAME
+==================================================
+
+Create an original final entity.
+
+Semantic erasure made physical.
+
+It must NOT look like:
+
+- generic demon
+- black smoke monster
+- purple cosmic humanoid
+- AI glitch creature
+- Lovecraft tentacle cliché
+
+Design language:
+
+missing relationships,
+incomplete names,
+negative space,
+stolen human identity fragments,
+material sections that exist without explanation,
+erased inscriptions,
+physical absence.
+
+The entity must still have:
+
+clear gameplay facing,
+attack origin,
+recovery,
+phase states,
+targets.
+
+==================================================
+19. WORLD / ENVIRONMENT PACK
+==================================================
+
+Create individual environment production references for EVERY main region.
+
+At minimum:
+
+01 TOMB / WESTERN NECROPOLIS
+02 SHADOW CITY
+03 HOUSE OF LIFE
+04 RED LAND
+05 ROSETAU
+06 JUDGMENT / NIGHT RIVER / WEST / FINAL AREAS
+
+For each region create:
+
+01_Master_Vista
+02_Gameplay_Corridor
+03_Combat_Arena
+04_Traversal_Example
+05_Interior
+06_Exterior
+07_Lighting
+08_Material_Kit
+09_Architecture_Kit
+10_Prop_Kit
+11_Nefer_Scale
+12_Forbidden_Language
+
+No random pyramids everywhere.
+
+No generic fantasy temple.
+
+Architecture must feel functional and ancient Egyptian before supernatural distortion.
+
+==================================================
+20. TOMB
+==================================================
+
+Create detailed individual references for:
+
+Burial Chamber
+Sarcophagus
+Blank Cartouche
+No-shadow test lane
+Side clue chamber
+Exit slab
+Transition tunnel
+Reveal ledge
+Vertical Necropolis vista
+
+IMPORTANT:
+
+CAMERA MOVES.
+WORLD DOES NOT.
+
+All reference angles must imply ONE consistent physical 3D space.
+
+Do not redesign geometry between camera angles.
+
+==================================================
+21. SHADOW CITY
+==================================================
+
+Production quality priority.
+
+This is part of the official production/funding vertical slice.
+
+Create:
+
+entry
+main street
+shortcut
+rest bank
+portable-light combat space
+Kheft arena
+preserved daylight field
+02M memory space
+rooftop / bridge views
+shadow-light material studies
+
+==================================================
+22. HOUSE OF LIFE
+==================================================
+
+Also production quality priority.
+
+Create:
+
+archive entry
+scribal halls
+ink spaces
+papyrus storage
+light courtyard
+shortcut
+Thoth space
+Hori / Black Hand arena
+memory space
+enemy-combat corridor
+
+==================================================
+23. PROPS
+==================================================
+
+Create individual production sheets for:
+
+Blank Cartouche
+Sarcophagus
+Name Tablet
+Memory Reed
+Scribal scraping tool
+Ink basin
+Papyrus record
+Shadow Anchor
+Resonator
+Djed structures
+Judgment Scale
+Lamp
+Horus lens
+Sekhmet cooling vessel
+Apep scale
+Boat
+Solar Barque
+Gate slab
+Funerary jars
+Offerings
+Witness records
+Seth markers
+ritual banners
+archive furniture
+
+Use realistic materials and physical construction.
+
+==================================================
+24. SOLAR BARQUE
+==================================================
+
+Create:
+
+Hero side view
+top-down deck layout
+front
+rear
+gameplay traversal
+Ra position
+Seth prow position
+rowing stations
+material details
+scale with Nefer
+
+NO:
+mast,
+large sail,
+generic Viking ship,
+Roman galley.
+
+Egyptian sacred vessel first.
+
+==================================================
+25. VFX VISUAL BIBLE
+==================================================
+
+Create individual reference images for:
+
+Heka
+Name Erasure
+Ren Glyph
+Shadow behavior
+Unname corruption
+Apep corruption
+Living hieroglyphs
+Ink
+Heat
+Judgment
+Soul restoration
+Storm transformation
+Scute transformation
+Falcon transformation
+Lioness transformation
+
+HARD RULE:
+
+NO neon.
+NO digital glitch.
+NO generic glowing magic circles.
+NO holograms.
+
+Preferred:
+
+living ink,
+carved symbols,
+mineral light,
+moving writing,
+wrong shadows,
+material disappearance,
+heat refraction,
+physical dust/water/silt reactions.
+
+==================================================
+26. MATERIAL BIBLE
+==================================================
+
+Create high-resolution material references for:
+
+limestone
+sandstone
+granite
+basalt
+cedar
+acacia
+linen
+aged leather
+bronze
+copper
+electrum
+faience
+papyrus
+painted plaster
+funerary resin
+obsidian
+reed fiber
+silt
+water
+ritual pigment
+
+Each material reference must include:
+
+clean
+aged
+damaged
+wet if relevant
+dusty if relevant
+close-up
+gameplay-distance appearance
+
+==================================================
+27. ANIMATION / GAMEPLAY POSE BIBLE
+==================================================
+
+For:
+
+Nefer
+Anubis
+Seth
+Face-Eater
+Kheft
+Horus
+Sekhmet
+Meru
+Drowned Captain
+Nameless Dead
+
+Create pose reference sheets:
+
+idle
+walk
+run
+attack anticipation
+active frame
+recovery
+stagger
+interaction
+defeat / liberation where relevant
+
+Gods who survive MUST NOT receive dead-body reference poses unless required.
+
+==================================================
+28. SCALE BIBLE
+==================================================
+
+Create scale charts.
+
+Include:
+
+Nefer
+ordinary human
+Anubis
+Seth
+Thoth
+Sekhmet
+Horus
+Osiris
+Face-Eater
+Red Storm Beast
+Rosetau Serpent
+Ammit
+Apep manifestations
+The Unname
+
+Use metric scale.
+
+No invented random measurements.
+
+If canon does not provide an exact height:
+mark it as:
+
+PROVISIONAL — DESIGN SCALE
+
+Do NOT pretend the number is final canon.
+
+==================================================
+29. CINEMATIC VISUAL REFERENCES
+==================================================
+
+Create selected individual frames for major moments.
+
+Important:
+
+same physical environment as gameplay.
+
+No movie-only architecture.
+
+Include:
+
+Nefer wake
+Blank Cartouche
+No Shadow discovery
+Necropolis reveal
+Anubis threshold
+Kheft reveal
+House of Life reveal
+Seth encounter
+Judgment
+Broken Eye
+Solar Barque
+Meru reveal
+Unname confrontation
+
+==================================================
+30. FILE QUALITY
+==================================================
+
+INDIVIDUAL IMAGES:
+
+minimum 2048 px on long edge.
+Prefer 2K–4K.
+
+PNG preferred.
+
+Do NOT upscale obviously low-resolution images.
+
+Keep compression visually lossless.
+
+==================================================
+31. FILE NAMING
+==================================================
+
+Use stable names.
+
+Examples:
+
+REF_CHR_Nefer_Hero_v01.png
+REF_CHR_Nefer_Turnaround_v01.png
+
+REF_GOD_Anubis_Hero_v01.png
+REF_GOD_Anubis_Morphology_v01.png
+
+REF_BOSS_Kheft_Hero_v01.png
+REF_BOSS_Kheft_Phases_v01.png
+
+REF_ENV_ShadowCity_MasterVista_v01.png
+
+REF_PROP_BlankCartouche_v01.png
+
+REF_VFX_Heka_v01.png
+
+==================================================
+32. OUTPUT FOLDER STRUCTURE
+==================================================
+
+The final ZIP must contain:
+
+ProjectDocs/
+└── References/
+    ├── REFERENCE_MANIFEST.md
+    ├── REFERENCE_MANIFEST.json
+    ├── DESIGN_AUTHORITY.md
+    │
+    ├── 01_Nefer/
+    │
+    ├── 02_Gods/
+    │   ├── Anubis/
+    │   ├── Seth/
+    │   ├── Thoth/
+    │   ├── Isis/
+    │   ├── Osiris/
+    │   ├── Horus/
+    │   ├── Ra/
+    │   ├── Sekhmet/
+    │   ├── Nephthys/
+    │   ├── Maat/
+    │   ├── Sokar/
+    │   ├── Sobek/
+    │   └── Ammit/
+    │
+    ├── 03_Humans/
+    │
+    ├── 04_Soul_Parts/
+    │
+    ├── 05_Main_Bosses/
+    │
+    ├── 06_Optional_Bosses/
+    │
+    ├── 07_Enemies/
+    │
+    ├── 08_Elites/
+    │
+    ├── 09_Weapons/
+    │
+    ├── 10_Transformations/
+    │
+    ├── 11_Environments/
+    │
+    ├── 12_Props/
+    │
+    ├── 13_VFX/
+    │
+    ├── 14_Materials/
+    │
+    ├── 15_Animation_Poses/
+    │
+    ├── 16_Scale_Charts/
+    │
+    ├── 17_Cinematics/
+    │
+    └── 99_Archive/
+        └── Superseded_References/
+
+==================================================
+33. REFERENCE MANIFEST
+==================================================
+
+Create:
+
+ProjectDocs/References/REFERENCE_MANIFEST.md
+
+and
+
+REFERENCE_MANIFEST.json
+
+For EVERY reference include:
+
+ID
+Name
+Category
+File
+Status
+Source
+Authority level
+Canon version
+Notes
+Supersedes
+Gameplay relevance
+
+Statuses:
+
+LOCKED
+APPROVED_BASE
+NEEDS_REVIEW
+PROVISIONAL
+ARCHIVED
+
+==================================================
+34. DESIGN AUTHORITY
+==================================================
+
+Create:
+
+ProjectDocs/References/DESIGN_AUTHORITY.md
+
+Explain the hierarchy:
+
+latest Game Production Bible
+>
+locked gameplay mechanic
+>
+approved master reference
+>
+turnaround
+>
+technical sheet
+>
+concept exploration
+>
+archive
+
+For example:
+
+If a weapon shown inside a character turnaround conflicts with the dedicated locked weapon sheet:
+
+THE WEAPON SHEET WINS.
+
+If an old Face-Eater technical sheet conflicts with current v3 encounter mechanics:
+
+THE CURRENT GAME BIBLE WINS.
+
+==================================================
+35. LOCKED REFERENCES
+==================================================
+
+Do NOT silently replace a locked reference.
+
+If you improve an existing locked reference:
+
+keep the original in:
+
+99_Archive/
+
+Create a new candidate.
+
+Mark:
+
+NEEDS_REVIEW
+
+until approved.
+
+==================================================
+36. VISUAL CONSISTENCY
+==================================================
+
+This is extremely important.
+
+Every character should feel from the SAME GAME.
+
+Use one consistent:
+
+rendering language,
+realism,
+camera,
+materials,
+lighting quality,
+surface detail,
+body proportion logic,
+color restraint.
+
+Do NOT allow:
+
+one character to look cinematic-real,
+another to look like digital painting,
+another to look like a toy,
+another to look like anime.
+
+NEFER reference quality is the minimum realism benchmark.
+
+==================================================
+37. HISTORICAL LANGUAGE
+==================================================
+
+Ancient Egypt first.
+
+Avoid making archaeological claims when uncertain.
+
+Do not fabricate fake historical facts.
+
+The game is mythological fantasy,
+but physical construction should remain believable.
+
+No fake unreadable Arabic.
+
+Do not invent production-sheet text pretending to be real hieroglyphic translations.
+
+==================================================
+38. FINAL QA — BEFORE ZIPPING
+==================================================
+
+Perform a full audit.
+
+Check:
+
+[ ] every required folder exists
+[ ] every major character has individual files
+[ ] every main boss has individual files
+[ ] all 12 optional bosses exist
+[ ] all 43 enemy entries appear in manifest
+[ ] all elite entries exist
+[ ] weapons included
+[ ] transformations included
+[ ] six-region world pack included
+[ ] props included
+[ ] VFX included
+[ ] materials included
+[ ] animation pose references included
+[ ] scale references included
+[ ] cinematic references included
+[ ] no missing-file manifest links
+[ ] no duplicate filenames
+[ ] no giant collage used as substitute for individual assets
+[ ] no low-res placeholder silently marked final
+[ ] Anubis is NOT human-body + animal-head
+[ ] Seth is NOT canine
+[ ] Nefer face is consistent
+[ ] Face-Eater follows current mechanics
+[ ] no neon/cyber visual language
+[ ] no unexplained generic fantasy armor
+[ ] all conflicting old refs archived
+
+==================================================
+39. FINAL OUTPUT
+==================================================
+
+Create:
+
+REN_Visual_Production_Pack_v3_FINAL.zip
+
+ZIP STRUCTURE MUST START WITH:
+
+ProjectDocs/References/
+
+So I can extract the ZIP directly into the root of:
+
+REN_TheTwelfthHour/
+
+and the reference pack lands at:
+
+REN_TheTwelfthHour/
+ProjectDocs/
+References/
+
+Do NOT require manual moving after extraction.
+
+==================================================
+40. COMPLETION REPORT
+==================================================
+
+When finished report:
+
+TOTAL FILES
+TOTAL IMAGES
+TOTAL CHARACTERS
+TOTAL GODS
+TOTAL MAIN BOSSES
+TOTAL OPTIONAL BOSSES
+TOTAL ENEMIES
+TOTAL WEAPONS
+TOTAL TRANSFORMATIONS
+TOTAL ENVIRONMENTS
+TOTAL PROPS
+TOTAL VFX REFERENCES
+
+Also list:
+
+LOCKED
+APPROVED_BASE
+PROVISIONAL
+NEEDS_REVIEW
+ARCHIVED
+
+Then provide the ZIP.
+
+Do NOT claim something is production-final just because an AI image looks good.
+
+A visual becomes LOCKED only when it is internally consistent with:
+
+story,
+gameplay,
+scale,
+rigging,
+environment,
+and the current Production Bible.
+
+Quality is more important than speed.
+
+If you must choose between:
+200 mediocre images
+or
+120 excellent production references,
+
+choose the excellent references.
+
+But the manifest must still cover EVERY required asset and clearly mark anything not yet visually complete.
+
+START NOW.

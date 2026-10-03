@@ -1,0 +1,50 @@
+{
+  "status": "PROVISIONAL_DESIGN_COORDINATES_FROM_V3",
+  "source": "V3 \u00a732\u201333",
+  "unit": "meters",
+  "axes": {
+    "X": "east",
+    "Y": "north",
+    "Z": "up"
+  },
+  "entrance": [
+    0,
+    0,
+    0
+  ],
+  "arena_center": [
+    0,
+    13,
+    0
+  ],
+  "north_window": [
+    0,
+    26,
+    null
+  ],
+  "resonators": {
+    "SW": [
+      -8,
+      7,
+      0
+    ],
+    "SE": [
+      8,
+      7,
+      0
+    ],
+    "NW": [
+      -8,
+      19,
+      0
+    ],
+    "NE": [
+      8,
+      19,
+      0
+    ]
+  },
+  "B18_surviving_resonator": "NE",
+  "world_fixed_across_camera_angles": true,
+  "note": "26\u00d722 arena card and entrance-to-window Y=26 coordinate sketch require blockout reconciliation; do not silently stretch room or move window."
+}

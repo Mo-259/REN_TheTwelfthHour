@@ -1,0 +1,31 @@
+{
+  "package": "REN Visual Production Pack v3 DESIGN_PROGRESS_01 READY",
+  "source_package": "REN_Visual_Production_Pack_v3_DESIGN_PROGRESS_01.zip",
+  "ready_for_direct_extract_to_project_root": true,
+  "expected_root_after_extract": "ProjectDocs/References/",
+  "original_files_reported": 308,
+  "added_handoff_files": 6,
+  "art_status_modified": false,
+  "visual_assets_promoted": 0,
+  "actual_images": 3,
+  "required_reference_entries": 794,
+  "missing_visual_entries": 792,
+  "reference_status_counts": {
+    "LOCKED": 1,
+    "APPROVED_BASE": 0,
+    "PROVISIONAL": 792,
+    "NEEDS_REVIEW": 1,
+    "ARCHIVED": 1
+  },
+  "next_art_priority": [
+    "Anubis redesign/review",
+    "Face-Eater Combat v2",
+    "Kheft",
+    "Sheut",
+    "Thoth",
+    "Hori + Black Hand",
+    "Enemies 01E–12E",
+    "Shadow City P0",
+    "House of Life P0"
+  ]
+}

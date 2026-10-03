@@ -1,0 +1,14 @@
+{
+  "documentation_integrity": "PASS",
+  "errors": [],
+  "files": 308,
+  "actual_images": 3,
+  "generated_images": 2,
+  "required_reference_entries": 794,
+  "missing_visual_entries": 792,
+  "resolution_compliant_images": 0,
+  "visual_completion": "INCOMPLETE",
+  "anatomy_and_rig_QA": "DRAFT_VISUAL_REVIEW_ONLY_RIG_UNTESTED",
+  "environment_continuity_QA": "NOT_PERFORMED_NO_BLOCKOUT",
+  "archive_history_entries": 1
+}

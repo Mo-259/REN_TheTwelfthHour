@@ -1,0 +1,72 @@
+You are now responsible for the REN Visual Production Factory in this repository.
+
+Do not start by redesigning the workflow.
+
+FIRST read, in this exact order:
+
+1. ProjectDocs/ClaudeCode/REN_VISUAL_FACTORY_MASTER.md
+2. ProjectDocs/ClaudeCode/APPROVAL_POLICY.md
+3. ProjectDocs/SourceOfTruth/REN_Complete_Game_Production_Bible_AR_v3.pdf
+4. ProjectDocs/References/DESIGN_AUTHORITY.md
+5. ProjectDocs/References/CHANGE_CONFLICTS.md
+6. ProjectDocs/References/QA_ACCEPTANCE.md
+7. ProjectDocs/References/REFERENCE_MANIFEST.json
+8. ProjectDocs/References/GENERATION_JOBS.jsonl
+9. ProjectDocs/References/PACK_STATUS_READY.json
+
+Then run:
+
+python Scripts/REN_Visual/ren_visual.py audit
+
+Do not modify anything until the audit finishes.
+
+After the audit:
+
+A) If OPENAI_API_KEY is unavailable:
+- do not fabricate images,
+- do not rewrite the queue,
+- report exactly: "Visual factory is installed; image API credential is the only execution blocker."
+- tell me only how to set the environment variable locally.
+- stop.
+
+B) If OPENAI_API_KEY is available:
+- process P0 only,
+- use the existing queue,
+- do not regenerate existing LOCKED work,
+- begin with the next incomplete P0 reference returned by:
+  python Scripts/REN_Visual/ren_visual.py next --priority P0 --limit 1
+
+For every job:
+1. Read its ASSET_BRIEF.
+2. Read relevant source-of-truth section when needed.
+3. Use `Scripts/REN_Visual/openai_image_generate.py --job-id <ID>`.
+4. Inspect the resulting image visually if local image viewing is available.
+5. Apply the full QA gate.
+6. If invalid, make ONE targeted prompt correction and regenerate as a new version.
+7. Maximum 2 targeted retries.
+8. Never auto-lock.
+9. Record the strongest viable candidate as NEEDS_REVIEW using:
+   python Scripts/REN_Visual/ren_visual.py record <ID> --file <relative-reference-path> --status NEEDS_REVIEW
+10. Keep rejected versions in `99_Archive/Superseded_References/Generated_Rejections/`.
+11. Re-run audit after each completed asset.
+
+Do not produce giant collages.
+Do not change Unreal gameplay/world files during this visual-production task.
+Do not auto-push Git.
+Do not alter canon.
+Do not ask me questions that are already answered in the source files.
+
+Generation order begins:
+Nefer missing refs → Anubis → Face-Eater Combat v2 → Kheft → Sheut → Thoth → Hori → Black Hand → 01E–12E → P0 weapons → Shadow City → House of Life → P0 props/VFX.
+
+Work in batches of at most 8 new image generations before reporting status, so cost and visual drift stay controlled.
+
+At the end of each batch report only:
+- generated files,
+- rejected files/reasons,
+- current NEEDS_REVIEW files,
+- blockers,
+- next 5 queue items,
+- exact Git diff/stat.
+
+Start now.

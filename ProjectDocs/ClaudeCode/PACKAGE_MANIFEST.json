@@ -1,0 +1,15 @@
+{
+  "package": "REN Claude Code Visual Factory v1",
+  "created": "2026-10-02",
+  "extract_to": "REN_TheTwelfthHour repository root",
+  "start_command": "/ren-visual-start",
+  "fallback_start_file": "ProjectDocs/ClaudeCode/ONE_TIME_START_PROMPT.txt",
+  "source_of_truth_pdf": "ProjectDocs/SourceOfTruth/REN_Complete_Game_Production_Bible_AR_v3.pdf",
+  "reference_manifest_count": 795,
+  "asset_manifest_count": 282,
+  "generation_job_count": 793,
+  "auto_lock_generated_art": false,
+  "auto_git_push": false,
+  "default_image_adapter_model": "gpt-image-2",
+  "image_api_key_included": false
+}
