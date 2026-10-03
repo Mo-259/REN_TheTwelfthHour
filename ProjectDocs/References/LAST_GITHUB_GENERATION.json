@@ -2,168 +2,168 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "B01.Attack_Anticipation",
+    "ENV_Tomb_06.Gameplay",
+    "ENV_Tomb_07.Gameplay",
+    "C01.Head_Master",
+    "C01.Linen_Construction",
     "B01.Phase_States",
-    "W02.ThreeQuarter",
     "B01.Recovery_State",
     "B01.Gameplay_Silhouette",
-    "B02.Turnaround_or_Morphology",
-    "C20.Relationship_States",
-    "C01.Body_Turnaround"
+    "C20.Relationship_States"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "B01.Attack_Anticipation",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Attack_Anticipation_v02.png",
+      "job_id": "ENV_Tomb_06.Gameplay",
+      "file": "11_Environments/Details/Tomb/ExitSlab/REF_ENV_ExitSlab_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2165,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2165
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2322
+      }
+    },
+    {
+      "job_id": "ENV_Tomb_07.Gameplay",
+      "file": "11_Environments/Details/Tomb/TransitionTunnel/REF_ENV_TransitionTunnel_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2156,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2156
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2313
+      }
+    },
+    {
+      "job_id": "C01.Head_Master",
+      "file": "01_Nefer/REF_CHR_Nefer_Head_Master_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 4149,
+        "input_tokens": 2895,
         "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2613
+          "image_tokens": 1452,
+          "text_tokens": 1443
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 4307
+        "total_tokens": 3053
+      }
+    },
+    {
+      "job_id": "C01.Linen_Construction",
+      "file": "01_Nefer/REF_CHR_Nefer_Linen_Construction_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2919,
+        "input_tokens_details": {
+          "image_tokens": 1452,
+          "text_tokens": 1467
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3077
       }
     },
     {
       "job_id": "B01.Phase_States",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v02.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v03.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 4254,
+        "input_tokens": 4246,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2718
+          "text_tokens": 2710
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 4412
-      }
-    },
-    {
-      "job_id": "W02.ThreeQuarter",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2026,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2026
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 2184
+        "total_tokens": 4404
       }
     },
     {
       "job_id": "B01.Recovery_State",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Recovery_State_v01.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Recovery_State_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 4030,
+        "input_tokens": 4125,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2494
+          "text_tokens": 2589
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 4188
+        "total_tokens": 4283
       }
     },
     {
       "job_id": "B01.Gameplay_Silhouette",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Gameplay_Silhouette_v01.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Gameplay_Silhouette_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 4028,
+        "input_tokens": 4140,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2492
+          "text_tokens": 2604
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 4186
-      }
-    },
-    {
-      "job_id": "B02.Turnaround_or_Morphology",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Turnaround_or_Morphology_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 3772,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2236
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3930
+        "total_tokens": 4298
       }
     },
     {
       "job_id": "C20.Relationship_States",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v01.png",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2605,
+        "input_tokens": 2915,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 1069
+          "text_tokens": 1379
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 2763
-      }
-    },
-    {
-      "job_id": "C01.Body_Turnaround",
-      "file": "01_Nefer/REF_CHR_Nefer_Body_Turnaround_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2942,
-        "input_tokens_details": {
-          "image_tokens": 1452,
-          "text_tokens": 1490
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3100
+        "total_tokens": 3073
       }
     }
   ],
