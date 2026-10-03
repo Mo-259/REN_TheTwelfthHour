@@ -2,173 +2,35 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "B03.Turnaround_or_Morphology",
-    "B03.Materials",
-    "B03.Gameplay_Silhouette",
-    "B03.Attack_Anticipation",
-    "B03.Recovery_State",
-    "B03.Phase_States",
     "B03.Weak_Point_or_Objective",
-    "B03.Scale_Comparison"
+    "B03.Rig_Notes_Visual",
+    "B03.Arena_Relationship",
+    "ENV_ShadowCity_08.Gameplay",
+    "ENV_ShadowCity_09.Gameplay",
+    "ENV_ShadowCity_10.Gameplay",
+    "ENV_HouseLife_04.Gameplay",
+    "ENV_HouseLife_05.Gameplay"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "B03.Turnaround_or_Morphology",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Turnaround_or_Morphology_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5630,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2558
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5788
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Materials",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Materials_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5685,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2613
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5843
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Gameplay_Silhouette",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Gameplay_Silhouette_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5670,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2598
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5828
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Attack_Anticipation",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Attack_Anticipation_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5687,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2615
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5845
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Recovery_State",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Recovery_State_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5681,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2609
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5839
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Phase_States",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Phase_States_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5734,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2662
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5892
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
       "job_id": "B03.Weak_Point_or_Objective",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5682,
+        "input_tokens": 5672,
         "input_tokens_details": {
           "image_tokens": 3072,
-          "text_tokens": 2610
+          "text_tokens": 2600
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 5840
+        "total_tokens": 5830
       },
       "sources": [
         "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
@@ -176,28 +38,150 @@
       ]
     },
     {
-      "job_id": "B03.Scale_Comparison",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Scale_Comparison_v01.png",
-      "dimensions": "2048x2048",
+      "job_id": "B03.Rig_Notes_Visual",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Rig_Notes_Visual_v01.png",
+      "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 7118,
+        "input_tokens": 5702,
         "input_tokens_details": {
-          "image_tokens": 4524,
-          "text_tokens": 2594
+          "image_tokens": 3072,
+          "text_tokens": 2630
         },
-        "output_tokens": 397,
+        "output_tokens": 158,
         "output_tokens_details": {
-          "image_tokens": 397,
+          "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 7515
+        "total_tokens": 5860
       },
       "sources": [
         "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png",
-        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
+        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
       ]
+    },
+    {
+      "job_id": "B03.Arena_Relationship",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 5698,
+        "input_tokens_details": {
+          "image_tokens": 3072,
+          "text_tokens": 2626
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 5856
+      },
+      "sources": [
+        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
+        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
+      ]
+    },
+    {
+      "job_id": "ENV_ShadowCity_08.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/M02MemorySpace/REF_ENV_M02MemorySpace_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2209,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2209
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2366
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_ShadowCity_09.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/RooftopBridge/REF_ENV_RooftopBridge_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2205,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2205
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2362
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_ShadowCity_10.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/REF_ENV_ShadowLightMaterials_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2218,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2218
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2375
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_04.Gameplay",
+      "file": "11_Environments/Details/HouseLife/PapyrusStorage/REF_ENV_PapyrusStorage_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2208,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2208
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2365
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_05.Gameplay",
+      "file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2213,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2213
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2370
+      },
+      "sources": []
     }
   ],
   "failed": [],

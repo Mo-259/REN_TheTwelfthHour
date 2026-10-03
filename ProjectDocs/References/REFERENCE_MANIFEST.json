@@ -9568,7 +9568,7 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Weak_Point_or_Objective",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v02.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9636,12 +9636,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Rig_Notes_Visual",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Rig_Notes_Visual_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Rig_Notes_Visual_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9652,8 +9652,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9667,12 +9670,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Arena_Relationship",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9683,8 +9686,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24977,12 +24983,12 @@
       "asset_id": "ENV_ShadowCity_08",
       "name": "M02MemorySpace — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/M02MemorySpace/REF_ENV_M02MemorySpace_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/M02MemorySpace/REF_ENV_M02MemorySpace_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/M02MemorySpace/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24994,8 +25000,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25009,12 +25018,12 @@
       "asset_id": "ENV_ShadowCity_09",
       "name": "RooftopBridge — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/RooftopBridge/REF_ENV_RooftopBridge_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/RooftopBridge/REF_ENV_RooftopBridge_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/RooftopBridge/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25026,8 +25035,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25041,12 +25053,12 @@
       "asset_id": "ENV_ShadowCity_10",
       "name": "ShadowLightMaterials — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/REF_ENV_ShadowLightMaterials_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/REF_ENV_ShadowLightMaterials_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25058,8 +25070,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25178,12 +25193,12 @@
       "asset_id": "ENV_HouseLife_04",
       "name": "PapyrusStorage — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/HouseLife/PapyrusStorage/REF_ENV_PapyrusStorage_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/HouseLife/PapyrusStorage/REF_ENV_PapyrusStorage_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/HouseLife/PapyrusStorage/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25195,8 +25210,11 @@
         "9",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25210,12 +25228,12 @@
       "asset_id": "ENV_HouseLife_05",
       "name": "LightCourt — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/HouseLife/LightCourt/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25227,8 +25245,11 @@
         "9",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
