@@ -2,154 +2,43 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "C01.Skin_Closeups",
     "C01.No_Shadow_State",
-    "ENV_Tomb_08.Gameplay",
-    "B01.Phase_States",
     "B02.Phase_States",
     "B02.Weak_Point_or_Objective",
-    "C04.Gameplay_Silhouette",
-    "B01.Materials"
+    "B02.Recovery_State",
+    "B02.Gameplay_Silhouette",
+    "B02.Materials",
+    "W01.Side_A",
+    "W01.Grip"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "C01.Skin_Closeups",
-      "file": "01_Nefer/REF_CHR_Nefer_Skin_Closeups_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2966,
-        "input_tokens_details": {
-          "image_tokens": 1452,
-          "text_tokens": 1514
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3124
-      }
-    },
-    {
       "job_id": "C01.No_Shadow_State",
-      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
+      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2995,
+        "input_tokens": 3006,
         "input_tokens_details": {
           "image_tokens": 1452,
-          "text_tokens": 1543
+          "text_tokens": 1554
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3153
-      }
-    },
-    {
-      "job_id": "ENV_Tomb_08.Gameplay",
-      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v02.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2201,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2201
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2358
-      }
-    },
-    {
-      "job_id": "B01.Phase_States",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v04.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 4254,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2718
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4412
-      }
+        "total_tokens": 3164
+      },
+      "sources": [
+        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
+      ]
     },
     {
       "job_id": "B02.Phase_States",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 3967,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2431
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4125
-      }
-    },
-    {
-      "job_id": "B02.Weak_Point_or_Objective",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 3928,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2392
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 4086
-      }
-    },
-    {
-      "job_id": "C04.Gameplay_Silhouette",
-      "file": "02_Gods/Anubis/REF_GOD_Anubis_Gameplay_Silhouette_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2983,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 1447
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3141
-      }
-    },
-    {
-      "job_id": "B01.Materials",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Materials_v01.png",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
@@ -164,7 +53,142 @@
           "text_tokens": 0
         },
         "total_tokens": 4275
-      }
+      },
+      "sources": [
+        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+      ]
+    },
+    {
+      "job_id": "B02.Weak_Point_or_Objective",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v02.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 4050,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2514
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4208
+      },
+      "sources": [
+        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+      ]
+    },
+    {
+      "job_id": "B02.Recovery_State",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Recovery_State_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3860,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2324
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4018
+      },
+      "sources": [
+        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+      ]
+    },
+    {
+      "job_id": "B02.Gameplay_Silhouette",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Gameplay_Silhouette_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3870,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2334
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4028
+      },
+      "sources": [
+        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+      ]
+    },
+    {
+      "job_id": "B02.Materials",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Materials_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3881,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2345
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4039
+      },
+      "sources": [
+        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+      ]
+    },
+    {
+      "job_id": "W01.Side_A",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_A_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3751,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2215
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3909
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
+      ]
+    },
+    {
+      "job_id": "W01.Grip",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Grip_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3768,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2232
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3926
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
+      ]
     }
   ],
   "failed": [],

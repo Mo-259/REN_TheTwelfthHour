@@ -4278,7 +4278,7 @@
       "asset_id": "C01",
       "name": "Nefer — No_Shadow_State",
       "category": "protagonist",
-      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
+      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v02.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9000,12 +9000,12 @@
       "asset_id": "B02",
       "name": "Kheft — Materials",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Materials_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Materials_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9016,8 +9016,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9031,12 +9034,12 @@
       "asset_id": "B02",
       "name": "Kheft — Gameplay_Silhouette",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Gameplay_Silhouette_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Gameplay_Silhouette_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9047,8 +9050,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9096,12 +9102,12 @@
       "asset_id": "B02",
       "name": "Kheft — Recovery_State",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Recovery_State_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Recovery_State_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9112,8 +9118,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9127,7 +9136,7 @@
       "asset_id": "B02",
       "name": "Kheft — Phase_States",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v02.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9161,7 +9170,7 @@
       "asset_id": "B02",
       "name": "Kheft — Weak_Point_or_Objective",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v02.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -17957,12 +17966,12 @@
       "asset_id": "W01",
       "name": "Reed — Side_A",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_A_v01.png",
       "expected_file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_A_v01.png",
       "brief_file": "09_Weapons/Reed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -17975,8 +17984,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18092,12 +18104,12 @@
       "asset_id": "W01",
       "name": "Reed — Grip",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Grip_v01.png",
       "expected_file": "09_Weapons/Reed/REF_WEAPON_Reed_Grip_v01.png",
       "brief_file": "09_Weapons/Reed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18110,8 +18122,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
