@@ -6,7 +6,8 @@
       "name": "Anubis",
       "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
       "decision": "User-selected 2026-10-03: accepted direction is tall, narrow, non-human funerary organism; restrained linen sash; ankh-topped funerary staff; black funerary morphology. Base only, not LOCKED.",
-      "not_base": "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png is NOT the continuity base; kept unchanged on disk as a historical/superseded reference (not deleted)."
+      "not_base": "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png is NOT the continuity base; kept unchanged on disk as a historical/superseded reference (not deleted).",
+      "preserve": "the staff geometry exactly as in Hero Master v02 (single ankh top, no extra crossbars; Hero Master v02 is the staff geometry authority, Anubis Materials v01 staff is NOT authoritative); tall narrow non-human funerary organism, restrained linen sash, black funerary morphology."
     },
     "B01": {
       "name": "Face-Eater",
@@ -39,6 +40,13 @@
       ],
       "scope": "VISUAL / MATERIAL continuity only. NOT spatial authority; the Unreal Tomb remains spatial authority.",
       "instruction": "SARCOPHAGUS CONTINUITY: the supplied image is the approved Tomb sarcophagus visual/material base, not a layout. Wherever the sarcophagus appears, keep the same broad form, the same stone language, the same lid design family and the same material/weathering direction; never invent a different sarcophagus design. Do not copy the supplied image's composition, camera or room arrangement; it is not spatial authority."
+    },
+    "W01": {
+      "name": "Reed",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
+      "source_job": "W01.ThreeQuarter",
+      "decision": "User-accepted 2026-10-03 as current Reed visual continuity base. Not LOCKED.",
+      "preserve": "the same single jointed reed stem, cut ink-blackened tip, leather and cord grip, length and proportions."
     }
   },
   "not_bases": {
