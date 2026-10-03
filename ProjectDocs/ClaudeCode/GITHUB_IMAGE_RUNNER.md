@@ -39,5 +39,13 @@ After the workflow commits the candidate:
 - Hard limit: **8 image API requests per workflow run**. There are no automatic retries inside the runner (SDK retries are disabled). A refused job gets at most **one** later targeted retry, after review.
 - The whole batch fails only for infrastructure errors: checkout, missing `OPENAI_API_KEY`, Python/dependency setup, a corrupt queue or manifest, unknown job ids, or inability to write or persist output. If the commit/push fails, outputs are uploaded as a run artifact.
 
+## Production prompt policy (generator-enforced)
+
+`openai_image_generate.py` appends these to every prompt. They are production policy only and don't change canon.
+
+- **No rendered text.** The image model renders no Arabic, no English, no captions or labels, no pseudo-hieroglyphic explanatory text and no fake material/texture-map panels. Gameplay, enemy, weapon and technical sheets are clean visual panels. Labels, attack names, dimensions and notes are added later as deterministic overlay or document text. Existing acceptable sheets are not regenerated just to remove text.
+- **No fake Nefer.** When the locked Nefer identity master is not supplied as an image input, no person is depicted or labelled as Nefer. Scale comparisons use a neutral, unlabeled human silhouette or a plain metric scale bar. The real locked Nefer can be added later as a deterministic overlay.
+- **Identity fail-closed.** Any `C01.*` job, or any job declaring `input_identity_master`, fails with `IDENTITY FAIL-CLOSED` if the master is undeclared, missing, an LFS pointer or not an image. It never falls back to text-only generation. The check runs before any API call, but the batch runner still counts the attempt against the 8-request cap (conservative).
+
 Do not auto-LOCK.
 Do not generate the entire queue before the first image is reviewed.

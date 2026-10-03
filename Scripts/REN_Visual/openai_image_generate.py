@@ -59,6 +59,48 @@ def versioned_target(expected_rel: str):
             return cand
         m+=1
 
+# Production policy appended to every prompt (policy only; canon unchanged).
+# Labels, attack names, dimensions and notes are added later as deterministic
+# overlay/document text, never rendered by the image model.
+NO_TEXT_POLICY=(
+    "PRODUCTION POLICY — NO RENDERED TEXT (overrides any instruction above, including requests for labels, "
+    "names, notes, dimensions or Arabic): generate clean visual panels only. Render no Arabic, no English, "
+    "no letters, numbers, titles, captions, labels, annotations, legends, callouts, arrows with text, "
+    "pseudo-hieroglyphic explanatory text or fake material-map/texture-map panels anywhere in the image. "
+    "Canon text in the brief is design information only and must not be reproduced as writing. "
+    "Leave panel areas clean; text is added later outside the image model."
+)
+# Used whenever the locked Nefer identity master is NOT supplied as an image input.
+NEUTRAL_SCALE_POLICY=(
+    "PRODUCTION POLICY — SCALE FIGURE: the locked Nefer identity master is NOT supplied for this job, so do not "
+    "depict Nefer and do not present any generated person as Nefer. Wherever a scale comparison or human "
+    "reference is requested, use only a neutral, unlabeled, featureless human scale silhouette or a simple "
+    "unlabeled metric scale bar."
+)
+
+def identity_master_or_fail(job):
+    """Fail closed for identity-sensitive jobs (C01 Nefer, or any job declaring an identity master).
+
+    Such a job must never silently fall back to text-only generation.
+    Returns the identity image path, or None for jobs that are not identity-sensitive.
+    """
+    identity_rel=job.get("input_identity_master")
+    sensitive=job["id"].startswith("C01.") or bool(identity_rel)
+    if not sensitive:
+        return None
+    if not identity_rel:
+        raise SystemExit(f"IDENTITY FAIL-CLOSED: {job['id']} is identity-sensitive but declares no input_identity_master; refusing text-only generation.")
+    path=REFS/identity_rel
+    if not path.is_file():
+        raise SystemExit(f"IDENTITY FAIL-CLOSED: locked identity master missing for {job['id']} ({identity_rel}); refusing text-only generation.")
+    with path.open("rb") as f:
+        head=f.read(64)
+    if head.startswith(b"version https://git-lfs"):
+        raise SystemExit(f"IDENTITY FAIL-CLOSED: identity master for {job['id']} is a Git LFS pointer, not an image; run git lfs pull.")
+    if not head.startswith(b"\x89PNG") and not head.startswith(b"\xff\xd8"):
+        raise SystemExit(f"IDENTITY FAIL-CLOSED: identity master for {job['id']} is not a PNG/JPEG image; refusing text-only generation.")
+    return path
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--job-id",required=True)
@@ -70,6 +112,8 @@ def main():
     args=ap.parse_args()
 
     job=load_job(args.job_id)
+    identity_path=identity_master_or_fail(job)
+    use_identity=identity_path is not None
     brief_path=REFS/job.get("required_canon_brief","")
     brief=brief_path.read_text(encoding="utf-8") if brief_path.exists() else ""
     prompt=job["prompt"]
@@ -77,14 +121,13 @@ def main():
         prompt += "\n\nCANON BRIEF — mandatory constraints:\n" + brief
     if args.prompt_extra:
         prompt += "\n\nTARGETED CORRECTION:\n" + args.prompt_extra
+    prompt += "\n\n" + NO_TEXT_POLICY
+    if not use_identity:
+        prompt += "\n\n" + NEUTRAL_SCALE_POLICY
 
     size=args.size or choose_size(job)
     target=versioned_target(job["expected_file"])
     target.parent.mkdir(parents=True,exist_ok=True)
-
-    identity_rel=job.get("input_identity_master")
-    identity_path=(REFS/identity_rel) if identity_rel else None
-    use_identity=bool(identity_path and identity_path.exists())
 
     print(f"Job: {job['id']}")
     print(f"Model: {args.model}")

@@ -65,6 +65,7 @@ SAFE_GENERATOR_MESSAGES = (
     "OPENAI_API_KEY is missing",
     "Python package 'openai' is missing",
     "Job not found",
+    "IDENTITY FAIL-CLOSED",
 )
 
 def sanitize_failure(stderr: str, returncode: int):
