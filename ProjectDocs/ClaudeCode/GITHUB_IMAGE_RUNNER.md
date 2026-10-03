@@ -32,5 +32,12 @@ After the workflow commits the candidate:
 4. keep it `NEEDS_REVIEW`,
 5. report whether it passes the REN canon/realism/morphology gate.
 
+## Batch resilience and cost safety
+
+- Each requested job runs independently. A refused or failed image is recorded as `FAILED` (short, sanitized reason; raw API responses are never logged) and the batch continues. Successful outputs are always committed.
+- `LAST_GITHUB_GENERATION.json` (schema 2) lists `success`, `failed` and `not_run`, plus `api_requests_made`. The same summary appears in the workflow run's step summary.
+- Hard limit: **8 image API requests per workflow run**. There are no automatic retries inside the runner (SDK retries are disabled). A refused job gets at most **one** later targeted retry, after review.
+- The whole batch fails only for infrastructure errors: checkout, missing `OPENAI_API_KEY`, Python/dependency setup, a corrupt queue or manifest, unknown job ids, or inability to write or persist output. If the commit/push fails, outputs are uploaded as a run artifact.
+
 Do not auto-LOCK.
 Do not generate the entire queue before the first image is reviewed.

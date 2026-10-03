@@ -20,6 +20,11 @@ on:
 permissions:
   contents: write
 
+# Never run two generation batches at once (avoids racing pushes to the same branch).
+concurrency:
+  group: ren-visual-generate-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -31,6 +36,7 @@ jobs:
 
     steps:
       - name: Checkout current branch
+        id: checkout
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -55,16 +61,26 @@ jobs:
       - name: Audit before generation
         run: python Scripts/REN_Visual/ren_visual.py audit
 
+      # Each job runs independently: a refused/failed image is recorded as FAILED in
+      # LAST_GITHUB_GENERATION.json and the batch continues. This step only fails for
+      # infrastructure/config errors (corrupt queue, unknown ids, >8 requests, unwritable output).
+      # Max 8 image API requests per run; no automatic retries inside the runner.
       - name: Generate requested candidates
+        id: generate
         run: |
           python Scripts/REN_Visual/github_generate_batch.py \
             --job-ids "${{ inputs.job_ids }}" \
             --quality "${{ inputs.quality }}"
 
       - name: Audit after generation
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
+        continue-on-error: true
         run: python Scripts/REN_Visual/ren_visual.py audit
 
+      # Always persist whatever was generated, even if a later or earlier step failed.
       - name: Commit generated candidates
+        id: persist
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
         shell: bash
         run: |
           git config user.name "REN Visual Factory"
@@ -75,4 +91,16 @@ jobs:
             exit 0
           fi
           git commit -m "art: generate REN visual candidates"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      # Safety net: if persisting to the branch failed, keep the paid outputs as a run artifact.
+      - name: Upload outputs if commit/push failed
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' && steps.persist.outcome != 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ren-visual-outputs-${{ github.run_id }}
+          path: |
+            ProjectDocs/References/LAST_GITHUB_GENERATION.json
+            ProjectDocs/References/**/*.png
+          retention-days: 14

@@ -106,7 +106,9 @@ def main():
     except Exception:
         raise SystemExit("Python package 'openai' is missing. Run: python -m pip install -r Scripts/REN_Visual/requirements.txt")
 
-    client=OpenAI()
+    # Cost safety: exactly one API request per job. The SDK's default automatic
+    # retries (max_retries=2) are disabled; failed jobs are retried only manually after review.
+    client=OpenAI(max_retries=0)
 
     # Important: Nefer may be used as an identity master only when the job explicitly
     # declares input_identity_master. Style-only Nefer references are intentionally
