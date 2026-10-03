@@ -8854,12 +8854,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Scale_Comparison",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Scale_Comparison_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Scale_Comparison_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8870,8 +8870,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        2048
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8919,12 +8922,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Arena_Relationship",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Arena_Relationship_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Arena_Relationship_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8935,8 +8938,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9290,12 +9296,12 @@
       "asset_id": "B02",
       "name": "Kheft — Arena_Relationship",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Arena_Relationship_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Arena_Relationship_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9306,8 +9312,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9321,7 +9330,7 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Hero_Master",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -24769,7 +24778,7 @@
       "asset_id": "ENV_ShadowCity_03",
       "name": "Shortcut — Gameplay",
       "category": "environment_detail",
-      "file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
+      "file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v02.png",
       "expected_file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/Shortcut/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -24839,12 +24848,12 @@
       "asset_id": "ENV_ShadowCity_05",
       "name": "PortableLightCombat — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/PortableLightCombat/REF_ENV_PortableLightCombat_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/PortableLightCombat/REF_ENV_PortableLightCombat_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/PortableLightCombat/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24856,8 +24865,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24871,12 +24883,12 @@
       "asset_id": "ENV_ShadowCity_06",
       "name": "KheftArena — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/KheftArena/REF_ENV_KheftArena_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/KheftArena/REF_ENV_KheftArena_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/KheftArena/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24888,8 +24900,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24903,12 +24918,12 @@
       "asset_id": "ENV_ShadowCity_07",
       "name": "PreservedDaylightField — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/PreservedDaylightField/REF_ENV_PreservedDaylightField_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/PreservedDaylightField/REF_ENV_PreservedDaylightField_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/PreservedDaylightField/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24920,8 +24935,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
