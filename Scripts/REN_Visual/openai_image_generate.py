@@ -35,7 +35,7 @@ def choose_size(job):
         return "2048x1152"
     if "/14_materials/" in "/"+low or "scale" in low:
         return "2048x2048"
-    return "1536x2048"
+    return "1024x1536"
 
 def versioned_target(expected_rel: str):
     target=REFS/expected_rel
