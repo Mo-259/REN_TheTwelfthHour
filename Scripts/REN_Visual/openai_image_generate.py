@@ -93,13 +93,54 @@ def identity_master_or_fail(job):
     path=REFS/identity_rel
     if not path.is_file():
         raise SystemExit(f"IDENTITY FAIL-CLOSED: locked identity master missing for {job['id']} ({identity_rel}); refusing text-only generation.")
+    check_image(path,"IDENTITY FAIL-CLOSED",job["id"])
+    return path
+
+CONTINUITY_BASES=REFS/"CONTINUITY_BASES.json"
+CONTINUITY_INSTRUCTION=(
+    "CONTINUITY: the supplied image is the current visual base for this asset (not a lock). Keep the identical "
+    "subject: same anatomy, proportions, silhouette, costume, materials, colours and equipment. Produce only the "
+    "requested view or sheet of this same asset; do not redesign it."
+)
+
+def check_image(path, label, job_id):
     with path.open("rb") as f:
         head=f.read(64)
     if head.startswith(b"version https://git-lfs"):
-        raise SystemExit(f"IDENTITY FAIL-CLOSED: identity master for {job['id']} is a Git LFS pointer, not an image; run git lfs pull.")
+        raise SystemExit(f"{label}: source image for {job_id} is a Git LFS pointer, not an image; run git lfs pull.")
     if not head.startswith(b"\x89PNG") and not head.startswith(b"\xff\xd8"):
-        raise SystemExit(f"IDENTITY FAIL-CLOSED: identity master for {job['id']} is not a PNG/JPEG image; refusing text-only generation.")
+        raise SystemExit(f"{label}: source image for {job_id} is not a PNG/JPEG image.")
+
+def continuity_base_or_fail(job):
+    """Follow-up views of an asset with an accepted continuity base are generated FROM that image.
+
+    Applies to every job of a listed asset except its Hero_Master. Never falls back to text-only
+    generation: an unresolved or missing base fails the job before any API request.
+    Using an image as a continuity base does not change its status.
+    """
+    asset, _, view=job["id"].partition(".")
+    if view=="Hero_Master" or not CONTINUITY_BASES.exists():
+        return None
+    bases=json.loads(CONTINUITY_BASES.read_text(encoding="utf-8")).get("bases",{})
+    if asset not in bases:
+        return None
+    rel=bases[asset].get("file")
+    if not rel:
+        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base for {asset} is unresolved; refusing text-only follow-up view {job['id']}.")
+    path=REFS/rel
+    if not path.is_file():
+        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base for {asset} missing ({rel}); refusing text-only follow-up view {job['id']}.")
+    check_image(path,"CONTINUITY FAIL-CLOSED",job["id"])
     return path
+
+def usage_dict(result):
+    u=getattr(result,"usage",None)
+    if u is None:
+        return None
+    try:
+        return u.model_dump()
+    except Exception:
+        return {k:getattr(u,k,None) for k in ("input_tokens","output_tokens","total_tokens")}
 
 def main():
     ap=argparse.ArgumentParser()
@@ -113,7 +154,9 @@ def main():
 
     job=load_job(args.job_id)
     identity_path=identity_master_or_fail(job)
-    use_identity=identity_path is not None
+    continuity_path=None if identity_path else continuity_base_or_fail(job)
+    source_path=identity_path or continuity_path
+    nefer_supplied=bool(identity_path) and job.get("input_identity_master","").startswith("01_Nefer/")
     brief_path=REFS/job.get("required_canon_brief","")
     brief=brief_path.read_text(encoding="utf-8") if brief_path.exists() else ""
     prompt=job["prompt"]
@@ -121,8 +164,10 @@ def main():
         prompt += "\n\nCANON BRIEF — mandatory constraints:\n" + brief
     if args.prompt_extra:
         prompt += "\n\nTARGETED CORRECTION:\n" + args.prompt_extra
+    if continuity_path:
+        prompt += "\n\n" + CONTINUITY_INSTRUCTION
     prompt += "\n\n" + NO_TEXT_POLICY
-    if not use_identity:
+    if not nefer_supplied:
         prompt += "\n\n" + NEUTRAL_SCALE_POLICY
 
     size=args.size or choose_size(job)
@@ -133,7 +178,10 @@ def main():
     print(f"Model: {args.model}")
     print(f"Quality: {args.quality}")
     print(f"Size: {size}")
-    print(f"Mode: {'EDIT_WITH_IDENTITY_MASTER' if use_identity else 'GENERATE'}")
+    mode="EDIT_WITH_IDENTITY_MASTER" if identity_path else ("EDIT_WITH_CONTINUITY_BASE" if continuity_path else "GENERATE")
+    print(f"Mode: {mode}")
+    if source_path:
+        print(f"Source image: {source_path.relative_to(REFS)}")
     print(f"Output: {target.relative_to(ROOT)}")
 
     if args.dry_run:
@@ -155,9 +203,10 @@ def main():
 
     # Important: Nefer may be used as an identity master only when the job explicitly
     # declares input_identity_master. Style-only Nefer references are intentionally
-    # not passed as edit inputs for unrelated subjects.
-    if use_identity:
-        with identity_path.open("rb") as img:
+    # not passed as edit inputs for unrelated subjects. Continuity bases come only
+    # from CONTINUITY_BASES.json.
+    if source_path:
+        with source_path.open("rb") as img:
             result=client.images.edit(
                 model=args.model,
                 image=img,
@@ -180,6 +229,9 @@ def main():
         raise SystemExit("Image API response did not contain b64_json.")
     target.write_bytes(base64.b64decode(b64))
     print(f"SAVED: {target}")
+    usage=usage_dict(result)
+    if usage is not None:
+        print("USAGE_JSON: "+json.dumps(usage,sort_keys=True,default=str))
     print("STATUS: candidate only; visually inspect before record/approval.")
     return 0
 

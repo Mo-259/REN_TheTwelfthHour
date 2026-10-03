@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "purpose": "Current visual base per asset for continuity of follow-up views (turnaround, morphology, materials, phase states, gameplay poses, detail and scale sheets). Every job of a listed asset except its Hero_Master is generated FROM the base image (fail-closed, never text-only). Listing an image here does NOT change its status and does NOT lock it.",
+  "bases": {
+    "C04": {
+      "name": "Anubis",
+      "file": null,
+      "unresolved": "Two different 'Anubis Hero v02' files exist; the user must choose one before C04 follow-up views can run.",
+      "candidates": [
+        "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png",
+        "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png"
+      ]
+    },
+    "B01": {"name": "Face-Eater", "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png"},
+    "B02": {"name": "Kheft", "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"},
+    "C20": {"name": "Sheut", "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png"},
+    "C05": {"name": "Thoth", "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png"},
+    "C18": {"name": "Hori", "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"}
+  },
+  "not_bases": {
+    "B03": "Black Hand is NOT a continuity base yet (identity drift from Hori, thorn morphology)."
+  }
+}

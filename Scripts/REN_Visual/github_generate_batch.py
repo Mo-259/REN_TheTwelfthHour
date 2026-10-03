@@ -66,6 +66,7 @@ SAFE_GENERATOR_MESSAGES = (
     "Python package 'openai' is missing",
     "Job not found",
     "IDENTITY FAIL-CLOSED",
+    "CONTINUITY FAIL-CLOSED",
 )
 
 def sanitize_failure(stderr: str, returncode: int):
@@ -208,8 +209,15 @@ def main():
                                "charged": "yes (image was produced)"})
                 continue
 
-            success.append({"job_id": job_id, "file": rel,
-                            "dimensions": png_dimensions(candidate), "status": "NEEDS_REVIEW"})
+            entry = {"job_id": job_id, "file": rel,
+                     "dimensions": png_dimensions(candidate), "status": "NEEDS_REVIEW"}
+            usage_m = re.search(r"^USAGE_JSON: (\{.*\})$", proc.stdout or "", re.M)
+            if usage_m:
+                try:
+                    entry["usage"] = json.loads(usage_m.group(1))
+                except ValueError:
+                    pass
+            success.append(entry)
     finally:
         # Always persist the report, even after an unexpected error, so successes are never lost.
         write_report(meta, success, failed, pending)

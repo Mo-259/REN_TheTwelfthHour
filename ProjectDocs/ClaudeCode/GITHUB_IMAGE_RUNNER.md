@@ -47,5 +47,17 @@ After the workflow commits the candidate:
 - **No fake Nefer.** When the locked Nefer identity master is not supplied as an image input, no person is depicted or labelled as Nefer. Scale comparisons use a neutral, unlabeled human silhouette or a plain metric scale bar. The real locked Nefer can be added later as a deterministic overlay.
 - **Identity fail-closed.** Any `C01.*` job, or any job declaring `input_identity_master`, fails with `IDENTITY FAIL-CLOSED` if the master is undeclared, missing, an LFS pointer or not an image. It never falls back to text-only generation. The check runs before any API call, but the batch runner still counts the attempt against the 8-request cap (conservative).
 
+## Continuity bases (follow-up view drift)
+
+`ProjectDocs/References/CONTINUITY_BASES.json` lists the current visual base per asset. Every job of a listed asset except its `Hero_Master` (turnaround, morphology, materials, phase states, gameplay poses, detail and scale sheets) runs in `EDIT_WITH_CONTINUITY_BASE` mode from that image, with an instruction to keep the identical subject.
+
+- Fail-closed: an unresolved (`"file": null`) or missing base fails the job with `CONTINUITY FAIL-CLOSED` before any API request. It never falls back to text-only generation.
+- Listing an image as a base does **not** change its status and does **not** lock it.
+- A job's `input_identity_master` (Nefer for C01/TR*, Hori for B03.Hero_Master) takes precedence over a continuity base.
+
+## Usage / cost metadata
+
+When the image API returns token usage, the generator prints `USAGE_JSON` and the batch runner stores it as `usage` on each success entry in `LAST_GITHUB_GENERATION.json`. Money cost is not returned by the API; it is computed from tokens and the current price list.
+
 Do not auto-LOCK.
 Do not generate the entire queue before the first image is reviewed.
