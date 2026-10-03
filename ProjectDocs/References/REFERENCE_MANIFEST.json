@@ -4074,12 +4074,12 @@
       "asset_id": "C01",
       "name": "Nefer — Body_Turnaround",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Body_Turnaround_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Body_Turnaround_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4090,8 +4090,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8182,12 +8185,12 @@
       "asset_id": "C20",
       "name": "Sheut — Relationship_States",
       "category": "soul_part",
-      "file": null,
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v01.png",
       "expected_file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v01.png",
       "brief_file": "04_Soul_Parts/Sheut/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 soul progression; §46 C20",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8198,8 +8201,11 @@
       "source_canon_ids": [
         "C20"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8625,12 +8631,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Gameplay_Silhouette",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Gameplay_Silhouette_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Gameplay_Silhouette_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8641,8 +8647,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8656,7 +8665,7 @@
       "asset_id": "B01",
       "name": "FaceEater — Attack_Anticipation",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Attack_Anticipation_v01.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Attack_Anticipation_v02.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Attack_Anticipation_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -8690,12 +8699,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Recovery_State",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Recovery_State_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Recovery_State_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8706,8 +8715,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8721,7 +8733,7 @@
       "asset_id": "B01",
       "name": "FaceEater — Phase_States",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v01.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v02.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -8920,12 +8932,12 @@
       "asset_id": "B02",
       "name": "Kheft — Turnaround_or_Morphology",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Turnaround_or_Morphology_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Turnaround_or_Morphology_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8936,8 +8948,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18364,7 +18379,7 @@
       "asset_id": "W02",
       "name": "Djed — ThreeQuarter",
       "category": "player_weapon",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v03.png",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
       "expected_file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v01.png",
       "brief_file": "09_Weapons/Djed/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
