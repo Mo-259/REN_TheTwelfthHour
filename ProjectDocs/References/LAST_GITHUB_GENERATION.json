@@ -2,183 +2,196 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "B03.Arena_Relationship",
-    "ENV_HouseLife_06.Gameplay",
-    "ENV_HouseLife_07.Gameplay",
-    "ENV_HouseLife_08.Gameplay",
-    "ENV_HouseLife_09.Gameplay",
-    "ENV_HouseLife_10.Gameplay",
-    "W01.Side_B",
-    "W01.Physical_Dimensions"
+    "W01.Physical_Dimensions",
+    "W01.Hand_Scale",
+    "W01.Sockets",
+    "W01.Gameplay_Silhouette",
+    "W01.Attack_Use",
+    "W02.Side_B",
+    "W02.Front_Thickness",
+    "W02.Material_Closeups"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "B03.Arena_Relationship",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v02.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5628,
-        "input_tokens_details": {
-          "image_tokens": 3044,
-          "text_tokens": 2584
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5786
-      },
-      "sources": [
-        "11_Environments/Details/HouseLife/ScribalHalls/REF_ENV_ScribalHalls_Gameplay_v01.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "ENV_HouseLife_06.Gameplay",
-      "file": "11_Environments/Details/HouseLife/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2209,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2209
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2366
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_07.Gameplay",
-      "file": "11_Environments/Details/HouseLife/ThothSpace/REF_ENV_ThothSpace_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2217,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2217
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2374
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_08.Gameplay",
-      "file": "11_Environments/Details/HouseLife/HoriBlackHandArena/REF_ENV_HoriBlackHandArena_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2224,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2224
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2381
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_09.Gameplay",
-      "file": "11_Environments/Details/HouseLife/MemorySpace/REF_ENV_MemorySpace_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2203,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2203
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2360
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_10.Gameplay",
-      "file": "11_Environments/Details/HouseLife/EnemyCombatCorridor/REF_ENV_EnemyCombatCorridor_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2205,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2205
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2362
-      },
-      "sources": []
-    },
-    {
-      "job_id": "W01.Side_B",
-      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_B_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 3800,
-        "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2264
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3958
-      },
-      "sources": [
-        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
-      ]
-    },
-    {
       "job_id": "W01.Physical_Dimensions",
-      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v01.png",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3820,
+        "input_tokens": 5373,
         "input_tokens_details": {
-          "image_tokens": 1536,
-          "text_tokens": 2284
+          "image_tokens": 3072,
+          "text_tokens": 2301
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3978
+        "total_tokens": 5531
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
+        "01_Nefer/REF_CHR_Nefer_Weapon_Sockets_v01.png"
+      ]
+    },
+    {
+      "job_id": "W01.Hand_Scale",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Hand_Scale_v01.png",
+      "dimensions": "2048x2048",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 5246,
+        "input_tokens_details": {
+          "image_tokens": 2988,
+          "text_tokens": 2258
+        },
+        "output_tokens": 397,
+        "output_tokens_details": {
+          "image_tokens": 397,
+          "text_tokens": 0
+        },
+        "total_tokens": 5643
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
+        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
+      ]
+    },
+    {
+      "job_id": "W01.Sockets",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Sockets_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 5262,
+        "input_tokens_details": {
+          "image_tokens": 2988,
+          "text_tokens": 2274
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 5420
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
+        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
+      ]
+    },
+    {
+      "job_id": "W01.Gameplay_Silhouette",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Gameplay_Silhouette_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3826,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2290
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3984
       },
       "sources": [
         "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
+      ]
+    },
+    {
+      "job_id": "W01.Attack_Use",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Attack_Use_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 5286,
+        "input_tokens_details": {
+          "image_tokens": 2988,
+          "text_tokens": 2298
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 5444
+      },
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
+        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
+      ]
+    },
+    {
+      "job_id": "W02.Side_B",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Side_B_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3775,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2239
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3933
+      },
+      "sources": [
+        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
+      ]
+    },
+    {
+      "job_id": "W02.Front_Thickness",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Front_Thickness_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3771,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2235
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3929
+      },
+      "sources": [
+        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
+      ]
+    },
+    {
+      "job_id": "W02.Material_Closeups",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Material_Closeups_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3789,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2253
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3947
+      },
+      "sources": [
+        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
       ]
     }
   ],
