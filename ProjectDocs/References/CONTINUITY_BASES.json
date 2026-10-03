@@ -63,6 +63,13 @@
       "source_job": "W03.ThreeQuarter",
       "decision": "User-accepted 2026-10-03 as current Chaos Spear visual continuity base. Not LOCKED.",
       "preserve": "the single long spear: dark iron leaf head, red-stone and dark shaft sections, bronze bands and butt cap; silhouette, proportions, construction, materials and fittings exactly; never redesign from text."
+    },
+    "U01": {
+      "name": "Wedjat utility",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_ThreeQuarter_v01.png",
+      "source_job": "U01.ThreeQuarter",
+      "decision": "User-accepted 2026-10-03 as current Wedjat visual continuity base. Not LOCKED. Remains a UTILITY TOOL, not a fourth combat weapon.",
+      "preserve": "the same compact overall form, Wedjat-eye identity, faience and bronze material language, short cutting/targeting point and grip proportions; a utility tool, never a full weapon or gun-like device."
     }
   },
   "not_bases": {

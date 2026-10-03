@@ -236,7 +236,8 @@ def main():
     required=int(job.get("required_reference_count",0) or 0)
     if len(sources) < required:
         raise SystemExit(f"REFERENCE FAIL-CLOSED: {job['id']} requires {required} source images but only {len(sources)} are declared; refusing generation.")
-    nefer_supplied=bool(identity_path) and job.get("input_identity_master","").startswith("01_Nefer/")
+    # The locked Nefer master counts as supplied whether it is the identity master or an extra reference.
+    nefer_supplied=any(pth.relative_to(REFS).as_posix().startswith("01_Nefer/") for pth, _ in sources)
     brief_path=REFS/job.get("required_canon_brief","")
     brief=brief_path.read_text(encoding="utf-8") if brief_path.exists() else ""
     brief=strip_brief_sections(brief, job.get("brief_exclude_headings",[]))
