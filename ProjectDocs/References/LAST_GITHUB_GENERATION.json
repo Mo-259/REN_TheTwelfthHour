@@ -2,195 +2,195 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "W02.Physical_Dimensions",
-    "W02.Hand_Scale",
-    "W02.Sockets",
-    "W02.Gameplay_Silhouette",
-    "W02.Attack_Use",
-    "W03.Side_B",
-    "W03.Front_Thickness",
-    "W03.Material_Closeups"
+    "W03.Physical_Dimensions",
+    "W03.Hand_Scale",
+    "W03.Sockets",
+    "W03.Gameplay_Silhouette",
+    "W03.Attack_Use",
+    "U01.Side_B",
+    "U01.Front_Thickness",
+    "U01.Grip"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "W02.Physical_Dimensions",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Physical_Dimensions_v01.png",
+      "job_id": "W03.Physical_Dimensions",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Physical_Dimensions_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3795,
+        "input_tokens": 3826,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2259
+          "text_tokens": 2290
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3953
+        "total_tokens": 3984
       },
       "sources": [
-        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
+        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
       ]
     },
     {
-      "job_id": "W02.Hand_Scale",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Hand_Scale_v01.png",
+      "job_id": "W03.Hand_Scale",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Hand_Scale_v01.png",
       "dimensions": "2048x2048",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5221,
+        "input_tokens": 5252,
         "input_tokens_details": {
           "image_tokens": 2988,
-          "text_tokens": 2233
+          "text_tokens": 2264
         },
         "output_tokens": 397,
         "output_tokens_details": {
           "image_tokens": 397,
           "text_tokens": 0
         },
-        "total_tokens": 5618
+        "total_tokens": 5649
       },
       "sources": [
-        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
+        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png",
         "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
       ]
     },
     {
-      "job_id": "W02.Sockets",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Sockets_v01.png",
+      "job_id": "W03.Sockets",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Sockets_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5237,
+        "input_tokens": 5268,
         "input_tokens_details": {
           "image_tokens": 2988,
-          "text_tokens": 2249
+          "text_tokens": 2280
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 5395
+        "total_tokens": 5426
       },
       "sources": [
-        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
+        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png",
         "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
       ]
     },
     {
-      "job_id": "W02.Gameplay_Silhouette",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Gameplay_Silhouette_v01.png",
+      "job_id": "W03.Gameplay_Silhouette",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Gameplay_Silhouette_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3801,
+        "input_tokens": 3832,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2265
+          "text_tokens": 2296
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3959
+        "total_tokens": 3990
       },
       "sources": [
-        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
+        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
       ]
     },
     {
-      "job_id": "W02.Attack_Use",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Attack_Use_v01.png",
+      "job_id": "W03.Attack_Use",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Attack_Use_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5256,
+        "input_tokens": 5300,
         "input_tokens_details": {
           "image_tokens": 2988,
-          "text_tokens": 2268
+          "text_tokens": 2312
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 5414
+        "total_tokens": 5458
       },
       "sources": [
-        "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
+        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png",
         "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
       ]
     },
     {
-      "job_id": "W03.Side_B",
-      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Side_B_v01.png",
+      "job_id": "U01.Side_B",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Side_B_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3806,
+        "input_tokens": 3774,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2270
+          "text_tokens": 2238
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3964
+        "total_tokens": 3932
       },
       "sources": [
-        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
+        "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_ThreeQuarter_v01.png"
       ]
     },
     {
-      "job_id": "W03.Front_Thickness",
-      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Front_Thickness_v01.png",
+      "job_id": "U01.Front_Thickness",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Front_Thickness_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3802,
+        "input_tokens": 3770,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2266
+          "text_tokens": 2234
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3960
+        "total_tokens": 3928
       },
       "sources": [
-        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
+        "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_ThreeQuarter_v01.png"
       ]
     },
     {
-      "job_id": "W03.Material_Closeups",
-      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Material_Closeups_v01.png",
+      "job_id": "U01.Grip",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Grip_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3820,
+        "input_tokens": 3770,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2284
+          "text_tokens": 2234
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3978
+        "total_tokens": 3928
       },
       "sources": [
-        "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
+        "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_ThreeQuarter_v01.png"
       ]
     }
   ],
