@@ -2,168 +2,168 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "C01.Hand_Anatomy",
-    "C01.Sandals",
-    "C01.Gameplay_Silhouette",
+    "C01.Skin_Closeups",
+    "C01.No_Shadow_State",
     "ENV_Tomb_08.Gameplay",
-    "ENV_Tomb_09.Gameplay",
-    "C20.Relationship_States",
-    "B02.Attack_Anticipation",
-    "C04.Materials"
+    "B01.Phase_States",
+    "B02.Phase_States",
+    "B02.Weak_Point_or_Objective",
+    "C04.Gameplay_Silhouette",
+    "B01.Materials"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "C01.Hand_Anatomy",
-      "file": "01_Nefer/REF_CHR_Nefer_Hand_Anatomy_v01.png",
+      "job_id": "C01.Skin_Closeups",
+      "file": "01_Nefer/REF_CHR_Nefer_Skin_Closeups_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2938,
+        "input_tokens": 2966,
         "input_tokens_details": {
           "image_tokens": 1452,
-          "text_tokens": 1486
+          "text_tokens": 1514
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3096
+        "total_tokens": 3124
       }
     },
     {
-      "job_id": "C01.Sandals",
-      "file": "01_Nefer/REF_CHR_Nefer_Sandals_v01.png",
+      "job_id": "C01.No_Shadow_State",
+      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2915,
+        "input_tokens": 2995,
         "input_tokens_details": {
           "image_tokens": 1452,
-          "text_tokens": 1463
+          "text_tokens": 1543
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3073
-      }
-    },
-    {
-      "job_id": "C01.Gameplay_Silhouette",
-      "file": "01_Nefer/REF_CHR_Nefer_Gameplay_Silhouette_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2927,
-        "input_tokens_details": {
-          "image_tokens": 1452,
-          "text_tokens": 1475
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 3085
+        "total_tokens": 3153
       }
     },
     {
       "job_id": "ENV_Tomb_08.Gameplay",
-      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
+      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v02.png",
       "dimensions": "2048x1152",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2180,
+        "input_tokens": 2201,
         "input_tokens_details": {
           "image_tokens": 0,
-          "text_tokens": 2180
+          "text_tokens": 2201
         },
         "output_tokens": 157,
         "output_tokens_details": {
           "image_tokens": 157,
           "text_tokens": 0
         },
-        "total_tokens": 2337
+        "total_tokens": 2358
       }
     },
     {
-      "job_id": "ENV_Tomb_09.Gameplay",
-      "file": "11_Environments/Details/Tomb/VerticalNecropolisVista/REF_ENV_VerticalNecropolisVista_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2187,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2187
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2344
-      }
-    },
-    {
-      "job_id": "C20.Relationship_States",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Relationship_States_v03.png",
+      "job_id": "B01.Phase_States",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v04.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2984,
+        "input_tokens": 4254,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 1448
+          "text_tokens": 2718
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3142
+        "total_tokens": 4412
       }
     },
     {
-      "job_id": "B02.Attack_Anticipation",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Attack_Anticipation_v01.png",
+      "job_id": "B02.Phase_States",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3902,
+        "input_tokens": 3967,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2366
+          "text_tokens": 2431
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 4060
+        "total_tokens": 4125
       }
     },
     {
-      "job_id": "C04.Materials",
-      "file": "02_Gods/Anubis/REF_GOD_Anubis_Materials_v01.png",
+      "job_id": "B02.Weak_Point_or_Objective",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2917,
+        "input_tokens": 3928,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 1381
+          "text_tokens": 2392
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3075
+        "total_tokens": 4086
+      }
+    },
+    {
+      "job_id": "C04.Gameplay_Silhouette",
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Gameplay_Silhouette_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2983,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 1447
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3141
+      }
+    },
+    {
+      "job_id": "B01.Materials",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Materials_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 4117,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2581
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 4275
       }
     }
   ],

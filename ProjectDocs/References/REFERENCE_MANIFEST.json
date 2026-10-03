@@ -4142,12 +4142,12 @@
       "asset_id": "C01",
       "name": "Nefer — Skin_Closeups",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Skin_Closeups_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Skin_Closeups_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4158,8 +4158,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4275,12 +4278,12 @@
       "asset_id": "C01",
       "name": "Nefer — No_Shadow_State",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_No_Shadow_State_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4291,8 +4294,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4509,12 +4515,12 @@
       "asset_id": "C04",
       "name": "Anubis — Gameplay_Silhouette",
       "category": "god",
-      "file": null,
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Gameplay_Silhouette_v01.png",
       "expected_file": "02_Gods/Anubis/REF_GOD_Anubis_Gameplay_Silhouette_v01.png",
       "brief_file": "02_Gods/Anubis/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C04; latest visual brief §§3–5,8",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4525,8 +4531,11 @@
       "source_canon_ids": [
         "C04"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8622,12 +8631,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Materials",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Materials_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Materials_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8638,8 +8647,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8755,7 +8767,7 @@
       "asset_id": "B01",
       "name": "FaceEater — Phase_States",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v03.png",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v04.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Phase_States_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9115,12 +9127,12 @@
       "asset_id": "B02",
       "name": "Kheft — Phase_States",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Phase_States_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9131,8 +9143,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9146,12 +9161,12 @@
       "asset_id": "B02",
       "name": "Kheft — Weak_Point_or_Objective",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9162,8 +9177,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24551,7 +24569,7 @@
       "asset_id": "ENV_Tomb_08",
       "name": "RevealLedge — Gameplay",
       "category": "environment_detail",
-      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
+      "file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v02.png",
       "expected_file": "11_Environments/Details/Tomb/RevealLedge/REF_ENV_RevealLedge_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/Tomb/RevealLedge/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
