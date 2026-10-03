@@ -54,6 +54,8 @@ After the workflow commits the candidate:
 - Fail-closed: an unresolved (`"file": null`) or missing base fails the job with `CONTINUITY FAIL-CLOSED` before any API request. It never falls back to text-only generation.
 - Listing an image as a base does **not** change its status and does **not** lock it.
 - A job's `input_identity_master` (Nefer for C01/TR*, Hori for B03.Hero_Master) takes precedence over a continuity base.
+- A base may set `applies_to` (asset keys it serves, instead of its own key), `source_job` (its own job, never edited from itself), a custom `instruction` and a `preserve` list.
+- Current decisions: Anubis base = `REF_GOD_Anubis_Hero_Master_v02.png` (`REF_GOD_Anubis_Hero_v02.png` is not a base; kept on disk as historical reference). The Tomb sarcophagus base = `ENV_Tomb_02` Sarcophagus v01, **visual/material only, not spatial authority**; it currently serves `ENV_Tomb_01`. Other Tomb views are told not to depict the sarcophagus.
 
 ## Usage / cost metadata
 

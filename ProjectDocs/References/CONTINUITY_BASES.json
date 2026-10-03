@@ -4,18 +4,41 @@
   "bases": {
     "C04": {
       "name": "Anubis",
-      "file": null,
-      "unresolved": "Two different 'Anubis Hero v02' files exist; the user must choose one before C04 follow-up views can run.",
-      "candidates": [
-        "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png",
-        "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png"
-      ]
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
+      "decision": "User-selected 2026-10-03: accepted direction is tall, narrow, non-human funerary organism; restrained linen sash; ankh-topped funerary staff; black funerary morphology. Base only, not LOCKED.",
+      "not_base": "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png is NOT the continuity base; kept unchanged on disk as a historical/superseded reference (not deleted)."
     },
-    "B01": {"name": "Face-Eater", "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png"},
-    "B02": {"name": "Kheft", "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"},
-    "C20": {"name": "Sheut", "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png"},
-    "C05": {"name": "Thoth", "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png"},
-    "C18": {"name": "Hori", "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"}
+    "B01": {
+      "name": "Face-Eater",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Hero_Master_v01.png",
+      "preserve": "the empty vertical cartouche head; overall body proportions and long funerary limbs; funerary linen/resin/stone material language; the two jaw masks' design language; the exposed rib target; the phase-3 tether language. It must read as the same boss, not a new design."
+    },
+    "B02": {
+      "name": "Kheft",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png"
+    },
+    "C20": {
+      "name": "Sheut",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png"
+    },
+    "C05": {
+      "name": "Thoth",
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png"
+    },
+    "C18": {
+      "name": "Hori",
+      "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
+    },
+    "ENV_Tomb_Sarcophagus": {
+      "name": "Tomb sarcophagus (visual/material base)",
+      "file": "11_Environments/Details/Tomb/Sarcophagus/REF_ENV_Sarcophagus_Gameplay_v01.png",
+      "source_job": "ENV_Tomb_02.Gameplay",
+      "applies_to": [
+        "ENV_Tomb_01"
+      ],
+      "scope": "VISUAL / MATERIAL continuity only. NOT spatial authority; the Unreal Tomb remains spatial authority.",
+      "instruction": "SARCOPHAGUS CONTINUITY: the supplied image is the approved Tomb sarcophagus visual/material base, not a layout. Wherever the sarcophagus appears, keep the same broad form, the same stone language, the same lid design family and the same material/weathering direction; never invent a different sarcophagus design. Do not copy the supplied image's composition, camera or room arrangement; it is not spatial authority."
+    }
   },
   "not_bases": {
     "B03": "Black Hand is NOT a continuity base yet (identity drift from Hori, thorn morphology)."

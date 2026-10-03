@@ -114,24 +114,31 @@ def check_image(path, label, job_id):
 def continuity_base_or_fail(job):
     """Follow-up views of an asset with an accepted continuity base are generated FROM that image.
 
-    Applies to every job of a listed asset except its Hero_Master. Never falls back to text-only
+    A base applies to the jobs of its own asset key, or to the assets listed in its "applies_to",
+    never to a Hero_Master view or to its own "source_job". Never falls back to text-only
     generation: an unresolved or missing base fails the job before any API request.
     Using an image as a continuity base does not change its status.
+    Returns (path, instruction) or None.
     """
     asset, _, view=job["id"].partition(".")
     if view=="Hero_Master" or not CONTINUITY_BASES.exists():
         return None
     bases=json.loads(CONTINUITY_BASES.read_text(encoding="utf-8")).get("bases",{})
-    if asset not in bases:
+    key=next((k for k,b in bases.items() if asset in b.get("applies_to",[k])),None)
+    if key is None or job["id"]==bases[key].get("source_job"):
         return None
-    rel=bases[asset].get("file")
+    base=bases[key]
+    rel=base.get("file")
     if not rel:
-        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base for {asset} is unresolved; refusing text-only follow-up view {job['id']}.")
+        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base {key} is unresolved; refusing text-only follow-up view {job['id']}.")
     path=REFS/rel
     if not path.is_file():
-        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base for {asset} missing ({rel}); refusing text-only follow-up view {job['id']}.")
+        raise SystemExit(f"CONTINUITY FAIL-CLOSED: continuity base {key} missing ({rel}); refusing text-only follow-up view {job['id']}.")
     check_image(path,"CONTINUITY FAIL-CLOSED",job["id"])
-    return path
+    instruction=base.get("instruction") or CONTINUITY_INSTRUCTION
+    if base.get("preserve"):
+        instruction += " Preserve exactly: " + base["preserve"]
+    return path, instruction
 
 def usage_dict(result):
     u=getattr(result,"usage",None)
@@ -154,7 +161,8 @@ def main():
 
     job=load_job(args.job_id)
     identity_path=identity_master_or_fail(job)
-    continuity_path=None if identity_path else continuity_base_or_fail(job)
+    continuity=None if identity_path else continuity_base_or_fail(job)
+    continuity_path=continuity[0] if continuity else None
     source_path=identity_path or continuity_path
     nefer_supplied=bool(identity_path) and job.get("input_identity_master","").startswith("01_Nefer/")
     brief_path=REFS/job.get("required_canon_brief","")
@@ -164,8 +172,8 @@ def main():
         prompt += "\n\nCANON BRIEF — mandatory constraints:\n" + brief
     if args.prompt_extra:
         prompt += "\n\nTARGETED CORRECTION:\n" + args.prompt_extra
-    if continuity_path:
-        prompt += "\n\n" + CONTINUITY_INSTRUCTION
+    if continuity:
+        prompt += "\n\n" + continuity[1]
     prompt += "\n\n" + NO_TEXT_POLICY
     if not nefer_supplied:
         prompt += "\n\n" + NEUTRAL_SCALE_POLICY
