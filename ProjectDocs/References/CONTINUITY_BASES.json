@@ -25,11 +25,13 @@
     },
     "C05": {
       "name": "Thoth",
-      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png"
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png",
+      "preserve": "the same non-human ibis-derived divine organism: coherent ibis morphology, long curved beak and neck, backward-bending ibis legs, wing-arms ending in functional digits, reed/palette writing logic, non-human feathered torso; never a human body with an ibis head, no robes, no mage silhouette."
     },
     "C18": {
       "name": "Hori",
-      "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
+      "file": "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png",
+      "preserve": "the same Hori: same face, same age, same shaved head / hair state, same scribe identity and clothing language, injured bandaged hand as in the base; never a long-haired alternate Hori; no Black Hand parasite unless the job explicitly requires it."
     },
     "ENV_Tomb_Sarcophagus": {
       "name": "Tomb sarcophagus (visual/material base)",
@@ -46,7 +48,21 @@
       "file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png",
       "source_job": "W01.ThreeQuarter",
       "decision": "User-accepted 2026-10-03 as current Reed visual continuity base. Not LOCKED.",
-      "preserve": "the same single jointed reed stem, cut ink-blackened tip, leather and cord grip, length and proportions."
+      "preserve": "the same single jointed reed stem, cut ink-blackened tip, leather and cord grip; silhouette, proportions, construction, materials and fittings exactly; never redesign from text."
+    },
+    "W02": {
+      "name": "Djed",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png",
+      "source_job": "W02.ThreeQuarter",
+      "decision": "User-accepted 2026-10-03 as current Djed visual continuity base. Not LOCKED.",
+      "preserve": "the long shoulder-height staff, small Djed stacked-band stone head (about 1/6 of length), wooden shaft, lashing and stone end cap; silhouette, proportions, construction, materials and fittings exactly; never redesign from text."
+    },
+    "W03": {
+      "name": "Chaos Spear",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png",
+      "source_job": "W03.ThreeQuarter",
+      "decision": "User-accepted 2026-10-03 as current Chaos Spear visual continuity base. Not LOCKED.",
+      "preserve": "the single long spear: dark iron leaf head, red-stone and dark shaft sections, bronze bands and butt cap; silhouette, proportions, construction, materials and fittings exactly; never redesign from text."
     }
   },
   "not_bases": {
