@@ -4312,12 +4312,12 @@
       "asset_id": "C01",
       "name": "Nefer — Weapon_Sockets",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Weapon_Sockets_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Weapon_Sockets_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4328,8 +4328,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -4614,12 +4617,12 @@
       "asset_id": "C05",
       "name": "Thoth — Turnaround_or_Morphology",
       "category": "god",
-      "file": null,
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Turnaround_or_Morphology_v01.png",
       "expected_file": "02_Gods/Thoth/REF_GOD_Thoth_Turnaround_or_Morphology_v01.png",
       "brief_file": "02_Gods/Thoth/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C05; latest visual brief §§3–5,8",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4630,8 +4633,11 @@
       "source_canon_ids": [
         "C05"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -6663,12 +6669,12 @@
       "asset_id": "C18",
       "name": "Hori — Gameplay",
       "category": "supporting_character",
-      "file": null,
+      "file": "03_Humans/Hori/REF_CHR_Hori_Gameplay_v01.png",
       "expected_file": "03_Humans/Hori/REF_CHR_Hori_Gameplay_v01.png",
       "brief_file": "03_Humans/Hori/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C18",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -6679,8 +6685,11 @@
       "source_canon_ids": [
         "C18"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -8870,12 +8879,12 @@
       "asset_id": "B01",
       "name": "FaceEater — Rig_Notes_Visual",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Rig_Notes_Visual_v01.png",
       "expected_file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Rig_Notes_Visual_v01.png",
       "brief_file": "05_Main_Bosses/B01_FaceEater/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B01; §47 B01; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -8886,8 +8895,11 @@
       "source_canon_ids": [
         "B01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9170,7 +9182,7 @@
       "asset_id": "B02",
       "name": "Kheft — Weak_Point_or_Objective",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v02.png",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v03.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Weak_Point_or_Objective_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9235,12 +9247,12 @@
       "asset_id": "B02",
       "name": "Kheft — Rig_Notes_Visual",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Rig_Notes_Visual_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Rig_Notes_Visual_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9251,8 +9263,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18035,12 +18050,12 @@
       "asset_id": "W01",
       "name": "Reed — Front_Thickness",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Front_Thickness_v01.png",
       "expected_file": "09_Weapons/Reed/REF_WEAPON_Reed_Front_Thickness_v01.png",
       "brief_file": "09_Weapons/Reed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18053,8 +18068,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18140,12 +18158,12 @@
       "asset_id": "W01",
       "name": "Reed — Material_Closeups",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Material_Closeups_v01.png",
       "expected_file": "09_Weapons/Reed/REF_WEAPON_Reed_Material_Closeups_v01.png",
       "brief_file": "09_Weapons/Reed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18158,8 +18176,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
