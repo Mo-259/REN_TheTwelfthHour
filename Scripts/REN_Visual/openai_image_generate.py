@@ -103,6 +103,21 @@ CONTINUITY_INSTRUCTION=(
     "requested view or sheet of this same asset; do not redesign it."
 )
 
+def strip_brief_sections(brief, headings):
+    """Drop whole "## " sections whose heading line starts with one of `headings`, for prompt cost only.
+
+    The brief file on disk is never changed; canon stays in the repository.
+    """
+    if not headings:
+        return brief
+    out=[]; skipping=False
+    for line in brief.splitlines(keepends=True):
+        if line.startswith("## "):
+            skipping=any(line.startswith(h) for h in headings)
+        if not skipping:
+            out.append(line)
+    return "".join(out)
+
 def check_image(path, label, job_id):
     with path.open("rb") as f:
         head=f.read(64)
@@ -167,6 +182,7 @@ def main():
     nefer_supplied=bool(identity_path) and job.get("input_identity_master","").startswith("01_Nefer/")
     brief_path=REFS/job.get("required_canon_brief","")
     brief=brief_path.read_text(encoding="utf-8") if brief_path.exists() else ""
+    brief=strip_brief_sections(brief, job.get("brief_exclude_headings",[]))
     prompt=job["prompt"]
     if brief:
         prompt += "\n\nCANON BRIEF — mandatory constraints:\n" + brief
