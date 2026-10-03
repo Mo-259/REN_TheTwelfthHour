@@ -67,6 +67,7 @@ SAFE_GENERATOR_MESSAGES = (
     "Job not found",
     "IDENTITY FAIL-CLOSED",
     "CONTINUITY FAIL-CLOSED",
+    "REFERENCE FAIL-CLOSED",
 )
 
 def sanitize_failure(stderr: str, returncode: int):
@@ -215,6 +216,12 @@ def main():
             if usage_m:
                 try:
                     entry["usage"] = json.loads(usage_m.group(1))
+                except ValueError:
+                    pass
+            sources_m = re.search(r"^SOURCES_JSON: (\[.*\])$", proc.stdout or "", re.M)
+            if sources_m:
+                try:
+                    entry["sources"] = json.loads(sources_m.group(1))
                 except ValueError:
                     pass
             success.append(entry)

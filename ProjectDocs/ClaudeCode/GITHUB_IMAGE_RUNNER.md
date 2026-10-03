@@ -57,6 +57,13 @@ After the workflow commits the candidate:
 - A base may set `applies_to` (asset keys it serves, instead of its own key), `source_job` (its own job, never edited from itself), a custom `instruction` and a `preserve` list.
 - Current decisions: Anubis base = `REF_GOD_Anubis_Hero_Master_v02.png` (`REF_GOD_Anubis_Hero_v02.png` is not a base; kept on disk as historical reference). The Tomb sarcophagus base = `ENV_Tomb_02` Sarcophagus v01, **visual/material only, not spatial authority**; it currently serves `ENV_Tomb_01`. Other Tomb views are told not to depict the sarcophagus.
 
+## Multi-image references and cross-asset rules
+
+- A job may declare `input_references`: an ordered list of additional reference images (a path relative to `ProjectDocs/References/`, or `{"file", "role"}`), sent after the identity master or continuity base. One-image jobs behave exactly as before.
+- Every declared reference is required. A missing, unreadable, LFS-pointer, non-image or empty-path reference fails with `REFERENCE FAIL-CLOSED` before any API request. `required_reference_count` also fails a job that declares fewer source images than it needs. Nothing is dropped silently, and nothing falls back to text-only.
+- The generator prints `SOURCES_JSON`, and the batch runner records the images actually supplied as `sources` on each success in `LAST_GITHUB_GENERATION.json`.
+- `CONTINUITY_BASES.json` → `cross_asset_rules`: reusable rules appended to any job, of any asset, whose prompt mentions the subject. The first is the Sheut rule: a flat-black cast or detached shadow, never a body, face, woman, smoke or monster.
+
 ## Usage / cost metadata
 
 When the image API returns token usage, the generator prints `USAGE_JSON` and the batch runner stores it as `usage` on each success entry in `LAST_GITHUB_GENERATION.json`. Money cost is not returned by the API; it is computed from tokens and the current price list.

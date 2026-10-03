@@ -51,5 +51,16 @@
   },
   "not_bases": {
     "B03": "Black Hand is NOT a continuity base yet (identity drift from Hori, thorn morphology)."
-  }
+  },
+  "cross_asset_rules": [
+    {
+      "name": "Sheut",
+      "match": [
+        "Sheut",
+        "شوت"
+      ],
+      "skip_if_contains": "CROSS-ASSET SHEUT RULE",
+      "rule": "CROSS-ASSET SHEUT RULE (applies to every asset whose image includes Sheut): whenever Sheut appears, Sheut is Nefer's flat-black autonomous shadow / soul-function, drawn as a flat cast or detached shadow lying on or rising from a surface with physically readable connection logic (a shadow line or contact point). Never a solid human body, never a muscular or sculpted black figure, never a woman, no independent face or facial features, no smoke, no wisps, no ghost, no generic shadow monster."
+    }
+  ]
 }

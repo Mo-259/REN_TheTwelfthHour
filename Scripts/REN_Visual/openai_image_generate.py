@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import contextlib
 import json
 import os
 import sys
@@ -127,8 +128,11 @@ NO_COPY_RULE=(
 MATCHING_VIEWS={"Turnaround_or_Morphology","Body_Turnaround","Front","Front_Side","Rear","Hero_Side","Identity_Comparison"}
 
 def check_image(path, label, job_id):
-    with path.open("rb") as f:
-        head=f.read(64)
+    try:
+        with path.open("rb") as f:
+            head=f.read(64)
+    except OSError as e:
+        raise SystemExit(f"{label}: source image for {job_id} is unreadable ({type(e).__name__}).")
     if head.startswith(b"version https://git-lfs"):
         raise SystemExit(f"{label}: source image for {job_id} is a Git LFS pointer, not an image; run git lfs pull.")
     if not head.startswith(b"\x89PNG") and not head.startswith(b"\xff\xd8"):
@@ -165,6 +169,40 @@ def continuity_base_or_fail(job):
         instruction += " " + NO_COPY_RULE
     return path, instruction
 
+def extra_references_or_fail(job):
+    """Additional ordered reference images declared in the job's "input_references".
+
+    Each entry is a path relative to ProjectDocs/References, or {"file": ..., "role": ...}.
+    Every declared reference is required: missing, unreadable, LFS-pointer or non-image files
+    fail the job before any API request. Nothing is silently dropped.
+    Returns a list of (path, role).
+    """
+    refs=job.get("input_references") or []
+    if not isinstance(refs, list):
+        raise SystemExit(f"REFERENCE FAIL-CLOSED: input_references for {job['id']} must be a list.")
+    out=[]
+    for n, ref in enumerate(refs, 1):
+        rel=ref.get("file") if isinstance(ref, dict) else ref
+        role=(ref.get("role") if isinstance(ref, dict) else None) or f"reference {n}"
+        if not rel:
+            raise SystemExit(f"REFERENCE FAIL-CLOSED: reference {n} for {job['id']} is undeclared (empty path).")
+        path=REFS/rel
+        if not path.is_file():
+            raise SystemExit(f"REFERENCE FAIL-CLOSED: required reference {n} for {job['id']} missing ({rel}); refusing generation without it.")
+        check_image(path,"REFERENCE FAIL-CLOSED",job["id"])
+        out.append((path, role))
+    return out
+
+def cross_asset_rules(job):
+    """Reusable continuity rules (CONTINUITY_BASES.json "cross_asset_rules") for any job whose
+    prompt mentions the subject, regardless of which asset the job belongs to."""
+    if not CONTINUITY_BASES.exists():
+        return []
+    rules=json.loads(CONTINUITY_BASES.read_text(encoding="utf-8")).get("cross_asset_rules",[])
+    text=job.get("prompt","")
+    return [r["rule"] for r in rules
+            if any(m in text for m in r.get("match",[])) and r.get("skip_if_contains","\0") not in text]
+
 def usage_dict(result):
     u=getattr(result,"usage",None)
     if u is None:
@@ -188,7 +226,16 @@ def main():
     identity_path=identity_master_or_fail(job)
     continuity=None if identity_path else continuity_base_or_fail(job)
     continuity_path=continuity[0] if continuity else None
-    source_path=identity_path or continuity_path
+    # Ordered source images: identity master or continuity base first, then declared extra references.
+    sources=[]
+    if identity_path:
+        sources.append((identity_path, "locked identity master"))
+    elif continuity_path:
+        sources.append((continuity_path, "continuity base"))
+    sources+=extra_references_or_fail(job)
+    required=int(job.get("required_reference_count",0) or 0)
+    if len(sources) < required:
+        raise SystemExit(f"REFERENCE FAIL-CLOSED: {job['id']} requires {required} source images but only {len(sources)} are declared; refusing generation.")
     nefer_supplied=bool(identity_path) and job.get("input_identity_master","").startswith("01_Nefer/")
     brief_path=REFS/job.get("required_canon_brief","")
     brief=brief_path.read_text(encoding="utf-8") if brief_path.exists() else ""
@@ -200,6 +247,11 @@ def main():
         prompt += "\n\nTARGETED CORRECTION:\n" + args.prompt_extra
     if continuity:
         prompt += "\n\n" + continuity[1]
+    if len(sources) > 1:
+        prompt += "\n\nSOURCE IMAGES (in the order supplied): " + "; ".join(
+            f"image {n}: {role}" for n, (_, role) in enumerate(sources, 1)) + ". Preserve each exactly; redesign none of them."
+    for rule in cross_asset_rules(job):
+        prompt += "\n\n" + rule
     prompt += "\n\n" + NO_TEXT_POLICY
     if not nefer_supplied:
         prompt += "\n\n" + NEUTRAL_SCALE_POLICY
@@ -212,10 +264,11 @@ def main():
     print(f"Model: {args.model}")
     print(f"Quality: {args.quality}")
     print(f"Size: {size}")
-    mode="EDIT_WITH_IDENTITY_MASTER" if identity_path else ("EDIT_WITH_CONTINUITY_BASE" if continuity_path else "GENERATE")
+    mode="EDIT_WITH_IDENTITY_MASTER" if identity_path else ("EDIT_WITH_CONTINUITY_BASE" if continuity_path else ("EDIT_WITH_REFERENCES" if sources else "GENERATE"))
     print(f"Mode: {mode}")
-    if source_path:
-        print(f"Source image: {source_path.relative_to(REFS)}")
+    for n, (path, role) in enumerate(sources, 1):
+        print(f"Source image {n}: {path.relative_to(REFS)} ({role})")
+    print("SOURCES_JSON: "+json.dumps([str(pth.relative_to(REFS)) for pth, _ in sources]))
     print(f"Output: {target.relative_to(ROOT)}")
 
     if args.dry_run:
@@ -239,11 +292,12 @@ def main():
     # declares input_identity_master. Style-only Nefer references are intentionally
     # not passed as edit inputs for unrelated subjects. Continuity bases come only
     # from CONTINUITY_BASES.json.
-    if source_path:
-        with source_path.open("rb") as img:
+    if sources:
+        with contextlib.ExitStack() as stack:
+            files=[stack.enter_context(pth.open("rb")) for pth, _ in sources]
             result=client.images.edit(
                 model=args.model,
-                image=img,
+                image=files[0] if len(files)==1 else files,
                 prompt=prompt,
                 size=size,
                 quality=args.quality,
