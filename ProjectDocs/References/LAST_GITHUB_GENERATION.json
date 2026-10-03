@@ -2,90 +2,44 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "B03.Weak_Point_or_Objective",
-    "B03.Rig_Notes_Visual",
     "B03.Arena_Relationship",
-    "ENV_ShadowCity_08.Gameplay",
-    "ENV_ShadowCity_09.Gameplay",
-    "ENV_ShadowCity_10.Gameplay",
-    "ENV_HouseLife_04.Gameplay",
-    "ENV_HouseLife_05.Gameplay"
+    "ENV_HouseLife_06.Gameplay",
+    "ENV_HouseLife_07.Gameplay",
+    "ENV_HouseLife_08.Gameplay",
+    "ENV_HouseLife_09.Gameplay",
+    "ENV_HouseLife_10.Gameplay",
+    "W01.Side_B",
+    "W01.Physical_Dimensions"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "B03.Weak_Point_or_Objective",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Weak_Point_or_Objective_v02.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5672,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2600
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5830
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
-      "job_id": "B03.Rig_Notes_Visual",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Rig_Notes_Visual_v01.png",
-      "dimensions": "1024x1536",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 5702,
-        "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2630
-        },
-        "output_tokens": 158,
-        "output_tokens_details": {
-          "image_tokens": 158,
-          "text_tokens": 0
-        },
-        "total_tokens": 5860
-      },
-      "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
-        "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
-      ]
-    },
-    {
       "job_id": "B03.Arena_Relationship",
-      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v01.png",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Arena_Relationship_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5698,
+        "input_tokens": 5628,
         "input_tokens_details": {
-          "image_tokens": 3072,
-          "text_tokens": 2626
+          "image_tokens": 3044,
+          "text_tokens": 2584
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 5856
+        "total_tokens": 5786
       },
       "sources": [
-        "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
+        "11_Environments/Details/HouseLife/ScribalHalls/REF_ENV_ScribalHalls_Gameplay_v01.png",
         "03_Humans/Hori/REF_CHR_Hori_Hero_Master_v01.png"
       ]
     },
     {
-      "job_id": "ENV_ShadowCity_08.Gameplay",
-      "file": "11_Environments/Details/ShadowCity/M02MemorySpace/REF_ENV_M02MemorySpace_Gameplay_v01.png",
+      "job_id": "ENV_HouseLife_06.Gameplay",
+      "file": "11_Environments/Details/HouseLife/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
       "dimensions": "2048x1152",
       "status": "NEEDS_REVIEW",
       "usage": {
@@ -104,8 +58,68 @@
       "sources": []
     },
     {
-      "job_id": "ENV_ShadowCity_09.Gameplay",
-      "file": "11_Environments/Details/ShadowCity/RooftopBridge/REF_ENV_RooftopBridge_Gameplay_v01.png",
+      "job_id": "ENV_HouseLife_07.Gameplay",
+      "file": "11_Environments/Details/HouseLife/ThothSpace/REF_ENV_ThothSpace_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2217,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2217
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2374
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_08.Gameplay",
+      "file": "11_Environments/Details/HouseLife/HoriBlackHandArena/REF_ENV_HoriBlackHandArena_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2224,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2224
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2381
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_09.Gameplay",
+      "file": "11_Environments/Details/HouseLife/MemorySpace/REF_ENV_MemorySpace_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2203,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2203
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2360
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_10.Gameplay",
+      "file": "11_Environments/Details/HouseLife/EnemyCombatCorridor/REF_ENV_EnemyCombatCorridor_Gameplay_v01.png",
       "dimensions": "2048x1152",
       "status": "NEEDS_REVIEW",
       "usage": {
@@ -124,64 +138,48 @@
       "sources": []
     },
     {
-      "job_id": "ENV_ShadowCity_10.Gameplay",
-      "file": "11_Environments/Details/ShadowCity/ShadowLightMaterials/REF_ENV_ShadowLightMaterials_Gameplay_v01.png",
-      "dimensions": "2048x1152",
+      "job_id": "W01.Side_B",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Side_B_v01.png",
+      "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2218,
+        "input_tokens": 3800,
         "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2218
+          "image_tokens": 1536,
+          "text_tokens": 2264
         },
-        "output_tokens": 157,
+        "output_tokens": 158,
         "output_tokens_details": {
-          "image_tokens": 157,
+          "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 2375
+        "total_tokens": 3958
       },
-      "sources": []
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
+      ]
     },
     {
-      "job_id": "ENV_HouseLife_04.Gameplay",
-      "file": "11_Environments/Details/HouseLife/PapyrusStorage/REF_ENV_PapyrusStorage_Gameplay_v01.png",
-      "dimensions": "2048x1152",
+      "job_id": "W01.Physical_Dimensions",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_Physical_Dimensions_v01.png",
+      "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2208,
+        "input_tokens": 3820,
         "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2208
+          "image_tokens": 1536,
+          "text_tokens": 2284
         },
-        "output_tokens": 157,
+        "output_tokens": 158,
         "output_tokens_details": {
-          "image_tokens": 157,
+          "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 2365
+        "total_tokens": 3978
       },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_05.Gameplay",
-      "file": "11_Environments/Details/HouseLife/LightCourt/REF_ENV_LightCourt_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2213,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2213
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2370
-      },
-      "sources": []
+      "sources": [
+        "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v02.png"
+      ]
     }
   ],
   "failed": [],
