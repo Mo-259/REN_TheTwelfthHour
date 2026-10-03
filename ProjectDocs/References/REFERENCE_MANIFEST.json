@@ -4346,12 +4346,12 @@
       "asset_id": "C01",
       "name": "Nefer — Scale_Comparison",
       "category": "protagonist",
-      "file": null,
+      "file": "01_Nefer/REF_CHR_Nefer_Scale_Comparison_v01.png",
       "expected_file": "01_Nefer/REF_CHR_Nefer_Scale_Comparison_v01.png",
       "brief_file": "01_Nefer/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Supplied Nefer original; V3 §20–22, §46 C01",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4362,8 +4362,11 @@
       "source_canon_ids": [
         "C01"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        2048
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -9216,12 +9219,12 @@
       "asset_id": "B02",
       "name": "Kheft — Scale_Comparison",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Scale_Comparison_v01.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Scale_Comparison_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B02; §47 B02; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9232,8 +9235,11 @@
       "source_canon_ids": [
         "B02"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        2048
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18359,12 +18365,12 @@
       "asset_id": "W02",
       "name": "Djed — Side_A",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Side_A_v01.png",
       "expected_file": "09_Weapons/Djed/REF_WEAPON_Djed_Side_A_v01.png",
       "brief_file": "09_Weapons/Djed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18377,8 +18383,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18725,12 +18734,12 @@
       "asset_id": "W03",
       "name": "ChaosSpear — Side_A",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Side_A_v01.png",
       "expected_file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Side_A_v01.png",
       "brief_file": "09_Weapons/ChaosSpear/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18743,8 +18752,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24675,12 +24687,12 @@
       "asset_id": "ENV_ShadowCity_01",
       "name": "Entry — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/Entry/REF_ENV_Entry_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/Entry/REF_ENV_Entry_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/Entry/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24692,8 +24704,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24707,12 +24722,12 @@
       "asset_id": "ENV_ShadowCity_02",
       "name": "MainStreet — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/MainStreet/REF_ENV_MainStreet_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/MainStreet/REF_ENV_MainStreet_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/MainStreet/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24724,8 +24739,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24995,12 +25013,12 @@
       "asset_id": "ENV_HouseLife_01",
       "name": "ArchiveEntry — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/HouseLife/ArchiveEntry/REF_ENV_ArchiveEntry_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/HouseLife/ArchiveEntry/REF_ENV_ArchiveEntry_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/HouseLife/ArchiveEntry/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25012,8 +25030,11 @@
         "9",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
