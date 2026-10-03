@@ -4507,7 +4507,7 @@
         "verdict": "NEEDS_FIX",
         "verdict_by": "user 2026-10-03",
         "verdict_file": "02_Gods/Anubis/REF_GOD_Anubis_Materials_v01.png",
-        "verdict_reason": "Staff close-up adds an extra crossbar not on Anubis Hero Master v02. Usable as material reference only (black funerary surface, fur-to-skin transition, resin, linen, surface ageing); staff geometry NOT authoritative. Hero Master v02 remains staff geometry authority."
+        "verdict_reason": "Staff close-up deviates from Anubis Hero Master v02 (extra/split staff geometry). Usable as material reference only (black funerary surface, fur-to-skin transition, resin, linen, surface ageing); staff geometry NOT authoritative. Hero Master v02 (ankh top, one lower crossbar with hanging strips, single shaft) remains staff geometry authority."
       }
     },
     {

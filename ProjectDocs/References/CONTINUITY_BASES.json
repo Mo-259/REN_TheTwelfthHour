@@ -7,7 +7,7 @@
       "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
       "decision": "User-selected 2026-10-03: accepted direction is tall, narrow, non-human funerary organism; restrained linen sash; ankh-topped funerary staff; black funerary morphology. Base only, not LOCKED.",
       "not_base": "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png is NOT the continuity base; kept unchanged on disk as a historical/superseded reference (not deleted).",
-      "preserve": "the staff geometry exactly as in Hero Master v02 (single ankh top, no extra crossbars; Hero Master v02 is the staff geometry authority, Anubis Materials v01 staff is NOT authoritative); tall narrow non-human funerary organism, restrained linen sash, black funerary morphology."
+      "preserve": "the staff geometry exactly as in Hero Master v02 (the staff geometry authority): one straight single shaft, an ankh top, and one lower crossbar with hanging linen strips; no additional crossbars and no split or twin shaft (Anubis Materials v01 staff is NOT authoritative). Tall narrow non-human funerary organism, restrained linen sash, black funerary morphology."
     },
     "B01": {
       "name": "Face-Eater",
