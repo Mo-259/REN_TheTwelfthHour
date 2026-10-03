@@ -4543,7 +4543,7 @@
       "asset_id": "C05",
       "name": "Thoth — Hero_Master",
       "category": "god",
-      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v01.png",
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png",
       "expected_file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v01.png",
       "brief_file": "02_Gods/Thoth/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -8145,7 +8145,7 @@
       "asset_id": "C20",
       "name": "Sheut — Hero_Master",
       "category": "soul_part",
-      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v01.png",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png",
       "expected_file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v01.png",
       "brief_file": "04_Soul_Parts/Sheut/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -8867,7 +8867,7 @@
       "asset_id": "B02",
       "name": "Kheft — Hero_Master",
       "category": "main_boss",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v01.png",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png",
       "expected_file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v01.png",
       "brief_file": "05_Main_Bosses/B02_Kheft/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -9211,12 +9211,12 @@
       "asset_id": "B03",
       "name": "HoriBlackHand — Hero_Master",
       "category": "main_boss",
-      "file": null,
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
       "expected_file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
       "brief_file": "05_Main_Bosses/B03_HoriBlackHand/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §25 B03; §47 B03; visual brief §10",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -9227,8 +9227,11 @@
       "source_canon_ids": [
         "B03"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16433,12 +16436,12 @@
       "asset_id": "E11",
       "name": "PapyrusSerpents — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E11_PapyrusSerpents/REF_ENEMY_PapyrusSerpents_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E11_PapyrusSerpents/REF_ENEMY_PapyrusSerpents_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E11_PapyrusSerpents/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E11",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16449,8 +16452,11 @@
       "source_canon_ids": [
         "E11"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -16464,12 +16470,12 @@
       "asset_id": "E12",
       "name": "ArchiveGuards — Enemy_Gameplay_Sheet",
       "category": "enemy",
-      "file": null,
+      "file": "07_Enemies/E12_ArchiveGuards/REF_ENEMY_ArchiveGuards_Enemy_Gameplay_Sheet_v01.png",
       "expected_file": "07_Enemies/E12_ArchiveGuards/REF_ENEMY_ArchiveGuards_Enemy_Gameplay_Sheet_v01.png",
       "brief_file": "07_Enemies/E12_ArchiveGuards/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §27 and §49 E12",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -16480,8 +16486,11 @@
       "source_canon_ids": [
         "E12"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -17970,12 +17979,12 @@
       "asset_id": "W01",
       "name": "Reed — ThreeQuarter",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v01.png",
       "expected_file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v01.png",
       "brief_file": "09_Weapons/Reed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -17988,8 +17997,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18333,12 +18345,12 @@
       "asset_id": "W02",
       "name": "Djed — ThreeQuarter",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v01.png",
       "expected_file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v01.png",
       "brief_file": "09_Weapons/Djed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18351,8 +18363,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",

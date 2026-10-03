@@ -2,63 +2,63 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "E03.Enemy_Gameplay_Sheet",
-    "E04.Enemy_Gameplay_Sheet",
-    "E05.Enemy_Gameplay_Sheet",
-    "E06.Enemy_Gameplay_Sheet",
-    "E07.Enemy_Gameplay_Sheet",
-    "E08.Enemy_Gameplay_Sheet",
-    "E09.Enemy_Gameplay_Sheet",
-    "E10.Enemy_Gameplay_Sheet"
+    "B02.Hero_Master",
+    "C20.Hero_Master",
+    "C05.Hero_Master",
+    "B03.Hero_Master",
+    "E11.Enemy_Gameplay_Sheet",
+    "E12.Enemy_Gameplay_Sheet",
+    "W01.ThreeQuarter",
+    "W02.ThreeQuarter"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "E03.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E03_CemeteryJackals/REF_ENEMY_CemeteryJackals_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "B02.Hero_Master",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E04.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E04_FaceLeeches/REF_ENEMY_FaceLeeches_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "C20.Hero_Master",
+      "file": "04_Soul_Parts/Sheut/REF_SOUL_Sheut_Hero_Master_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E05.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E05_Shadowless/REF_ENEMY_Shadowless_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "C05.Hero_Master",
+      "file": "02_Gods/Thoth/REF_GOD_Thoth_Hero_Master_v02.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E06.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E06_WallCrawlers/REF_ENEMY_WallCrawlers_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "B03.Hero_Master",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E07.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E07_LampGuards/REF_ENEMY_LampGuards_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "E11.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E11_PapyrusSerpents/REF_ENEMY_PapyrusSerpents_Enemy_Gameplay_Sheet_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E08.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E08_FalseShadows/REF_ENEMY_FalseShadows_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "E12.Enemy_Gameplay_Sheet",
+      "file": "07_Enemies/E12_ArchiveGuards/REF_ENEMY_ArchiveGuards_Enemy_Gameplay_Sheet_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E09.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E09_InkGhosts/REF_ENEMY_InkGhosts_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "W01.ThreeQuarter",
+      "file": "09_Weapons/Reed/REF_WEAPON_Reed_ThreeQuarter_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     },
     {
-      "job_id": "E10.Enemy_Gameplay_Sheet",
-      "file": "07_Enemies/E10_ErasedScribes/REF_ENEMY_ErasedScribes_Enemy_Gameplay_Sheet_v01.png",
+      "job_id": "W02.ThreeQuarter",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW"
     }
