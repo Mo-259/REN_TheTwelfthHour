@@ -4384,7 +4384,7 @@
       "asset_id": "C04",
       "name": "Anubis — Hero_Master",
       "category": "god",
-      "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v01.png",
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
       "expected_file": "02_Gods/Anubis/REF_GOD_Anubis_Hero_v02.png",
       "brief_file": "02_Gods/Anubis/ASSET_BRIEF.md",
       "status": "NEEDS_REVIEW",
@@ -4401,10 +4401,10 @@
         "C04"
       ],
       "dimensions_px": [
-        1536,
-        2048
+        1024,
+        1536
       ],
-      "resolution_compliant": true,
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
