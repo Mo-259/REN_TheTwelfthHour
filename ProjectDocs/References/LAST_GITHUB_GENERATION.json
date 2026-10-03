@@ -2,175 +2,188 @@
   "schema": 2,
   "quality": "low",
   "requested": [
-    "W02.Side_A",
-    "W03.Side_A",
-    "C01.Scale_Comparison",
-    "B01.Scale_Comparison",
-    "B02.Scale_Comparison",
-    "ENV_ShadowCity_01.Gameplay",
-    "ENV_ShadowCity_02.Gameplay",
-    "ENV_HouseLife_01.Gameplay"
+    "U01.Side_A",
+    "W02.Grip",
+    "W03.Grip",
+    "ENV_ShadowCity_03.Gameplay",
+    "ENV_ShadowCity_04.Gameplay",
+    "ENV_HouseLife_02.Gameplay",
+    "ENV_HouseLife_03.Gameplay",
+    "C04.Scale_Comparison"
   ],
   "max_requests_per_run": 8,
   "api_requests_made": 8,
   "success": [
     {
-      "job_id": "W02.Side_A",
-      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Side_A_v01.png",
+      "job_id": "U01.Side_A",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Side_A_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3769,
+        "input_tokens": 3742,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2233
+          "text_tokens": 2206
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3927
+        "total_tokens": 3900
+      },
+      "sources": [
+        "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_ThreeQuarter_v01.png"
+      ]
+    },
+    {
+      "job_id": "W02.Grip",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Grip_v01.png",
+      "dimensions": "1024x1536",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 3748,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 2212
+        },
+        "output_tokens": 158,
+        "output_tokens_details": {
+          "image_tokens": 158,
+          "text_tokens": 0
+        },
+        "total_tokens": 3906
       },
       "sources": [
         "09_Weapons/Djed/REF_WEAPON_Djed_ThreeQuarter_v04.png"
       ]
     },
     {
-      "job_id": "W03.Side_A",
-      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Side_A_v01.png",
+      "job_id": "W03.Grip",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Grip_v01.png",
       "dimensions": "1024x1536",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 3783,
+        "input_tokens": 3773,
         "input_tokens_details": {
           "image_tokens": 1536,
-          "text_tokens": 2247
+          "text_tokens": 2237
         },
         "output_tokens": 158,
         "output_tokens_details": {
           "image_tokens": 158,
           "text_tokens": 0
         },
-        "total_tokens": 3941
+        "total_tokens": 3931
       },
       "sources": [
         "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_ThreeQuarter_v02.png"
       ]
     },
     {
-      "job_id": "C01.Scale_Comparison",
-      "file": "01_Nefer/REF_CHR_Nefer_Scale_Comparison_v01.png",
-      "dimensions": "2048x2048",
+      "job_id": "ENV_ShadowCity_03.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
+      "dimensions": "2048x1152",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 2960,
+        "input_tokens": 2178,
         "input_tokens_details": {
-          "image_tokens": 1452,
-          "text_tokens": 1508
+          "image_tokens": 0,
+          "text_tokens": 2178
         },
-        "output_tokens": 397,
+        "output_tokens": 157,
         "output_tokens_details": {
-          "image_tokens": 397,
+          "image_tokens": 157,
           "text_tokens": 0
         },
-        "total_tokens": 3357
+        "total_tokens": 2335
       },
-      "sources": [
-        "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
-      ]
+      "sources": []
     },
     {
-      "job_id": "B02.Scale_Comparison",
-      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Scale_Comparison_v01.png",
+      "job_id": "ENV_ShadowCity_04.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/RestBank/REF_ENV_RestBank_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2188,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2188
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2345
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_02.Gameplay",
+      "file": "11_Environments/Details/HouseLife/ScribalHalls/REF_ENV_ScribalHalls_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2199,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2199
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2356
+      },
+      "sources": []
+    },
+    {
+      "job_id": "ENV_HouseLife_03.Gameplay",
+      "file": "11_Environments/Details/HouseLife/InkSpaces/REF_ENV_InkSpaces_Gameplay_v01.png",
+      "dimensions": "2048x1152",
+      "status": "NEEDS_REVIEW",
+      "usage": {
+        "input_tokens": 2195,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 2195
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "image_tokens": 157,
+          "text_tokens": 0
+        },
+        "total_tokens": 2352
+      },
+      "sources": []
+    },
+    {
+      "job_id": "C04.Scale_Comparison",
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Scale_Comparison_v01.png",
       "dimensions": "2048x2048",
       "status": "NEEDS_REVIEW",
       "usage": {
-        "input_tokens": 5379,
+        "input_tokens": 4498,
         "input_tokens_details": {
           "image_tokens": 2988,
-          "text_tokens": 2391
+          "text_tokens": 1510
         },
         "output_tokens": 397,
         "output_tokens_details": {
           "image_tokens": 397,
           "text_tokens": 0
         },
-        "total_tokens": 5776
+        "total_tokens": 4895
       },
       "sources": [
-        "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Hero_Master_v02.png",
+        "02_Gods/Anubis/REF_GOD_Anubis_Hero_Master_v02.png",
         "01_Nefer/REF_CHR_Nefer_Hero_Locked_Original_v01.png"
       ]
-    },
-    {
-      "job_id": "ENV_ShadowCity_01.Gameplay",
-      "file": "11_Environments/Details/ShadowCity/Entry/REF_ENV_Entry_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2206,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2206
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2363
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_ShadowCity_02.Gameplay",
-      "file": "11_Environments/Details/ShadowCity/MainStreet/REF_ENV_MainStreet_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2213,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2213
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2370
-      },
-      "sources": []
-    },
-    {
-      "job_id": "ENV_HouseLife_01.Gameplay",
-      "file": "11_Environments/Details/HouseLife/ArchiveEntry/REF_ENV_ArchiveEntry_Gameplay_v01.png",
-      "dimensions": "2048x1152",
-      "status": "NEEDS_REVIEW",
-      "usage": {
-        "input_tokens": 2187,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 2187
-        },
-        "output_tokens": 157,
-        "output_tokens_details": {
-          "image_tokens": 157,
-          "text_tokens": 0
-        },
-        "total_tokens": 2344
-      },
-      "sources": []
     }
   ],
-  "failed": [
-    {
-      "job_id": "B01.Scale_Comparison",
-      "status": "FAILED",
-      "reason": "REFUSED by image safety system (stage=output, categories=violence)",
-      "charged": "unknown (refused at output moderation, after generation; billing not determinable from the response)"
-    }
-  ],
+  "failed": [],
   "not_run": []
 }

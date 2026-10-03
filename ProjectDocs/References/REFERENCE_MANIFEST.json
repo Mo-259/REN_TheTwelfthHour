@@ -4555,12 +4555,12 @@
       "asset_id": "C04",
       "name": "Anubis — Scale_Comparison",
       "category": "god",
-      "file": null,
+      "file": "02_Gods/Anubis/REF_GOD_Anubis_Scale_Comparison_v01.png",
       "expected_file": "02_Gods/Anubis/REF_GOD_Anubis_Scale_Comparison_v01.png",
       "brief_file": "02_Gods/Anubis/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §46 C04; latest visual brief §§3–5,8",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -4571,8 +4571,11 @@
       "source_canon_ids": [
         "C04"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        2048
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18503,12 +18506,12 @@
       "asset_id": "W02",
       "name": "Djed — Grip",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Grip_v01.png",
       "expected_file": "09_Weapons/Djed/REF_WEAPON_Djed_Grip_v01.png",
       "brief_file": "09_Weapons/Djed/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18521,8 +18524,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -18872,12 +18878,12 @@
       "asset_id": "W03",
       "name": "ChaosSpear — Grip",
       "category": "player_weapon",
-      "file": null,
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Grip_v01.png",
       "expected_file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Grip_v01.png",
       "brief_file": "09_Weapons/ChaosSpear/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -18890,8 +18896,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -19103,12 +19112,12 @@
       "asset_id": "U01",
       "name": "WedjatUtility — Side_A",
       "category": "utility",
-      "file": null,
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Side_A_v01.png",
       "expected_file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Side_A_v01.png",
       "brief_file": "09_Weapons/WedjatUtility/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "V3 §20–22; visual brief §14",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -19121,8 +19130,11 @@
         "21",
         "22"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        1024,
+        1536
+      ],
+      "resolution_compliant": false,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24757,12 +24769,12 @@
       "asset_id": "ENV_ShadowCity_03",
       "name": "Shortcut — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/Shortcut/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24774,8 +24786,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -24789,12 +24804,12 @@
       "asset_id": "ENV_ShadowCity_04",
       "name": "RestBank — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/ShadowCity/RestBank/REF_ENV_RestBank_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/ShadowCity/RestBank/REF_ENV_RestBank_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/ShadowCity/RestBank/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -24806,8 +24821,11 @@
         "8",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25048,12 +25066,12 @@
       "asset_id": "ENV_HouseLife_02",
       "name": "ScribalHalls — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/HouseLife/ScribalHalls/REF_ENV_ScribalHalls_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/HouseLife/ScribalHalls/REF_ENV_ScribalHalls_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/HouseLife/ScribalHalls/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25065,8 +25083,11 @@
         "9",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
@@ -25080,12 +25101,12 @@
       "asset_id": "ENV_HouseLife_03",
       "name": "InkSpaces — Gameplay",
       "category": "environment_detail",
-      "file": null,
+      "file": "11_Environments/Details/HouseLife/InkSpaces/REF_ENV_InkSpaces_Gameplay_v01.png",
       "expected_file": "11_Environments/Details/HouseLife/InkSpaces/REF_ENV_InkSpaces_Gameplay_v01.png",
       "brief_file": "11_Environments/Details/HouseLife/InkSpaces/ASSET_BRIEF.md",
-      "status": "PROVISIONAL",
-      "visual_complete": false,
-      "visual_state": "PENDING_NATIVE_RESOLUTION_WORKFLOW",
+      "status": "NEEDS_REVIEW",
+      "visual_complete": true,
+      "visual_state": "GENERATED_CANDIDATE_NEEDS_HUMAN_REVIEW",
       "source": "Visual brief §§20–22; V3 respective hour",
       "authority_level": 6,
       "canon_version": "REN v3 / October 2026",
@@ -25097,8 +25118,11 @@
         "9",
         "32"
       ],
-      "dimensions_px": null,
-      "resolution_compliant": null,
+      "dimensions_px": [
+        2048,
+        1152
+      ],
+      "resolution_compliant": true,
       "review": {
         "identity": "pending",
         "gameplay": "pending",
