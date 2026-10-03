@@ -62,6 +62,7 @@ After the workflow commits the candidate:
 - A job may declare `input_references`: an ordered list of additional reference images (a path relative to `ProjectDocs/References/`, or `{"file", "role"}`), sent after the identity master or continuity base. One-image jobs behave exactly as before.
 - Every declared reference is required. A missing, unreadable, LFS-pointer, non-image or empty-path reference fails with `REFERENCE FAIL-CLOSED` before any API request. `required_reference_count` also fails a job that declares fewer source images than it needs. Nothing is dropped silently, and nothing falls back to text-only.
 - The generator prints `SOURCES_JSON`, and the batch runner records the images actually supplied as `sources` on each success in `LAST_GITHUB_GENERATION.json`.
+- **Status: LIVE-VALIDATED (2026-10-03).** The first live two-image request (`C01.Weapon_Sockets`, Nefer master + Reed v02) sent both images: `sources` lists both, and the API reported 2,988 image input tokens (1,452 + 1,536). Nefer identity and the Reed design were both preserved (user QA rule). Mixed-reference jobs may use this path; per-image QA still applies.
 - `CONTINUITY_BASES.json` → `cross_asset_rules`: reusable rules appended to any job, of any asset, whose prompt mentions the subject. The first is the Sheut rule: a flat-black cast or detached shadow, never a body, face, woman, smoke or monster.
 
 ## Usage / cost metadata
