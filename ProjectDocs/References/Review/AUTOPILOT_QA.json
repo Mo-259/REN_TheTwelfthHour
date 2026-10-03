@@ -393,6 +393,48 @@
       "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Grip_v01.png",
       "verdict": "NEEDS_FIX",
       "note": "Returned the full tool view (grip readable, no hand-clearance close-up). Minor; Hand_Scale covers grip. Kept."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Material_Closeups",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Material_Closeups_v01.png",
+      "verdict": "PASS",
+      "note": "Faience/lapis/bronze, scroll, point close-ups of the same tool; hand and scale extras."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Physical_Dimensions",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Physical_Dimensions_v01.png",
+      "verdict": "PASS",
+      "note": "Same tool in orthographic views; small compact size vs silhouette; unnumbered bar."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Hand_Scale",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Hand_Scale_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer holding the Wedjat at hand scale; compact utility."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Sockets",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Sockets_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer: held, tucked in rope belt, at back sash; material crops."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Gameplay_Silhouette",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Gameplay_Silhouette_v01.png",
+      "verdict": "PASS",
+      "note": "Solid silhouettes at two sizes plus figure holding it; extras."
+    },
+    {
+      "batch": "AP8",
+      "job_id": "U01.Attack_Use",
+      "file": "09_Weapons/WedjatUtility/REF_WEAPON_WedjatUtility_Attack_Use_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer: raises Wedjat to the eye to aim, cuts a thin distant line, close jab."
     }
   ]
 }
