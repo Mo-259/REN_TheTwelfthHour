@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "note": "Autopilot internal QA verdicts (PASS/NEEDS_FIX/REJECT/BLOCKED_VISUAL_QA/SAFETY_BLOCKED). Statuses stay NEEDS_REVIEW; LOCKED is owner-controlled.",
+  "entries": [
+    {
+      "batch": "AP1",
+      "job_id": "B03.Hero_Master",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
+      "verdict": "PASS",
+      "note": "Same C18 Hori; matte ink parasite on hand/forearm with drips, separable; no thorns/blood. Set as B03 continuity base."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "B01.Scale_Comparison",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Scale_Comparison_v01.png",
+      "verdict": "PASS",
+      "note": "Low-detail grey Face-Eater stand-in with correct outline beside real Nefer; same floor; unnumbered bar. Passed safety on retry."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "B01.Arena_Relationship",
+      "file": "05_Main_Bosses/B01_FaceEater/REF_BOSS_FaceEater_Arena_Relationship_v01.png",
+      "verdict": "PASS",
+      "note": "Courtyard, three seated statues, Egyptian winged-disc gate, boss small in open floor. Statues read pharaonic; acceptable."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "B02.Arena_Relationship",
+      "file": "05_Main_Bosses/B02_Kheft/REF_BOSS_Kheft_Arena_Relationship_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Three torch stands, Kheft with lamp, open floor; minor: crenellated wall tops and very dark. Kept (minor)."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "ENV_ShadowCity_03.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/Shortcut/REF_ENV_Shortcut_Gameplay_v02.png",
+      "verdict": "PASS",
+      "note": "Flat-roofed mud-brick alley, one torch, no crenellations; supersedes v01."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "ENV_ShadowCity_05.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/PortableLightCombat/REF_ENV_PortableLightCombat_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Open plaza, central portable brazier throwing radial shadow lanes, fixed torches around."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "ENV_ShadowCity_06.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/KheftArena/REF_ENV_KheftArena_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "Square mud-brick courtyard with exactly three torch posts; clean duel floor."
+    },
+    {
+      "batch": "AP1",
+      "job_id": "ENV_ShadowCity_07.Gameplay",
+      "file": "11_Environments/Details/ShadowCity/PreservedDaylightField/REF_ENV_PreservedDaylightField_Gameplay_v01.png",
+      "verdict": "PASS",
+      "note": "White-morning limestone courtyard, offering tables, clear path to pylon gate."
+    }
+  ]
+}

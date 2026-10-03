@@ -70,11 +70,16 @@
       "source_job": "U01.ThreeQuarter",
       "decision": "User-accepted 2026-10-03 as current Wedjat visual continuity base. Not LOCKED. Remains a UTILITY TOOL, not a fourth combat weapon.",
       "preserve": "the same compact overall form, Wedjat-eye identity, faience and bronze material language, short cutting/targeting point and grip proportions; a utility tool, never a full weapon or gun-like device."
+    },
+    "B03": {
+      "name": "Hori / Black Hand",
+      "file": "05_Main_Bosses/B03_HoriBlackHand/REF_BOSS_HoriBlackHand_Hero_Master_v02.png",
+      "source_job": "B03.Hero_Master",
+      "decision": "Autopilot-accepted 2026-10-03 (passed identity + visual QA). Not LOCKED.",
+      "preserve": "the same C18 Hori and the separate matte-black ink / written-erasure parasite at hand and forearm; no thorns, blood or wounds; Hori a protected witness."
     }
   },
-  "not_bases": {
-    "B03": "Black Hand is NOT a continuity base yet (identity drift from Hori, thorn morphology)."
-  },
+  "not_bases": {},
   "cross_asset_rules": [
     {
       "name": "Sheut",
