@@ -281,6 +281,62 @@
       "file": "09_Weapons/Djed/REF_WEAPON_Djed_Material_Closeups_v01.png",
       "verdict": "PASS",
       "note": "Head, lashing, wood, stone cap close-ups; same object; scale/silhouette extras."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W02.Physical_Dimensions",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Physical_Dimensions_v01.png",
+      "verdict": "NEEDS_FIX",
+      "note": "Same Djed, front/side beside unlabeled silhouette; drawn slightly taller than head (canon about shoulder height). Minor; Sockets/Attack_Use show correct carry length. Kept."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W02.Hand_Scale",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Hand_Scale_v01.png",
+      "verdict": "PASS",
+      "note": "Same Djed; Nefer's wrapped hand gripping shaft; Nefer holding staff at about shoulder height."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W02.Sockets",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Sockets_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer and Djed: held, linen back sling, stances; silhouettes."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W02.Gameplay_Silhouette",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Gameplay_Silhouette_v01.png",
+      "verdict": "PASS",
+      "note": "Solid silhouettes at two sizes plus figure holding it; extra view/material panels."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W02.Attack_Use",
+      "file": "09_Weapons/Djed/REF_WEAPON_Djed_Attack_Use_v01.png",
+      "verdict": "PASS",
+      "note": "Same Nefer: light strikes, overhead heavy with ground impact, braced defensive stance. Minor: one panel shows three staff sizes."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W03.Side_B",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Side_B_v01.png",
+      "verdict": "PASS",
+      "note": "Same Chaos Spear: iron leaf head, red-stone/dark shaft, bronze bands, butt cap."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W03.Front_Thickness",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Front_Thickness_v01.png",
+      "verdict": "PASS",
+      "note": "Same spear with cross-section discs of each section; no variants."
+    },
+    {
+      "batch": "AP6",
+      "job_id": "W03.Material_Closeups",
+      "file": "09_Weapons/ChaosSpear/REF_WEAPON_ChaosSpear_Material_Closeups_v01.png",
+      "verdict": "PASS",
+      "note": "Head with red inlay, bronze bands, wrapped grip, red stone, butt cap; same spear; scale extras."
     }
   ]
 }
