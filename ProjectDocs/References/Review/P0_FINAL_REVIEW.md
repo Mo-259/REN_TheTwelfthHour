@@ -26,7 +26,7 @@ Audit checks:
 
 | Slot | Verdict | Note |
 |---|---|---|
-| W01.Physical_Dimensions | BLOCKED_VISUAL_QA | Two attempts. Both render the Reed about as tall as a man. The design is correct; **length authority = C01.Weapon_Sockets v01 + W01.Sockets / Attack_Use (about 1.1–1.2 m)**. |
+| W01.Physical_Dimensions | BLOCKED_VISUAL_QA | Two attempts. Both render the Reed about as tall as a man. The design is correct. The v3 Bible gives **no** weapon measurement, so Reed length is **PROVISIONAL GAMEPLAY SCALE**, tuned in Unreal; carry images (C01.Weapon_Sockets v01, W01.Sockets / Attack_Use) are relative guidance only. |
 | B01.Phase_States | NEEDS_FIX | No more spend, by owner rule. Use **v03 for the mechanic** (threads from the body to the masks, masks at the gate) and **v04 for the Egyptian pylon gate**. |
 | C04.Materials | NEEDS_FIX (owner) | Material reference only; the staff geometry comes from Hero Master v02. |
 | E01, E02, E08 | NEEDS_FIX | Early sheets. E01/E02 have rendered text; E02 has a beam-like VFX; E08 is generic shadow-figure drift. |
@@ -85,6 +85,6 @@ Everything else can stay as a draft reference.
 
 1. Use these references to drive the **Tomb → Necropolis → Anubis → Gate → Face-Eater** blockout-to-art pass, starting with Tomb materials (sarcophagus, cartouche, no-shadow lane lighting) per `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. Unreal transforms stay the spatial authority; reference images never move world geometry.
 2. Model the Face-Eater against the B01 set (Hero, Turnaround, Rig Notes, Silhouette, Weak Point v02, Phase v03 for the mechanic and v04 for the gate).
-3. Model Nefer and the Reed (C01 set plus W01 set; Reed length about 1.1–1.2 m).
+3. Model Nefer and the Reed (C01 set plus W01 set; Reed length = PROVISIONAL GAMEPLAY SCALE, tuned in Unreal).
 
 This needs local Unreal; nothing here changes Editor state.
