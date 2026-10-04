@@ -68,3 +68,11 @@ All paths below are relative to `ProjectDocs/References/`.
 **Shadow City and House of Life** (`11_Environments/Details/ShadowCity/*`, `…/HouseLife/*`):
 - **visual direction only**: material logic, light and shadow readability, landmark style, buildability cues;
 - **layout** comes from the v3 Bible (§8, §9, §25 arena sizes: Kheft 22 m with three torches; B03 copying hall 18×24 m with tables and a fixed ink basin) and from an approved Unreal blockout. A generated composition is never a floor plan.
+
+## E. Face-Eater implementation authority
+
+**Mechanics:** v3 §25 B01 only: two jaw masks, exposed rib target, mask throw and grounded-mask interaction at 65%, phase-3 thread/tether mechanic at 30% with masks gathered at the gate (separate two threads, then punish). **Appearance:** the B01 reference set above. Where sheets disagree, the Bible defines mechanics and the strongest approved references define appearance. **Obsolete, never use:** chest seal, Glyph pillars, glyph-exposed states, and the older Face-Eater specs on the unmerged branch `claude/festive-mendel-yqepmq`. Full detail: `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.
+
+## F. Contact sheets
+
+The P0 contact sheets are **optional review artifacts and not an Unreal implementation blocker**. They are not in the repository because Claude Cloud cannot upload Git LFS; the owner may commit them later from a local machine.

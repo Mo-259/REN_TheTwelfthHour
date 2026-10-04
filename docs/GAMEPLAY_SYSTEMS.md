@@ -103,7 +103,7 @@ Prototype attack set:
 Slice mechanic:
 - normal attacks alone are insufficient or inefficient
 - player creates an opening
-- Glyph interaction exposes chest seal
+- ~~Glyph interaction exposes chest seal~~ **SUPERSEDED:** Face-Eater mechanics follow v3 §25 B01 (see `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`)
 - boss enters Exposed state
 - player damages vulnerable identity mechanism
 

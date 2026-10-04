@@ -56,7 +56,7 @@ Audit checks:
 
 ## Contact sheets (deterministic, no API)
 
-**Not yet in the repository:** this folder is Git-LFS-tracked, and LFS uploads were refused (HTTP 403) from the cloud session. The sheets were delivered to the owner directly. They can be regenerated locally from this repo with `pip install pillow` and the contact-sheet script described in the owner report, then committed via Git LFS.
+**Optional review artifacts, not an Unreal implementation blocker. Not yet in the repository:** this folder is Git-LFS-tracked, and LFS uploads were refused (HTTP 403) from the cloud session. The sheets were delivered to the owner directly. They can be regenerated locally from this repo with `pip install pillow` and the contact-sheet script described in the owner report, then committed via Git LFS.
 
 
 `P0_MASTER_CONTACT_SHEET.jpg`, `P0_NEFER_…`, `P0_GODS_…`, `P0_HUMANS_…`, `P0_SOUL_PARTS_…`, `P0_MAIN_BOSSES_…`, `P0_ENEMIES_…`, `P0_WEAPONS_UTILITY_…`, `P0_TOMB_…`, `P0_SHADOW_CITY_…`, `P0_HOUSE_OF_LIFE_…` (all `_CONTACT_SHEET.jpg` in this folder). The labels are drawn deterministically, not by the image model.

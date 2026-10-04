@@ -82,6 +82,8 @@ Transition from exploration to boss space.
 The player sees the arena before combat begins.
 
 ### Beat 9 — Face-Eater boss
+> **SUPERSEDED (2026-10-04):** the Face-Eater mechanics in this section (hooked/extraction staff, chest seal exposed by Glyph interaction) are obsolete. Mechanics follow **v3 §25 B01** (two jaw masks, exposed rib, mask throw at 65%, gate threads at 30%) and appearance follows the frozen P0 B01 references. See `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.
+
 Boss design:
 - ~3.8m funerary humanoid
 - empty cartouche as head
@@ -93,7 +95,7 @@ Boss design:
 Core boss mechanic for slice:
 1. avoid heavy staff attacks
 2. create opening
-3. use Glyph/interaction logic to expose chest seal
+3. ~~use Glyph/interaction logic to expose chest seal~~ (superseded: v3 §25)
 4. strike / exploit revealed identity mechanism
 5. end encounter with Ren-related reward/revelation
 
@@ -127,7 +129,7 @@ P3:
 
 P4:
 - Face-Eater state machine
-- chest seal mechanic
+- ~~chest seal mechanic~~ (superseded: v3 §25 rib / mask / gate-thread mechanic)
 - boss completion
 
 P5:

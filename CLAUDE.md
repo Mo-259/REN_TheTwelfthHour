@@ -38,6 +38,8 @@ Tomb of No Name → identity/no-shadow clues → exit → Vertical Necropolis re
 
 Do not attempt all 12 chapters.
 
+Local execution order (current): `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. Visual authority: `ProjectDocs/References/UNREAL_VISUAL_HANDOFF.md`. The v3 Bible overrides older docs; the official v3 §37 vertical slice is City of Shadows + House of Life (Phase B), after the Tomb technical prologue (Phase A).
+
 ## Required reading before substantial work
 
 Read these files before planning or implementation:
