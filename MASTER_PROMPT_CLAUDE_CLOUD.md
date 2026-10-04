@@ -65,6 +65,8 @@ We are building a high-quality 5–10 minute vertical slice:
 9. Face-Eater boss encounter
 10. Clean end state suitable for a trailer/demo
 
+> **Runtime order correction (v3 §7):** the list above is legacy. In play, the **Face-Eater encounter occurs BEFORE the Anubis encounter**; the Gate's position beyond the B01 arena gate (v3 §25) is not established by v3. See `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.
+
 This slice must demonstrate:
 - authentic third-person traversal
 - grounded Egyptian world design

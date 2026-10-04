@@ -64,6 +64,8 @@ camera moves; world does not.
 
 Player retains control quickly after reveal.
 
+> **RUNTIME ORDER CORRECTION (2026-10-04, v3 §7):** the beat numbers below are legacy. In the playable game the **Face-Eater encounter (Beat 9) occurs BEFORE the Anubis encounter (Beat 7)**; Anubis sees the body seal after B01. The 'direct player toward Gate of the West' function and the Gate's route position are not established by v3 and remain flexible. See `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.
+
 ### Beat 7 — Anubis
 Player reaches a long bridge / threshold.
 

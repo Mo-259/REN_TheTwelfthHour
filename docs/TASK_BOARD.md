@@ -55,6 +55,8 @@ Status values:
 
 ## P4 — Face-Eater
 
+> P-phase numbering is **IMPLEMENTATION ORDER ONLY**. Runtime order follows v3 §7: Face-Eater (B01) before Anubis. P4-04 hook sweep, P4-06 grab and P4-07 chest seal are **superseded** by the v3 §25 mechanics (two jaw masks, exposed rib, mask throw at 65%, gate threads at 30%). See `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`.
+
 | ID | Task | Status |
 |---|---|---|
 | P4-01 | Gate of the West arena greybox | TODO |

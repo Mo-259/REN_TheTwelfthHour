@@ -34,6 +34,8 @@ Execution: **local Unreal + MCP only.** A cloud session never makes runtime work
 
 ## PHASE A — Technical Prologue / Tomb
 
+> Task numbers in this phase are **IMPLEMENTATION ORDER ONLY**, not playable order. The playable order follows the Hour 1 rule below (Face-Eater < Anubis).
+
 Purpose: prove the pipeline (movement, interaction, no-shadow, a boss, readability) on the existing Tomb before the official slice.
 
 Detailed tasks, sources, deliverables and acceptance criteria are in `ProjectDocs/Unreal/P0_TO_UNREAL_EXECUTION_ORDER.md` (Phase 1). Order:
@@ -57,15 +59,16 @@ Detailed tasks, sources, deliverables and acceptance criteria are in `ProjectDoc
 - checkpoint/retry.
 
 **Phase A exit gate:**
-- full PIE run Tomb → reveal → Face-Eater defeat;
+- full PIE run of the prologue in **v3 runtime order** (Tomb → … → Face-Eater defeat → Anubis), the Face-Eater encounter strictly before Anubis;
 - no BLOCKER/HIGH bugs;
 - world-lock clean;
 - owner visual sign-off on Tomb tasks 1–5.
 
-**Open source conflict (owner decision needed; do not guess):**
-- v3 §7 orders Hour 1 as wake → corridor guard → M01 memory → **B01 Face-Eater → Anubis** (Anubis sees the body seal after B01). The v3 §25 arena is a **24×20 m tomb courtyard with three statues**.
-- `CLAUDE.md` "Current target" orders the prologue as Tomb → Necropolis reveal → **Anubis → Gate of the West → Face-Eater**.
-- Until the owner decides, build Tasks 8–10 as independent, relocatable encounters and do not hard-wire their order.
+**Hour 1 runtime order (RESOLVED in favour of v3, owner decision 2026-10-04):**
+
+- **Hour 1 ordering rule (v3 §7, narrative/runtime authority):** in the playable game, the **Face-Eater (B01) encounter occurs BEFORE the Anubis encounter** (Face-Eater < Anubis). The v3 Hour-1 sequence is: wake in the tomb (CS01) → corridor with the guard → M01 memory → B01 Face-Eater (CS02; tomb courtyard 24×20 m, three statues) → Anubis sees the body seal. **Gate:** v3 §25 places a gate inside the B01 encounter (in phase 3 the masks gather around the gate), and v3 §33 puts the B01 entry 'at the door'. A separate 'Gate of the West' route beat and the exact position of the Vertical Necropolis reveal are **not established by v3** and stay flexible, provided Face-Eater < Anubis holds.
+- **Authority:** narrative/runtime order = **v3 Bible**; spatial authority = the **existing Unreal level once validated**; implementation scheduling **may differ from narrative chronology but must be labelled IMPLEMENTATION ORDER ONLY** and never changes the runtime sequence.
+- The Phase A task numbering above (Face-Eater tasks 8–9 before the Anubis task 10) is **IMPLEMENTATION ORDER ONLY**. Building or testing Anubis before the Face-Eater is allowed for technical convenience, but the shipped runtime sequence must keep Face-Eater < Anubis.
 
 ## Face-Eater implementation authority (applies to Phase A Tasks 8–9)
 

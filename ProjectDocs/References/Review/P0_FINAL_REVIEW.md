@@ -83,7 +83,7 @@ Everything else can stay as a draft reference.
 
 ## Next step for the Unreal vertical slice
 
-1. Use these references to drive the **Tomb → Necropolis → Anubis → Gate → Face-Eater** blockout-to-art pass, starting with Tomb materials (sarcophagus, cartouche, no-shadow lane lighting) per `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. Unreal transforms stay the spatial authority; reference images never move world geometry.
+1. Use these references to drive the Tomb prologue blockout-to-art pass (runtime order per v3 §7: **Face-Eater before Anubis**; any build order is implementation scheduling only), starting with Tomb materials (sarcophagus, cartouche, no-shadow lane lighting) per `docs/tasks/MASTER_LOCAL_EXECUTION_ORDER.md`. Unreal transforms stay the spatial authority; reference images never move world geometry.
 2. Model the Face-Eater against the B01 set (Hero, Turnaround, Rig Notes, Silhouette, Weak Point v02, Phase v03 for the mechanic and v04 for the gate).
 3. Model Nefer and the Reed (C01 set plus W01 set; Reed length = PROVISIONAL GAMEPLAY SCALE, tuned in Unreal).
 

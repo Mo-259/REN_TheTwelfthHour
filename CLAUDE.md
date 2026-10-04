@@ -32,9 +32,13 @@ The world is persistent. The camera moves; the world does not.
 
 ## Current target
 
-Build a polished **5–10 minute vertical slice**:
+Build a polished **5–10 minute technical prologue** (Tomb) before the official v3 §37 slice. Its content:
 
-Tomb of No Name → identity/no-shadow clues → exit → Vertical Necropolis reveal → Anubis encounter → Gate of the West → Face-Eater boss encounter.
+Tomb of No Name → identity/no-shadow clues → exit; Face-Eater (B01) encounter; Anubis encounter. The Vertical Necropolis reveal and the gate are also part of this content.
+
+**Hour 1 ordering rule (v3 §7, narrative/runtime authority):** in the playable game, the **Face-Eater (B01) encounter occurs BEFORE the Anubis encounter** (Face-Eater < Anubis). The v3 Hour-1 sequence is: wake in the tomb (CS01) → corridor with the guard → M01 memory → B01 Face-Eater (CS02; tomb courtyard 24×20 m, three statues) → Anubis sees the body seal. **Gate:** v3 §25 places a gate inside the B01 encounter (in phase 3 the masks gather around the gate), and v3 §33 puts the B01 entry 'at the door'. A separate 'Gate of the West' route beat and the exact position of the Vertical Necropolis reveal are **not established by v3** and stay flexible, provided Face-Eater < Anubis holds.
+
+**Authority:** narrative/runtime order = **v3 Bible**; spatial authority = the **existing Unreal level once validated**; implementation scheduling **may differ from narrative chronology but must be labelled IMPLEMENTATION ORDER ONLY** and never changes the runtime sequence.
 
 Do not attempt all 12 chapters.
 

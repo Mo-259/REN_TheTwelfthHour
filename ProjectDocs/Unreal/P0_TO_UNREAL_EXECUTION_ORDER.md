@@ -12,6 +12,8 @@ All reference paths below are relative to `ProjectDocs/References/`.
 
 ## Phase 1: Tomb technical prologue
 
+> **IMPLEMENTATION ORDER ONLY.** Task numbers are a build schedule, not the playable sequence. **Runtime order follows v3 §7: the Face-Eater (B01) encounter occurs BEFORE the Anubis encounter.** Gate and Necropolis-reveal placement beyond what v3 states stays flexible. Narrative authority = v3 Bible; spatial authority = the validated Unreal level.
+
 | # | Task | Source references | Unreal deliverable | Acceptance criteria | Depends on | Must NOT change |
 |---|---|---|---|---|---|---|
 | 1 | Tomb material / lighting pass | `Tomb/BurialChamber_v02`, `Tomb/TransitionTunnel_v01`, `Tomb/SideClueChamber_v01`, `ShadowCity/ShadowLightMaterials_v01` (light logic) | `MI_` limestone/plaster/painted-band/floor material instances; lighting pass in `L_Tomb_Blockout` | Floor, path, doors and Nefer silhouette readable everywhere; no crushed blacks; stable exposure; world-lock report = no spatial failures | Existing Tomb blockout | Any actor transform; corridor order; trigger volumes |
@@ -25,7 +27,7 @@ All reference paths below are relative to `ProjectDocs/References/`.
 | 9 | Face-Eater gameplay readability | `…Attack_Anticipation_v02`, `…Recovery_State_v02`, `…Weak_Point_or_Objective_v02`, Phase v03 (mechanic) + v04 (gate visual) | Readable tells, exposed-rib punish state, thrown-mask state, two thread targets toward an Egyptian pylon gate | Each tell is visible before damage; the rib punish window is unmistakable; at 30% the two threads are separately targetable and lead to the punish; the gate is Egyptian (no portcullis) | 8 | Phase thresholds/timings from v3 §25 |
 | 10 | Anubis production proxy / encounter presentation | `02_Gods/Anubis/…Hero_Master_v02`, `…Turnaround_v01`, `…Gameplay_Silhouette_v01`, `…Scale_Comparison_v01` | Proxy with tall narrow funerary morphology and the correct staff (ankh, one lower crossbar with linen, single shaft); presentation lighting on the bridge | Reads as a non-human funerary organism (not jackal-head-on-man); staff geometry matches Hero v02; encounter framing per existing cinematic spec | 5 | Bridge/tower transforms; dialogue canon |
 
-**Exit gate for Phase 1:** a full PIE run from the Tomb through the reveal to the Face-Eater defeat with no BLOCKER/HIGH bugs, world-lock clean for all three sublevels, and the owner's visual sign-off on tasks 1–5.
+**Exit gate for Phase 1:** a full PIE run in v3 runtime order (Face-Eater defeat before the Anubis encounter) with no BLOCKER/HIGH bugs, world-lock clean for all three sublevels, and the owner's visual sign-off on tasks 1–5.
 
 ## Phase 2: official v3 vertical slice (after Phase 1 is validated locally)
 
